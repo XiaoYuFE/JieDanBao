@@ -27,6 +27,7 @@ Page({
       return false
     } else {
       //验证通过进行后端请求
+      
       wx.request({
         url: app.globalData.server +"login.php",
         data: params,
@@ -49,6 +50,8 @@ Page({
           }else{
             //用户存在
             
+
+
             //动态全局赋值
             app.globalData.sessionJdbId=res.data.XyUserInfo["id"];
             app.globalData.sessionJdbUserInfo = res.data.XyUserInfo;
