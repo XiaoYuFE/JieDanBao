@@ -1,0 +1,85 @@
+<view class="caption-top" wx:if="{{step >1 ? false :true}}">新订单</view>
+<!--step-end  -->
+<view class='customer-info'>
+  <view class='tit'>客户信息</view>
+  <view class='phone'>{{customerInfo.phone}} {{customerInfo.username}}</view>
+  <view class="tip-1" wx:if="{{step>=5 ? true :false}}" ></view>
+</view>
+
+<view class="order-info">
+  <view class="txt-1">订单编号：{{orderInfo.num}}</view>
+  <view class="txt-1">派单时间：{{orderInfo.time}}</view>
+  <view class="txt-1">派单员：{{orderInfo.person}}</view>
+
+  <view class="order-steps step-{{step}}" wx:if="{{step > 1 ? true :false}}">
+    <view class='line-wrap'>
+        <view class='line'></view>
+        <view class='line-on'></view>
+    </view>
+    <view class='step-list clearfix'>
+      <view class='item-cell item-cell-1'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>新订单</text>
+      </view>
+      <view class='item-cell item-cell-2'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>已量房</text>
+      </view>
+      <view class='item-cell item-cell-3'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>已设计</text>
+      </view>
+      <view class='item-cell item-cell-4'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>已签约</text>
+      </view>
+      <view class='item-cell item-cell-5'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>成功</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class='decoration-info'>
+    <view class='caption'>装修信息</view>
+    
+    <view class='item-cell'><text class="lab">小区名称：</text>{{decorateInfo.xqmc}}</view>
+    <view class='item-cell'><text class="lab">装修阶段：</text>{{decorateInfo.zxjd}}</view>
+    <view class='item-cell'><text class="lab">房屋面积：</text>{{decorateInfo.fwmj}}</view>
+    <view class='item-cell'><text class="lab">期望风格：</text>{{decorateInfo.qwfg}}</view>
+    <view class='item-cell'><text class="lab">房屋情况：</text>{{decorateInfo.fwqk}}</view>
+    <view class='item-cell'><text class="lab">装修预算：</text>{{decorateInfo.zxys}}</view>
+    <view class='item-cell'><text class="lab">房屋户型：</text>{{decorateInfo.fwhx}}</view>
+    <view class='item-cell'><text class="lab">装修时间：</text>{{decorateInfo.zxsj}}</view>
+</view>
+
+<view class='fixed-bottom-seat'></view>
+<view class='fixed-bottom'>
+  <view class='phone' bindtap='makeCallPhone'><text class='iconfont icon-76 icon-txt'></text>拨打电话</view>
+  <view class='hand-txt {{step>=5 ? "disabled" :""}}' bindtap='setStepHandler'>
+    <text class='txt-1'>订单操作</text>
+    <text class='txt-2'>量房时间：04-10 15:30</text>
+  </view>
+</view>

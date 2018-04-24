@@ -1,0 +1,18 @@
+/**app.wxss**/
+@import "/static/css/iconfont/iconfont.wxss";
+page{
+   font-family: -apple-system-font, 'Helvetica Neue', Helvetica, 'Microsoft YaHei', sans-serif;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+} 
+
+.clearfix:after{
+    content:"";
+    display:table;
+    clear:both
+}
+

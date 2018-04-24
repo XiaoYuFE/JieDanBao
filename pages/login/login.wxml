@@ -1,0 +1,23 @@
+<!--login.wxml-->
+
+<view class="title-1">登录</view>
+<view class="title-2">请使用小鱼家装商家账号登录</view>
+
+<view class='form-validate-tip' wx-if="{{validateMsg}}">
+  {{validateMsg}}
+</view>
+<view class='section-form'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="item-cell">
+      <view class="lab">账号</view>
+      <input type='text' class='ipt-text' name="username" bindtap="bindInputTap" placeholder="请输入您的账号" />
+    </view>
+    <view class="item-cell">
+      <view class="lab">密码</view>
+      <input type='password' class='ipt-text' name="password"  bindtap="bindInputTap" placeholder="请输入您的密码" />
+    </view>
+    <view class="ipt-submit">
+      <button formType="submit" type="primary" loading="{{submiting}}" disabled='{{submiting}}'>登录</button>
+    </view>
+  </form>
+</view>

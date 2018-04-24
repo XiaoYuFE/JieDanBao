@@ -1,0 +1,48 @@
+<scroll-view scroll-x="true" bindscroll="scroll" class="nav-scroll clearfix" scroll-into-view="{{toView}}">
+  <view class='scroll-view-item {{toView=="orderall" ? "active":""}}' id='orderall' bindtap='navTap' type="all">
+    <text class="txt">全部</text>
+  </view>
+  <view class='scroll-view-item {{toView=="orderxdd" ? "active":""}}' id='orderxdd' bindtap='navTap' type="xdd">
+    <text class="txt">新订单</text>
+  </view>
+  <view class='scroll-view-item {{toView=="orderylf" ? "active":""}}' id='orderylf' bindtap='navTap'>
+    <text class="txt">已量房</text>
+  </view>
+  <view class='scroll-view-item {{toView=="orderysj" ? "active":""}}' id='orderysj' bindtap='navTap'>
+    <text class="txt">已设计</text>
+  </view>
+  <view class='scroll-view-item {{toView=="orderyqy" ? "active":""}}' id='orderyqy' bindtap='navTap'>
+    <text class="txt">已签约</text>
+  </view>
+  <view class='scroll-view-item {{toView=="orderysx" ? "active":""}}' id='orderysx' bindtap='navTap'>
+    <text class="txt">已失效</text>
+  </view>
+</scroll-view>
+
+
+
+<view class='order-list' wx:for="{{dataList}}" wx:key="idx" wx:for-item="item">
+  <view class='soma-hd'>
+    <view class="order-num">订单编号：{{item.orderno}}</view>
+    <view class='order-time'>{{item.time}}</view>
+  </view>
+  <navigator url="/pages/detail/detail?id={{item.id}}">
+    <view class='soma-list'>
+      <view class='item-cell'>
+        <view class='time'>
+          <view class='tag'>
+            <text class='txt-1'>时间</text>{{item.time}}</view>
+        </view>
+        <view class="person-info">{{item.username}}（{{item.phone}}）</view>
+        <view class='address'>{{item.address}} ></view>
+      </view>
+    </view>
+
+    <view class='arrow' wx:if="{{ toView=='orderall' && item.isNew ? true :false}}">
+      <view></view>
+      <text>新</text>
+    </view>
+  </navigator>
+</view>
+
+

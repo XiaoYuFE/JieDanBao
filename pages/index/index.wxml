@@ -1,0 +1,135 @@
+<!--index.wxml-->
+
+<view class='header-top'>
+  <view class='avatar-box clearfix'>
+    <view class='pic'>
+      <image src='{{xyUserInfo["avatar"]}}' mode="{{aspectFit}}"></image>
+    </view>
+    <view class="txt">{{xyUserInfo["nickname"]}}</view>
+    <view class='level-tag'>
+      <view class='icon-level'>
+        <text class='iconfont icon-jinpai '></text>
+      </view>
+      <view class="tag-name">
+        <text>金牌商家</text>
+      </view>
+    </view>
+  </view>
+  <view class='list-item clearfix'>
+    <view class='item-cell item-1'>
+      <navigator url="/pages/list/list?type=orderxdd&toView=orderxdd">
+        <view class='item-detail'>
+          <view class="num">{{orderCount.xdd}}
+            <!-- 订单为零的时候不显示小圆圈 -->
+            <view class='circle' wx:if="{{orderCount.xdd==0 ? false :true}}"></view>
+          </view>
+          <text class='txt'>新订单</text>
+        </view>
+      </navigator>
+    </view>
+    <view class='item-cell item-2'>
+      <navigator url="/pages/list/list?type=orderylf&toView=orderylf">
+        <view class='item-detail'>
+          <view class="num">{{orderCount.ylf}} </view>
+          <text class='txt'>已量房</text>
+        </view>
+      </navigator>
+    </view>
+    <view class='item-cell item-3'>
+      <navigator url="/pages/list/list?type=orderysj&toView=orderysj">
+        <view class='item-detail'>
+          <view class="num">{{orderCount.ysj}}</view>
+          <text class='txt'>已设计</text>
+        </view>
+      </navigator>
+    </view>
+    <view class='item-cell item-4'>
+      <navigator url="/pages/list/list?type=orderyqy&toView=orderyqy">
+        <view class='item-detail'>
+          <text class='txt'>已签约</text>
+          <view class="num">{{orderCount.yqy}}</view>
+        </view>
+      </navigator>
+    </view>
+    <view class='item-cell item-5'>
+      <navigator url="/pages/list/list?type=orderysx&toView=orderysx">
+        <view class='item-detail'>
+          <text class='txt'>已失效</text>
+          <view class="num">{{orderCount.ysx}}</view>
+        </view>
+      </navigator>
+    </view>
+
+  </view>
+</view>
+
+
+<view class='new-order-list'>
+  <view class='soma-hd'>
+    <text class='iconfont icon-gonggao'></text>新订单-请及时处理
+  </view>
+  <view class='soma-list'>
+    <view wx:for="{{orderNew}}" wx:key="idx" wx:for-item="item" class='item-cell'>
+      <navigator url="/pages/detail/detail?id={{item.id}}" hover-class="navigator-hover">
+        <view class='time'>
+          <view class='tag'>
+            <text class='txt-1'>时间</text>{{item.time}}</view>
+        </view>
+        <view class="person-info">{{item.username}}（{{item.phone}}）</view>
+        <view class='address'>{{item.address}} ></view>
+        
+      </navigator>
+    </view>
+
+
+
+
+
+
+  </view>
+</view>
+
+
+
+
+<!-- <view class='new-order-list'>
+  <view class='soma-hd'><text class='iconfont icon-gonggao'></text>新订单-请及时处理</view>
+  <view class='soma-list'>
+      <view class='item-cell'>
+          <view class='time'>
+              <view class='tag'><text class='txt-1'>时间</text>04-10 15:00</view>
+          </view>
+          <view class="person-info">余先生（18106968460）</view>
+          <view class='address'>首开领翔上郡 ></view>
+      </view>
+
+      <view class='item-cell'>
+          <view class='time'>
+              <view class='tag'><text class='txt-1'>时间</text>04-10 15:00</view>
+          </view>
+          <view class="person-info">余先生（18106968460）</view>
+          <view class='address'>首开领翔上郡 ></view>
+      </view>
+      <view class='item-cell'>
+          <view class='time'>
+              <view class='tag'><text class='txt-1'>时间</text>04-10 15:00</view>
+          </view>
+          <view class="person-info">余先生（18106968460）</view>
+          <view class='address'>首开领翔上郡 ></view>
+      </view>
+      <view class='item-cell'>
+          <view class='time'>
+              <view class='tag'><text class='txt-1'>时间</text>04-10 15:00</view>
+          </view>
+          <view class="person-info">余先生（18106968460）</view>
+          <view class='address'>首开领翔上郡 ></view>
+      </view>
+  </view>
+</view> -->
+
+
+<view class='contact-phone clearfix' bindtap='makeCallPhone'>
+  <view class='iconfont icon-76 icon-txt'></view>
+  <text class='txt-1'>联系客服</text>
+  <view class='phone'>0592-6799988 ></view>
+</view>
