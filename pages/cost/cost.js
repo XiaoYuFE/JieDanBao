@@ -8,8 +8,7 @@ Page({
   data: {
       submiting:false,
       validateMsg:"",
-      uid:"",
-      orderid:""
+      sid:""
   },
 
   /**
@@ -17,9 +16,9 @@ Page({
    */
   onLoad: function (options) {
       this.setData({
-        uid: options.uid,
-        orderid: options.orderid
+        sid:options.sid
       });
+     
       this._initValidate();
   },
   formSubmit:function(e){
@@ -38,8 +37,13 @@ Page({
     } else {
       //验证通过进行后端请求
       wx.request({
-        url: app.globalData.server + "price.php",
-        data:{"uid":that.data.uid,"orderid":that.data.orderid},
+        url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.upprice",
+        data:{
+          sid:that.data.sid,
+          price: e.detail.value.totalprice,
+          bid: app.globalData.sessionJdbBrandId,
+          ukey: app.globalData.sessionJdbUkey
+        },
         method: 'post',
         header: {
           "Content-Type": "application/x-www-form-urlencoded"
@@ -51,7 +55,7 @@ Page({
             submiting: false
           });
           //如果提交不成功
-          if (res.data.error) {
+          if (res.data.status=="0") {
             that.setData({
               validateMsg: res.data.msg
             })
@@ -63,7 +67,7 @@ Page({
               duration: 2000,
               success:function(){
                 wx.redirectTo({
-                  url: '/pages/detail/detail?id='+that.data.id
+                  url: '/pages/detail/detail?sid='+that.data.sid
                 })
               }
             })

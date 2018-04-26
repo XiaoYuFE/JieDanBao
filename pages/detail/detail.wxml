@@ -1,4 +1,4 @@
-<view class="caption-top" wx:if="{{step >1 ? false :true}}">新订单</view>
+<view class="caption-top" wx:if="{{step > 0 ? false :true}}">新订单</view>
 <!--step-end  -->
 <view class='customer-info'>
   <view class='tit'>客户信息</view>
@@ -11,7 +11,7 @@
   <view class="txt-1">派单时间：{{orderInfo.djid}}</view>
   <view class="txt-1">派单员：{{orderInfo.username}}</view>
 <!--wx:if="{{step > 1 ? true :false}}"  -->
-  <view class="order-steps step-{{step}}" >
+  <view class="order-steps step-{{step+1}}" >
     <view class='line-wrap'>
         <view class='line'></view>
         <view class='line-on'></view>
@@ -39,7 +39,7 @@
           <text class='circle-2'></text>
           <text class='circle-1'></text>
         </view>
-        <text class='txt'>已设计</text>
+        <text class='txt'>设计中</text>
       </view>
 
       <view class='item-cell item-cell-4'>

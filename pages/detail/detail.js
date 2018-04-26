@@ -8,7 +8,7 @@ Page({
   data: {
     step:"",
     sid:"",
-    stepText: ['新订单', '已量房', '已设计', '已对比', '已签约', '施工中', '完成'],
+    stepText: ['新订单', '已量房', '设计中', '已对比', '已签约', '施工中', '完成'],
     dataList:""
   },
 
@@ -22,7 +22,7 @@ Page({
       sid:options.sid
     });
 
-    console.dir(options.sid);
+    
     console.dir(app.globalData.sessionJdbBrandId);
     console.dir(app.globalData.sessionJdbUkey);
     wx.request({
@@ -39,9 +39,9 @@ Page({
       success: function (res) {
       
         console.dir(res);
-        
+       
         that.setData({
-          step: res.data.data.step,
+          step: parseInt(res.data.data.step),
           dataList: res.data.data
         })
       }
@@ -56,13 +56,13 @@ Page({
       return;
     }
     wx.showActionSheet({
-      itemList: [this.data.stepText[this.data.step], '停止服务'],
+      itemList: [this.data.stepText[this.data.step+1], '停止服务'],
       success: function (res) {
         if (res.tapIndex == 0) {
           //点击的是步骤,发送数据请求(用户id 订单id)
-          if (that.data.step == 4) {
+          if (that.data.step == 3) {
             wx.redirectTo({
-              // url: '/pages/cost/cost?uid=' + app.globalData.sessionJdbId + "&orderid=" + that.data.orderId
+              url: '/pages/cost/cost?sid='+that.data.sid
             });
           } else {
             //发送uid orderid  step 给后端
@@ -73,7 +73,7 @@ Page({
             wx.request({
               url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.upstep",
               data: {
-                step:that.data.step,
+                step:that.data.step+1,
                 sid: that.data.sid,
                 bid: app.globalData.sessionJdbBrandId,
                 ukey: app.globalData.sessionJdbUkey
@@ -85,9 +85,12 @@ Page({
               success: function (res) {
                 //关闭加载层
                 wx.hideLoading();
-                that.setData({
-                  step: that.data.step + 1
-                });
+                if (res.data.status=="1"){
+                    that.setData({
+                      step: that.data.step + 1
+                    });
+                }
+                
               }
             });
           }
