@@ -17,9 +17,9 @@
   </view>
   <view class='list-item clearfix'>
     <view class='item-cell item-1'>
-      <navigator url="/pages/list/list?type=orderxdd&toView=orderxdd">
+      <navigator url="/pages/list/list?type=0&toView=orderxdd">
         <view class='item-detail'>
-          <view class="num">{{orderCount.xdd}}
+          <view class="num">{{dataList.dfw}}
             <!-- 订单为零的时候不显示小圆圈 -->
             <view class='circle' wx:if="{{orderCount.xdd==0 ? false :true}}"></view>
           </view>
@@ -28,34 +28,34 @@
       </navigator>
     </view>
     <view class='item-cell item-2'>
-      <navigator url="/pages/list/list?type=orderylf&toView=orderylf">
+      <navigator url="/pages/list/list?type=1&toView=orderylf">
         <view class='item-detail'>
-          <view class="num">{{orderCount.ylf}} </view>
+          <view class="num">{{dataList.ylf}} </view>
           <text class='txt'>已量房</text>
         </view>
       </navigator>
     </view>
     <view class='item-cell item-3'>
-      <navigator url="/pages/list/list?type=orderysj&toView=orderysj">
+      <navigator url="/pages/list/list?type=2&toView=orderysj">
         <view class='item-detail'>
-          <view class="num">{{orderCount.ysj}}</view>
+          <view class="num">{{dataList.ysj}}</view>
           <text class='txt'>已设计</text>
         </view>
       </navigator>
     </view>
     <view class='item-cell item-4'>
-      <navigator url="/pages/list/list?type=orderyqy&toView=orderyqy">
+      <navigator url="/pages/list/list?type=4&toView=orderyqy">
         <view class='item-detail'>
           <text class='txt'>已签约</text>
-          <view class="num">{{orderCount.yqy}}</view>
+          <view class="num">{{dataList.yqy}}</view>
         </view>
       </navigator>
     </view>
     <view class='item-cell item-5'>
-      <navigator url="/pages/list/list?type=orderysx&toView=orderysx">
+      <navigator url="/pages/list/list?type=-1&toView=orderysx">
         <view class='item-detail'>
           <text class='txt'>已失效</text>
-          <view class="num">{{orderCount.ysx}}</view>
+          <view class="num">{{dataList.ysx}}</view>
         </view>
       </navigator>
     </view>
@@ -69,14 +69,14 @@
     <text class='iconfont icon-gonggao'></text>新订单-请及时处理
   </view>
   <view class='soma-list'>
-    <view wx:for="{{orderNew}}" wx:key="idx" wx:for-item="item" class='item-cell'>
-      <navigator url="/pages/detail/detail?id={{item.id}}" hover-class="navigator-hover">
+    <view wx:for="{{dataList.info}}" wx:key="idx" wx:for-item="item" class='item-cell'>
+      <navigator url="/pages/detail/detail?sid={{item.sid}}" hover-class="navigator-hover">
         <view class='time'>
           <view class='tag'>
-            <text class='txt-1'>时间</text>{{item.time}}</view>
+            <text class='txt-1'>时间</text>{{item.c_time}}</view>
         </view>
-        <view class="person-info">{{item.username}}（{{item.phone}}）</view>
-        <view class='address'>{{item.address}} ></view>
+        <view class="person-info">{{item.name}}（{{item.mobile}}）</view>
+        <view class='address'>{{item.community}} ></view>
         
       </navigator>
     </view>

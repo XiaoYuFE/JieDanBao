@@ -21,16 +21,17 @@ Page({
     var that = this;
     //获取页面传递过来的id,然后动过id获取订单详情
     that.setData({
-      orderId:options.id
+      orderId:options.sid
     });
     wx.request({
-      url: app.globalData.server + "detail.php",
+      url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.upstep",
       data: options,
       method: 'post',
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
+        console.dir(res);
         that.setData({
           step: res.data.step,
           customerInfo: res.data.customerInfo,

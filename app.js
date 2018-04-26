@@ -22,9 +22,17 @@ App({
     
      
   },
+  isLogin: function (status){
+    if (status=="0"){
+      wx.redirectTo({
+        url: '/pages/login/login'
+      })
+    }
+  },
   globalData: {
     server: "https://m3.xiaoyu.com",
     sessionJdbUserInfo:"",//存放小鱼用户的信息
-    sessionJdbId:"" //存放小鱼用户Id
+    sessionJdbUkey:"", //存放小鱼ukey
+    sessionJdbBrandId:""
   }
 })

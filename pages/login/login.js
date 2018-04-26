@@ -53,13 +53,24 @@ Page({
 
 
             //动态全局赋值
-            app.globalData.sessionJdbId=res.data.XyUserInfo["id"];
-            app.globalData.sessionJdbUserInfo = res.data.XyUserInfo;
+            app.globalData.sessionJdbUkey = res.data.data["ukey"];
+            app.globalData.sessionJdbBrandId = res.data.data["brand_id"];
+            app.globalData.sessionJdbUserInfo = res.data.data;
             
             //本地存储id
             wx.setStorage({
-              key: "sessionJdbId",
-              data: res.data.XyUserInfo["id"]
+              key: "sessionJdbUkey",
+              data: res.data.data["ukey"]
+            });
+
+            wx.setStorage({
+              key: "sessionJdbBrandId",
+              data: res.data.data["brand_id"]
+            });
+
+            wx.setStorage({
+              key: "sessionJdbUserInfo",
+              data: res.data.data
             });
 
             //跳转到相关页面
