@@ -9,9 +9,7 @@ Page({
     step: "",
     orderId:"",
     stepText: ['新订单', '已量房', '已设计', '已签约', '成功'],
-    customerInfo: "",
-    orderInfo: "",
-    decorateInfo: ""
+    dataList:""
   },
 
   /**
@@ -41,10 +39,7 @@ Page({
       success: function (res) {
         console.dir(res);
         that.setData({
-          step: res.data.step,
-          customerInfo: res.data.customerInfo,
-          orderInfo: res.data.orderInfo,
-          decorateInfo: res.data.decorateInfo
+          dataList: res.data.data
         })
       }
     });

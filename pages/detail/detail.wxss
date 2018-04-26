@@ -377,6 +377,7 @@
   position: relative;
   padding-left: 150rpx;
   line-height: 2;
+  min-height:56rpx; 
 }
 
 .decoration-info .item-cell .lab {

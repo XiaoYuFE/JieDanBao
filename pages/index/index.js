@@ -47,6 +47,7 @@ Page({
       },
       dataType: "json",
       success: function (res) {
+        console.dir(res)
         app.isLogin(res.data.islogin);
         that.setData({
           dataList: res.data.data
