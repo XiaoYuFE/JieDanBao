@@ -29,7 +29,7 @@ Page({
       //验证通过进行后端请求
       
       wx.request({
-        url: app.globalData.server +"login.php",
+        url: app.globalData.server +"/welcome/wechatapp?callback=Jiaju.check_login",
         data: params,
         method: 'post',
         header: {
@@ -43,7 +43,7 @@ Page({
             submiting: false
           });
           //如果用户不存在或则错误
-          if(res.data.error){
+          if(res.data.status=="-1"){
             that.setData({
               validateMsg: res.data.msg
             })

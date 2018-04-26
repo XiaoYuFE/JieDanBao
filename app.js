@@ -23,7 +23,7 @@ App({
      
   },
   globalData: {
-    server: "https://wnworld.com/api/JieDanBang/",
+    server: "https://m3.xiaoyu.com",
     sessionJdbUserInfo:"",//存放小鱼用户的信息
     sessionJdbId:"" //存放小鱼用户Id
   }
