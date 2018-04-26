@@ -23,18 +23,18 @@
 
 <view class='order-list' wx:for="{{dataList}}" wx:key="idx" wx:for-item="item">
   <view class='soma-hd'>
-    <view class="order-num">订单编号：{{item.orderno}}</view>
-    <view class='order-time'>{{item.time}}</view>
+    <view class="order-num">订单编号：{{item.id}}</view>
+    <view class='order-time'>{{item.c_time}}</view>
   </view>
-  <navigator url="/pages/detail/detail?id={{item.id}}">
+  <navigator url="/pages/detail/detail?sid={{item.sid}}">
     <view class='soma-list'>
       <view class='item-cell'>
         <view class='time'>
           <view class='tag'>
-            <text class='txt-1'>时间</text>{{item.time}}</view>
+            <text class='txt-1'>时间</text>{{item.u_time}}</view>
         </view>
-        <view class="person-info">{{item.username}}（{{item.phone}}）</view>
-        <view class='address'>{{item.address}} ></view>
+        <view class="person-info">{{item.name}}（{{item.mobile}}）</view>
+        <view class='address'>{{item.community}} ></view>
       </view>
     </view>
 

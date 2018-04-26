@@ -18,12 +18,26 @@ Page({
   },
   navTap: function (event) {
     console.dir(event);
-   
+    var step;
+    var id=event.currentTarget.id;
+    if (id =="orderall"){
+      step="";
+    } else if (id == "orderxdd"){
+      step=0;
+    } else if (id == "orderylf") {
+      step = 1;
+    } else if (id == "orderysj") {
+      step = 2;
+    } else if (id == "orderyqy") {
+      step = 4;
+    } else if (id == "orderysx") {
+      step = -1;
+    }
     this.setData({
       toView: event.currentTarget.id
     });
     //服务端请求数据(发送用户id和订单的类型)
-    this._getDataList(this.data.step);
+    this._getDataList(step);
   },
   _getDataList: function (listType) {
     console.dir(listType);
@@ -33,8 +47,8 @@ Page({
     wx.request({
       url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.dlist",
       data: {
-        page:0,
-        step: 0,
+        
+        step:listType,
         bid: app.globalData.sessionJdbBrandId,
         ukey: app.globalData.sessionJdbUkey
       },
@@ -44,10 +58,12 @@ Page({
       },
       dataType: "json",
       success: function (res) {
-        console.dir(res.data.list);
+        console.dir(res.data.data.info);
         that.setData({
-          dataList: res.data.info
+          dataList: res.data.data.info
         })
+
+       
       }
     })
   }

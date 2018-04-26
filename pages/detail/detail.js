@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    step: "",
+    step:1,
     orderId:"",
     stepText: ['新订单', '已量房', '已设计', '已签约', '成功'],
     dataList:""
@@ -37,7 +37,9 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded"
       },
       success: function (res) {
+      
         console.dir(res);
+        
         that.setData({
           dataList: res.data.data
         })
@@ -97,7 +99,7 @@ Page({
   makeCallPhone: function () {
     var that = this;
     wx.makePhoneCall({
-      phoneNumber: that.data.customerInfo.phone //仅为示例，并非真实的电话号码
+      phoneNumber: that.data.dataList.signinfo.mobile //仅为示例，并非真实的电话号码
     })
   },
 
