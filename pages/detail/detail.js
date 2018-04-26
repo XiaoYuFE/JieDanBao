@@ -6,9 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    step:1,
-    orderId:"",
-    stepText: ['新订单', '已量房', '已设计', '已签约', '成功'],
+    step:"",
+    sid:"",
+    stepText: ['新订单', '已量房', '已设计', '已对比', '已签约', '施工中', '完成'],
     dataList:""
   },
 
@@ -19,7 +19,7 @@ Page({
     var that = this;
     //获取页面传递过来的id,然后动过id获取订单详情
     that.setData({
-      orderId:options.sid
+      sid:options.sid
     });
 
     console.dir(options.sid);
@@ -41,6 +41,7 @@ Page({
         console.dir(res);
         
         that.setData({
+          step: res.data.data.step,
           dataList: res.data.data
         })
       }
@@ -51,7 +52,7 @@ Page({
   },
   setStepHandler: function () {
     var that = this;
-    if (this.data.step >= 5) {
+    if (this.data.step >= 6) {
       return;
     }
     wx.showActionSheet({
@@ -59,9 +60,9 @@ Page({
       success: function (res) {
         if (res.tapIndex == 0) {
           //点击的是步骤,发送数据请求(用户id 订单id)
-          if (that.data.step == 3) {
+          if (that.data.step == 4) {
             wx.redirectTo({
-              url: '/pages/cost/cost?uid=' + app.globalData.sessionJdbId + "&orderid=" + that.data.orderId
+              // url: '/pages/cost/cost?uid=' + app.globalData.sessionJdbId + "&orderid=" + that.data.orderId
             });
           } else {
             //发送uid orderid  step 给后端
@@ -70,8 +71,13 @@ Page({
               mask: true
             });
             wx.request({
-              url: app.globalData.server + "detail.php",
-              data: { 'uid': app.globalData.sessionJdbId },
+              url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.upstep",
+              data: {
+                step:that.data.step,
+                sid: that.data.sid,
+                bid: app.globalData.sessionJdbBrandId,
+                ukey: app.globalData.sessionJdbUkey
+              },
               method: 'post',
               header: {
                 "Content-Type": "application/x-www-form-urlencoded"

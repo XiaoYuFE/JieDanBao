@@ -10,8 +10,8 @@
   <view class="txt-1">订单编号：{{dataList.djid}}</view>
   <view class="txt-1">派单时间：{{orderInfo.djid}}</view>
   <view class="txt-1">派单员：{{orderInfo.username}}</view>
-
-  <view class="order-steps step-{{step}}" wx:if="{{step > 1 ? true :false}}">
+<!--wx:if="{{step > 1 ? true :false}}"  -->
+  <view class="order-steps step-{{step}}" >
     <view class='line-wrap'>
         <view class='line'></view>
         <view class='line-on'></view>
@@ -41,13 +41,14 @@
         </view>
         <text class='txt'>已设计</text>
       </view>
+
       <view class='item-cell item-cell-4'>
         <view class='circle'>
           <text class='circle-3'></text>
           <text class='circle-2'></text>
           <text class='circle-1'></text>
         </view>
-        <text class='txt'>已签约</text>
+        <text class='txt'>已对比</text>
       </view>
       <view class='item-cell item-cell-5'>
         <view class='circle'>
@@ -55,7 +56,23 @@
           <text class='circle-2'></text>
           <text class='circle-1'></text>
         </view>
-        <text class='txt'>成功</text>
+        <text class='txt'>已签约</text>
+      </view>
+      <view class='item-cell item-cell-6'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>施工中</text>
+      </view>
+      <view class='item-cell item-cell-7'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>完成</text>
       </view>
     </view>
   </view>

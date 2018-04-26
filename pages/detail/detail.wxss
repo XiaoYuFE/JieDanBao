@@ -83,18 +83,25 @@
 }
 
 .order-steps.step-2  .line-wrap .line-on {
-  width: 25%;
+  width: 16.66%;
 }
 
 .order-steps.step-3  .line-wrap .line-on {
-  width: 50%;
+  width: 33.33%;
 }
 
 .order-steps.step-4  .line-wrap .line-on {
-  width: 75%;
+  width: 50%;
 }
 
 .order-steps.step-5  .line-wrap .line-on {
+  width: 66.66%;
+}
+.order-steps.step-6  .line-wrap .line-on {
+  width: 83.33%;
+}
+
+.order-steps.step-7  .line-wrap .line-on {
   width: 100%;
 }
 
@@ -120,6 +127,28 @@
 .order-steps.step-5 .step-list .item-cell-5 .txt {
   color: #14c67d;
 }
+
+.order-steps.step-6 .step-list .item-cell-1 .txt,
+.order-steps.step-6 .step-list .item-cell-2 .txt,
+.order-steps.step-6 .step-list .item-cell-3 .txt,
+.order-steps.step-6 .step-list .item-cell-4 .txt,
+.order-steps.step-6 .step-list .item-cell-5 .txt,
+.order-steps.step-6 .step-list .item-cell-6 .txt{
+  color: #14c67d;
+}
+
+
+.order-steps.step-7 .step-list .item-cell-1 .txt,
+.order-steps.step-7 .step-list .item-cell-2 .txt,
+.order-steps.step-7 .step-list .item-cell-3 .txt,
+.order-steps.step-7 .step-list .item-cell-4 .txt,
+.order-steps.step-7 .step-list .item-cell-5 .txt,
+.order-steps.step-7 .step-list .item-cell-6 .txt,
+.order-steps.step-7 .step-list .item-cell-7 .txt{
+  color: #14c67d;
+}
+
+
 
 .order-steps.step-1 .item-cell-1 .circle .circle-1 {
   background-color: #14c67d;
@@ -301,13 +330,174 @@
   background-color: #c9ecde;
 }
 
+
+/*66666  */
+.order-steps.step-6 .item-cell-1 .circle .circle-1 {
+  background-color: #14c67d;
+}
+
+.order-steps.step-6 .item-cell-1 .circle .circle-2 {
+  background-color: #80ddb7;
+}
+
+.order-steps.step-6 .item-cell-1 .circle .circle-3 {
+  background-color: #c9ecde;
+}
+
+.order-steps.step-6 .item-cell-2 .circle .circle-1 {
+  background-color: #14c67d;
+}
+
+.order-steps.step-6 .item-cell-2 .circle .circle-2 {
+  background-color: #80ddb7;
+}
+
+.order-steps.step-6 .item-cell-2 .circle .circle-3 {
+  background-color: #c9ecde;
+}
+
+.order-steps.step-6 .item-cell-3 .circle .circle-1 {
+  background-color: #14c67d;
+}
+
+.order-steps.step-6 .item-cell-3 .circle .circle-2 {
+  background-color: #80ddb7;
+}
+
+.order-steps.step-6 .item-cell-3 .circle .circle-3 {
+  background-color: #c9ecde;
+}
+
+.order-steps.step-6 .item-cell-4 .circle .circle-1 {
+  background-color: #14c67d;
+}
+
+.order-steps.step-6 .item-cell-4 .circle .circle-2 {
+  background-color: #80ddb7;
+}
+
+.order-steps.step-6 .item-cell-4 .circle .circle-3 {
+  background-color: #c9ecde;
+}
+
+.order-steps.step-6 .item-cell-5 .circle .circle-1 {
+  background-color: #14c67d;
+}
+
+.order-steps.step-6 .item-cell-5 .circle .circle-2 {
+  background-color: #80ddb7;
+}
+
+.order-steps.step-6 .item-cell-5 .circle .circle-3 {
+  background-color: #c9ecde;
+}
+.order-steps.step-6 .item-cell-6 .circle .circle-1 {
+  background-color: #14c67d;
+}
+
+.order-steps.step-6 .item-cell-6 .circle .circle-2 {
+  background-color: #80ddb7;
+}
+
+.order-steps.step-6 .item-cell-6 .circle .circle-3 {
+  background-color: #c9ecde;
+}
+
+/* 77777 */
+
+.order-steps.step-6 .item-cell-1 .circle .circle-1 {
+  background-color: #14c67d;
+}
+
+.order-steps.step-7 .item-cell-1 .circle .circle-2 {
+  background-color: #80ddb7;
+}
+
+.order-steps.step-7 .item-cell-1 .circle .circle-3 {
+  background-color: #c9ecde;
+}
+
+.order-steps.step-7 .item-cell-2 .circle .circle-1 {
+  background-color: #14c67d;
+}
+
+.order-steps.step-7 .item-cell-2 .circle .circle-2 {
+  background-color: #80ddb7;
+}
+
+.order-steps.step-7 .item-cell-2 .circle .circle-3 {
+  background-color: #c9ecde;
+}
+
+.order-steps.step-7 .item-cell-3 .circle .circle-1 {
+  background-color: #14c67d;
+}
+
+.order-steps.step-7 .item-cell-3 .circle .circle-2 {
+  background-color: #80ddb7;
+}
+
+.order-steps.step-7 .item-cell-3 .circle .circle-3 {
+  background-color: #c9ecde;
+}
+
+.order-steps.step-7 .item-cell-4 .circle .circle-1 {
+  background-color: #14c67d;
+}
+
+.order-steps.step-7 .item-cell-4 .circle .circle-2 {
+  background-color: #80ddb7;
+}
+
+.order-steps.step-7 .item-cell-4 .circle .circle-3 {
+  background-color: #c9ecde;
+}
+
+.order-steps.step-7 .item-cell-5 .circle .circle-1 {
+  background-color: #14c67d;
+}
+
+.order-steps.step-7 .item-cell-5 .circle .circle-2 {
+  background-color: #80ddb7;
+}
+
+.order-steps.step-7 .item-cell-5 .circle .circle-3 {
+  background-color: #c9ecde;
+}
+.order-steps.step-7 .item-cell-6 .circle .circle-1 {
+  background-color: #14c67d;
+}
+
+.order-steps.step-7 .item-cell-6 .circle .circle-2 {
+  background-color: #80ddb7;
+}
+
+.order-steps.step-7 .item-cell-6 .circle .circle-3 {
+  background-color: #c9ecde;
+}
+.order-steps.step-7 .item-cell-7 .circle .circle-1 {
+  background-color: #14c67d;
+}
+
+.order-steps.step-7 .item-cell-7 .circle .circle-2 {
+  background-color: #80ddb7;
+}
+
+.order-steps.step-7 .item-cell-7 .circle .circle-3 {
+  background-color: #c9ecde;
+}
+
+
+
+
+
 .order-steps .step-list {
   margin-top: 15rpx;
 }
 
 .order-steps .step-list .item-cell {
   float: left;
-  width: 20%;
+  width: 14.28%;
 }
 
 .order-steps .step-list .item-cell .txt {
