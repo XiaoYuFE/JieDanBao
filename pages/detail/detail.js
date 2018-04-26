@@ -23,9 +23,17 @@ Page({
     that.setData({
       orderId:options.sid
     });
+
+    console.dir(options.sid);
+    console.dir(app.globalData.sessionJdbBrandId);
+    console.dir(app.globalData.sessionJdbUkey);
     wx.request({
-      url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.upstep",
-      data: options,
+      url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.detail",
+      data:{
+        sid:options.sid,
+        bid: app.globalData.sessionJdbBrandId,
+        ukey: app.globalData.sessionJdbUkey
+      },
       method: 'post',
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
