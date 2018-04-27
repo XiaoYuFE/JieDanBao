@@ -37,7 +37,7 @@ Page({
     } else {
       //验证通过进行后端请求
       wx.request({
-        url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.upprice",
+        url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.upstep",
         data:{
           sid:that.data.sid,
           price: e.detail.value.totalprice,
