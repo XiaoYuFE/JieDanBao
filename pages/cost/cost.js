@@ -16,6 +16,7 @@ Page({
    */
   onLoad: function (options) {
       this.setData({
+        step:options.step,
         sid:options.sid
       });
      
@@ -40,6 +41,7 @@ Page({
         url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.upstep",
         data:{
           sid:that.data.sid,
+          step:that.data.step,
           price: e.detail.value.totalprice,
           bid: app.globalData.sessionJdbBrandId,
           ukey: app.globalData.sessionJdbUkey
