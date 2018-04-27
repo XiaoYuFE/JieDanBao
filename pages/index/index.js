@@ -67,5 +67,22 @@ Page({
     wx.makePhoneCall({
       phoneNumber: '18559160494' //仅为示例，并非真实的电话号码
     })
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '小鱼接单宝',
+      path: '/pages/index/index',
+      imageUrl:"",
+      success: function (res) {
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 2000
+        })
+      },
+      fail: function (res) {
+        
+      }
+    }
   }
 })

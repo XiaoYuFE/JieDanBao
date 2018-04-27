@@ -43,7 +43,7 @@ page {
   margin-left: 10rpx;
 }
 
-.level-tag .icon-level {
+/* .level-tag .icon-level {
   width: 36rpx;
   height: 36rpx;
   line-height: 36rpx;
@@ -54,7 +54,7 @@ page {
   position: absolute;
   left: 0;
   top: 0;
-}
+} */
 
 .level-tag .icon-level text {
   color: #fff;
@@ -189,7 +189,7 @@ page {
 }
 
 .contact-phone {
-  margin: 40rpx 30rpx 0;
+  margin: 40rpx 30rpx 30rpx;
   background: #fff;
   border-radius: 15rpx;
   border: 1px solid #ebebeb;

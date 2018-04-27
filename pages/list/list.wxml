@@ -1,5 +1,5 @@
 <scroll-view scroll-x="true" bindscroll="scroll" class="nav-scroll clearfix" scroll-into-view="{{toView}}">
-  <view class='scroll-view-item {{toView=="orderall" ? "active":""}}' id='stepall' bindtap='navTap' type="all">
+  <view class='scroll-view-item {{toView=="stepall" ? "active":""}}' id='stepall' bindtap='navTap' type="all">
     <text class="txt">全部</text>
   </view>
   <view class='scroll-view-item {{toView=="step0" ? "active":""}}' id='step0' bindtap='navTap' type="xdd">
@@ -45,7 +45,9 @@
       </view>
     </view>
 
+
     <view class='arrow' wx:if="{{ toView=='stepall' && item.step=='0' ? true :false}}">
+
       <view></view>
       <text>新</text>
     </view>
