@@ -31,7 +31,16 @@
   top: 15rpx;
   background: url("https://wnworld.com/images/jiedanbang/fish_txt.png") no-repeat top center;
   background-size: 100% 100%;
- 
+}
+
+.customer-info .tip-sx {
+  width: 230rpx;
+  height: 131rpx;
+  position: absolute;
+  right: 30px;
+  top: 15rpx;
+  background: url("https://wnworld.com/images/jiedanbang/sx_txt.png") no-repeat top center;
+  background-size: 100% 100%;
 }
 
 .customer-info.step-end .phone {

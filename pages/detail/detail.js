@@ -96,7 +96,30 @@ Page({
           }
         } else if (res.tapIndex == 1) {
           //点击的是停止服务
+          wx.request({
+            url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.upstep",
+            data: {
+              step:-1,
+              sid: that.data.sid,
+              bid: app.globalData.sessionJdbBrandId,
+              ukey: app.globalData.sessionJdbUkey
+            },
+            method: 'post',
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            success: function (res) {
+              console.dir(res)
+              //关闭加载层
+              wx.hideLoading();
+              if (res.data.status == "1") {
+                that.setData({
+                  step:-1
+                })
+              }
 
+            }
+          });
         }
       },
       fail: function (res) {
