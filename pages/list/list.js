@@ -11,7 +11,7 @@ Page({
 
   onLoad: function (options) {
     this.setData({
-      step:options.step,
+      step:options.type,
       toView: options.toView
     });
     this._getDataList(this.data.step);
@@ -34,6 +34,7 @@ Page({
       step = -1;
     }
     this.setData({
+      step:step,
       toView: event.currentTarget.id
     });
     //服务端请求数据(发送用户id和订单的类型)
