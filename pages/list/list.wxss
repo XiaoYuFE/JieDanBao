@@ -126,3 +126,10 @@ page {
   color:#fff; 
  
 }
+
+.order-nodata-tip{
+  padding-top:150rpx; 
+  font-size:28rpx;
+  text-align:center;
+  color:#999;   
+}

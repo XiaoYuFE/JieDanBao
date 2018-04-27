@@ -102,59 +102,30 @@ page {
 
 .list-item .item-cell {
   float: left;
+  width: 33.33%;
   text-align: center;
-}
-
-.list-item .item-1, .list-item .item-2, .list-item .item-3 {
-  padding: 60rpx 0;
+  padding: 40rpx 0;
   border-bottom: 1px solid #46d299;
 }
 
-
-
-
-
-.list-item .item-4 navigator, .list-item .item-5 navigator{
-  padding: 50rpx 0;
+.list-item .item-cell .txt{
+  display:block; 
+}
+.list-item .item-1 navigator,
+.list-item .item-2 navigator,
+.list-item .item-4 navigator,
+.list-item .item-5 navigator{
+    border-right:1px solid #5ed8a6; 
 }
 
-.list-item .item-4 .txt, .list-item .item-5 .txt {
-  margin-right: 6rpx;
-}
 
-.list-item .item-4 .item-detail {
-  box-sizing: border-box;
-  border-right: 1px solid #5cd6a4;
-}
 
-.list-item .item-1 .txt, .list-item .item-2 .txt, .list-item .item-3 .txt {
-  display: block;
-}
 
-.list-item .item-1 {
-  width: 33.33%;
-}
 
-.list-item .item-2 {
-  width: 33.33%;
-}
 
-.list-item .item-2 .item-detail {
-  border-left: 1px solid #5ed8a6;
-  border-right: 1px solid #5ed8a6;
-}
 
-.list-item .item-3 {
-  width: 33.33%;
-}
 
-.list-item .item-4 {
-  width: 50%;
-}
 
-.list-item .item-5 {
-  width: 50%;
-}
 
 .new-order-list {
   margin: 40rpx 30rpx 0;

@@ -98,6 +98,6 @@
   <view class='phone' bindtap='makeCallPhone'><text class='iconfont icon-76 icon-txt'></text>拨打电话</view>
   <view class='hand-txt {{(step>=6 || step==-1) ? "disabled" :""}}' bindtap='setStepHandler'>
     <text class='txt-1'>订单操作</text>
-    <text class='txt-2'>量房时间：04-10 15:30</text>
+    <!-- <text class='txt-2'>量房时间：04-10 15:30</text> -->
   </view>
 </view>

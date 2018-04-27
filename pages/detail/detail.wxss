@@ -616,6 +616,7 @@
   float: right;
   background: #14c67d;
   height: 80rpx;
+  line-height:80rpx; 
   color: #fff;
   width:60%; 
   text-align:center; 
@@ -628,8 +629,7 @@
   font-size: 28rpx;
   text-align: center;
   display: block;
-  padding-top:15rpx; 
-  line-height:0.7; 
+  
 }
 .fixed-bottom .hand-txt .txt-2 {
     font-size: 20rpx;

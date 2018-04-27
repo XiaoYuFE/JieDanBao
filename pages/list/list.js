@@ -20,18 +20,22 @@ Page({
     console.dir(event);
     var step;
     var id=event.currentTarget.id;
-    if (id =="orderall"){
+    if (id =="stepall"){
       step="";
-    } else if (id == "orderxdd"){
+    } else if (id == "step0"){
       step=0;
-    } else if (id == "orderylf") {
+    } else if (id == "step1") {
       step = 1;
-    } else if (id == "orderysj") {
+    } else if (id == "step2") {
       step = 2;
-    } else if (id == "orderyqy") {
-      step = 4;
-    } else if (id == "orderysx") {
-      step = -1;
+    } else if (id == "step3") {
+      step =3;
+    } else if (id == "step4") {
+      step =4;
+    } else if (id == "step6") {
+      step =6;
+    } else if (id =="stepsx"){
+      step =-1;
     }
     this.setData({
       step:step,

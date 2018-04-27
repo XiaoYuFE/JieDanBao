@@ -1,25 +1,32 @@
 <scroll-view scroll-x="true" bindscroll="scroll" class="nav-scroll clearfix" scroll-into-view="{{toView}}">
-  <view class='scroll-view-item {{toView=="orderall" ? "active":""}}' id='orderall' bindtap='navTap' type="all">
+  <view class='scroll-view-item {{toView=="orderall" ? "active":""}}' id='stepall' bindtap='navTap' type="all">
     <text class="txt">全部</text>
   </view>
-  <view class='scroll-view-item {{toView=="orderxdd" ? "active":""}}' id='orderxdd' bindtap='navTap' type="xdd">
+  <view class='scroll-view-item {{toView=="step0" ? "active":""}}' id='step0' bindtap='navTap' type="xdd">
     <text class="txt">新订单</text>
   </view>
-  <view class='scroll-view-item {{toView=="orderylf" ? "active":""}}' id='orderylf' bindtap='navTap'>
+  <view class='scroll-view-item {{toView=="step1" ? "active":""}}' id='step1' bindtap='navTap'>
     <text class="txt">已量房</text>
   </view>
-  <view class='scroll-view-item {{toView=="orderysj" ? "active":""}}' id='orderysj' bindtap='navTap'>
-    <text class="txt">已设计</text>
+  <view class='scroll-view-item {{toView=="step2" ? "active":""}}' id='step2' bindtap='navTap'>
+    <text class="txt">设计中</text>
   </view>
-  <view class='scroll-view-item {{toView=="orderyqy" ? "active":""}}' id='orderyqy' bindtap='navTap'>
+  <view class='scroll-view-item {{toView=="step3" ? "active":""}}' id='step3' bindtap='navTap'>
+    <text class="txt"> 对比中</text>
+  </view>
+  <view class='scroll-view-item {{toView=="step4" ? "active":""}}' id='step4' bindtap='navTap'>
     <text class="txt">已签约</text>
   </view>
-  <view class='scroll-view-item {{toView=="orderysx" ? "active":""}}' id='orderysx' bindtap='navTap'>
-    <text class="txt">已失效</text>
+   <view class='scroll-view-item {{toView=="step6" ? "active":""}}' id='step6' bindtap='navTap'>
+    <text class="txt">已完工</text>
+  </view>
+  <view class='scroll-view-item {{toView=="stepsx" ? "active":""}}' id='stepsx' bindtap='navTap'>
+    <text class="txt">失效</text>
   </view>
 </scroll-view>
 
 
+<view class="order-nodata-tip" wx:if="{{dataList.length ? false :true}}">暂无数据 !</view>
 
 <view class='order-list' wx:for="{{dataList}}" wx:key="idx" wx:for-item="item">
   <view class='soma-hd'>
@@ -38,7 +45,7 @@
       </view>
     </view>
 
-    <view class='arrow' wx:if="{{ toView=='orderall' && item.isNew ? true :false}}">
+    <view class='arrow' wx:if="{{ toView=='stepall' && item.step=='0' ? true :false}}">
       <view></view>
       <text>新</text>
     </view>
