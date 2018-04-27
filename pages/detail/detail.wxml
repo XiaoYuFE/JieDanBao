@@ -1,4 +1,4 @@
-<view class="caption-top" wx:if="{{step > 0 ? false :true}}">新订单</view>
+<view class="caption-top" wx:if="{{(step > 0 || step==-1) ? false :true}}">新订单</view>
 <!--step-end  -->
 <view class='customer-info'>
   <view class='tit'>客户信息</view>

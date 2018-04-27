@@ -52,7 +52,7 @@ Page({
   },
   setStepHandler: function () {
     var that = this;
-    if (this.data.step >= 6) {
+    if (this.data.step >= 6 || this.data.step==-1) {
       return;
     }
     wx.showActionSheet({
