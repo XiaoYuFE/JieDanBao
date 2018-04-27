@@ -38,7 +38,7 @@
       </view>
     </view>
 
-    <view class='arrow' wx:if="{{ toView=='orderall' && item.isNew ? true :false}}">
+    <view class='arrow' wx:if="{{ toView=='orderall' && (item.step==0) ? true :false}}">
       <view></view>
       <text>新</text>
     </view>
