@@ -17,7 +17,7 @@
   </view>
   <view class='list-item clearfix'>
     <view class='item-cell item-1'>
-      <navigator url="/pages/list/list?type=0&toView=step0">
+      <navigator url="/pages/list/list?type=0&toView=step0" hover-class="false">
         <view class='item-detail'>
           <view class="num">{{dataList.dfw}}
             <!-- 订单为零的时候不显示小圆圈 -->
@@ -28,7 +28,7 @@
       </navigator>
     </view>
     <view class='item-cell item-2'>
-      <navigator url="/pages/list/list?type=1&toView=step1">
+      <navigator url="/pages/list/list?type=1&toView=step1" hover-class="false">
         <view class='item-detail'>
           <view class="num">{{dataList.ylf}} </view>
           <text class='txt'>已量房</text>
@@ -36,7 +36,7 @@
       </navigator>
     </view>
     <view class='item-cell item-3'>
-      <navigator url="/pages/list/list?type=2&toView=step2">
+      <navigator url="/pages/list/list?type=2&toView=step2" hover-class="false">
         <view class='item-detail'>
           <view class="num">{{dataList.sjz}}</view>
           <text class='txt'>设计中</text>
@@ -44,7 +44,7 @@
       </navigator>
     </view>
     <view class='item-cell item-4'>
-      <navigator url="/pages/list/list?type=3&toView=step3">
+      <navigator url="/pages/list/list?type=3&toView=step3" hover-class="false">
         <view class='item-detail'>
           <view class="num">{{dataList.dbz}}</view>
           <text class='txt'>对比中</text>
@@ -53,7 +53,7 @@
       </navigator>
     </view>
     <view class='item-cell item-5'>
-      <navigator url="/pages/list/list?type=4&toView=step4">
+      <navigator url="/pages/list/list?type=4&toView=step4" hover-class="false">
         <view class='item-detail'>
         <view class="num">{{dataList.yqy}}</view>
           <text class='txt'>已签约</text>
@@ -63,7 +63,7 @@
     </view>
 
     <view class='item-cell item-6'>
-      <navigator url="/pages/list/list?type=6&toView=step6">
+      <navigator url="/pages/list/list?type=6&toView=step6" hover-class="false">
         <view class='item-detail'>
          
           <view class="num">{{dataList.ywc}}</view>

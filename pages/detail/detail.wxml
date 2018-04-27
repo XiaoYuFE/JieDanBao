@@ -83,7 +83,7 @@
     <view class='caption'>装修信息</view>
     
     <view class='item-cell'><text class="lab">小区名称：</text>{{dataList.signinfo.community}}</view>
-    <view class='item-cell'><text class="lab">装修阶段：</text>{{}}</view>
+    <view class='item-cell'><text class="lab">装修阶段：</text>{{stepText[step]}}</view>
     <view class='item-cell'><text class="lab">装修时间：</text>{{dataList.signinfo.d_date}}</view>
     <view class='item-cell'><text class="lab">房屋面积：</text>{{dataList.signinfo.area}}</view>
     <view class='item-cell'><text class="lab">期望风格：</text>{{dataList.signinfo.d_style}}</view>
