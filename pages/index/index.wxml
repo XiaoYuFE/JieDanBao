@@ -145,3 +145,8 @@
   <text class='txt-1'>联系客服</text>
   <view class='phone'>0592-6799988 ></view>
 </view>
+
+
+<view class="guide-sq"><button  type="primary" bindtap='handAuthority'>授权</button></view>
+
+

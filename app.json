@@ -2,9 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/login/login",
-    
-    
-    
+    "pages/authority/authority",
     "pages/cost/cost",
     "pages/detail/detail",
     "pages/list/list"

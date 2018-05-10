@@ -218,3 +218,7 @@ page {
   top:50%;  
   transform: translate(0, -50%);
 }
+
+.guide-sq{
+  margin:0 30rpx; 
+}

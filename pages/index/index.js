@@ -88,5 +88,12 @@ Page({
         
       }
     }
+  },
+  handAuthority:function(){
+    wx.navigateTo({
+      url: '/pages/authority/authority?id=10'
+    })
+    
+   
   }
 })
