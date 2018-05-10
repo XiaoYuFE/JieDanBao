@@ -44,6 +44,9 @@ Page({
     //服务端请求数据(发送用户id和订单的类型)
     this._getDataList(step);
   },
+  onShow: function () {
+    this._getDataList(this.data.step);
+  },
   _getDataList: function (listType) {
     console.dir(listType);
     var that=this;

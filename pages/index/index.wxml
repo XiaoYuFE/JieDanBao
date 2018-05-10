@@ -21,7 +21,7 @@
         <view class='item-detail'>
           <view class="num">{{dataList.dfw}}
             <!-- 订单为零的时候不显示小圆圈 -->
-            <view class='circle' wx:if="{{orderCount.xdd==0 ? false :true}}"></view>
+            <view class='circle' wx:if="{{dataList.dfw==0 ? false :true}}"></view>
           </view>
           <text class='txt'>新订单</text>
         </view>

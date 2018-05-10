@@ -22,7 +22,7 @@ page {
   background: #fff;
   margin-right: 20rpx;
 }
-.avatar-box .pic img{
+.avatar-box .pic image{
   width: 100%;
   height:100%; 
 }

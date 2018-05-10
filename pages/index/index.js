@@ -30,6 +30,10 @@ Page({
     },100)
     
   },
+
+  onShow:function(){
+    this._getPageData();
+  },
   
   //获取页面数据（登录以后才执行此步骤）
   _getPageData: function () {
