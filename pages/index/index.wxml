@@ -147,6 +147,6 @@
 </view>
 
 
-<view class="guide-sq"><button  type="primary" bindtap='handAuthority'>授权</button></view>
+<!-- <view class="guide-sq"><button  type="primary" bindtap='handAuthority'>授权</button></view> -->
 
 

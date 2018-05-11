@@ -69,7 +69,7 @@ Page({
   //拨打电话
   makeCallPhone: function () {
     wx.makePhoneCall({
-      phoneNumber: '18559160494' //仅为示例，并非真实的电话号码
+      phoneNumber: '0592-6799988' //仅为示例，并非真实的电话号码
     })
   },
   onShareAppMessage: function () {

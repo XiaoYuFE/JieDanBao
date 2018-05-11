@@ -32,7 +32,9 @@ App({
   globalData: {
     server: "https://m3.xiaoyu.com",
     sessionJdbUserInfo:"",//存放小鱼用户的信息
-    sessionJdbUkey:"Ak2w6PK11ENaWhIZzxf2BHTrDz9vckNYhHYvaNohHlc6H3bZ+vDM8sFEopCcJhVMKmI7EIpEGBYbreIbN4TrjQ==", //存放小鱼ukey
-    sessionJdbBrandId: 784
+    sessionJdbUkey:"",
+    sessionJdbBrandId:""
+    // sessionJdbUkey:"Ak2w6PK11ENaWhIZzxf2BHTrDz9vckNYhHYvaNohHlc6H3bZ+vDM8sFEopCcJhVMKmI7EIpEGBYbreIbN4TrjQ==", //存放小鱼ukey
+    // sessionJdbBrandId: 784
   }
 })
