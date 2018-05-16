@@ -16,6 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.isLogin();
     var that = this;
     //获取页面传递过来的id,然后动过id获取订单详情
     that.setData({

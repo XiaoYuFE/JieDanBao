@@ -2,7 +2,6 @@
 
 <view class="title-1">登录</view>
 <view class="title-2">请使用小鱼家装商家账号登录</view>
-
 <view class='form-validate-tip' wx-if="{{validateMsg}}">
   {{validateMsg}}
 </view>

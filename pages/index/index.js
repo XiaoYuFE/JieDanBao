@@ -7,25 +7,9 @@ Page({
     xyUserInfo: "",
     dataList:"",
   },
- 
+  
   onLoad: function () {
-   
     var that = this;
-    if (!app.globalData.sessionJdbUkey){
-      wx.getStorage({
-        key: 'sessionJdbUkey',
-        success: function (res) {
-          app.globalData.sessionJdbUkey=res.data;
-        }
-      })
-      wx.getStorage({
-        key: 'sessionJdbBrandId',
-        success: function (res) {
-          app.globalData.sessionJdbBrandId = res.data;
-        }
-      })
-    }
-
     setTimeout(function(){
       that._getPageData();
     },100)
@@ -39,7 +23,7 @@ Page({
   //获取页面数据（登录以后才执行此步骤）
   _getPageData: function () {
     var that=this;
-    console.dir(app.globalData.sessionJdbBrandId)
+    
     wx.request({
       url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.index",
       data:{
@@ -52,7 +36,7 @@ Page({
       },
       dataType: "json",
       success: function (res) {
-        console.dir(res)
+        
         app.isLogin(res.data.islogin);
         that.setData({
           dataList: res.data.data
