@@ -6,9 +6,10 @@ Page({
   data: {
     xyUserInfo: "",
     dataList:"",
-
   },
+ 
   onLoad: function () {
+   
     var that = this;
     if (!app.globalData.sessionJdbUkey){
       wx.getStorage({
@@ -55,9 +56,7 @@ Page({
         app.isLogin(res.data.islogin);
         that.setData({
           dataList: res.data.data
-        });
-
-       
+        });  
       }
     })
   },
