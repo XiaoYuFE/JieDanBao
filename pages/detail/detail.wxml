@@ -8,8 +8,8 @@
 </view>
 <view class="order-info">
   <view class="txt-1">订单编号：{{dataList.djid}}</view>
-  <view class="txt-1">派单时间：{{orderInfo.djid}}</view>
-  <view class="txt-1">派单员：{{orderInfo.username}}</view>
+  <view class="txt-1">派单时间：{{dataList.dj_time}}</view>
+  <view class="txt-1">派单员：{{dataList.username}}</view>
 <!--wx:if="{{step > 1 ? true :false}}"  -->
   <view class="order-steps step-{{step+1}}" wx:if="{{(step==6 || step==-1) ? false :true}}" >
     <view class='line-wrap'>

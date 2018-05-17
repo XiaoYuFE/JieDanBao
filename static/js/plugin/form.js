@@ -2,7 +2,8 @@ class form {
   API_SERVER = 'https://m3.xiaoyu.com/welcome/wechatapp?callback=';
   API_CONFIG = {
     login: 'Jiaju.check_login',
-    bind: 'Jiaju.bind'
+    bind: 'Jiaju.bind',
+    detail:'Jiaju.detail'
   };
 
   constructor(app) {

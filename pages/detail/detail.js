@@ -1,5 +1,6 @@
-
+import form from '../../static/js/plugin/form'
 const app = getApp();
+app.form = new form(app);
 Page({
 
   /**
@@ -23,33 +24,12 @@ Page({
       sid:options.sid
     });
 
-    
-    console.dir(app.globalData.sessionJdbBrandId);
-    console.dir(app.globalData.sessionJdbUkey);
-    wx.request({
-      url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.detail",
-      data:{
-        sid:options.sid,
-        bid: app.globalData.sessionJdbBrandId,
-        ukey: app.globalData.sessionJdbUkey
-      },
-      method: 'post',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      success: function (res) {
-      
-        console.dir(res);
-       
-        that.setData({
-          step: parseInt(res.data.data.step),
-          dataList: res.data.data
-        })
-      }
+    app.form.requestPost(app.form.API_CONFIG['detail'], {sid: options.sid}, function (res) {
+      that.setData({
+        step: parseInt(res.data.step),
+        dataList: res.data
+      })
     });
-
-
-
   },
   setStepHandler: function () {
     var that = this;
@@ -140,7 +120,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+   
   },
 
   /**
