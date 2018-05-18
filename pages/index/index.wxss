@@ -49,13 +49,15 @@ page {
 }
 
 .list-type-1{
-  background:#ffffff; 
+  background:#ffffff;
+  padding:30rpx 0; 
 }
 .list-type-1 .item-1{
     float:left;
     width:50%;
     color:#666666;
-    font-size:24rpx; 
+    font-size:24rpx;
+    text-align:center; 
 
 }
 .list-type-1 .item-1 .txt{
@@ -67,8 +69,9 @@ page {
 .list-type-1  .item-2{
   float: right;
   width:50%; 
-    color:#666666;
-    font-size:24rpx; 
+  color:#666666;
+  font-size:24rpx;
+  text-align:center; 
 }
 
 .list-type-1 .item-2 .txt{
