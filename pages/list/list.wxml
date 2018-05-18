@@ -1,4 +1,4 @@
-<scroll-view scroll-x="true" bindscroll="scroll" class="nav-scroll clearfix" scroll-into-view="{{toView}}">
+<scroll-view scroll-x="true" bindscroll="scroll" class="nav-scroll clearfix" scroll-into-view="{{toView}}" id='J_nav-scroll'>
   <view class='scroll-view-item {{toView=="stepall" ? "active":""}}' id='stepall' bindtap='navTap' type="all">
     <text class="txt">全部</text>
   </view>
@@ -17,7 +17,7 @@
   <view class='scroll-view-item {{toView=="step4" ? "active":""}}' id='step4' bindtap='navTap'>
     <text class="txt">已签约</text>
   </view>
-   <view class='scroll-view-item {{toView=="step6" ? "active":""}}' id='step6' bindtap='navTap'>
+  <view class='scroll-view-item {{toView=="step6" ? "active":""}}' id='step6' bindtap='navTap'>
     <text class="txt">已完工</text>
   </view>
   <view class='scroll-view-item {{toView=="stepsx" ? "active":""}}' id='stepsx' bindtap='navTap'>
@@ -26,32 +26,37 @@
 </scroll-view>
 
 
-<view class="order-nodata-tip" wx:if="{{dataList.length ? false :true}}">暂无数据 !</view>
+<scroll-view style="height:{{scrollHeight}}px" scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" class="list-wrap">
+  <view class="order-nodata-tip" wx:if="{{dataList.length ? false :true}}">暂无数据 !</view>
 
-<view class='order-list' wx:for="{{dataList}}" wx:key="idx" wx:for-item="item">
-  <view class='soma-hd'>
-    <view class="order-num">订单编号：{{item.id}}</view>
-    <view class='order-time'>{{item.c_time}}</view>
-  </view>
-  <navigator url="/pages/detail/detail?sid={{item.sid}}">
-    <view class='soma-list'>
-      <view class='item-cell'>
-        <view class='time'>
-          <view class='tag'>
-            <text class='txt-1'>时间</text>{{item.u_time}}</view>
+  <view class='order-list' wx:for="{{dataList}}" wx:key="idx" wx:for-item="item">
+    <view class='soma-hd'>
+      <view class="order-num">订单编号：{{item.id}}</view>
+      <view class='order-time'>{{item.c_time}}</view>
+    </view>
+    <navigator url="/pages/detail/detail?sid={{item.sid}}">
+      <view class='soma-list'>
+        <view class='item-cell'>
+          <view class='time'>
+            <view class='tag'>
+              <text class='txt-1'>时间</text>{{item.u_time}}</view>
+          </view>
+          <view class="person-info">{{item.name}}（{{item.mobile}}）</view>
+          <view class='address'>{{item.community}} ></view>
         </view>
-        <view class="person-info">{{item.name}}（{{item.mobile}}）</view>
-        <view class='address'>{{item.community}} ></view>
       </view>
-    </view>
 
 
-    <view class='arrow' wx:if="{{ toView=='stepall' && item.step=='0' ? true :false}}">
+      <view class='arrow' wx:if="{{ toView=='stepall' && item.step=='0' ? true :false}}">
 
-      <view></view>
-      <text>新</text>
-    </view>
-  </navigator>
-</view>
+        <view></view>
+        <text>新</text>
+      </view>
+    </navigator>
+  </view>
 
+  <view class='refresh-bottom'>
+    <text class="iconfont icon-loading"></text>{{loadMoreData}}
+  </view> 
 
+</scroll-view>

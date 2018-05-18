@@ -10,7 +10,11 @@ page {
   display:flex;
   background:#ffffff; 
   white-space:nowrap;
-  margin-bottom:30rpx;   
+  position: fixed;
+  left:0;
+  top:0;
+  z-index: 100;
+  
 }
 .nav-scroll .scroll-view-item{
 
@@ -29,7 +33,9 @@ page {
   border-bottom:3rpx solid #14c67d;  
 }
 
-
+.list-wrap{
+  padding-top:120rpx; 
+}
 .order-list {
   margin: 0rpx 30rpx 40rpx;
   background: #fff;
@@ -133,4 +139,26 @@ page {
   font-size:28rpx;
   text-align:center;
   color:#999;   
+}
+.refresh-bottom{
+  text-align: center;
+  font-size:28rpx;
+  color:#666;
+  padding-bottom:30rpx;   
+}
+.refresh-bottom text{
+  font-size: 28rpx;
+  margin-right:10rpx;
+  vertical-align:top;
+  color:#666;
+  animation: loading 1s infinite;   
+}
+
+@keyframes loading{
+  0%{
+    transform:rotate(0); 
+  }
+  100%{
+    transform:rotate(-360deg); 
+  }
 }
