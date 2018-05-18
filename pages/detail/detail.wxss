@@ -641,3 +641,19 @@
   height:80rpx; 
 }
 
+.gobackhome{
+  position:fixed;
+  right:30rpx;
+  bottom:20%;
+  width:70rpx;
+  height:70rpx;
+  line-height:70rpx; 
+  background:rgba(0,0,0,0.5);
+  border-radius:100%;
+  text-align:center;      
+}
+
+.gobackhome navigator{
+  color:#fff;
+  font-size:34rpx;  
+}

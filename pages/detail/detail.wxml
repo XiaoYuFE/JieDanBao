@@ -101,3 +101,5 @@
     <!-- <text class='txt-2'>量房时间：04-10 15:30</text> -->
   </view>
 </view>
+
+<view class="gobackhome" wx:if="{{!!formWhere ? true :false}}"><navigator url="/pages/index/index" class='iconfont icon-home'></navigator></view>

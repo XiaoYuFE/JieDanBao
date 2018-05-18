@@ -59,7 +59,7 @@ Page({
     return {
       title: '小鱼接单宝',
       path: '/pages/index/index',
-      imageUrl:"",
+      imageUrl:"http://m3.xiaoyu.com/img/jiedanbao_share.png",
       success: function (res) {
         wx.showToast({
           title: '成功',

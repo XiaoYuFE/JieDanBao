@@ -10,7 +10,8 @@ Page({
     step:"",
     sid:"",
     stepText: ['新订单', '已量房', '设计中', '已对比', '已签约', '施工中', '完成'],
-    dataList:""
+    dataList:"",
+    fromWhere:""
   },
 
   /**
@@ -21,6 +22,7 @@ Page({
     var that = this;
     //获取页面传递过来的id,然后动过id获取订单详情
     that.setData({
+      fromWhere: options.from,
       sid:options.sid
     });
 
