@@ -29,7 +29,7 @@
   position: absolute;
   right: 30px;
   top: 15rpx;
-  background: url("https://wnworld.com/images/jiedanbang/fish_txt.png") no-repeat top center;
+  background: url("http://m3.xiaoyu.com/img/jiedanbang/fish_txt.png") no-repeat top center;
   background-size: 100% 100%;
 }
 
@@ -39,7 +39,7 @@
   position: absolute;
   right: 30px;
   top: 15rpx;
-  background: url("https://wnworld.com/images/jiedanbang/sx_txt.png") no-repeat top center;
+  background: url("http://m3.xiaoyu.com/img/jiedanbang/sx_txt.png") no-repeat top center;
   background-size: 100% 100%;
 }
 

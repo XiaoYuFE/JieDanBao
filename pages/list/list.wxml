@@ -27,36 +27,38 @@
 
 
 <scroll-view style="height:{{scrollHeight}}px" scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" class="list-wrap">
-  <view class="order-nodata-tip" wx:if="{{dataList.length ? false :true}}">暂无数据 !</view>
+  <view class="order-nodata-tip {{isNoData ? 'active' :''}}">暂无数据 !</view>
 
-  <view class='order-list' wx:for="{{dataList}}" wx:key="idx" wx:for-item="item">
-    <view class='soma-hd'>
-      <view class="order-num">订单编号：{{item.id}}</view>
-      <view class='order-time'>{{item.c_time}}</view>
-    </view>
-    <navigator url="/pages/detail/detail?sid={{item.sid}}">
-      <view class='soma-list'>
-        <view class='item-cell'>
-          <view class='time'>
-            <view class='tag'>
-              <text class='txt-1'>时间</text>{{item.u_time}}</view>
+  <view style='padding-bottom:40rpx;padding-top:120rpx'>
+    <view class='order-list' wx:for="{{dataList}}" wx:key="idx" wx:for-item="item">
+      <view class='soma-hd'>
+        <view class="order-num">订单编号：{{item.id}}</view>
+        <view class='order-time'>{{item.c_time}}</view>
+      </view>
+      <navigator url="/pages/detail/detail?sid={{item.sid}}">
+        <view class='soma-list'>
+          <view class='item-cell'>
+            <view class='time'>
+              <view class='tag'>
+                <text class='txt-1'>时间</text>{{item.u_time}}</view>
+            </view>
+            <view class="person-info">{{item.name}}（{{item.mobile}}）</view>
+            <view class='address'>{{item.community}} ></view>
           </view>
-          <view class="person-info">{{item.name}}（{{item.mobile}}）</view>
-          <view class='address'>{{item.community}} ></view>
         </view>
-      </view>
 
 
-      <view class='arrow' wx:if="{{ toView=='stepall' && item.step=='0' ? true :false}}">
-
-        <view></view>
-        <text>新</text>
-      </view>
-    </navigator>
+        <view class='arrow' wx:if="{{ toView=='stepall' && item.step=='0' ? true :false}}">
+          <view></view>
+          <text>新</text>
+        </view>
+      </navigator>
+    </view>
   </view>
 
-  <view class='refresh-bottom'>
-    <text class="iconfont icon-loading"></text>{{loadMoreData}}
-  </view> 
-
+  <view class='refresh-bottom' wx:if="{{isLast ? false :true}}">
+    <view class='loading-box'>
+      <view class="iconfont icon-loading"></view>
+    </view>{{loadMoreData}}
+  </view>
 </scroll-view>

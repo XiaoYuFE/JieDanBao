@@ -34,7 +34,9 @@ page {
 }
 
 .list-wrap{
-  padding-top:120rpx; 
+ 
+  
+  box-sizing:border-box;  
 }
 .order-list {
   margin: 0rpx 30rpx 40rpx;
@@ -42,6 +44,9 @@ page {
   border-radius: 15rpx;
   border: 1px solid #ebebeb;
   position: relative; 
+}
+.order-list:last-child{
+ 
 }
 
 .order-list .soma-hd {
@@ -138,7 +143,11 @@ page {
   padding-top:150rpx; 
   font-size:28rpx;
   text-align:center;
-  color:#999;   
+  color:#999;
+  display:none;  
+}
+.order-nodata-tip.active{
+  display:block; 
 }
 .refresh-bottom{
   text-align: center;
@@ -146,19 +155,26 @@ page {
   color:#666;
   padding-bottom:30rpx;   
 }
-.refresh-bottom text{
+.refresh-bottom .loading-box{
+  position: relative;
+  display: inline-block;
+}
+.refresh-bottom .loading-box view{
   font-size: 28rpx;
   margin-right:10rpx;
-  vertical-align:top;
+  vertical-align:middle;
   color:#666;
-  animation: loading 1s infinite;   
+  position:relative; 
+  animation:loading 2s linear infinite;
+ -webkit-animation:loading 2s linear infinite; 
 }
 
+
 @keyframes loading{
-  0%{
-    transform:rotate(0); 
-  }
-  100%{
-    transform:rotate(-360deg); 
-  }
+ from {
+        transform:rotate(0);
+    }
+    to {
+        transform:rotate(360deg);
+    }
 }

@@ -6,10 +6,11 @@ Page({
   data: {
     toView: "",
     step: "",
-    loadMoreData:"加载更多...",
+    isNoData:false,
+    loadMoreData:"加载中...",
     scrollHeight:"",
     dataList: "",
-    stepCurrObj:"",
+   
 
     stepall: {
       currentPage: 1,
@@ -73,7 +74,11 @@ Page({
     // this._getDataList(this.data.step, this.data.dataAll[options.toView]);
   },
   navTap: function (event) {
-    console.dir(event);
+    this.setData({
+      isLast: false,
+      isNoData:false,
+      dataList: ""
+    });
     var step;
     var id = event.currentTarget.id;
     if (id == "stepall") {
@@ -95,10 +100,12 @@ Page({
     }
     this.setData({
       step: step,
+      
       toView: event.currentTarget.id
     });
+    
     //服务端请求数据(发送用户id和订单的类型)
-    this._getDataList(step, id);
+    this._getDataList(step, this.data[this.data.toView]);
   },
   onShow: function () {
     this._getDataList(this.data.step, this.data[this.data.toView]);
@@ -106,8 +113,8 @@ Page({
   _getDataList: function (listType, obj) {
     var that = this;
     wx.request({
-      // url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.dlist",
-      url: "https://wnworld.com/api/JieDanBang/list01.php",
+      url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.dlist",
+      // url: "https://wnworld.com/api/JieDanBang/list01.php",
       data: {
         page: obj.currentPage,
         step: listType,
@@ -121,14 +128,21 @@ Page({
       dataType: "json",
       success: function (res) {
         console.dir(res.data.data.info);
-        if (!res.data.data.info || !res.data.data.info.length){
-          obj.isLast=true;
+        if (!res.data.data.info.length || res.data.data.info.length < 20){
+           that.setData({
+             isLast:true
+           })
+        }else{
+          obj.currentPage++;
         }
-        obj.currentPage++;
+        if (obj.currentPage == 1 && !res.data.data.info.length ){
+          that.setData({
+            isNoData: true
+          })
+        }
+       
         obj.list = obj.list.concat(res.data.data.info);
-        console.dir(obj);
         that.setData({
-          stepCurrObj: obj,
           dataList: obj.list
         })
 
@@ -138,12 +152,9 @@ Page({
   },
   lower:function(){
     if (this.data.isLast) {
-      this.setData({
-        loadMoreData: '已经到顶'
-      });
       return;
     } else {
-      //  this._getDataList(this.data.step, this.data[this.data.toView]);
+       this._getDataList(this.data.step, this.data[this.data.toView]);
     }
   }
 
