@@ -6,6 +6,7 @@ Page({
   data: {
     xyUserInfo: "",
     dataList:"",
+    
   },
   
   onLoad: function () {

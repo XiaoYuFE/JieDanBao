@@ -55,7 +55,6 @@ Page({
     wx.request({
       url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.dlist",
       data: {
-        
         step:listType,
         bid: app.globalData.sessionJdbBrandId,
         ukey: app.globalData.sessionJdbUkey
