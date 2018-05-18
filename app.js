@@ -35,7 +35,9 @@ App({
   globalData: {
     server: "https://m3.xiaoyu.com",
     sessionJdbUserInfo:"",//存放小鱼用户的信息
-    sessionJdbUkey:"",
-    sessionJdbBrandId:""
+    // sessionJdbUkey:"",
+    // sessionJdbBrandId:""
+    sessionJdbUkey: "SwDKsfcimRSBEV6uDKDv86whONhccusgFFzN8D/oC9aCd8+XYlq7HTpSIev4Oi7ep+34mfu8uoyv6IocqCTdag==",
+    sessionJdbBrandId:784
   }
 })

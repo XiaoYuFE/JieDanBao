@@ -1,16 +1,19 @@
+.logo{
+  width:120rpx;
+  height:120rpx;
+  display:block;
+  margin:0 auto;
+  overflow:hidden;
+  background: url("https://wnworld.com/images/jiedanbao/logo.png") no-repeat center center;
+  background-size: 100% 100%;   
+}
 .title-1{
-  color:#3c4050;
-  font-size:32rpx;
+  color:#666666;
+  font-size:26rpx;
   text-align:center;
-  margin-top:80rpx;    
+  margin-top:20rpx;    
 }
 
-.title-2{
-  color:#666666;
-  font-size:24rpx;
-  text-align: center;
-  margin-top:30rpx; 
-}
 
 .form-validate-tip{
     border:1px solid #f60;
@@ -42,9 +45,33 @@
   top:15rpx;
   padding:12rpx 0;
   color:#3c4050; 
+  text-align:center; 
+  width:80rpx; 
+}
+
+.section-form .item-cell .icon-pic-phone{
+    color:#666;
+    font-size:40rpx;
+    display:inline-block;
+    vertical-align:middle; 
+    padding: 0 15rpx;
+    height:35rpx;
+    line-height:35rpx;  
+    border-right:1px solid #ebebeb; 
+}
+.section-form .item-cell .icon-pic-pw{
+    color:#666;
+    font-size:46rpx;
+    display:inline-block;
+    vertical-align:middle; 
+    height:35rpx;
+    line-height:35rpx; 
+    border-right:1px solid #ebebeb; 
+    padding: 0 15rpx;
 }
 .section-form .item-cell .ipt-text{
-    padding:10rpx 0;
+    padding:16rpx 0;
+    font-size:28rpx; 
     
 }
 .section-form .ipt-submit{
