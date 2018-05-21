@@ -4,7 +4,9 @@ const app = getApp();
 Page({
   data: {
     validateMsg: false,
-    submiting:false
+    submiting:false,
+    isPhoneActive:false,
+    isPwdActive:false
   },
   onLoad: function () {
     this._initValidate();
@@ -110,5 +112,25 @@ Page({
     this.WxValidate = new WxValidate(rules, messages);
     this.form = new form(app); 
 
+  },
+  usernameFoucs:function(){
+      this.setData({
+        isPhoneActive:true
+      });
+  },
+  usernameBlur: function () {
+    this.setData({
+      isPhoneActive:false
+    });
+  },
+  pwdFoucs:function(){
+    this.setData({
+      isPwdActive: true
+    });
+  },
+  pwdBlur:function(){
+    this.setData({
+      isPwdActive: false
+    });
   }
 })

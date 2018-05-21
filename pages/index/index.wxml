@@ -15,11 +15,11 @@
 <view class='list-type-1 clearfix'>
   <view class='item-1'>
     本月订单
-    <text class='txt'>8669</text>
+    <text class='txt'>{{dataList.mdata}}</text>
   </view>
   <view class='item-2'>
     本月订单
-    <text class='txt'>8669</text>
+    <text class='txt'>{{dataList.alldata}}</text>
   </view>
 </view>
 
@@ -75,12 +75,12 @@
   </view>
 
   <view class="item-cell item-6">
-    <navigator>
+    <navigator url="/pages/list/list?type=5&toView=step5">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
       <text class="txt">施工中</text>
-      <view class="num">86</view>
+      <view class="num">{{dataList.sgz}}</view>
     </navigator>
   </view>
 
@@ -95,12 +95,12 @@
   </view>
 
   <view class="item-cell item-8">
-    <navigator>
+    <navigator url="/pages/list/list?type=-1&toView=stepsx">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
       <text class="txt">跑单</text>
-      <view class="num">9</view>
+      <view class="num">{{dataList.ysx}}</view>
     </navigator>
   </view>
 </view>
@@ -110,143 +110,3 @@
   小程序使用有问题？
   <text>联系我们</text>
 </view>
-
-
-<!-- <view class='contact-phone clearfix' bindtap='makeCallPhone'>
-  <view class='iconfont icon-76 icon-txt'></view>
-  <text class='txt-1'>联系客服</text>
-  <view class='phone'>{{kf_tel}} ></view>
-</view> -->
-
-
-
-
-
-<!-- <view class='list-item clearfix'>
-  <view class='item-cell item-1'>
-    <navigator url="/pages/list/list?type=0&toView=step0" hover-class="false">
-      <view class='item-detail'>
-        <view class="num">{{dataList.dfw}}
-          <view class='circle' wx:if="{{dataList.dfw==0 ? false :true}}"></view>
-        </view>
-        <text class='txt'>新订单</text>
-      </view>
-    </navigator>
-  </view>
-  <view class='item-cell item-2'>
-    <navigator url="/pages/list/list?type=1&toView=step1" hover-class="false">
-      <view class='item-detail'>
-        <view class="num">{{dataList.ylf}} </view>
-        <text class='txt'>已量房</text>
-      </view>
-    </navigator>
-  </view>
-  <view class='item-cell item-3'>
-    <navigator url="/pages/list/list?type=2&toView=step2" hover-class="false">
-      <view class='item-detail'>
-        <view class="num">{{dataList.sjz}}</view>
-        <text class='txt'>设计中</text>
-      </view>
-    </navigator>
-  </view>
-  <view class='item-cell item-4'>
-    <navigator url="/pages/list/list?type=3&toView=step3" hover-class="false">
-      <view class='item-detail'>
-        <view class="num">{{dataList.dbz}}</view>
-        <text class='txt'>对比中</text>
-
-      </view>
-    </navigator>
-  </view>
-  <view class='item-cell item-5'>
-    <navigator url="/pages/list/list?type=4&toView=step4" hover-class="false">
-      <view class='item-detail'>
-        <view class="num">{{dataList.yqy}}</view>
-        <text class='txt'>已签约</text>
-
-      </view>
-    </navigator>
-  </view>
-
-  <view class='item-cell item-6'>
-    <navigator url="/pages/list/list?type=6&toView=step6" hover-class="false">
-      <view class='item-detail'>
-
-        <view class="num">{{dataList.ywc}}</view>
-        <text class='txt'>已完工</text>
-      </view>
-    </navigator>
-  </view>
-
-</view> -->
-
-
-
-<!-- <view class='new-order-list' wx:if="{{dataList.info.length==0 ? false :true}}">
-  <view class='soma-hd'>
-    <text class='iconfont icon-gonggao'></text>新订单-请及时处理
-  </view>
-  <view class='soma-list'>
-    <view wx:for="{{dataList.info}}" wx:key="idx" wx:for-item="item" class='item-cell'>
-      <navigator url="/pages/detail/detail?sid={{item.sid}}" hover-class="navigator-hover">
-        <view class='time'>
-          <view class='tag'>
-            <text class='txt-1'>时间</text>{{item.c_time}}</view>
-        </view>
-        <view class="person-info">{{item.name}}（{{item.mobile}}）</view>
-        <view class='address'>{{item.community}} ></view>
-
-      </navigator>
-    </view>
-
-
-
-
-
-
-  </view>
-</view> -->
-
-
-
-
-<!-- <view class='new-order-list'>
-  <view class='soma-hd'><text class='iconfont icon-gonggao'></text>新订单-请及时处理</view>
-  <view class='soma-list'>
-      <view class='item-cell'>
-          <view class='time'>
-              <view class='tag'><text class='txt-1'>时间</text>04-10 15:00</view>
-          </view>
-          <view class="person-info">余先生（18106968460）</view>
-          <view class='address'>首开领翔上郡 ></view>
-      </view>
-
-      <view class='item-cell'>
-          <view class='time'>
-              <view class='tag'><text class='txt-1'>时间</text>04-10 15:00</view>
-          </view>
-          <view class="person-info">余先生（18106968460）</view>
-          <view class='address'>首开领翔上郡 ></view>
-      </view>
-      <view class='item-cell'>
-          <view class='time'>
-              <view class='tag'><text class='txt-1'>时间</text>04-10 15:00</view>
-          </view>
-          <view class="person-info">余先生（18106968460）</view>
-          <view class='address'>首开领翔上郡 ></view>
-      </view>
-      <view class='item-cell'>
-          <view class='time'>
-              <view class='tag'><text class='txt-1'>时间</text>04-10 15:00</view>
-          </view>
-          <view class="person-info">余先生（18106968460）</view>
-          <view class='address'>首开领翔上郡 ></view>
-      </view>
-  </view>
-</view> -->
-
-
-
-
-
-<!-- <view class="guide-sq"><button  type="primary" bindtap='handAuthority'>授权</button></view> -->

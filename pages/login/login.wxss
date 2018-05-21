@@ -2,9 +2,9 @@
   width:120rpx;
   height:120rpx;
   display:block;
-  margin:0 auto;
+  margin:60rpx auto 0;
   overflow:hidden;
-  background: url("https://wnworld.com/images/jiedanbao/logo.png") no-repeat center center;
+  background: url("https://wnworld.com/images/jiedanbang/logo.png") no-repeat center center;
   background-size: 100% 100%;   
 }
 .title-1{
@@ -23,13 +23,13 @@
     font-size:24rpx;
     position: absolute;
     left: 50%;
-    top:220rpx;
+    top:248rpx;
     transform: translate(-50%,0);
    
 }
 
 .section-form{
-  margin:130rpx 30rpx 0; 
+  margin:70rpx 30rpx 0; 
 }
 
 .section-form .item-cell{
@@ -58,6 +58,9 @@
     height:35rpx;
     line-height:35rpx;  
     border-right:1px solid #ebebeb; 
+}
+.section-form .item-cell .icon-pic-phone.active,.section-form .item-cell .icon-pic-pw.active{
+  color:#5dd8a5;
 }
 .section-form .item-cell .icon-pic-pw{
     color:#666;

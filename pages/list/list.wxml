@@ -17,6 +17,9 @@
   <view class='scroll-view-item {{toView=="step4" ? "active":""}}' id='step4' bindtap='navTap'>
     <text class="txt">已签约</text>
   </view>
+  <view class='scroll-view-item {{toView=="step5" ? "active":""}}' id='step5' bindtap='navTap'>
+    <text class="txt">施工中</text>
+  </view>
   <view class='scroll-view-item {{toView=="step6" ? "active":""}}' id='step6' bindtap='navTap'>
     <text class="txt">已完工</text>
   </view>
@@ -30,27 +33,6 @@
   <view class="order-nodata-tip {{isNoData ? 'active' :''}}">暂无数据 !</view>
 
   <view style='padding-bottom:40rpx;padding-top:120rpx'>
-    <view class='order-list'>
-      <view class='soma-hd'>
-        <view class="order-num">订单编号：12345678</view>
-        <view class='order-time'>2018-04-10 14:14</view>
-      </view>
-      <navigator>
-        <view class='soma-list'>
-          <view class='item-cell'>
-            <view class="person-info">18106968460
-              <text>(余先生)</text>
-            </view>
-            <view class='address'>首开领翔上郡</view>
-            <view class="arrow-box">
-                <text class="txt">新订单</text>
-                <text class='iconfont icon-jiantou icon-pic'></text>
-            </view>
-          </view>
-
-        </view>
-      </navigator>
-    </view>
     <view class='order-list' wx:for="{{dataList}}" wx:key="idx" wx:for-item="item">
       <view class='soma-hd'>
         <view class="order-num">订单编号：{{item.id}}</view>
@@ -60,19 +42,14 @@
         <view class='soma-list'>
           <view class='item-cell'>
             <view class="person-info">{{item.mobile}}
-              <text>{{item.name}}</text>
+              <text wx:if="{{item.name ? true :false}}">({{item.name}})</text>
             </view>
-            <view class='address'>{{item.community}} ></view>
-
-
-
+            <view class='address'>{{item.community}}</view>
+            <view class="arrow-box">
+                <text class="txt" wx:if="{{ toView=='stepall' && item.step=='0' ? true :false}}">新订单</text>
+                <text class='iconfont icon-jiantou icon-pic'></text>
+            </view>
           </view>
-        </view>
-
-
-        <view class='arrow' wx:if="{{ toView=='stepall' && item.step=='0' ? true :false}}">
-          <view></view>
-          <text>新</text>
         </view>
       </navigator>
     </view>

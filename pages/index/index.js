@@ -28,9 +28,8 @@ Page({
   //获取页面数据（登录以后才执行此步骤）
   _getPageData: function () {
     var that=this;
-    
     wx.request({
-      url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.index",
+      url: app.globalData.server + "/welcome/wechatapp?callback=Testjiaju.index",
       data:{
         bid: app.globalData.sessionJdbBrandId,
         ukey: app.globalData.sessionJdbUkey
@@ -53,8 +52,9 @@ Page({
 
   //拨打电话
   makeCallPhone: function () {
+    var that=this;
     wx.makePhoneCall({
-      phoneNumber: this.data.kf_tel //仅为示例，并非真实的电话号码
+      phoneNumber: that.data.kf_tel //仅为示例，并非真实的电话号码
     })
   },
 

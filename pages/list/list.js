@@ -11,7 +11,6 @@ Page({
     scrollHeight:"",
     dataList: "",
    
-
     stepall: {
       currentPage: 1,
       isLast:false,
@@ -38,6 +37,11 @@ Page({
       list: []
     },
     step4: {
+      currentPage: 1,
+      isLast: false,
+      list: []
+    },
+    step5: {
       currentPage: 1,
       isLast: false,
       list: []
@@ -93,6 +97,8 @@ Page({
       step = 3;
     } else if (id == "step4") {
       step = 4;
+    } else if (id == "step5") {
+      step = 5;
     } else if (id == "step6") {
       step = 6;
     } else if (id == "stepsx") {
@@ -100,7 +106,6 @@ Page({
     }
     this.setData({
       step: step,
-      
       toView: event.currentTarget.id
     });
     
@@ -113,7 +118,7 @@ Page({
   _getDataList: function (listType, obj,isClear) {
     var that = this;
     wx.request({
-      url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.dlist",
+      url: app.globalData.server + "/welcome/wechatapp?callback=Testjiaju.dlist",
       // url: "https://wnworld.com/api/JieDanBang/list01.php",
       data: {
         page: obj.currentPage,

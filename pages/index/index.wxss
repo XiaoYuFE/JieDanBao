@@ -59,6 +59,8 @@ page {
     color:#666666;
     font-size:24rpx;
     text-align:center; 
+    box-sizing: border-box;
+    border-right:1rpx solid #ebebeb; 
 
 }
 .list-type-1 .item-1 .txt{
