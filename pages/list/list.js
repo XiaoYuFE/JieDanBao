@@ -1,19 +1,18 @@
-
+import form from '../../static/js/plugin/form'
 const app = getApp();
-// var order = ['orderall', 'orderxdd', 'orderylf', 'orderysj', 'orderyqy', 'orderysx']
-
+app.form = new form(app);
 Page({
   data: {
     toView: "",
     step: "",
-    isNoData:false,
-    loadMoreData:"加载中...",
-    scrollHeight:"",
+    isNoData: false,
+    loadMoreData: "加载中...",
+    scrollHeight: "",
     dataList: "",
-   
+
     stepall: {
       currentPage: 1,
-      isLast:false,
+      isLast: false,
       list: []
     },
     step0: {
@@ -61,12 +60,12 @@ Page({
 
   onLoad: function (options) {
     console.dir(options);
-    var that = this;  
+    var that = this;
     this.setData({
       step: options.type,
       toView: options.toView
     });
-   
+
     wx.getSystemInfo({
       success: function (res) {
         console.info(res.windowHeight);
@@ -74,13 +73,13 @@ Page({
           scrollHeight: res.windowHeight
         });
       }
-    });  
+    });
     // this._getDataList(this.data.step, this.data.dataAll[options.toView]);
   },
   navTap: function (event) {
     this.setData({
       isLast: false,
-      isNoData:false,
+      isNoData: false,
       dataList: ""
     });
     var step;
@@ -108,61 +107,48 @@ Page({
       step: step,
       toView: event.currentTarget.id
     });
-    
+
     //服务端请求数据(发送用户id和订单的类型)
     this._getDataList(step, this.data[this.data.toView]);
   },
   onShow: function () {
-    this._getDataList(this.data.step, this.data[this.data.toView],true);
+    this._getDataList(this.data.step, this.data[this.data.toView], true);
   },
-  _getDataList: function (listType, obj,isClear) {
+  _getDataList: function (listType, obj, isClear) {
     var that = this;
-    wx.request({
-      url: app.globalData.server + "/welcome/wechatapp?callback=Testjiaju.dlist",
-      // url: "https://wnworld.com/api/JieDanBang/list01.php",
-      data: {
-        page: obj.currentPage,
-        step: listType,
-        bid: app.globalData.sessionJdbBrandId,
-        ukey: app.globalData.sessionJdbUkey
-      },
-      method: 'post',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      dataType: "json",
-      success: function (res) {
-        console.dir(res.data.data.info);
-        if (!res.data.data.info.length || res.data.data.info.length < 20){
-           that.setData({
-             isLast:true
-           })
-        }else{
-          obj.currentPage++;
-        }
-        if (obj.currentPage == 1 && !res.data.data.info.length ){
-          that.setData({
-            isNoData: true
-          })
-        }
-        if (isClear){
-          obj.list = res.data.data.info;
-        }else{
-          obj.list = obj.list.concat(res.data.data.info);
-        }
+    app.form.requestPost(app.form.API_CONFIG['list'], {
+      page: obj.currentPage,
+      step: listType,
+      bid: app.globalData.sessionJdbBrandId,
+      ukey: app.globalData.sessionJdbUkey
+    }, function (res) {
+      if (!res.data.info.length || res.data.info.length < 20) {
         that.setData({
-          dataList: obj.list
+          isLast: true
         })
-
-
+      } else {
+        obj.currentPage++;
       }
-    })
+      if (obj.currentPage == 1 && !res.data.info.length) {
+        that.setData({
+          isNoData: true
+        })
+      }
+      if (isClear) {
+        obj.list = res.data.info;
+      } else {
+        obj.list = obj.list.concat(res.data.info);
+      }
+      that.setData({
+        dataList: obj.list
+      })
+    });
   },
-  lower:function(){
+  lower: function () {
     if (this.data.isLast) {
       return;
     } else {
-       this._getDataList(this.data.step, this.data[this.data.toView]);
+      this._getDataList(this.data.step, this.data[this.data.toView]);
     }
   }
 })

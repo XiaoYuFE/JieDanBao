@@ -53,54 +53,34 @@ Page({
               title: '加载中',
               mask: true
             });
-            wx.request({
-              url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.upstep",
-              data: {
-                step:that.data.step+1,
-                sid: that.data.sid,
-                bid: app.globalData.sessionJdbBrandId,
-                ukey: app.globalData.sessionJdbUkey
-              },
-              method: 'post',
-              header: {
-                "Content-Type": "application/x-www-form-urlencoded"
-              },
-              success: function (res) {
-                //关闭加载层
-                wx.hideLoading();
-                if (res.data.status=="1"){
-                    that.setData({
-                      step: that.data.step + 1
-                    });
-                }
-                
+
+            app.form.requestPost(app.form.API_CONFIG['upstep'], { 
+              step: that.data.step + 1,
+              sid: that.data.sid,
+              bid: app.globalData.sessionJdbBrandId,
+              ukey: app.globalData.sessionJdbUkey
+            }, function (res) {
+              wx.hideLoading();
+              if (res.status == "1") {
+                that.setData({
+                  step: that.data.step + 1
+                });
               }
             });
           }
         } else if (res.tapIndex == 1) {
           //点击的是停止服务
-          wx.request({
-            url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.upstep",
-            data: {
-              step:-1,
-              sid: that.data.sid,
-              bid: app.globalData.sessionJdbBrandId,
-              ukey: app.globalData.sessionJdbUkey
-            },
-            method: 'post',
-            header: {
-              "Content-Type": "application/x-www-form-urlencoded"
-            },
-            success: function (res) {
-              console.dir(res)
-              //关闭加载层
-              wx.hideLoading();
-              if (res.data.status == "1") {
-                that.setData({
-                  step:-1
-                })
-              }
-
+          app.form.requestPost(app.form.API_CONFIG['upstep'], {
+            step: -1,
+            sid: that.data.sid,
+            bid: app.globalData.sessionJdbBrandId,
+            ukey: app.globalData.sessionJdbUkey
+          }, function (res) {   
+            wx.hideLoading();
+            if (res.status == "1") {
+              that.setData({
+                step: -1
+              })
             }
           });
         }

@@ -46,7 +46,7 @@
             </view>
             <view class='address'>{{item.community}}</view>
             <view class="arrow-box">
-                <text class="txt" wx:if="{{ toView=='stepall' && item.step=='0' ? true :false}}">新订单</text>
+                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='0' )? true :false}}">新订单</text>
                 <text class='iconfont icon-jiantou icon-pic'></text>
             </view>
           </view>

@@ -8,6 +8,7 @@ App({
   onShow:function(){
     this.globalData.sessionJdbUkey = wx.getStorageSync('sessionJdbUkey');
     this.globalData.sessionJdbBrandId = wx.getStorageSync('sessionJdbBrandId');
+    this.globalData.sessionJdbUnionid = wx.getStorageSync('sessionJdbUnionid');
     this.isLogin();
   },
 
@@ -26,21 +27,26 @@ App({
     }
   },
 
-  clearStorage:function(){
+  clearStorage:function(callback){
     wx.removeStorage({ key: 'sessionJdbUkey'});
     wx.removeStorage({ key: 'sessionJdbBrandId'});
+    wx.removeStorage({ key: 'sessionJdbUnionid' });
+    this.globalData.sessionJdbUkey ="";
+    this.globalData.sessionJdbBrandId ="";
+    this.globalData.sessionJdbUnionid = "";
+    !!callback && callback();
   },
   
   
   globalData: {
     server: "https://m3.xiaoyu.com/",
     sessionJdbUserInfo:"",//存放小鱼用户的信息
-    // sessionJdbUkey:"",
-    // sessionJdbBrandId:""
+    sessionJdbUkey:"",
+    sessionJdbBrandId:"",
+    sessionJdbUnionid:""
     // sessionJdbUkey: "SwDKsfcimRSBEV6uDKDv86whONhccusgFFzN8D/oC9aCd8+XYlq7HTpSIev4Oi7ep+34mfu8uoyv6IocqCTdag==",
     // sessionJdbBrandId:784
-
-    sessionJdbUkey: "mpJ7FUTslDm0MhS6Wiy1oUR8wKd1AmX26ZEuVnbnfsE55SurNKXSETw6jgkgQJr/KG+z1063jzCf2x+adUp1CQ==",
-    sessionJdbBrandId: 838
+    // sessionJdbUkey: "mpJ7FUTslDm0MhS6Wiy1oUR8wKd1AmX26ZEuVnbnfsE55SurNKXSETw6jgkgQJr/KG+z1063jzCf2x+adUp1CQ==",
+    // sessionJdbBrandId: 838
   }
 })

@@ -34,7 +34,7 @@ page{
   position: absolute;
   right: 30px;
   top: 15rpx;
-  background: url("http://m3.xiaoyu.com/img/jiedanbang/fish_txt.png") no-repeat top center;
+  background: url("http://m3.xiaoyu.com/img/fish_txt.png") no-repeat top center;
   background-size: 100% 100%;
 }
 
@@ -44,7 +44,7 @@ page{
   position: absolute;
   right: 30px;
   top: 15rpx;
-  background: url("http://m3.xiaoyu.com/img/jiedanbang/sx_txt.png") no-repeat top center;
+  background: url("http://m3.xiaoyu.com/img/sx_txt.png") no-repeat top center;
   background-size: 100% 100%;
 }
 

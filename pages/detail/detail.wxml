@@ -27,7 +27,7 @@
   <view class='item-cell clearfix'>
     <text class='lab'>装修方式</text>
     <view class="para-item">
-      <text class='para-val'>半包？？？？？？？？</text>
+      <text class='para-val'>{{!!dataList.signinfo.d_type ? dataList.signinfo.d_type :'未填写'}}</text>
     </view>
   </view>
   <view class='item-cell clearfix'>

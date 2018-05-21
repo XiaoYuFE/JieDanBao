@@ -35,6 +35,8 @@ Page({
         that.setData({
           submiting: false
         });
+
+       
  
         //如果用户不存在或则错误
         if (res.status != '1') {
@@ -50,8 +52,10 @@ Page({
             success:function(res){
               if(res.code){
                 that.form.requestPost(that.form.API_CONFIG['bind'], { code: res.code, ukey: app.globalData.sessionJdbUkey, bid: app.globalData.sessionJdbBrandId}, function (res) {
+                  console.dir(res);
                   if(res.status == '1'){
                     //本地存储id
+                    app.globalData.sessionJdbUnionid = res.data["unionid"];
                     wx.setStorage({
                       key: "sessionJdbUkey",
                       data: app.globalData.sessionJdbUkey
@@ -66,6 +70,12 @@ Page({
                       key: "sessionJdbUserInfo",
                       data: app.globalData.sessionJdbUserInfo
                     });
+
+                    wx.setStorage({
+                      key: "sessionJdbUnionid",
+                      data: app.globalData.sessionJdbUnionid
+                    });
+                   
 
                     //跳转到相关页面
                     wx.redirectTo({

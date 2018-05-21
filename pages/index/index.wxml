@@ -6,8 +6,8 @@
       <image src='{{dataList["logo"]}}' mode="{{aspectFit}}"></image>
     </view>
     <view class="txt">{{dataList["brand_name"]}}</view>
-    <view class='goset-btn'>设置
-      <text class='iconfont icon-jiantou txt-arrow'></text>
+    <view class='goset-btn' bindtap='setting'>
+      <navigator url='/pages/setting/setting'>设置<text class='iconfont icon-jiantou txt-arrow'></text></navigator>
     </view>
   </view>
 </view>
@@ -18,7 +18,7 @@
     <text class='txt'>{{dataList.mdata}}</text>
   </view>
   <view class='item-2'>
-    本月订单
+    总计订单
     <text class='txt'>{{dataList.alldata}}</text>
   </view>
 </view>

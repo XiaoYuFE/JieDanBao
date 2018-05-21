@@ -1,10 +1,14 @@
 class form {
   API_SERVER = 'https://m3.xiaoyu.com/welcome/wechatapp?callback=';
   API_CONFIG = {
-    login: 'Jiaju.check_login',
-    bind: 'Jiaju.bind',
-    detail:'Jiaju.detail',
-    config:'Jiaju.config'
+    index:'Testjiaju.index',
+    list:"Testjiaju.dlist",
+    login: 'Testjiaju.check_login',
+    bind: 'Testjiaju.bind',
+    detail:'Testjiaju.detail',
+    config:'Testjiaju.config',
+    setting: 'Testjiaju.ispush',
+    upstep:'Testjiaju.upstep'
   };
 
   constructor(app) {

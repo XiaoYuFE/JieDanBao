@@ -5,54 +5,49 @@ app.form = new form(app);
 Page({
   data: {
     xyUserInfo: "",
-    dataList:"",
-    kf_tel:""
+    dataList: "",
+    kf_tel: ""
   },
-  
+
   onLoad: function () {
     var that = this;
-    setTimeout(function(){
+    setTimeout(function () {
       that._getPageData();
-    },100)
+    }, 100)
 
     //获取配置信息
-    app.form.requestPost(app.form.API_CONFIG['config'],{},function(res){
-      that.setData({kf_tel:res.data.kf_tel});
+    app.form.requestPost(app.form.API_CONFIG['config'], {}, function (res) {
+      that.setData({ kf_tel: res.data.kf_tel });
     });
   },
 
-  onShow:function(){
+  onShow: function () {
     this._getPageData();
   },
-  
+
   //获取页面数据（登录以后才执行此步骤）
   _getPageData: function () {
-    var that=this;
-    wx.request({
-      url: app.globalData.server + "/welcome/wechatapp?callback=Testjiaju.index",
-      data:{
-        bid: app.globalData.sessionJdbBrandId,
-        ukey: app.globalData.sessionJdbUkey
-      },
-      method: 'post',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      dataType: "json",
-      success: function (res) {
-        
-        app.isLogin(res.data.islogin);
-        that.setData({
-          dataList: res.data.data
-        });  
-      }
+    var that = this;
+    app.form.requestPost(app.form.API_CONFIG['index'], {
+      bid: app.globalData.sessionJdbBrandId,
+      ukey: app.globalData.sessionJdbUkey
+    }, function (res) {
+      //判断是否登陆
+      app.isLogin(res.islogin);
+      that.setData({
+        dataList: res.data
+      });
+    })
+  },
+  setting: function () {
+    wx.redirectTo({
+      url: '/pages/setting/setting'
     })
   },
 
-
   //拨打电话
   makeCallPhone: function () {
-    var that=this;
+    var that = this;
     wx.makePhoneCall({
       phoneNumber: that.data.kf_tel //仅为示例，并非真实的电话号码
     })
@@ -62,7 +57,7 @@ Page({
     return {
       title: '小鱼接单宝',
       path: '/pages/index/index',
-      imageUrl:"http://m3.xiaoyu.com/img/jiedanbao_share.png",
+      imageUrl: "http://m3.xiaoyu.com/img/jiedanbao_share.png",
       success: function (res) {
         wx.showToast({
           title: '成功',
@@ -71,15 +66,15 @@ Page({
         })
       },
       fail: function (res) {
-        
+
       }
     }
   },
-  handAuthority:function(){
+  handAuthority: function () {
     wx.navigateTo({
       url: '/pages/authority/authority?id=10'
     })
-    
-   
+
+
   }
 })
