@@ -6,7 +6,7 @@ Page({
   data: {
     xyUserInfo: "",
     dataList:"",
-    
+    kf_tel:""
   },
   
   onLoad: function () {

@@ -1,3 +1,6 @@
+page{
+  background:#f6f6f6; 
+}
 .caption-top {
   height: 64rpx;
   line-height: 64rpx;
@@ -10,6 +13,8 @@
 .customer-info {
   padding: 30rpx;
   position: relative;
+  background:#fff; 
+  margin-bottom:20rpx 
 }
 
 .customer-info .tit {
@@ -590,8 +595,9 @@
   position: fixed;
   bottom: 0; 
   width: 100%;
+  box-sizing: border-box;
   background: #fff;
-  
+  padding:10rpx 30rpx; 
 }
 
 .fixed-bottom .phone {
@@ -656,4 +662,61 @@
 .gobackhome navigator{
   color:#fff;
   font-size:34rpx;  
+}
+
+
+
+
+
+
+
+
+.decoration-info-box{
+  padding:0 30rpx;
+  background:#fff;
+  margin-bottom:20rpx;   
+}
+.decoration-info-box .caption{
+  color: #1a1a1a;
+  font-size: 32rpx;
+  padding:30rpx 0 0rpx; 
+  margin-bottom: 15rpx;
+}
+
+.decoration-info-box .item-cell{
+  border-bottom:1px solid #ebebeb;
+  padding:25rpx 0;  
+}
+.decoration-info-box .item-cell .lab{
+  float:left; 
+  font-size:28rpx;
+  color:#1a1a1a; 
+}
+
+
+.decoration-info-box .item-cell .para-item{
+  float: right;
+  color:#666666;
+  font-size:28rpx;  
+}
+
+
+.order-step-wrap{
+  background:#fff;
+  padding:20rpx 40rpx;
+  margin-bottom:40rpx; 
+}
+
+
+.order-step-wrap .num{
+  background:#fff;
+  color:#666;
+  font-size:24rpx;
+  padding:8rpx 0;  
+}
+.order-step-wrap .time{
+  background:#fff;
+  color:#666;
+  font-size:24rpx; 
+  padding:8rpx 0;  
 }

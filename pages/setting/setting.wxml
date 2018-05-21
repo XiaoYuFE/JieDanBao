@@ -1,0 +1,6 @@
+<view class='setting-m-1 clearfix'>
+  <view class='lab'>新订单推送</view>
+  <view class="switch-item"><switch checked bindchange="switch1Change"/></view>
+</view>
+
+<view class='loginout'>退出登录</view>

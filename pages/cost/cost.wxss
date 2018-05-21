@@ -24,29 +24,45 @@
 
 .form-item{
   position: relative;
-  background:#f2f2f2; 
+  background:#fff;
+  border:1rpx solid #ebebeb; 
   padding-left:110rpx; 
   
 }
 
 .form-item .lab{
-  position: absolute;
-  left:0;
-  top:0;
-  background:#14c67d;
- color:#fff;
+ 
+  
+  
+ 
+ color:#cccccc;
  text-align: center;
- font-size:60rpx;  
-  width:105rpx;  
-  line-height:2.8rem; 
+ font-size:48rpx;  
+ position: absolute;
+ left:0;
+ top: 50%;
+ width:105rpx; 
+ transform: translate(0, -50%);
+ border-right:1rpx solid #ebebeb; 
   
 }
 
 .form-item .ipt-text{
-   padding:0.7rem 10rpx; 
+  height:50rpx; 
+  padding:15rpx 10rpx 15rpx 25rpx; 
  
 }
 
 .ipt-submit{
-  margin-top:40rpx; 
+  position:absolute;
+  right:0;
+  top:-1rpx;
+  z-index:20;   
+}
+.ipt-submit button{
+  height:82rpx;
+  line-height:82rpx;
+  padding:0 80rpx;
+  background:#14c67d;   
+  border-radius:0; 
 }

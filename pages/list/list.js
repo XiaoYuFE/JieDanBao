@@ -108,9 +108,9 @@ Page({
     this._getDataList(step, this.data[this.data.toView]);
   },
   onShow: function () {
-    this._getDataList(this.data.step, this.data[this.data.toView]);
+    this._getDataList(this.data.step, this.data[this.data.toView],true);
   },
-  _getDataList: function (listType, obj) {
+  _getDataList: function (listType, obj,isClear) {
     var that = this;
     wx.request({
       url: app.globalData.server + "/welcome/wechatapp?callback=Jiaju.dlist",
@@ -140,8 +140,11 @@ Page({
             isNoData: true
           })
         }
-       
-        obj.list = obj.list.concat(res.data.data.info);
+        if (isClear){
+          obj.list = res.data.data.info;
+        }else{
+          obj.list = obj.list.concat(res.data.data.info);
+        }
         that.setData({
           dataList: obj.list
         })

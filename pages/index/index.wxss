@@ -255,7 +255,7 @@ page {
   padding: 0rpx 20rpx;
 }
 
-.list-item {
+/* .list-item {
   background: #18c67e;
 }
 
@@ -302,14 +302,14 @@ page {
 }
 
 
+ */
 
 
 
 
 
 
-
-
+/* 
 .new-order-list {
   margin: 40rpx 30rpx 0;
   background: #fff;
@@ -369,9 +369,9 @@ page {
   top: 50%;
 
   transform: translate(0, -50%);
-}
+} */
 
-.contact-phone {
+/* .contact-phone {
   margin: 40rpx 30rpx 30rpx;
   background: #fff;
   border-radius: 15rpx;
@@ -400,11 +400,11 @@ page {
   right:27rpx;
   top:50%;  
   transform: translate(0, -50%);
-}
+} */
 
-.guide-sq{
+/* .guide-sq{
   margin:0 30rpx; 
-}
+} */
 
 
 

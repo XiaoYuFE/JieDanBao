@@ -1,13 +1,15 @@
 <view class='validate-msg' wx-if="{{validateMsg}}">{{validateMsg}}</view>
 <view class="cost-container">
-  <view class='tip-1'>为了更加精准为您派单，请填写工程造价</view>
+  <view class='tip-1'>请填写工程实际造价</view>
   <form bindsubmit="formSubmit">
     <view class='form-item'>
       <text class='lab'>¥</text>
       <input type='number' name="totalprice" class='ipt-text' placeholder='0.0' />
+
+      <view class="ipt-submit">
+        <button formType="submit" type="primary" loading="{{submiting}}" disabled='{{submiting}}'>提交</button>
+      </view>
     </view>
-    <view class="ipt-submit">
-      <button formType="submit" type="primary" loading="{{submiting}}" disabled='{{submiting}}'>提交</button>
-    </view>
+    
   </form>
 </view>

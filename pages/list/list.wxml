@@ -30,6 +30,27 @@
   <view class="order-nodata-tip {{isNoData ? 'active' :''}}">暂无数据 !</view>
 
   <view style='padding-bottom:40rpx;padding-top:120rpx'>
+    <view class='order-list'>
+      <view class='soma-hd'>
+        <view class="order-num">订单编号：12345678</view>
+        <view class='order-time'>2018-04-10 14:14</view>
+      </view>
+      <navigator>
+        <view class='soma-list'>
+          <view class='item-cell'>
+            <view class="person-info">18106968460
+              <text>(余先生)</text>
+            </view>
+            <view class='address'>首开领翔上郡</view>
+            <view class="arrow-box">
+                <text class="txt">新订单</text>
+                <text class='iconfont icon-jiantou icon-pic'></text>
+            </view>
+          </view>
+
+        </view>
+      </navigator>
+    </view>
     <view class='order-list' wx:for="{{dataList}}" wx:key="idx" wx:for-item="item">
       <view class='soma-hd'>
         <view class="order-num">订单编号：{{item.id}}</view>
@@ -38,12 +59,13 @@
       <navigator url="/pages/detail/detail?sid={{item.sid}}">
         <view class='soma-list'>
           <view class='item-cell'>
-            <view class='time'>
-              <view class='tag'>
-                <text class='txt-1'>时间</text>{{item.u_time}}</view>
+            <view class="person-info">{{item.mobile}}
+              <text>{{item.name}}</text>
             </view>
-            <view class="person-info">{{item.name}}（{{item.mobile}}）</view>
             <view class='address'>{{item.community}} ></view>
+
+
+
           </view>
         </view>
 

@@ -106,24 +106,27 @@
 </view>
 
 
-<view class='qa-ft'>
+<view class='qa-ft' bindtap='makeCallPhone'>
   小程序使用有问题？
   <text>联系我们</text>
 </view>
 
 
+<!-- <view class='contact-phone clearfix' bindtap='makeCallPhone'>
+  <view class='iconfont icon-76 icon-txt'></view>
+  <text class='txt-1'>联系客服</text>
+  <view class='phone'>{{kf_tel}} ></view>
+</view> -->
 
 
 
 
 
-
-<view class='list-item clearfix'>
+<!-- <view class='list-item clearfix'>
   <view class='item-cell item-1'>
     <navigator url="/pages/list/list?type=0&toView=step0" hover-class="false">
       <view class='item-detail'>
         <view class="num">{{dataList.dfw}}
-          <!-- 订单为零的时候不显示小圆圈 -->
           <view class='circle' wx:if="{{dataList.dfw==0 ? false :true}}"></view>
         </view>
         <text class='txt'>新订单</text>
@@ -175,11 +178,11 @@
     </navigator>
   </view>
 
-</view>
+</view> -->
 
 
 
-<view class='new-order-list' wx:if="{{dataList.info.length==0 ? false :true}}">
+<!-- <view class='new-order-list' wx:if="{{dataList.info.length==0 ? false :true}}">
   <view class='soma-hd'>
     <text class='iconfont icon-gonggao'></text>新订单-请及时处理
   </view>
@@ -202,7 +205,7 @@
 
 
   </view>
-</view>
+</view> -->
 
 
 
@@ -243,11 +246,7 @@
 </view> -->
 
 
-<view class='contact-phone clearfix' bindtap='makeCallPhone'>
-  <view class='iconfont icon-76 icon-txt'></view>
-  <text class='txt-1'>联系客服</text>
-  <view class='phone'>{{kf_tel}} ></view>
-</view>
+
 
 
 <!-- <view class="guide-sq"><button  type="primary" bindtap='handAuthority'>授权</button></view> -->
