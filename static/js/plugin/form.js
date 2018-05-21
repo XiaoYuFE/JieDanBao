@@ -3,7 +3,8 @@ class form {
   API_CONFIG = {
     login: 'Jiaju.check_login',
     bind: 'Jiaju.bind',
-    detail:'Jiaju.detail'
+    detail:'Jiaju.detail',
+    config:'Jiaju.config'
   };
 
   constructor(app) {
