@@ -165,13 +165,4 @@ Page({
        this._getDataList(this.data.step, this.data[this.data.toView]);
     }
   }
-
-
-
-
-
-
-
-
-
 })

@@ -41,6 +41,7 @@ Page({
           that.setData({validateMsg: res.msg})
         } else {
           //动态全局赋值
+          console.dir(res.data["ukey"]);
           app.globalData.sessionJdbUkey     = res.data["ukey"];
           app.globalData.sessionJdbBrandId  = res.data["brand_id"];
           app.globalData.sessionJdbUserInfo = res.data;

@@ -37,7 +37,10 @@ App({
     sessionJdbUserInfo:"",//存放小鱼用户的信息
     // sessionJdbUkey:"",
     // sessionJdbBrandId:""
-    sessionJdbUkey: "SwDKsfcimRSBEV6uDKDv86whONhccusgFFzN8D/oC9aCd8+XYlq7HTpSIev4Oi7ep+34mfu8uoyv6IocqCTdag==",
-    sessionJdbBrandId:784
+    // sessionJdbUkey: "SwDKsfcimRSBEV6uDKDv86whONhccusgFFzN8D/oC9aCd8+XYlq7HTpSIev4Oi7ep+34mfu8uoyv6IocqCTdag==",
+    // sessionJdbBrandId:784
+
+    sessionJdbUkey: "mpJ7FUTslDm0MhS6Wiy1oUR8wKd1AmX26ZEuVnbnfsE55SurNKXSETw6jgkgQJr/KG+z1063jzCf2x+adUp1CQ==",
+    sessionJdbBrandId: 838
   }
 })

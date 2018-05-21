@@ -14,12 +14,12 @@ page{
   padding: 30rpx;
   position: relative;
   background:#fff; 
-  margin-bottom:20rpx 
+  margin-bottom:20rpx
 }
 
 .customer-info .tit {
-  color: #3c4050;
-  font-size: 28rpx;
+  color:#1a1a1a;
+  font-size:28rpx;
 }
 
 .customer-info .phone {
@@ -565,7 +565,7 @@ page{
   border-radius: 100%;
 }
 
-.decoration-info {
+/* .decoration-info {
   padding: 30rpx;
 }
 
@@ -589,7 +589,7 @@ page{
   position: absolute;
   left: 0;
   top: 0;
-}
+} */
 
 .fixed-bottom {
   position: fixed;
