@@ -246,7 +246,7 @@
 <view class='contact-phone clearfix' bindtap='makeCallPhone'>
   <view class='iconfont icon-76 icon-txt'></view>
   <text class='txt-1'>联系客服</text>
-  <view class='phone'>0592-6799988 ></view>
+  <view class='phone'>{{kf_tel}} ></view>
 </view>
 
 

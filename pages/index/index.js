@@ -1,6 +1,6 @@
-
+import form from '../../static/js/plugin/form'
 const app = getApp();
-
+app.form = new form(app);
 
 Page({
   data: {
@@ -14,7 +14,11 @@ Page({
     setTimeout(function(){
       that._getPageData();
     },100)
-    
+
+    //获取配置信息
+    app.form.requestPost(app.form.API_CONFIG['config'],{},function(res){
+      that.setData({kf_tel:res.data.kf_tel});
+    });
   },
 
   onShow:function(){
@@ -46,16 +50,14 @@ Page({
     })
   },
 
-  // navDetail: function (event){
-  //   var url = event.currentTarget.dataset.url;
-  //   console.dir(url);
-  // },
+
   //拨打电话
   makeCallPhone: function () {
     wx.makePhoneCall({
-      phoneNumber: '0592-6799988' //仅为示例，并非真实的电话号码
+      phoneNumber: this.data.kf_tel //仅为示例，并非真实的电话号码
     })
   },
+
   onShareAppMessage: function () {
     return {
       title: '小鱼接单宝',
