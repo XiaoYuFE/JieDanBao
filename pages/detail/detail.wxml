@@ -33,7 +33,7 @@
   <view class='item-cell clearfix'>
     <text class='lab'>装修预算</text>
     <view class="para-item">
-      <text class='para-val'>{{!!dataList.signinfo.price/10000}}万</text>
+      <text class='para-val'>{{dataList.signinfo.price}}</text>
     </view>
   </view>
   <view class='item-cell clearfix'>

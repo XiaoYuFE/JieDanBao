@@ -77,13 +77,18 @@ Page({
     // this._getDataList(this.data.step, this.data.dataAll[options.toView]);
   },
   navTap: function (event) {
+    var step;
+    var id = event.currentTarget.id;
+    if (this.data.toView == id) {
+      return;
+    }
     this.setData({
       isLast: false,
       isNoData: false,
       dataList: ""
     });
-    var step;
-    var id = event.currentTarget.id;
+    
+    
     if (id == "stepall") {
       step = "";
     } else if (id == "step0") {
