@@ -47,6 +47,13 @@
             <view class='address'>{{item.community}}</view>
             <view class="arrow-box">
                 <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='0' )? true :false}}">新订单</text>
+                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='1' )? true :false}}">已量房</text>
+                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='2' )? true :false}}">设计中</text>
+                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='3' )? true :false}}">对比中</text>
+                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='4' )? true :false}}">已签约</text>
+                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='5' )? true :false}}">施工中</text>
+                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='6' )? true :false}}">已完成</text>
+                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='-1' )? true :false}}">已生效</text>
                 <text class='iconfont icon-jiantou icon-pic'></text>
             </view>
           </view>

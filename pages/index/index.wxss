@@ -138,14 +138,14 @@ page {
 .list-step-wrap .item-cell.item-1 .pic-icon .pic{
   width:35rpx;
   height:39rpx;  
-  background:url("https://wnworld.com/images/jiedanbang/h_icon_1.png");
+  background:url("http://m3.xiaoyu.com/img/h_icon_1.png");
   background-size: 100% 100%; 
 }
 
 .list-step-wrap .item-cell.item-2 .pic-icon .pic{
   width:38rpx;
   height:38rpx;  
-  background:url("https://wnworld.com/images/jiedanbang/h_icon_2.png");
+  background:url("http://m3.xiaoyu.com/img/h_icon_2.png");
   background-size: 100% 100%; 
 }
 .list-step-wrap .item-cell.item-3{
@@ -154,21 +154,21 @@ page {
 .list-step-wrap .item-cell.item-3 .pic-icon .pic{
   width:40rpx;
   height:41rpx;  
-  background:url("https://wnworld.com/images/jiedanbang/h_icon_3.png");
+  background:url("http://m3.xiaoyu.com/img/h_icon_3.png");
   background-size: 100% 100%; 
 }
 
 .list-step-wrap .item-cell.item-4 .pic-icon .pic{
   width:40rpx;
   height:41rpx;  
-  background:url("https://wnworld.com/images/jiedanbang/h_icon_4.png");
+  background:url("http://m3.xiaoyu.com/img/h_icon_4.png");
   background-size: 100% 100%; 
 }
 
 .list-step-wrap .item-cell.item-5 .pic-icon .pic{
   width:36rpx;
   height:40rpx;  
-  background:url("https://wnworld.com/images/jiedanbang/h_icon_5.png");
+  background:url("http://m3.xiaoyu.com/img/h_icon_5.png");
   background-size: 100% 100%; 
 }
 .list-step-wrap .item-cell.item-6{
@@ -177,7 +177,7 @@ page {
 .list-step-wrap .item-cell.item-6 .pic-icon .pic{
   width:31rpx;
   height:41rpx;  
-  background:url("https://wnworld.com/images/jiedanbang/h_icon_6.png");
+  background:url("http://m3.xiaoyu.com/img/h_icon_6.png");
   background-size: 100% 100%; 
 }
 
@@ -187,7 +187,7 @@ page {
 .list-step-wrap .item-cell.item-7 .pic-icon .pic{
   width:40rpx;
   height:40rpx;  
-  background:url("https://wnworld.com/images/jiedanbang/h_icon_7.png");
+  background:url("http://m3.xiaoyu.com/img/h_icon_7.png");
   background-size: 100% 100%; 
 }
 
@@ -197,7 +197,7 @@ page {
 .list-step-wrap .item-cell.item-8 .pic-icon .pic{
   width:38rpx;
   height:38rpx;  
-  background:url("https://wnworld.com/images/jiedanbang/h_icon_8.png");
+  background:url("http://m3.xiaoyu.com/img/h_icon_8.png");
   background-size: 100% 100%; 
 }
 

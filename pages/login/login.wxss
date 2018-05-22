@@ -4,7 +4,7 @@
   display:block;
   margin:60rpx auto 0;
   overflow:hidden;
-  background: url("https://wnworld.com/images/jiedanbang/logo.png") no-repeat center center;
+  background: url("http://m3.xiaoyu.com/img/logo.png") no-repeat center center;
   background-size: 100% 100%;   
 }
 .title-1{

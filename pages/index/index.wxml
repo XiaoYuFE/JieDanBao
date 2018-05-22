@@ -7,7 +7,7 @@
     </view>
     <view class="txt">{{dataList["brand_name"]}}</view>
     <view class='goset-btn' bindtap='setting'>
-      <navigator url='/pages/setting/setting'>设置<text class='iconfont icon-jiantou txt-arrow'></text></navigator>
+      <navigator url='/pages/setting/setting' hover-class="none">设置<text class='iconfont icon-jiantou txt-arrow'></text></navigator>
     </view>
   </view>
 </view>

@@ -5,11 +5,7 @@
     "pages/login/login",
     "pages/setting/setting",
     "pages/cost/cost",
-    "pages/detail/detail"
-    
-    
-    
-    
+    "pages/detail/detail"  
   ],
   "window": {
     "backgroundTextStyle": "light",

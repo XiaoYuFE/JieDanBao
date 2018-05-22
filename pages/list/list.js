@@ -109,7 +109,7 @@ Page({
     });
 
     //服务端请求数据(发送用户id和订单的类型)
-    this._getDataList(step, this.data[this.data.toView]);
+    this._getDataList(step, this.data[this.data.toView], true);
   },
   onShow: function () {
     this._getDataList(this.data.step, this.data[this.data.toView], true);
