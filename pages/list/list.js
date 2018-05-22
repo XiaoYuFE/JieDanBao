@@ -121,6 +121,9 @@ Page({
   },
   _getDataList: function (listType, obj, isClear) {
     var that = this;
+    if (isClear) {
+      obj.currentPage=1;
+    }
     app.form.requestPost(app.form.API_CONFIG['list'], {
       page: obj.currentPage,
       step: listType,
@@ -145,7 +148,8 @@ Page({
         obj.list = obj.list.concat(res.data.info);
       }
       that.setData({
-        dataList: obj.list
+        dataList: obj.list,
+
       })
     });
   },
