@@ -31,11 +31,11 @@ Page({
       unionid: app.globalData.sessionJdbUnionid,
       notice: e.detail.value ? 1 : 0
     }, function (res) {
-      // if (!!res.status && res.status !== "0") {
-      //   that.setData({
-      //     switchChecked: !e.detail.value
-      //   })
-      // }
+      if (!res.status && res.status == "0") {
+        that.setData({
+          switchChecked: !e.detail.value
+        })
+      }
     })
   },
   logout: function () {
