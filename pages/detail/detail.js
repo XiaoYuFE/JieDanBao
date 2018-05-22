@@ -11,6 +11,7 @@ Page({
     sid:"",
     stepText: ['新订单', '已量房', '设计中', '已对比', '已签约', '施工中', '完成'],
     dataList:"",
+    isIpx:app.globalData.isIpx,
     fromWhere:""
   },
 

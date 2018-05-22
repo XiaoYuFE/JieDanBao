@@ -36,7 +36,7 @@
     </navigator>
   </view>
   <view class="item-cell item-2">
-    <navigator url="/pages/list/list?type=1&toView=step1" hover-class="false">
+    <navigator url="/pages/list/list?type=1&toView=step1">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>

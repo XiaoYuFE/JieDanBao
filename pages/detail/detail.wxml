@@ -128,8 +128,8 @@
 </view>
 
 
-<view class='fixed-bottom-seat'></view>
-<view class='fixed-bottom'>
+<view class='fixed-bottom-seat {{isIpx ? "device-ipx" :""}}'></view>
+<view class='fixed-bottom {{isIpx ? "device-ipx" :""}}'>
   <view class='phone' bindtap='makeCallPhone'>
     <text class='iconfont icon-76 icon-txt'></text>拨打电话</view>
   <view class='hand-txt {{(step>=6 || step==-1) ? "disabled" :""}}' bindtap='setStepHandler'>

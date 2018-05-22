@@ -2,7 +2,15 @@
 App({
   //微信上面关闭删除后，进来就会触发这个事件，如果只是关闭没有删除小程序，那么不会触发该事件
   onLaunch:function(){
-
+    var that=this;
+    wx.getSystemInfo({
+      success: function (res) {
+        var name = 'iPhone X'
+        if (res.model.indexOf(name) > -1) {
+          that.globalData.isIpx = true
+        }
+      }
+    })
   },
   //每次关闭后在进来（不管有没有删除都会触发这个事件）
   onShow:function(){
