@@ -25,7 +25,7 @@
 
 <view class="list-step-wrap clearfix">
   <view class="item-cell item-1">
-    <navigator url="/pages/list/list?type=0&toView=step0">
+    <navigator url="/pages/jiaju/list/list?type=0&toView=step0">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
@@ -36,7 +36,7 @@
     </navigator>
   </view>
   <view class="item-cell item-2">
-    <navigator url="/pages/list/list?type=1&toView=step1">
+    <navigator url="/pages/jiaju/list/list?type=1&toView=step1">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
@@ -45,7 +45,7 @@
     </navigator>
   </view>
   <view class="item-cell item-3">
-    <navigator url="/pages/list/list?type=2&toView=step2">
+    <navigator url="/pages/jiaju/list/list?type=2&toView=step2">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
@@ -55,7 +55,7 @@
   </view>
 
   <view class="item-cell item-4">
-    <navigator url="/pages/list/list?type=3&toView=step3">
+    <navigator url="/pages/jiaju/list/list?type=3&toView=step3">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
@@ -65,7 +65,7 @@
   </view>
 
   <view class="item-cell item-5">
-    <navigator url="/pages/list/list?type=4&toView=step4">
+    <navigator url="/pages/jiaju/list/list?type=4&toView=step4">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
@@ -75,7 +75,7 @@
   </view>
 
   <view class="item-cell item-6">
-    <navigator url="/pages/list/list?type=5&toView=step5">
+    <navigator url="/pages/jiaju/list/list?type=5&toView=step5">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
@@ -85,7 +85,7 @@
   </view>
 
   <view class="item-cell item-7">
-    <navigator url="/pages/list/list?type=6&toView=step6">
+    <navigator url="/pages/jiaju/list/list?type=6&toView=step6">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
@@ -95,7 +95,7 @@
   </view>
 
   <view class="item-cell item-8">
-    <navigator url="/pages/list/list?type=-1&toView=stepsx">
+    <navigator url="/pages/jiaju/list/list?type=-1&toView=stepsx">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
@@ -106,7 +106,9 @@
 </view>
 
 
-<view class='qa-ft' bindtap='makeCallPhone'>
+<view class='qa-ft'>
   小程序使用有问题？
-  <text>联系我们</text>
+  <text bindtap='makeCallPhone'>联系我们</text>
+  <view class="bg-pic"></view>
 </view>
+

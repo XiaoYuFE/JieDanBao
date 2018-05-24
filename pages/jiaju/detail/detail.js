@@ -1,4 +1,4 @@
-import form from '../../static/js/plugin/form'
+import form from '../../../static/js/plugin/form'
 const app = getApp();
 app.form = new form(app);
 Page({
@@ -46,7 +46,7 @@ Page({
           //点击的是步骤,发送数据请求(用户id 订单id)
           if (that.data.step == 3) {
             wx.redirectTo({
-              url: '/pages/cost/cost?sid='+that.data.sid+"&step="+that.data.step
+              url: '/pages/jiaju/cost/cost?sid='+that.data.sid+"&step="+that.data.step
             });
           } else {
             //发送uid orderid  step 给后端

@@ -206,12 +206,20 @@ page {
   font-size:24rpx;
   text-align:center;
   color:#3c4050;
-  padding:60rpx 0;      
+  padding:60rpx 0 10rpx;      
 }
 .qa-ft text{
   color:#14c67d; 
 }
 
+
+.qa-ft .bg-pic{
+    width:432rpx;
+    height:192rpx;
+    margin:-20rpx auto 0; 
+    background:url("https://m3.xiaoyu.com/img/jiaju/h_bg_ft_pic.png")  no-repeat top center;
+    background-size:100% 100%;   
+}
 
 
 
