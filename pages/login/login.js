@@ -4,54 +4,54 @@ const app = getApp();
 Page({
   data: {
     validateMsg: false,
-    submiting:false,
-    isPhoneActive:false,
-    isPwdActive:false
+    submiting: false,
+    isPhoneActive: false,
+    isPwdActive: false
   },
   onLoad: function () {
     this._initValidate();
   },
   formSubmit: function (e) {
-    var that=this;
+    var that = this;
     const params = e.detail.value;
-    
+
     //按钮禁用
     this.setData({
-      submiting:true
+      submiting: true
     });
-    
+
     //表单验证
     if (!this.WxValidate.checkForm(e)) {
       const error = this.WxValidate.errorList[0]
       this.setData({
         validateMsg: error.msg,
-        submiting:false
+        submiting: false
       })
       return false
     } else {
       //验证通过进行后端请求
-      that.form.requestPost(that.form.API_CONFIG['login'], params,function(res,header){
+      that.form.requestPost(that.form.API_CONFIG['login'], params, function (res, header) {
         //设置提交按钮状态
         that.setData({
           submiting: false
         });
 
-       
- 
+
+
         //如果用户不存在或则错误
         if (res.status != '1') {
-          that.setData({validateMsg: res.msg})
+          that.setData({ validateMsg: res.msg })
         } else {
           //动态全局赋值
-          app.globalData.sessionJdbUkey     = res.data["ukey"];
-          app.globalData.sessionJdbBrandId  = res.data["brand_id"];
+          app.globalData.sessionJdbUkey = res.data["ukey"];
+          app.globalData.sessionJdbBrandId = res.data["brand_id"];
           app.globalData.sessionJdbUserInfo = res.data;
 
           wx.login({
-            success:function(res){
-              if(res.code){
-                that.form.requestPost(that.form.API_CONFIG['bind'], { code: res.code, ukey: app.globalData.sessionJdbUkey, bid: app.globalData.sessionJdbBrandId}, function (res) {
-                  if(res.status == '1'){
+            success: function (res) {
+              if (res.code) {
+                that.form.requestPost(that.form.API_CONFIG['bind'], { code: res.code, ukey: app.globalData.sessionJdbUkey, bid: app.globalData.sessionJdbBrandId }, function (res) {
+                  if (res.status == '1') {
                     that.setData({ validateMsg: '登录成功' })
                     //本地存储id
                     app.globalData.sessionJdbUnionid = res.data["unionid"];
@@ -74,21 +74,21 @@ Page({
                       key: "sessionJdbUnionid",
                       data: app.globalData.sessionJdbUnionid
                     });
-                   
+
 
                     //跳转到相关页面
                     wx.redirectTo({
                       url: '/pages/index/index'
                     })
-                  }else{
+                  } else {
                     that.setData({ validateMsg: res.msg })
                   }
                 });
-              }else{
+              } else {
                 that.setData({ validateMsg: '授权失败' })
               }
             },
-            fail:function(res){
+            fail: function (res) {
               console.log(res);
               that.setData({ validateMsg: '授权失败2' })
             }
@@ -112,7 +112,7 @@ Page({
       password: {
         required: true
       }
-    }
+    };
 
     const messages = {
       username: {
@@ -121,28 +121,28 @@ Page({
       password: {
         required: "请输入密码"
       }
-    }
+    };
 
     this.WxValidate = new WxValidate(rules, messages);
-    this.form = new form(app); 
+    this.form = new form(app);
 
   },
-  usernameFoucs:function(){
-      this.setData({
-        isPhoneActive:true
-      });
+  usernameFoucs: function () {
+    this.setData({
+      isPhoneActive: true
+    });
   },
   usernameBlur: function () {
     this.setData({
-      isPhoneActive:false
+      isPhoneActive: false
     });
   },
-  pwdFoucs:function(){
+  pwdFoucs: function () {
     this.setData({
       isPwdActive: true
     });
   },
-  pwdBlur:function(){
+  pwdBlur: function () {
     this.setData({
       isPwdActive: false
     });
