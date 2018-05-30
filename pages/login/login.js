@@ -43,7 +43,6 @@ Page({
           that.setData({validateMsg: res.msg})
         } else {
           //动态全局赋值
-          console.dir(res.data["ukey"]);
           app.globalData.sessionJdbUkey     = res.data["ukey"];
           app.globalData.sessionJdbBrandId  = res.data["brand_id"];
           app.globalData.sessionJdbUserInfo = res.data;
@@ -52,8 +51,8 @@ Page({
             success:function(res){
               if(res.code){
                 that.form.requestPost(that.form.API_CONFIG['bind'], { code: res.code, ukey: app.globalData.sessionJdbUkey, bid: app.globalData.sessionJdbBrandId}, function (res) {
-                  console.dir(res);
                   if(res.status == '1'){
+                    that.setData({ validateMsg: '登录成功' })
                     //本地存储id
                     app.globalData.sessionJdbUnionid = res.data["unionid"];
                     wx.setStorage({
@@ -88,6 +87,10 @@ Page({
               }else{
                 that.setData({ validateMsg: '授权失败' })
               }
+            },
+            fail:function(res){
+              console.log(res);
+              that.setData({ validateMsg: '授权失败2' })
             }
           });
         }
