@@ -1,0 +1,199 @@
+<view class="caption-top" wx:if="{{(step==0) ? true :false}}">新订单</view>
+<!--step-end  -->
+
+
+
+<view class='customer-info'>
+  <view class='phone'>{{dataList.signinfo.mobile}} {{dataList.signinfo.realname}}</view>
+  <view class="tip-1" wx:if="{{step>=6 ? true :false}}"></view>
+  <view class="tip-sx" wx:if="{{step==-1 ? true :false}}"></view>
+</view>
+
+<view class="decoration-info-box clearfix">
+  <view class='caption'>贷款信息</view>
+  <view class='item-cell clearfix'>
+    <text class='lab'>贷款金额</text>
+    <view class="para-item">
+      <text class='para-val'>{{!!dataList.signinfo.community ? dataList.signinfo.community :'未填写'}}</text>
+    </view>
+  </view>
+  <view class='item-cell clearfix'>
+    <text class='lab'>贷款期限</text>
+    <view class="para-item">
+      <text class='para-val'>{{!!dataList.signinfo.area ? dataList.signinfo.area+'㎡' :'未填写'}}</text>
+    </view>
+  </view>
+  <view class='item-cell clearfix'>
+    <text class='lab'>职业身份</text>
+    <view class="para-item">
+      <text class='para-val'>{{!!dataList.signinfo.d_type ? dataList.signinfo.d_type :'未填写'}}</text>
+    </view>
+  </view>
+</view>
+
+
+<view class="order-step-wrap  clearfix">
+  <view class="num">订单编号：{{dataList.djid}}</view>
+  <view class="time">派单时间：{{dataList.dj_time}}</view>
+  <view class="order-steps step-2" wx:if="{{(step==6 || step==-1) ? false :true}}">
+   
+    <view class='step-list clearfix'>
+      <view class='item-cell item-cell-1'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>新订单</text>
+      </view>
+      
+      <view class='item-cell item-cell-2'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>完成</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class='fixed-bottom-seat {{isIpx ? "device-ipx" :""}}'></view>
+<view class='fixed-bottom {{isIpx ? "device-ipx" :""}}'>
+  <view class='phone' bindtap='makeCallPhone'>
+    <text class='iconfont icon-76 icon-txt'></text>拨打电话</view>
+  <view class='hand-txt {{(step>=6 || step==-1) ? "disabled" :""}}' bindtap='setStepHandler'>
+    <text class='txt-1'>订单操作</text>
+    <!-- <text class='txt-2'>量房时间：04-10 15:30</text> -->
+  </view>
+</view>
+
+<view class="gobackhome" wx:if="{{!!fromWhere ? true :false}}">
+  <navigator url="/pages/jiaju/index/index" class='iconfont icon-home'></navigator>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <view class="order-info">
+  <view class="txt-1">订单编号：{{dataList.djid}}</view>
+  <view class="txt-1">派单时间：{{dataList.dj_time}}</view>
+  <view class="txt-1">派单员：{{dataList.username}}</view>
+  <view class="order-steps step-{{step+1}}" wx:if="{{(step==6 || step==-1) ? false :true}}">
+    <view class='line-wrap'>
+      <view class='line'></view>
+      <view class='line-on'></view>
+    </view>
+    <view class='step-list clearfix'>
+      <view class='item-cell item-cell-1'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>新订单</text>
+      </view>
+      <view class='item-cell item-cell-2'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>已量房</text>
+      </view>
+      <view class='item-cell item-cell-3'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>设计中</text>
+      </view>
+
+      <view class='item-cell item-cell-4'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>已对比</text>
+      </view>
+      <view class='item-cell item-cell-5'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>已签约</text>
+      </view>
+      <view class='item-cell item-cell-6'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>施工中</text>
+      </view>
+      <view class='item-cell item-cell-7'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>完成</text>
+      </view>
+    </view>
+  </view>
+</view> -->
+
+
+<!-- <view class='decoration-info'>
+  <view class='caption'>装修信息</view>
+
+  <view class='item-cell'>
+    <text class="lab">小区名称：</text>{{dataList.signinfo.community}}</view>
+  <view class='item-cell'>
+    <text class="lab">装修阶段：</text>{{stepText[step]}}</view>
+  <view class='item-cell'>
+    <text class="lab">装修时间：</text>{{dataList.signinfo.d_date}}</view>
+  <view class='item-cell'>
+    <text class="lab">房屋面积：</text>{{dataList.signinfo.area}}</view>
+  <view class='item-cell'>
+    <text class="lab">期望风格：</text>{{dataList.signinfo.d_style}}</view>
+  <view class='item-cell'>
+    <text class="lab">房屋情况：</text>{{dataList.signinfo.fwqk}}</view>
+  <view class='item-cell'>
+    <text class="lab">装修预算：</text>{{dataList.signinfo.price}}</view>
+  <view class='item-cell'>
+    <text class="lab">房屋户型：</text>{{dataList.signinfo.unit}}</view>
+  <view class='item-cell'>
+    <text class="lab">装修时间：</text>{{dataList.signinfo.d_date}}</view>
+</view> -->
+
