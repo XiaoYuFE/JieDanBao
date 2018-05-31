@@ -201,7 +201,6 @@ page {
   background-size: 100% 100%; 
 }
 
-
 .qa-ft{
   font-size:24rpx;
   text-align:center;
@@ -219,6 +218,7 @@ page {
     margin:-20rpx auto 0; 
     background:url("https://m3.xiaoyu.com/img/jiaju/h_bg_ft_pic.png")  no-repeat top center;
     background-size:100% 100%;   
+<<<<<<< HEAD:pages/jiaju/index/index.wxss
 }
 
 
@@ -309,115 +309,6 @@ page {
 .list-item .item-4 navigator,
 .list-item .item-5 navigator{
     border-right:1px solid #5ed8a6; 
+=======
+>>>>>>> master:pages/index/index.wxss
 }
-
-
- */
-
-
-
-
-
-
-/* 
-.new-order-list {
-  margin: 40rpx 30rpx 0;
-  background: #fff;
-  border-radius: 15rpx;
-  border: 1px solid #ebebeb;
-}
-
-.new-order-list .soma-hd {
-  color: #3c4050;
-  height: 90rpx;
-  line-height: 90rpx;
-  padding: 0 25rpx;
-  font-size: 28rpx;
-  border-bottom: 1px solid #ebebeb;
-}
-
-.new-order-list .soma-hd text {
-  margin-right: 10rpx;
-  color: #14c67d;
-}
-
-
-
-.new-order-list .item-cell navigator{
-  position: relative;
-  padding: 20rpx 27rpx;
-  border-bottom: 1px solid #ebebeb;
-}
-
-.new-order-list .item-cell .time .tag {
-  font-size: 28rpx;
-}
-
-.new-order-list .item-cell .time .tag .txt-1 {
-  background: #5a5d73;
-  border-radius: 5rpx;
-  padding: 0 10rpx;
-  color: #fff;
-  font-size: 22rpx;
-  height: 28rpx;
-  line-height: 28rpx;
-  margin-right: 8rpx;
-  margin-top: -5rpx;
-}
-
-.new-order-list .person-info {
-  color: #666;
-  font-size: 24rpx;
-  margin-top: 15rpx;
-}
-
-.new-order-list .address {
-  color: #666;
-  font-size: 28rpx;
-  position: absolute;
-  right: 27rpx;
-  top: 50%;
-
-  transform: translate(0, -50%);
-} */
-
-/* .contact-phone {
-  margin: 40rpx 30rpx 30rpx;
-  background: #fff;
-  border-radius: 15rpx;
-  border: 1px solid #ebebeb;
-  position:relative; 
-  padding:20rpx 27rpx; 
-}
-
-.contact-phone .icon-txt {
-  color: #14c67d;
-  float: left;
-  font-size:34rpx; 
-}
-
-.contact-phone .txt-1 {
-  color: #3c4050;
-  float: left;
-  font-size:28rpx; 
-}
-
-.contact-phone .phone {
-  float: right;
-  color: #666;
-  font-size: 24rpx;
-  position:absolute;
-  right:27rpx;
-  top:50%;  
-  transform: translate(0, -50%);
-} */
-
-/* .guide-sq{
-  margin:0 30rpx; 
-} */
-
-
-
-
-
-
