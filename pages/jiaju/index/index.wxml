@@ -110,9 +110,4 @@
   小程序使用有问题？
   <text bindtap='makeCallPhone'>联系我们</text>
   <view class="bg-pic"></view>
-<<<<<<< HEAD:pages/jiaju/index/index.wxml
 </view>
-
-=======
-</view>
->>>>>>> master:pages/index/index.wxml

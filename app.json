@@ -1,27 +1,9 @@
 {
   "pages": [
-<<<<<<< HEAD
-    
-
-
-    "pages/jinrong/index/index",
-    "pages/jinrong/list/list",
-    "pages/jinrong/detail/detail",
-
-=======
->>>>>>> master
     "pages/jiaju/index/index",
     "pages/jiaju/list/list",
     "pages/jiaju/cost/cost",
     "pages/jiaju/detail/detail",
-<<<<<<< HEAD
-
-    
-    
-    
-    
-=======
->>>>>>> master
     "pages/login/login",
     "pages/setting/setting"
   ],
