@@ -78,7 +78,7 @@ Page({
 
                     //跳转到相关页面
                     wx.redirectTo({
-                      url: '/pages/index/index'
+                      url: '/pages/jiaju/index/index'
                     })
                   } else {
                     that.setData({ validateMsg: res.msg })

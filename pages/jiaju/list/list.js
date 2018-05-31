@@ -59,6 +59,10 @@ Page({
   },
 
   onLoad: function (options) {
+<<<<<<< HEAD:pages/jiaju/list/list.js
+=======
+    
+>>>>>>> master:pages/jiaju/list/list.js
     var that = this;
     this.setData({
       step: options.type,
@@ -67,7 +71,7 @@ Page({
 
     wx.getSystemInfo({
       success: function (res) {
-        console.info(res.windowHeight);
+        
         that.setData({
           scrollHeight: res.windowHeight
         });
