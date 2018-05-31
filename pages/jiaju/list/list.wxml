@@ -38,7 +38,7 @@
         <view class="order-num">订单编号：{{item.id}}</view>
         <view class='order-time'>{{item.c_time}}</view>
       </view>
-      <navigator url="/pages/detail/detail?sid={{item.sid}}">
+      <navigator url="/pages/jiaju/detail/detail?sid={{item.sid}}">
         <view class='soma-list'>
           <view class='item-cell'>
             <view class="person-info">{{item.mobile}}

@@ -1,4 +1,4 @@
-import WxValidate from '../../static/js/plugin/WxValidate'
+import WxValidate from '../../../static/js/plugin/WxValidate'
 const app = getApp();
 Page({
 
@@ -66,7 +66,7 @@ Page({
             duration: 2000,
             success: function () {
               wx.redirectTo({
-                url: '/pages/detail/detail?sid=' + that.data.sid
+                url: '/pages/jiaju/detail/detail?sid=' + that.data.sid
               })
             }
           })

@@ -1,4 +1,4 @@
-import form from '../../static/js/plugin/form'
+import form from '../../../static/js/plugin/form'
 const app = getApp();
 app.form = new form(app);
 Page({
@@ -59,7 +59,7 @@ Page({
   },
 
   onLoad: function (options) {
-    console.dir(options);
+    
     var that = this;
     this.setData({
       step: options.type,
@@ -68,7 +68,7 @@ Page({
 
     wx.getSystemInfo({
       success: function (res) {
-        console.info(res.windowHeight);
+        
         that.setData({
           scrollHeight: res.windowHeight
         });

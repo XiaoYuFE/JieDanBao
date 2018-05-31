@@ -1,4 +1,4 @@
-import form from '../../static/js/plugin/form'
+import form from '../../../static/js/plugin/form'
 const app = getApp();
 app.form = new form(app);
 
@@ -56,7 +56,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '小鱼接单宝',
-      path: '/pages/index/index',
+      path: '/pages/jiaju/index/index',
       imageUrl: "http://m3.xiaoyu.com/img/jiedanbao_share.png",
       success: function (res) {
         wx.showToast({
@@ -69,12 +69,5 @@ Page({
 
       }
     }
-  },
-  handAuthority: function () {
-    wx.navigateTo({
-      url: '/pages/authority/authority?id=10'
-    })
-
-
   }
 })
