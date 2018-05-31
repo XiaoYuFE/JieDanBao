@@ -106,7 +106,8 @@
 </view>
 
 
-<view class='qa-ft' bindtap='makeCallPhone'>
+<view class='qa-ft'>
   小程序使用有问题？
-  <text>联系我们</text>
+  <text bindtap='makeCallPhone'>联系我们</text>
+  <view class="bg-pic"></view>
 </view>
