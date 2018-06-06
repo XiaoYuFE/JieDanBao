@@ -6,7 +6,7 @@ page {
 }
 
 .header-top {
-  background: #18c67e;
+  background: #fea639;
 }
 
 .avatar-box {
@@ -145,56 +145,22 @@ page {
 .list-step-wrap .item-cell.item-2 .pic-icon .pic{
   width:38rpx;
   height:38rpx;  
-  background:url("http://m3.xiaoyu.com/img/h_icon_2.png");
+  background:url("http://m3.xiaoyu.com/img/h_icon_10.png");
   background-size: 100% 100%; 
 }
-.list-step-wrap .item-cell.item-3{
-  border-right:none; 
-}
+
 .list-step-wrap .item-cell.item-3 .pic-icon .pic{
-  width:40rpx;
-  height:41rpx;  
-  background:url("http://m3.xiaoyu.com/img/h_icon_3.png");
+  width:38rpx;
+  height:38rpx;  
+  background:url("http://m3.xiaoyu.com/img/h_icon_11.png");
   background-size: 100% 100%; 
 }
 
+
+.list-step-wrap .item-cell.item-4{
+  border-bottom:none; 
+}
 .list-step-wrap .item-cell.item-4 .pic-icon .pic{
-  width:40rpx;
-  height:41rpx;  
-  background:url("http://m3.xiaoyu.com/img/h_icon_4.png");
-  background-size: 100% 100%; 
-}
-
-.list-step-wrap .item-cell.item-5 .pic-icon .pic{
-  width:36rpx;
-  height:40rpx;  
-  background:url("http://m3.xiaoyu.com/img/h_icon_5.png");
-  background-size: 100% 100%; 
-}
-.list-step-wrap .item-cell.item-6{
-  border-right:none; 
-}
-.list-step-wrap .item-cell.item-6 .pic-icon .pic{
-  width:31rpx;
-  height:41rpx;  
-  background:url("http://m3.xiaoyu.com/img/h_icon_6.png");
-  background-size: 100% 100%; 
-}
-
-.list-step-wrap .item-cell.item-7{
-  border-bottom:none; 
-}
-.list-step-wrap .item-cell.item-7 .pic-icon .pic{
-  width:40rpx;
-  height:40rpx;  
-  background:url("http://m3.xiaoyu.com/img/h_icon_7.png");
-  background-size: 100% 100%; 
-}
-
-.list-step-wrap .item-cell.item-8{
-  border-bottom:none; 
-}
-.list-step-wrap .item-cell.item-8 .pic-icon .pic{
   width:38rpx;
   height:38rpx;  
   background:url("http://m3.xiaoyu.com/img/h_icon_8.png");
@@ -208,14 +174,12 @@ page {
   padding:60rpx 0 10rpx;      
 }
 .qa-ft text{
-  color:#14c67d; 
+  color:#ffa536; 
 }
-
-
 .qa-ft .bg-pic{
     width:432rpx;
     height:192rpx;
     margin:-20rpx auto 0; 
-    background:url("https://m3.xiaoyu.com/img/jiaju/h_bg_ft_pic.png")  no-repeat top center;
+    background:url("https://m3.xiaoyu.com/img/car/h_bg_ft_pic.png")  no-repeat top center;
     background-size:100% 100%;   
 }

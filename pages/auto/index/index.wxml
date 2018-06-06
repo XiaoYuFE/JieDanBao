@@ -40,7 +40,7 @@
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
-      <text class="txt">已量房</text>
+      <text class="txt">服务中</text>
       <view class="num">{{dataList.ylf}}</view>
     </navigator>
   </view>
@@ -49,7 +49,7 @@
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
-      <text class="txt">设计中</text>
+      <text class="txt">已成交</text>
       <view class="num">{{dataList.sjz}}</view>
     </navigator>
   </view>
@@ -59,50 +59,12 @@
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
-      <text class="txt">对比中</text>
+      <text class="txt">跑单</text>
       <view class="num">{{dataList.dbz}}</view>
     </navigator>
   </view>
 
-  <view class="item-cell item-5">
-    <navigator url="/pages/jiaju/list/list?type=4&toView=step4">
-      <view class="pic-icon">
-        <view class='pic'></view>
-      </view>
-      <text class="txt">已签约</text>
-      <view class="num">{{dataList.yqy}}</view>
-    </navigator>
-  </view>
-
-  <view class="item-cell item-6">
-    <navigator url="/pages/jiaju/list/list?type=5&toView=step5">
-      <view class="pic-icon">
-        <view class='pic'></view>
-      </view>
-      <text class="txt">施工中</text>
-      <view class="num">{{dataList.sgz}}</view>
-    </navigator>
-  </view>
-
-  <view class="item-cell item-7">
-    <navigator url="/pages/jiaju/list/list?type=6&toView=step6">
-      <view class="pic-icon">
-        <view class='pic'></view>
-      </view>
-      <text class="txt">验收完成</text>
-      <view class="num">{{dataList.ywc}}</view>
-    </navigator>
-  </view>
-
-  <view class="item-cell item-8">
-    <navigator url="/pages/jiaju/list/list?type=-1&toView=stepsx">
-      <view class="pic-icon">
-        <view class='pic'></view>
-      </view>
-      <text class="txt">跑单</text>
-      <view class="num">{{dataList.ysx}}</view>
-    </navigator>
-  </view>
+  
 </view>
 
 
