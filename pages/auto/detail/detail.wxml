@@ -5,12 +5,12 @@
 
 <view class='customer-info'>
   <view class='phone'>{{dataList.signinfo.mobile}} {{dataList.signinfo.realname}}</view>
-  <view class="tip-1" wx:if="{{step>=6 ? true :false}}"></view>
+  <view class="tip-1" wx:if="{{step>=2 ? true :false}}"></view>
   <view class="tip-sx" wx:if="{{step==-1 ? true :false}}"></view>
 </view>
 
 <view class="decoration-info-box clearfix">
- 
+
   <view class='item-cell clearfix'>
     <text class='lab'>意向品牌</text>
     <view class="para-item">
@@ -35,13 +35,44 @@
       <text class='para-val'>小型车</text>
     </view>
   </view>
+
+  <!--**********二手车  -->
+  <view class='item-cell clearfix'>
+    <text class='lab'>意向品牌</text>
+    <view class="para-item para-sel-car">
+      <picker bindchange="bindPickerChange" value="{{carTypeIndex}}" range="{{carTypeArray}}">
+        <view class="picker">
+          {{carTypeArray[carTypeIndex]}}
+        </view>
+      </picker>
+      <i class="iconfont icon-jiantou arrow-pic"></i>
+      
+    </view>
+  </view>
+
+  <view class='item-cell clearfix'>
+    <text class='lab'>价格</text>
+    <view class="para-item">
+      <text class='para-val'>10-20万</text>
+    </view>
+  </view>
+
+  <view class='item-cell clearfix'>
+    <text class='lab'>上牌时间</text>
+    <view class="para-item">
+      <text class='para-val'>小型车</text>
+    </view>
+  </view>
 </view>
+
+
+
 
 
 <view class="order-step-wrap  clearfix">
   <view class="num">订单编号：{{dataList.djid}}</view>
   <view class="time">派单时间：{{dataList.dj_time}}</view>
-  <view class="order-steps step-3" wx:if="{{(step==6 || step==-1) ? false :true}}">
+  <view class="order-steps step-{{step+1}}" wx:if="{{(step==6 || step==-1) ? false :true}}">
     <view class='step-list clearfix'>
       <view class='item-cell item-cell-1'>
         <view class='circle'>
@@ -51,7 +82,7 @@
         </view>
         <text class='txt'>新订单</text>
       </view>
-      
+
       <view class='item-cell item-cell-2'>
         <view class='circle'>
           <text class='circle-3'></text>
@@ -60,7 +91,7 @@
         </view>
         <text class='txt'>服务中</text>
       </view>
-      
+
       <view class='item-cell item-cell-3'>
         <view class='circle'>
           <text class='circle-3'></text>
@@ -78,7 +109,7 @@
 <view class='fixed-bottom {{isIpx ? "device-ipx" :""}}'>
   <view class='phone' bindtap='makeCallPhone'>
     <text class='iconfont icon-76 icon-txt'></text>拨打电话</view>
-  <view class='hand-txt {{(step>=6 || step==-1) ? "disabled" :""}}' bindtap='setStepHandler'>
+  <view class='hand-txt {{(step>=2 || step==-1) ? "disabled" :""}}' bindtap='setStepHandler'>
     <text class='txt-1'>订单操作</text>
     <!-- <text class='txt-2'>量房时间：04-10 15:30</text> -->
   </view>
@@ -210,4 +241,3 @@
   <view class='item-cell'>
     <text class="lab">装修时间：</text>{{dataList.signinfo.d_date}}</view>
 </view> -->
-

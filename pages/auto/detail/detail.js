@@ -9,6 +9,8 @@ Page({
   data: {
     step:"",
     sid:"",
+    carTypeIndex: 0,
+    carTypeArray: ['宝马x1', '宝马x2', '宝马x3', '宝马x4', '宝马x5', '宝马x6',],
     //订单步骤文字在这里
     stepText: ['新订单', '服务中', '完成'],
     dataList:"",
@@ -37,7 +39,7 @@ Page({
   },
   setStepHandler: function () {
     var that = this;
-    if (this.data.step >= 6 || this.data.step==-1) {
+    if (this.data.step >= 2 || this.data.step==-1) {
       return;
     }
     //底部弹出来的操作
@@ -86,7 +88,7 @@ Page({
         }
       },
       fail: function (res) {
-        console.log(res.errMsg)
+        
       }
     })
 
@@ -95,6 +97,12 @@ Page({
     var that = this;
     wx.makePhoneCall({
       phoneNumber: that.data.dataList.signinfo.mobile //仅为示例，并非真实的电话号码
+    })
+  },
+
+  bindPickerChange:function(e){
+    this.setData({
+      carTypeIndex: e.detail.value
     })
   },
 

@@ -171,6 +171,7 @@ page {
   font-size:24rpx;
   text-align:center;
   color:#3c4050;
+  margin-top:80rpx; 
   padding:60rpx 0 10rpx;      
 }
 .qa-ft text{
@@ -180,6 +181,6 @@ page {
     width:432rpx;
     height:192rpx;
     margin:-20rpx auto 0; 
-    background:url("https://m3.xiaoyu.com/img/car/h_bg_ft_pic.png")  no-repeat top center;
+    background:url("https://m3.xiaoyu.com/img/auto/h_bg_ft_pic.png")  no-repeat top center;
     background-size:100% 100%;   
 }

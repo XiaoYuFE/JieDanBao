@@ -49,6 +49,24 @@ page {
   background-size: 100% 100%;
 }
 
+.para-sel-car{
+  position:relative; 
+  padding-right:35rpx; 
+  width:50%; 
+}
+.para-sel-car .picker{
+  text-align: right;
+}
+.para-sel-car .arrow-pic{
+  position: absolute;
+    right:0;
+    top: 50%;
+    -webkit-transform: translate(0,-50%);
+    -ms-transform: translate(0,-50%);
+    -moz-transform: translate(0,-50%);
+
+}
+
 .customer-info.step-end .phone {
   color: #ccc;
 }
