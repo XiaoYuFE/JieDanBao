@@ -4,54 +4,29 @@
 
 
 <view class='customer-info'>
-  <view class='tit'>客户信息</view>
   <view class='phone'>{{dataList.signinfo.mobile}} {{dataList.signinfo.realname}}</view>
   <view class="tip-1" wx:if="{{step>=6 ? true :false}}"></view>
   <view class="tip-sx" wx:if="{{step==-1 ? true :false}}"></view>
 </view>
 
 <view class="decoration-info-box clearfix">
-  <view class='caption'>装修信息</view>
+  <view class='caption'>贷款信息</view>
   <view class='item-cell clearfix'>
-    <text class='lab'>楼盘</text>
+    <text class='lab'>贷款金额</text>
     <view class="para-item">
       <text class='para-val'>{{!!dataList.signinfo.community ? dataList.signinfo.community :'未填写'}}</text>
     </view>
   </view>
   <view class='item-cell clearfix'>
-    <text class='lab'>面积</text>
+    <text class='lab'>贷款期限</text>
     <view class="para-item">
       <text class='para-val'>{{!!dataList.signinfo.area ? dataList.signinfo.area+'㎡' :'未填写'}}</text>
     </view>
   </view>
   <view class='item-cell clearfix'>
-    <text class='lab'>装修方式</text>
+    <text class='lab'>职业身份</text>
     <view class="para-item">
       <text class='para-val'>{{!!dataList.signinfo.d_type ? dataList.signinfo.d_type :'未填写'}}</text>
-    </view>
-  </view>
-  <view class='item-cell clearfix'>
-    <text class='lab'>装修预算</text>
-    <view class="para-item">
-      <text class='para-val'>{{dataList.signinfo.price}}</text>
-    </view>
-  </view>
-  <view class='item-cell clearfix'>
-    <text class='lab'>房屋情况</text>
-    <view class="para-item">
-      <text class='para-val'>{{!!dataList.signinfo.fwqk ? dataList.signinfo.fwqk :"未填写"}}</text>
-    </view>
-  </view>
-  <view class='item-cell clearfix'>
-    <text class='lab'>期望风格</text>
-    <view class="para-item">
-      <text class='para-val'>{{!!dataList.signinfo.d_style ? dataList.signinfo.d_style :'未填写'}}</text>
-    </view>
-  </view>
-  <view class='item-cell clearfix'>
-    <text class='lab'>预计装修时间</text>
-    <view class="para-item">
-      <text class='para-val'>{{!!dataList.signinfo.d_date ? dataList.signinfo.d_date :"未填写"}}</text>
     </view>
   </view>
 </view>
@@ -60,11 +35,8 @@
 <view class="order-step-wrap  clearfix">
   <view class="num">订单编号：{{dataList.djid}}</view>
   <view class="time">派单时间：{{dataList.dj_time}}</view>
-  <view class="order-steps step-{{step+1}}" wx:if="{{(step==6 || step==-1) ? false :true}}">
-    <view class='line-wrap'>
-      <view class='line'></view>
-      <view class='line-on'></view>
-    </view>
+  <view class="order-steps step-2" wx:if="{{(step==6 || step==-1) ? false :true}}">
+   
     <view class='step-list clearfix'>
       <view class='item-cell item-cell-1'>
         <view class='circle'>
@@ -74,48 +46,8 @@
         </view>
         <text class='txt'>新订单</text>
       </view>
+      
       <view class='item-cell item-cell-2'>
-        <view class='circle'>
-          <text class='circle-3'></text>
-          <text class='circle-2'></text>
-          <text class='circle-1'></text>
-        </view>
-        <text class='txt'>已量房</text>
-      </view>
-      <view class='item-cell item-cell-3'>
-        <view class='circle'>
-          <text class='circle-3'></text>
-          <text class='circle-2'></text>
-          <text class='circle-1'></text>
-        </view>
-        <text class='txt'>设计中</text>
-      </view>
-
-      <view class='item-cell item-cell-4'>
-        <view class='circle'>
-          <text class='circle-3'></text>
-          <text class='circle-2'></text>
-          <text class='circle-1'></text>
-        </view>
-        <text class='txt'>已对比</text>
-      </view>
-      <view class='item-cell item-cell-5'>
-        <view class='circle'>
-          <text class='circle-3'></text>
-          <text class='circle-2'></text>
-          <text class='circle-1'></text>
-        </view>
-        <text class='txt'>已签约</text>
-      </view>
-      <view class='item-cell item-cell-6'>
-        <view class='circle'>
-          <text class='circle-3'></text>
-          <text class='circle-2'></text>
-          <text class='circle-1'></text>
-        </view>
-        <text class='txt'>施工中</text>
-      </view>
-      <view class='item-cell item-cell-7'>
         <view class='circle'>
           <text class='circle-3'></text>
           <text class='circle-2'></text>

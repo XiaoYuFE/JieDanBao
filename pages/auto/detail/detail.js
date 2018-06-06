@@ -9,6 +9,7 @@ Page({
   data: {
     step:"",
     sid:"",
+    //订单步骤文字在这里
     stepText: ['新订单', '已量房', '设计中', '已对比', '已签约', '施工中', '完成'],
     dataList:"",
     isIpx:app.globalData.isIpx,
@@ -39,16 +40,14 @@ Page({
     if (this.data.step >= 6 || this.data.step==-1) {
       return;
     }
+    //底部弹出来的操作
     wx.showActionSheet({
       itemList: [this.data.stepText[this.data.step+1], '停止服务'],
       success: function (res) {
+        //点击的是步骤
         if (res.tapIndex == 0) {
           //点击的是步骤,发送数据请求(用户id 订单id)
-          if (that.data.step == 3) {
-            wx.redirectTo({
-              url: '/pages/jiaju/cost/cost?sid='+that.data.sid+"&step="+that.data.step
-            });
-          } else {
+          
             //发送uid orderid  step 给后端
             wx.showLoading({
               title: '加载中',
@@ -68,7 +67,7 @@ Page({
                 });
               }
             });
-          }
+          
         } else if (res.tapIndex == 1) {
           //点击的是停止服务
           app.form.requestPost(app.form.API_CONFIG['upstep'], {

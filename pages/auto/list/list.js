@@ -59,7 +59,6 @@ Page({
   },
 
   onLoad: function (options) {
-    
     var that = this;
     this.setData({
       step: options.type,
@@ -68,7 +67,7 @@ Page({
 
     wx.getSystemInfo({
       success: function (res) {
-        
+        console.info(res.windowHeight);
         that.setData({
           scrollHeight: res.windowHeight
         });

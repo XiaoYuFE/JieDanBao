@@ -6,25 +6,10 @@
     <text class="txt">新订单</text>
   </view>
   <view class='scroll-view-item {{toView=="step1" ? "active":""}}' id='step1' bindtap='navTap'>
-    <text class="txt">已量房</text>
+    <text class="txt">服务完成</text>
   </view>
   <view class='scroll-view-item {{toView=="step2" ? "active":""}}' id='step2' bindtap='navTap'>
-    <text class="txt">设计中</text>
-  </view>
-  <view class='scroll-view-item {{toView=="step3" ? "active":""}}' id='step3' bindtap='navTap'>
-    <text class="txt"> 对比中</text>
-  </view>
-  <view class='scroll-view-item {{toView=="step4" ? "active":""}}' id='step4' bindtap='navTap'>
-    <text class="txt">已签约</text>
-  </view>
-  <view class='scroll-view-item {{toView=="step5" ? "active":""}}' id='step5' bindtap='navTap'>
-    <text class="txt">施工中</text>
-  </view>
-  <view class='scroll-view-item {{toView=="step6" ? "active":""}}' id='step6' bindtap='navTap'>
-    <text class="txt">已完工</text>
-  </view>
-  <view class='scroll-view-item {{toView=="stepsx" ? "active":""}}' id='stepsx' bindtap='navTap'>
-    <text class="txt">失效</text>
+    <text class="txt">跑单</text>
   </view>
 </scroll-view>
 
@@ -38,22 +23,18 @@
         <view class="order-num">订单编号：{{item.id}}</view>
         <view class='order-time'>{{item.c_time}}</view>
       </view>
-      <navigator url="/pages/jiaju/detail/detail?sid={{item.sid}}"> 
+      <navigator url="/pages/jinrong/detail/detail?sid={{item.sid}}">
         <view class='soma-list'>
           <view class='item-cell'>
             <view class="person-info">{{item.mobile}}
               <text wx:if="{{item.name ? true :false}}">({{item.name}})</text>
             </view>
-            <view class='address'>{{item.community}}</view>
+           
             <view class="arrow-box">
                 <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='0' )? true :false}}">新订单</text>
-                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='1' )? true :false}}">已量房</text>
-                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='2' )? true :false}}">设计中</text>
-                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='3' )? true :false}}">对比中</text>
-                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='4' )? true :false}}">已签约</text>
-                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='5' )? true :false}}">施工中</text>
-                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='6' )? true :false}}">已完成</text>
-                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='-1' )? true :false}}">已生效</text>
+                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='1' )? true :false}}">已设计</text>
+                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='2' )? true :false}}">已完成</text>
+                <text class="txt" wx:if="{{ (toView=='stepall' && item.step=='3' )? true :false}}">跑单</text>
                 <text class='iconfont icon-jiantou icon-pic'></text>
             </view>
           </view>
