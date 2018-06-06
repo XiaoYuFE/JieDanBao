@@ -30,7 +30,7 @@ page {
 .nav-scroll .scroll-view-item.active{
   padding-bottom:0;
   position:relative; 
-  color:#138ce1;
+  color:#ffa536;
   
 }
 .nav-scroll .scroll-view-item.active::after{
@@ -41,7 +41,7 @@ page {
   transform:translate(-50%,0);  
   width:40%;
   height:3rpx;
-  background:#138ce1;   
+  background:#ffa536;   
 }
 
 .list-wrap{

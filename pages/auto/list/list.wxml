@@ -6,9 +6,12 @@
     <text class="txt">新订单</text>
   </view>
   <view class='scroll-view-item {{toView=="step1" ? "active":""}}' id='step1' bindtap='navTap'>
-    <text class="txt">服务完成</text>
+    <text class="txt">服务中</text>
   </view>
-  <view class='scroll-view-item {{toView=="step2" ? "active":""}}' id='step2' bindtap='navTap'>
+  <view class='scroll-view-item {{toView=="step1" ? "active":""}}' id='step2' bindtap='navTap'>
+    <text class="txt">已成交</text>
+  </view>
+  <view class='scroll-view-item {{toView=="step2" ? "active":""}}' id='step3' bindtap='navTap'>
     <text class="txt">跑单</text>
   </view>
 </scroll-view>
