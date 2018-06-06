@@ -1,0 +1,113 @@
+<!--index.wxml-->
+
+<view class='header-top'>
+  <view class='avatar-box clearfix'>
+    <view class='pic'>
+      <image src='{{dataList["logo"]}}' mode="{{aspectFit}}"></image>
+    </view>
+    <view class="txt">{{dataList["brand_name"]}}</view>
+    <view class='goset-btn' bindtap='setting'>
+      <navigator url='/pages/setting/setting' hover-class="none">设置<text class='iconfont icon-jiantou txt-arrow'></text></navigator>
+    </view>
+  </view>
+</view>
+
+<view class='list-type-1 clearfix'>
+  <view class='item-1'>
+    本月订单
+    <text class='txt'>{{dataList.mdata}}</text>
+  </view>
+  <view class='item-2'>
+    总计订单
+    <text class='txt'>{{dataList.alldata}}</text>
+  </view>
+</view>
+
+<view class="list-step-wrap clearfix">
+  <view class="item-cell item-1">
+    <navigator url="/pages/jiaju/list/list?type=0&toView=step0">
+      <view class="pic-icon">
+        <view class='pic'></view>
+      </view>
+      <text class="txt">新订单</text>
+      <view class="num">{{dataList.dfw}}
+        <text class="circle" wx:if="{{dataList.dfw==0 ? false :true}}"></text>
+      </view>
+    </navigator>
+  </view>
+  <view class="item-cell item-2">
+    <navigator url="/pages/jiaju/list/list?type=1&toView=step1">
+      <view class="pic-icon">
+        <view class='pic'></view>
+      </view>
+      <text class="txt">已量房</text>
+      <view class="num">{{dataList.ylf}}</view>
+    </navigator>
+  </view>
+  <view class="item-cell item-3">
+    <navigator url="/pages/jiaju/list/list?type=2&toView=step2">
+      <view class="pic-icon">
+        <view class='pic'></view>
+      </view>
+      <text class="txt">设计中</text>
+      <view class="num">{{dataList.sjz}}</view>
+    </navigator>
+  </view>
+
+  <view class="item-cell item-4">
+    <navigator url="/pages/jiaju/list/list?type=3&toView=step3">
+      <view class="pic-icon">
+        <view class='pic'></view>
+      </view>
+      <text class="txt">对比中</text>
+      <view class="num">{{dataList.dbz}}</view>
+    </navigator>
+  </view>
+
+  <view class="item-cell item-5">
+    <navigator url="/pages/jiaju/list/list?type=4&toView=step4">
+      <view class="pic-icon">
+        <view class='pic'></view>
+      </view>
+      <text class="txt">已签约</text>
+      <view class="num">{{dataList.yqy}}</view>
+    </navigator>
+  </view>
+
+  <view class="item-cell item-6">
+    <navigator url="/pages/jiaju/list/list?type=5&toView=step5">
+      <view class="pic-icon">
+        <view class='pic'></view>
+      </view>
+      <text class="txt">施工中</text>
+      <view class="num">{{dataList.sgz}}</view>
+    </navigator>
+  </view>
+
+  <view class="item-cell item-7">
+    <navigator url="/pages/jiaju/list/list?type=6&toView=step6">
+      <view class="pic-icon">
+        <view class='pic'></view>
+      </view>
+      <text class="txt">验收完成</text>
+      <view class="num">{{dataList.ywc}}</view>
+    </navigator>
+  </view>
+
+  <view class="item-cell item-8">
+    <navigator url="/pages/jiaju/list/list?type=-1&toView=stepsx">
+      <view class="pic-icon">
+        <view class='pic'></view>
+      </view>
+      <text class="txt">跑单</text>
+      <view class="num">{{dataList.ysx}}</view>
+    </navigator>
+  </view>
+</view>
+
+
+<view class='qa-ft'>
+  小程序使用有问题？
+  <text bindtap='makeCallPhone'>联系我们</text>
+  <view class="bg-pic"></view>
+</view>
