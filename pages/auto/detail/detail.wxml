@@ -41,8 +41,7 @@
 <view class="order-step-wrap  clearfix">
   <view class="num">订单编号：{{dataList.djid}}</view>
   <view class="time">派单时间：{{dataList.dj_time}}</view>
-  <view class="order-steps step-2" wx:if="{{(step==6 || step==-1) ? false :true}}">
-   
+  <view class="order-steps step-3" wx:if="{{(step==6 || step==-1) ? false :true}}">
     <view class='step-list clearfix'>
       <view class='item-cell item-cell-1'>
         <view class='circle'>
