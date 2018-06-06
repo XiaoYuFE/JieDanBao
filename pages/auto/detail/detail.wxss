@@ -4,9 +4,9 @@ page{
 .caption-top {
   height: 64rpx;
   line-height: 64rpx;
-  background: #d0f4e5;
+  background: #ffa536;
   text-align: center;
-  color: #14c67d;
+  color: #fff;
   font-size: 28rpx;
 }
 
@@ -23,7 +23,7 @@ page{
 }
 
 .customer-info .phone {
-  color: #138ce1;
+  color: #ffa536;
   font-size: 40rpx;
   text-align: center;
 }
@@ -79,21 +79,34 @@ page{
 
 
 .order-steps.step-2 .step-list .item-cell-1 .txt, 
-.order-steps.step-2 .step-list .item-cell-2 .txt
+.order-steps.step-2 .step-list .item-cell-2 .txt,
+.order-steps.step-3 .step-list .item-cell-1 .txt,
+.order-steps.step-3 .step-list .item-cell-2 .txt,
+.order-steps.step-3 .step-list .item-cell-3 .txt
 {
   color: #138ce1;
 }
 
 .order-steps.step-1 .step-list .item-cell-1::after{
- 
     background:#138ce1; 
 }
+
 .order-steps.step-2 .step-list .item-cell-1::after{
- 
     background:#138ce1; 
 }
+
 .order-steps.step-2 .step-list .item-cell-2::after{
- 
+    background:#138ce1; 
+}
+
+.order-steps.step-3 .step-list .item-cell-1::after{
+    background:#138ce1; 
+}
+.order-steps.step-3 .step-list .item-cell-2::after{
+    background:#138ce1;
+    
+}
+.order-steps.step-3 .step-list .item-cell-3::after{
     background:#138ce1; 
 }
 
@@ -136,6 +149,44 @@ page{
 }
 
 
+.order-steps.step-3 .item-cell-1 .circle .circle-1 {
+  background-color: #138ce1;
+}
+
+.order-steps.step-3 .item-cell-1 .circle .circle-2 {
+  background-color: #84c3ef;
+}
+
+.order-steps.step-3 .item-cell-1 .circle .circle-3 {
+  background-color: #d0e8f9;
+}
+
+.order-steps.step-3 .item-cell-2 .circle .circle-1 {
+  background-color: #138ce1;
+}
+
+.order-steps.step-3 .item-cell-2 .circle .circle-2 {
+  background-color: #84c3ef;
+}
+
+.order-steps.step-3 .item-cell-2 .circle .circle-3 {
+  background-color: #d0e8f9;
+}
+
+
+.order-steps.step-3 .item-cell-3 .circle .circle-1 {
+  background-color: #138ce1;
+}
+
+.order-steps.step-3 .item-cell-3 .circle .circle-2 {
+  background-color: #84c3ef;
+}
+
+.order-steps.step-3 .item-cell-3 .circle .circle-3 {
+  background-color: #d0e8f9;
+}
+
+
 
 
 
@@ -150,7 +201,7 @@ page{
 
 .order-steps .step-list .item-cell {
   float: left;
-  width:50%;
+  width:33.33%;
   position:relative; 
 }
 .order-steps .step-list .item-cell::after{
@@ -159,13 +210,19 @@ page{
   background:#999999;
   position:absolute;
   top:10rpx;
-  width:100%;     
+  width:100%;  
 }
 .order-steps .step-list .item-cell-1::after{
   left:50rpx;
 }
 
 .order-steps .step-list .item-cell-2::after{
+  left:0rpx;
+  right:0;
+  z-index:10;
+  
+}
+.order-steps .step-list .item-cell-3::after{
   right:50rpx;
 }
 
@@ -182,7 +239,7 @@ page{
   padding-left: 15rpx;
 }
 
-.order-steps .step-list .item-cell-2 .txt{
+.order-steps .step-list .item-cell-3 .txt{
   text-align: right;
   padding-right: 30rpx;
 }
@@ -194,10 +251,20 @@ page{
    z-index: 10; 
 }
 
-.order-steps .step-list .item-cell-2 {
+.order-steps .step-list .item-cell-2 .circle {
+   margin:0 auto;
+   position:relative;
+   z-index: 10; 
+}
+.order-steps .step-list .item-cell-2 .txt{
+  text-align:center;
+  margin-top:10rpx; 
+}
+
+.order-steps .step-list .item-cell-3 {
   text-align: right;
 }
-.order-steps .step-list .item-cell-2 .circle {
+.order-steps .step-list .item-cell-3 .circle {
    margin-right: 40rpx;
    float:right; 
    

@@ -10,23 +10,29 @@
 </view>
 
 <view class="decoration-info-box clearfix">
-  <view class='caption'>贷款信息</view>
+ 
   <view class='item-cell clearfix'>
-    <text class='lab'>贷款金额</text>
+    <text class='lab'>意向品牌</text>
     <view class="para-item">
-      <text class='para-val'>{{!!dataList.signinfo.community ? dataList.signinfo.community :'未填写'}}</text>
+      <text class='para-val'>本田</text>
     </view>
   </view>
   <view class='item-cell clearfix'>
-    <text class='lab'>贷款期限</text>
+    <text class='lab'>意向车系</text>
     <view class="para-item">
-      <text class='para-val'>{{!!dataList.signinfo.area ? dataList.signinfo.area+'㎡' :'未填写'}}</text>
+      <text class='para-val'>飞度</text>
     </view>
   </view>
   <view class='item-cell clearfix'>
-    <text class='lab'>职业身份</text>
+    <text class='lab'>预算区间</text>
     <view class="para-item">
-      <text class='para-val'>{{!!dataList.signinfo.d_type ? dataList.signinfo.d_type :'未填写'}}</text>
+      <text class='para-val'>10-20万</text>
+    </view>
+  </view>
+  <view class='item-cell clearfix'>
+    <text class='lab'>意向车型</text>
+    <view class="para-item">
+      <text class='para-val'>小型车</text>
     </view>
   </view>
 </view>
@@ -48,6 +54,15 @@
       </view>
       
       <view class='item-cell item-cell-2'>
+        <view class='circle'>
+          <text class='circle-3'></text>
+          <text class='circle-2'></text>
+          <text class='circle-1'></text>
+        </view>
+        <text class='txt'>服务中</text>
+      </view>
+      
+      <view class='item-cell item-cell-3'>
         <view class='circle'>
           <text class='circle-3'></text>
           <text class='circle-2'></text>

@@ -1,9 +1,9 @@
 {
   "pages": [
-
+"pages/auto/detail/detail",
     "pages/auto/index/index",
     "pages/auto/list/list",
-    "pages/auto/detail/detail",
+    
 
     "pages/jiaju/index/index",
     "pages/jiaju/list/list",

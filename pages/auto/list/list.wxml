@@ -1,17 +1,17 @@
 <scroll-view scroll-x="true" bindscroll="scroll" class="nav-scroll clearfix" scroll-into-view="{{toView}}" id='J_nav-scroll'>
-  <view class='scroll-view-item {{toView=="stepall" ? "active":""}}' id='stepall' bindtap='navTap' type="all">
+  <view class='scroll-view-item {{toView=="stepall" ? "active":""}}' id='stepall' bindtap='navTap'>
     <text class="txt">全部</text>
   </view>
-  <view class='scroll-view-item {{toView=="step0" ? "active":""}}' id='step0' bindtap='navTap' type="xdd">
+  <view class='scroll-view-item {{toView=="step0" ? "active":""}}' id='step0' bindtap='navTap'>
     <text class="txt">新订单</text>
   </view>
   <view class='scroll-view-item {{toView=="step1" ? "active":""}}' id='step1' bindtap='navTap'>
     <text class="txt">服务中</text>
   </view>
-  <view class='scroll-view-item {{toView=="step1" ? "active":""}}' id='step2' bindtap='navTap'>
+  <view class='scroll-view-item {{toView=="step2" ? "active":""}}' id='step2' bindtap='navTap'>
     <text class="txt">已成交</text>
   </view>
-  <view class='scroll-view-item {{toView=="step2" ? "active":""}}' id='step3' bindtap='navTap'>
+  <view class='scroll-view-item {{toView=="step3" ? "active":""}}' id='step3' bindtap='navTap'>
     <text class="txt">跑单</text>
   </view>
 </scroll-view>
@@ -26,7 +26,7 @@
         <view class="order-num">订单编号：{{item.id}}</view>
         <view class='order-time'>{{item.c_time}}</view>
       </view>
-      <navigator url="/pages/jinrong/detail/detail?sid={{item.sid}}">
+      <navigator url="/pages/auto/detail/detail?sid={{item.sid}}">
         <view class='soma-list'>
           <view class='item-cell'>
             <view class="person-info">{{item.mobile}}
