@@ -11,14 +11,11 @@ Page({
 
   onLoad: function () {
     var that = this;
-    setTimeout(function () {
-      that._getPageData();
-    }, 100)
-
     //获取配置信息
-    app.form.requestPost(app.form.API_CONFIG['config'], {}, function (res) {
+    app.form.requestPost(app.form.API_CONFIG.jinrong.config, {}, function (res) {
       that.setData({ kf_tel: res.data.kf_tel });
     });
+    that.setData({ xyUserInfo: app.globalData.sessionJdbUserInfo });
   },
 
   onShow: function () {
@@ -28,10 +25,7 @@ Page({
   //获取页面数据（登录以后才执行此步骤）
   _getPageData: function () {
     var that = this;
-    app.form.requestPost(app.form.API_CONFIG['index'], {
-      bid: app.globalData.sessionJdbBrandId,
-      ukey: app.globalData.sessionJdbUkey
-    }, function (res) {
+    app.form.requestPost(app.form.API_CONFIG.jinrong.order_total, {}, function (res) {
       //判断是否登陆
       app.isLogin(res.islogin);
       that.setData({
@@ -47,9 +41,8 @@ Page({
 
   //拨打电话
   makeCallPhone: function () {
-    var that = this;
     wx.makePhoneCall({
-      phoneNumber: that.data.kf_tel //仅为示例，并非真实的电话号码
+      phoneNumber: this.data.kf_tel //仅为示例，并非真实的电话号码
     })
   },
 

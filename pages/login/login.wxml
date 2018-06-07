@@ -9,7 +9,7 @@
   <form bindsubmit="formSubmit" bindreset="formReset">
     <view class="item-cell">
       <view class="lab"><view class="icon-pic-phone iconfont icon-phone {{isPhoneActive ? 'active' :''}}"></view></view>
-      <input type='text' bindfocus="usernameFoucs" bindblur="usernameBlur"  class="ipt-text {{isPwdActive ? 'active' :''}}" name="username" bindtap="bindInputTap" placeholder="请输入您的账号" />
+      <input type='text' bindfocus="usernameFoucs" bindblur="usernameBlur"  class="ipt-text {{isPwdActive ? 'active' :''}}" name="mobile" bindtap="bindInputTap" placeholder="请输入您的账号" />
     </view>
     <view class="item-cell">
       <view class="lab"><view class="icon-pic-pw iconfont icon-mima54  {{isPwdActive ? 'active' :''}}"></view></view>

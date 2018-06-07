@@ -7,84 +7,63 @@ Page({
    * 页面的初始数据
    */
   data: {
-    step:"",
-    sid:"",
-    stepText: ['新订单', '已量房', '设计中', '已对比', '已签约', '施工中', '完成'],
-    dataList:"",
+    stepText: {dfw:'新订单',ylf:'已量房', sjz:'设计中', dbz:'已对比', yqy:'已签约', sgz:'施工中', ywg:'完成','void':'跑单'},
+    stepKeyConfig:['dfw','ylf','sjz','dbz','yqy','sgz','ywg','void'],
+    order:{},
     isIpx:app.globalData.isIpx,
-    fromWhere:""
+    fromWhere:"",
+    stepKey:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.isLogin();
     var that = this;
     //获取页面传递过来的id,然后动过id获取订单详情
-    that.setData({
-      fromWhere: options.from,
-      sid:options.sid
-    });
+    that.setData({fromWhere: options.from});
 
-    app.form.requestPost(app.form.API_CONFIG['detail'], {sid: options.sid}, function (res) {
-      that.setData({
-        step: parseInt(res.data.step),
-        dataList: res.data
-      })
+    app.form.requestPost(app.form.API_CONFIG.jiaju.order_info, {id: options.id}, function (res) {
+      that.setData({ order: res.data, stepKey: that.data.stepKeyConfig.indexOf(res.data.step)})
     });
   },
   setStepHandler: function () {
     var that = this;
-    if (this.data.step >= 6 || this.data.step==-1) {
-      return;
+    if (this.data.step == 'void' || this.data.step=='ywg') {
+      return false;
     }
-    wx.showActionSheet({
-      itemList: [this.data.stepText[this.data.step+1], '停止服务'],
-      success: function (res) {
-        if (res.tapIndex == 0) {
-          //点击的是步骤,发送数据请求(用户id 订单id)
-          if (that.data.step == 3) {
-            wx.redirectTo({
-              url: '/pages/jiaju/cost/cost?sid='+that.data.sid+"&step="+that.data.step
-            });
-          } else {
-            //发送uid orderid  step 给后端
-            wx.showLoading({
-              title: '加载中',
-              mask: true
-            });
 
-            app.form.requestPost(app.form.API_CONFIG['upstep'], { 
-              step: that.data.step + 1,
-              sid: that.data.sid,
-              bid: app.globalData.sessionJdbBrandId,
-              ukey: app.globalData.sessionJdbUkey
-            }, function (res) {
-              wx.hideLoading();
-              if (res.status == "1") {
-                that.setData({
-                  step: that.data.step + 1
-                });
-              }
-            });
-          }
-        } else if (res.tapIndex == 1) {
-          //点击的是停止服务
-          app.form.requestPost(app.form.API_CONFIG['upstep'], {
-            step: -1,
-            sid: that.data.sid,
-            bid: app.globalData.sessionJdbBrandId,
-            ukey: app.globalData.sessionJdbUkey
-          }, function (res) {   
-            wx.hideLoading();
-            if (res.status == "1") {
-              that.setData({
-                step: -1
-              })
-            }
+    var next_step = this.data.stepKeyConfig[this.data.stepKey+1];
+    wx.showActionSheet({
+      itemList: [this.data.stepText[next_step], '停止服务'],
+      success: function (res) {
+        var step = res.tapIndex == 1 ? 'void' : next_step;
+
+        //点击的是步骤,发送数据请求(用户id 订单id)
+        if (step == 'sjz') {
+          wx.redirectTo({
+            url: '/pages/jiaju/cost/cost?id=' + that.data.order.id + "&step=" + step
           });
+          return false;
         }
+
+        wx.showLoading({ title: '加载中', mask: true });
+
+        app.form.requestPost(app.form.API_CONFIG.jiaju.opt_order, {
+          step: step,
+          id: that.data.order.id
+        }, function (res) {
+          wx.hideLoading();
+          wx.showModal({ content: res.msg, showCancel: false });
+          if (res.status != 1) {
+            return false;
+          }
+
+          that.data.order.step = step;
+          that.data.stepKey    = that.data.stepKeyConfig.indexOf(step);
+
+          that.setData({ order: that.data.order, stepKey: that.data.stepKey});
+        });
       },
       fail: function (res) {
         console.log(res.errMsg)
@@ -95,7 +74,7 @@ Page({
   makeCallPhone: function () {
     var that = this;
     wx.makePhoneCall({
-      phoneNumber: that.data.dataList.signinfo.mobile //仅为示例，并非真实的电话号码
+      phoneNumber: that.data.order.mobile //仅为示例，并非真实的电话号码
     })
   },
 

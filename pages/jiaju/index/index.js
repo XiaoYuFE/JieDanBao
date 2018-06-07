@@ -4,21 +4,18 @@ app.form = new form(app);
 
 Page({
   data: {
-    xyUserInfo: "",
-    dataList: "",
+    xyUserInfo: {},
+    dataList: {},
     kf_tel: ""
   },
 
   onLoad: function () {
     var that = this;
-    setTimeout(function () {
-      that._getPageData();
-    }, 100)
-
     //获取配置信息
-    app.form.requestPost(app.form.API_CONFIG['config'], {}, function (res) {
+    app.form.requestPost(app.form.API_CONFIG.jiaju.config, {}, function (res) {
       that.setData({ kf_tel: res.data.kf_tel });
     });
+    that.setData({ xyUserInfo: app.globalData.sessionJdbUserInfo });
   },
 
   onShow: function () {
@@ -28,15 +25,9 @@ Page({
   //获取页面数据（登录以后才执行此步骤）
   _getPageData: function () {
     var that = this;
-    app.form.requestPost(app.form.API_CONFIG['index'], {
-      bid: app.globalData.sessionJdbBrandId,
-      ukey: app.globalData.sessionJdbUkey
-    }, function (res) {
+    app.form.requestPost(app.form.API_CONFIG.jiaju.order_total,{}, function (res) {
       //判断是否登陆
-      app.isLogin(res.islogin);
-      that.setData({
-        dataList: res.data
-      });
+      that.setData({dataList: res.data});
     })
   },
   setting: function () {

@@ -1,7 +1,7 @@
 {
   "pages": [
     
-
+    "pages/common/index",
     "pages/jiaju/index/index",
     "pages/jiaju/list/list",
     "pages/jiaju/cost/cost",

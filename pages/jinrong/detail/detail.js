@@ -7,83 +7,57 @@ Page({
    * 页面的初始数据
    */
   data: {
-    step:"",
-    sid:"",
+    id:"",
     //订单步骤文字在这里
-    stepText: ['新订单', '已量房', '设计中', '已对比', '已签约', '施工中', '完成'],
-    dataList:"",
+    stepText: {'dfw':'新订单','void':'完成'},
     isIpx:app.globalData.isIpx,
-    fromWhere:""
+    fromWhere:"",
+    order:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.isLogin();
     var that = this;
     //获取页面传递过来的id,然后动过id获取订单详情
     that.setData({
       fromWhere: options.from,
-      sid:options.sid
+      id:options.id
     });
 
-    app.form.requestPost(app.form.API_CONFIG['detail'], {sid: options.sid}, function (res) {
-      that.setData({
-        step: parseInt(res.data.step),
-        dataList: res.data
-      })
+    app.form.requestPost(app.form.API_CONFIG.jinrong.order_info, {id:options.id}, function (res) {
+       that.setData({order: res.data})
     });
   },
   setStepHandler: function () {
     var that = this;
-    if (this.data.step >= 6 || this.data.step==-1) {
-      return;
+    if (this.data.order.step == 'void' || this.data.order.step == 'ywc' ) {
+      return false;
     }
+
     //底部弹出来的操作
     wx.showActionSheet({
-      itemList: [this.data.stepText[this.data.step+1], '停止服务'],
+      itemList: ['服务完成', '停止服务'],
       success: function (res) {
-        //点击的是步骤
-        if (res.tapIndex == 0) {
-          //点击的是步骤,发送数据请求(用户id 订单id)
-          
-            //发送uid orderid  step 给后端
-            wx.showLoading({
-              title: '加载中',
-              mask: true
-            });
-
-            app.form.requestPost(app.form.API_CONFIG['upstep'], { 
-              step: that.data.step + 1,
-              sid: that.data.sid,
-              bid: app.globalData.sessionJdbBrandId,
-              ukey: app.globalData.sessionJdbUkey
-            }, function (res) {
-              wx.hideLoading();
-              if (res.status == "1") {
-                that.setData({
-                  step: that.data.step + 1
-                });
-              }
-            });
-          
-        } else if (res.tapIndex == 1) {
-          //点击的是停止服务
-          app.form.requestPost(app.form.API_CONFIG['upstep'], {
-            step: -1,
-            sid: that.data.sid,
-            bid: app.globalData.sessionJdbBrandId,
-            ukey: app.globalData.sessionJdbUkey
-          }, function (res) {   
-            wx.hideLoading();
-            if (res.status == "1") {
-              that.setData({
-                step: -1
-              })
-            }
-          });
-        }
+        //发送uid orderid  step 给后端
+        wx.showLoading({
+          title: '加载中',
+          mask: true
+        });
+        var step = res.tapIndex == 0 ? 'ywc' : 'void';
+        app.form.requestPost(app.form.API_CONFIG.jinrong.opt_order, {
+          step: step,
+          id: that.data.id
+        }, function (res) {
+          wx.hideLoading();
+          if(res.status == 1){
+            that.data.order.step = step;
+            that.setData({order: that.data.order});
+          }else{
+            wx.showModal({ content: res.msg, showCancel: false });
+          }
+        });
       },
       fail: function (res) {
         console.log(res.errMsg)
@@ -94,7 +68,7 @@ Page({
   makeCallPhone: function () {
     var that = this;
     wx.makePhoneCall({
-      phoneNumber: that.data.dataList.signinfo.mobile //仅为示例，并非真实的电话号码
+      phoneNumber: that.data.order.mobile 
     })
   },
 

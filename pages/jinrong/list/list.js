@@ -8,155 +8,64 @@ Page({
     isNoData: false,
     loadMoreData: "加载中...",
     scrollHeight: "",
-    dataList: "",
+    dataList: [],
 
-    stepall: {
-      currentPage: 1,
-      isLast: false,
-      list: []
-    },
-    step0: {
-      currentPage: 1,
-      isLast: false,
-      list: []
-    },
-    step1: {
-      currentPage: 1,
-      isLast: false,
-      list: []
-    },
-    step2: {
-      currentPage: 1,
-      isLast: false,
-      list: []
-    },
-    step3: {
-      currentPage: 1,
-      isLast: false,
-      list: []
-    },
-    step4: {
-      currentPage: 1,
-      isLast: false,
-      list: []
-    },
-    step5: {
-      currentPage: 1,
-      isLast: false,
-      list: []
-    },
-    step6: {
-      currentPage: 1,
-      isLast: false,
-      list: []
-    },
-    stepsx: {
-      currentPage: 1,
-      isLast: false,
-      list: []
-    }
-
+    currentPage: 1,
+    pagesize: 10,
+    isLast: false,
   },
 
   onLoad: function (options) {
     var that = this;
-    this.setData({
-      step: options.type,
-      toView: options.toView
-    });
-
+    this.setData({ step: options.toView });
     wx.getSystemInfo({
       success: function (res) {
-        console.info(res.windowHeight);
-        that.setData({
-          scrollHeight: res.windowHeight
-        });
+        that.setData({ scrollHeight: res.windowHeight });
       }
     });
-    // this._getDataList(this.data.step, this.data.dataAll[options.toView]);
   },
   navTap: function (event) {
-    var step;
-    var id = event.currentTarget.id;
-    if (this.data.toView == id) {
-      return;
+    var step = event.currentTarget.dataset.step;
+    if (this.data.step == step) {
+      return false;
     }
+
     this.setData({
       isLast: false,
       isNoData: false,
-      dataList: ""
+      dataList: [],
+      currentPage:1,
+      step:step
     });
-    
-    
-    if (id == "stepall") {
-      step = "";
-    } else if (id == "step0") {
-      step = 0;
-    } else if (id == "step1") {
-      step = 1;
-    } else if (id == "step2") {
-      step = 2;
-    } else if (id == "step3") {
-      step = 3;
-    } else if (id == "step4") {
-      step = 4;
-    } else if (id == "step5") {
-      step = 5;
-    } else if (id == "step6") {
-      step = 6;
-    } else if (id == "stepsx") {
-      step = -1;
-    }
-    this.setData({
-      step: step,
-      toView: event.currentTarget.id
-    });
-
-    //服务端请求数据(发送用户id和订单的类型)
-    this._getDataList(step, this.data[this.data.toView], true);
+    this._getDataList();
   },
   onShow: function () {
-    this._getDataList(this.data.step, this.data[this.data.toView], true);
+    
   },
-  _getDataList: function (listType, obj, isClear) {
+  _getDataList: function () {
     var that = this;
-    if (isClear) {
-      obj.currentPage=1;
-    }
-    app.form.requestPost(app.form.API_CONFIG['list'], {
-      page: obj.currentPage,
-      step: listType,
-      bid: app.globalData.sessionJdbBrandId,
-      ukey: app.globalData.sessionJdbUkey
-    }, function (res) {
-      if (!res.data.info.length || res.data.info.length < 20) {
-        that.setData({
-          isLast: true
-        })
-      } else {
-        obj.currentPage++;
-      }
-      if (obj.currentPage == 1 && !res.data.info.length) {
-        that.setData({
-          isNoData: true
-        })
-      }
-      if (isClear) {
-        obj.list = res.data.info;
-      } else {
-        obj.list = obj.list.concat(res.data.info);
-      }
-      that.setData({
-        dataList: obj.list,
+    app.form.requestPost(
+      app.form.API_CONFIG.jinrong.orders,
+      { page: that.data.currentPage, step: that.data.step },
+      function (res) {
+        if (res.data.total < 1) {
+          that.setData({ isNoData: true });
+          that.setData({ isLast: true });
+          return false;
+        }
 
-      })
-    });
+        if (!res.data.orders.length || res.data.orders.length < res.data.size) {
+          that.setData({isLast: true});
+        }
+
+        that.data.currentPage++;
+       
+        that.data.dataList.push.apply(that.data.dataList, res.data.orders);
+        that.setData({ dataList: that.data.dataList})
+      });
   },
+
   lower: function () {
-    if (this.data.isLast) {
-      return;
-    } else {
-      this._getDataList(this.data.step, this.data[this.data.toView]);
-    }
+    this.data.isLast || this._getDataList();
   }
 })

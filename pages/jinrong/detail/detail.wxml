@@ -1,42 +1,52 @@
-<view class="caption-top" wx:if="{{(step==0) ? true :false}}">新订单</view>
+<view class="caption-top" wx:if="{{order.step == 'dfw'}}">新订单</view>
 <!--step-end  -->
 
 
 
 <view class='customer-info'>
-  <view class='phone'>{{dataList.signinfo.mobile}} {{dataList.signinfo.realname}}</view>
-  <view class="tip-1" wx:if="{{step>=6 ? true :false}}"></view>
-  <view class="tip-sx" wx:if="{{step==-1 ? true :false}}"></view>
+  <view class='phone'>{{order.mobile}} {{order.realname}}</view>
+  <view class="tip-1" wx:if="{{order.step=='ywc'}}"></view>
+  <view class="tip-sx" wx:if="{{order.step=='void'}}"></view>
 </view>
 
-<view class="decoration-info-box clearfix">
+<view class="decoration-info-box clearfix" wx:if="{{order.type == 'loan'}}">
   <view class='caption'>贷款信息</view>
   <view class='item-cell clearfix'>
     <text class='lab'>贷款金额</text>
     <view class="para-item">
-      <text class='para-val'>{{!!dataList.signinfo.community ? dataList.signinfo.community :'未填写'}}</text>
+      <text class='para-val'>{{order.loan_amount || '未填写'}}</text>
     </view>
   </view>
   <view class='item-cell clearfix'>
     <text class='lab'>贷款期限</text>
     <view class="para-item">
-      <text class='para-val'>{{!!dataList.signinfo.area ? dataList.signinfo.area+'㎡' :'未填写'}}</text>
+      <text class='para-val'>{{order.loan_term || '未填写'}}</text>
     </view>
   </view>
   <view class='item-cell clearfix'>
     <text class='lab'>职业身份</text>
     <view class="para-item">
-      <text class='para-val'>{{!!dataList.signinfo.d_type ? dataList.signinfo.d_type :'未填写'}}</text>
+      <text class='para-val'>{{order.job || '未填写'}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="decoration-info-box clearfix" wx:else>
+ <view class='caption'>信用卡办卡信息</view>
+  <view class='item-cell clearfix'>
+    <text class='lab'>月薪</text>
+    <view class="para-item">
+      <text class='para-val'>{{order.salary || '未填写'}}</text>
     </view>
   </view>
 </view>
 
 
 <view class="order-step-wrap  clearfix">
-  <view class="num">订单编号：{{dataList.djid}}</view>
-  <view class="time">派单时间：{{dataList.dj_time}}</view>
-  <view class="order-steps step-2" wx:if="{{(step==6 || step==-1) ? false :true}}">
-   
+  <view class="num">订单编号：{{order.id}}</view>
+  <view class="time">派单时间：{{order.c_time}}</view>
+  <view class="order-steps step-2" wx:if="{{(order.step!='void')}}">
+
     <view class='step-list clearfix'>
       <view class='item-cell item-cell-1'>
         <view class='circle'>
@@ -46,7 +56,7 @@
         </view>
         <text class='txt'>新订单</text>
       </view>
-      
+
       <view class='item-cell item-cell-2'>
         <view class='circle'>
           <text class='circle-3'></text>
@@ -64,14 +74,13 @@
 <view class='fixed-bottom {{isIpx ? "device-ipx" :""}}'>
   <view class='phone' bindtap='makeCallPhone'>
     <text class='iconfont icon-76 icon-txt'></text>拨打电话</view>
-  <view class='hand-txt {{(step>=6 || step==-1) ? "disabled" :""}}' bindtap='setStepHandler'>
+  <view class="hand-txt {{(order.step == 'ywc' || order.step=='void') ? 'disabled' :''}}" bindtap='setStepHandler'>
     <text class='txt-1'>订单操作</text>
-    <!-- <text class='txt-2'>量房时间：04-10 15:30</text> -->
   </view>
 </view>
 
-<view class="gobackhome" wx:if="{{!!fromWhere ? true :false}}">
-  <navigator url="/pages/jiaju/index/index" class='iconfont icon-home'></navigator>
+<view class="gobackhome" wx:if="{{!!fromWhere}}">
+  <navigator url="/pages/jinrong/index/index" class='iconfont icon-home'></navigator>
 </view>
 
 
@@ -196,4 +205,3 @@
   <view class='item-cell'>
     <text class="lab">装修时间：</text>{{dataList.signinfo.d_date}}</view>
 </view> -->
-
