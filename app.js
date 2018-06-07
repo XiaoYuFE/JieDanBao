@@ -22,17 +22,11 @@ App({
   },
 
   isLogin: function (status){
-    var that=this;
+    var that = this;
     if (status && status=="0"){
-      wx.redirectTo({
-        url: '/pages/login/login'
-      })
-    }else{
-      if (!this.globalData.sessionJdbUkey) {
-        wx.redirectTo({
-          url: '/pages/login/login'
-        })
-      }
+      wx.redirectTo({url: '/pages/login/login'});
+    } else if(!this.globalData.sessionJdbUkey){
+      wx.redirectTo({ url: '/pages/login/login' });
     };
   },
 
@@ -40,9 +34,13 @@ App({
     wx.removeStorage({ key: 'sessionJdbUkey'});
     wx.removeStorage({ key: 'sessionJdbBrandId'});
     wx.removeStorage({ key: 'sessionJdbUnionid' });
+    wx.removeStorage({ key: 'sessionJdbUserInfo' });
+
     this.globalData.sessionJdbUkey ="";
     this.globalData.sessionJdbBrandId ="";
     this.globalData.sessionJdbUnionid = "";
+    this.globalData.sessionJdbUserInfo = "";
+
     !!callback && callback();
   },
   

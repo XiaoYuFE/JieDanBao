@@ -1,7 +1,9 @@
 {
   "pages": [
     
-    "pages/common/index",
+    "pages/login/login",
+    "pages/setting/setting",
+    
     "pages/jiaju/index/index",
     "pages/jiaju/list/list",
     "pages/jiaju/cost/cost",
@@ -10,12 +12,7 @@
 
     "pages/jinrong/index/index",
     "pages/jinrong/list/list",
-    "pages/jinrong/detail/detail",
-
-    
-
-    "pages/login/login",
-    "pages/setting/setting"
+    "pages/jinrong/detail/detail"
   ],
   
   "window": {

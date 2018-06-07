@@ -40,7 +40,7 @@ Page({
     this._getDataList();
   },
   onShow: function () {
-    
+    this._getDataList();
   },
   _getDataList: function () {
     var that = this;

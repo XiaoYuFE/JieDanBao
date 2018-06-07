@@ -135,15 +135,6 @@ page{
   background-color: #d0e8f9;
 }
 
-
-
-
-
-
-
-
-
-
 .order-steps .step-list {
   margin-top: 15rpx;
 }

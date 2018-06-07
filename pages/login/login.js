@@ -10,6 +10,11 @@ Page({
     isPwdActive: false
   },
   onLoad: function () {
+    var user = app.globalData.sessionJdbUserInfo;
+    if (user) {
+      console.log('login',user);
+      wx.redirectTo({url: '/pages/' + user.category + '/index/index'});
+    }
     this._initValidate();
   },
   formSubmit: function (e) {
@@ -17,9 +22,7 @@ Page({
     const params = e.detail.value;
 
     //按钮禁用
-    this.setData({
-      submiting: true
-    });
+    this.setData({submiting: true});
 
     //表单验证
     if (!this.WxValidate.checkForm(e)) {
@@ -61,6 +64,11 @@ Page({
           wx.setStorage({
             key: "sessionJdbUserInfo",
             data: app.globalData.sessionJdbUserInfo
+          });
+
+          wx.setStorage({
+            key: "sessionJdbUnionid",
+            data: ''
           });
 
           var category = res.data.category;
