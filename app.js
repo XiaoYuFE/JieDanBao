@@ -35,21 +35,23 @@ App({
     wx.removeStorage({ key: 'sessionJdbBrandId'});
     wx.removeStorage({ key: 'sessionJdbUnionid' });
     wx.removeStorage({ key: 'sessionJdbUserInfo' });
+    wx.removeStorage({ key: 'sessionJdbOpenid' });
 
-    this.globalData.sessionJdbUkey ="";
-    this.globalData.sessionJdbBrandId ="";
-    this.globalData.sessionJdbUnionid = "";
+    this.globalData.sessionJdbUkey     = "";
+    this.globalData.sessionJdbBrandId  = "";
+    this.globalData.sessionJdbUnionid  = "";
     this.globalData.sessionJdbUserInfo = "";
+    this.globalData.sessionJdbOpenid   = "";
 
     !!callback && callback();
   },
-  
   
   globalData: {
     server: "https://m3.xiaoyu.com/",
     sessionJdbUserInfo:"",//存放小鱼用户的信息
     sessionJdbUkey:"",
     sessionJdbBrandId:"",
-    sessionJdbUnionid:""
+    sessionJdbUnionid:"",
+    sessionJdbOpenid:''
   }
 })

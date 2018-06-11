@@ -43,7 +43,7 @@
 
 
 <view class="order-step-wrap  clearfix">
-  <view class="num">订单编号：{{order.id}}</view>
+  <view class="num">订单编号：{{order.order_no}}</view>
   <view class="time">派单时间：{{order.c_time}}</view>
   <view class="order-steps step-{{order.step =='ywc' ? 2 :1}}" wx:if="{{(order.step!='void')}}">
 

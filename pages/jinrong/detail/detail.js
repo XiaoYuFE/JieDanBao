@@ -10,6 +10,7 @@ Page({
     id:"",
     //订单步骤文字在这里
     stepText: {'dfw':'新订单','void':'完成'},
+    stepKeyConfig: ['dfw','wancheng','void'],
     isIpx:app.globalData.isIpx,
     fromWhere:"",
     order:{}
@@ -46,9 +47,10 @@ Page({
           mask: true
         });
         var step = res.tapIndex == 0 ? 'ywc' : 'void';
+        that.tracking(step);
+
         app.form.requestPost(app.form.API_CONFIG.jinrong.opt_order, {
-          step: step,
-          id: that.data.id
+          step: step,id: that.data.id
         }, function (res) {
           wx.hideLoading();
           if(res.status == 1){
@@ -66,10 +68,15 @@ Page({
 
   },
   makeCallPhone: function () {
-    var that = this;
-    wx.makePhoneCall({
-      phoneNumber: that.data.order.mobile 
-    })
+    wx.makePhoneCall({phoneNumber: this.data.order.mobile });
+    var k = ['dfw','ywc','void'].indexOf(this.data.order.step);
+    app.form.tracking('call', 'jdb_jieduan' + k, this.data.order.id);
+  },
+
+  tracking: function (opt) {
+    var config = {'ywc': 'wancheng', 'void': 'stop'};
+    var k = this.data.stepKeyConfig.indexOf(opt);
+    app.form.tracking(config[opt], 'jdb_jieduan' + k, this.data.order.id);
   },
 
   /**

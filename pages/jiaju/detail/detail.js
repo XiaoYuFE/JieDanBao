@@ -34,11 +34,10 @@ Page({
     }
 
     var next_step = this.data.stepKeyConfig[this.data.stepKey+1];
-    wx.showActionSheet({
-      itemList: [this.data.stepText[next_step], '停止服务'],
+    wx.showActionSheet({itemList: [this.data.stepText[next_step], '停止服务'],
       success: function (res) {
         var step = res.tapIndex == 1 ? 'void' : next_step;
-
+        that.tracking(step);
         //点击的是步骤,发送数据请求(用户id 订单id)
         if (step == 'sjz') {
           wx.redirectTo({
@@ -72,12 +71,25 @@ Page({
 
   },
   makeCallPhone: function () {
-    var that = this;
-    wx.makePhoneCall({
-      phoneNumber: that.data.order.mobile //仅为示例，并非真实的电话号码
-    })
+    wx.makePhoneCall({phoneNumber: this.data.order.mobile });
+    
+    var k = this.data.stepKeyConfig.indexOf(this.data.order.step);
+    app.form.tracking('call', 'jdb_jieduan' + k, this.data.order.id);
   },
 
+  tracking:function(opt){
+    var config = { 
+      ylf: 'liangfang', 
+      sjz: 'sheji', 
+      dbz: 'duibi', 
+      yqy: 'qianyue', 
+      sgz: 'shigong', 
+      ywg: 'wancheng',
+      'void':'stop'
+    };
+    var k = this.data.stepKeyConfig.indexOf(opt);
+    app.form.tracking(config[opt], 'jdb_jieduan' + k, this.data.order.id);
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

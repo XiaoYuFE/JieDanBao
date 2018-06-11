@@ -35,7 +35,7 @@
   <view style='padding-bottom:40rpx;padding-top:120rpx'>
     <view class='order-list' wx:for="{{dataList}}" wx:key="idx" wx:for-item="item">
       <view class='soma-hd'>
-        <view class="order-num">订单编号：{{item.id}}</view>
+        <view class="order-num">订单编号：{{item.order_no}}</view>
         <view class='order-time'>{{item.c_time}}</view>
       </view>
       <navigator url="/pages/jiaju/detail/detail?id={{item.id}}"> 

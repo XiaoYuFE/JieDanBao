@@ -16,6 +16,8 @@ Page({
       that.setData({ kf_tel: res.data.kf_tel });
     });
     that.setData({ xyUserInfo: app.globalData.sessionJdbUserInfo });
+
+    app.form.tracking('jdb_index', 'jdb_index','');
   },
 
   onShow: function () {

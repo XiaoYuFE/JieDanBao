@@ -70,6 +70,10 @@ Page({
             key: "sessionJdbUnionid",
             data: ''
           });
+          wx.setStorage({
+            key: "sessionJdbOpenid",
+            data: ''
+          });
 
           var category = res.data.category;
           wx.login({
@@ -79,9 +83,14 @@ Page({
                 that.form.requestPost(that.form.API_CONFIG.common['bind'],{code:res.code},function (res){
                   if(res.status===1){
                     app.globalData.sessionJdbUnionid = res.data.unionid;
+                    app.globalData.sessionJdbOpenid  = res.data.openid;
                     wx.setStorage({
                       key: "sessionJdbUnionid",
                       data: app.globalData.sessionJdbUnionid
+                    });
+                    wx.setStorage({
+                      key: "sessionJdbOpenid",
+                      data: app.globalData.sessionJdbOpenid
                     });
                   }
                   wx.redirectTo({ url: '/pages/' + category + '/index/index' });

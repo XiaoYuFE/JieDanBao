@@ -20,7 +20,8 @@ class form {
     common:{
       login:'login',
       notice: 'notice',
-      bind:'bind'
+      bind:'bind',
+      tracking:'tracking'
     }
   };
 
@@ -56,10 +57,9 @@ class form {
           return false;
         }
 
-        if(res.data.code==403){
-          wx.redirectTo({
-            url: '/pages/login/login'
-          })
+        if (res.data.status==403){
+          that.app.clearStorage();
+          wx.redirectTo({url: '/pages/login/login'});
           return false;
         }
 
@@ -90,11 +90,14 @@ class form {
     this.requestGet = function (api, data = {}, callback = function () { }, header = {}) {
       this.__request(api, data, callback, header, 'get');
     };
-
     this.requestPost = function (api, data = {}, callback = function () { }, header = {}) {
       this.__request(api, data, callback, header, 'post');
-    }
+    };
 
+    this.tracking = function (a, k, order_id){
+      var data = { a: a, k: k, order_id: order_id, openid: this.app.globalData.sessionJdbOpenid};
+      this.__request(this.API_CONFIG.common.tracking, data);
+    };
   }
 }
 export default form
