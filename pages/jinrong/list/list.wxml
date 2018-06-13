@@ -1,0 +1,53 @@
+<scroll-view scroll-x="true" bindscroll="scroll" class="nav-scroll clearfix" scroll-into-view="{{toView}}" id='J_nav-scroll'>
+  <view class='scroll-view-item {{step=="all" || !step ? "active":""}}' data-step="" bindtap='navTap' type="all">
+    <text class="txt">全部</text>
+  </view>
+  <view class='scroll-view-item {{step=="dfw" ? "active":""}}' data-step='dfw' bindtap='navTap' type="xdd">
+    <text class="txt">新订单</text>
+  </view>
+  <view class='scroll-view-item {{step=="ywc" ? "active":""}}' data-step='ywc' bindtap='navTap'>
+    <text class="txt">服务完成</text>
+  </view>
+  <view class='scroll-view-item {{step=="void" ? "active":""}}' data-step='void' bindtap='navTap'>
+    <text class="txt">跑单</text>
+  </view>
+</scroll-view>
+
+
+<scroll-view style="height:{{scrollHeight}}px" scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" class="list-wrap">
+  <view class="order-nodata-tip {{isNoData ? 'active' :''}}">暂无数据 !</view>
+
+  <view style='padding-bottom:40rpx;padding-top:120rpx'>
+    <view class='order-list' wx:for="{{dataList}}" wx:key="idx" wx:for-item="item">
+      <view class='soma-hd'>
+        <view class="order-num">订单编号：{{item.order_no}}</view>
+        <view class='order-time'>{{item.c_time}}</view>
+      </view>
+      <navigator url="/pages/jinrong/detail/detail?id={{item.id}}">
+        <view class='soma-list'>
+          <view class='item-cell'>
+            <view class="person-info">
+            <text wx:if="{{item.realname}}">{{item.realname}}</text> 
+            {{item.mobile}}
+            （{{item.type == 'loan' ? '金融贷款' : '信用卡'}})
+              
+            </view>
+           
+            <view class="arrow-box">
+                <text class="txt" wx:if="{{item.step=='dfw' ? true :false}}">新订单</text>
+                <text class="txt" wx:if="{{item.step=='ywc'? true :false}}">已完成</text>
+                <text class="txt" wx:if="{{item.step=='void'? true :false}}">跑单</text>
+                <text class='iconfont icon-jiantou icon-pic'></text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+  <view class='refresh-bottom' wx:if="{{isLast ? false :true}}">
+    <view class='loading-box'>
+      <view class="iconfont icon-loading"></view>
+    </view>{{loadMoreData}}
+  </view>
+</scroll-view>

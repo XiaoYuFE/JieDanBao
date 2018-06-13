@@ -1,6 +1,7 @@
 import WxValidate from '../../static/js/plugin/WxValidate'
 import form from '../../static/js/plugin/form'
 const app = getApp();
+
 Page({
   data: {
     validateMsg: false,
@@ -9,6 +10,11 @@ Page({
     isPwdActive: false
   },
   onLoad: function () {
+    var user = app.globalData.sessionJdbUserInfo;
+    if (user) {
+      console.log('login',user);
+      wx.redirectTo({url: '/pages/' + user.category + '/index/index'});
+    }
     this._initValidate();
   },
   formSubmit: function (e) {
@@ -16,9 +22,7 @@ Page({
     const params = e.detail.value;
 
     //按钮禁用
-    this.setData({
-      submiting: true
-    });
+    this.setData({submiting: true});
 
     //表单验证
     if (!this.WxValidate.checkForm(e)) {
@@ -30,13 +34,11 @@ Page({
       return false
     } else {
       //验证通过进行后端请求
-      that.form.requestPost(that.form.API_CONFIG['login'], params, function (res, header) {
+      that.form.requestPost(that.form.API_CONFIG.common['login'], params, function (res) {
         //设置提交按钮状态
         that.setData({
           submiting: false
         });
-
-
 
         //如果用户不存在或则错误
         if (res.status != '1') {
@@ -47,53 +49,62 @@ Page({
           app.globalData.sessionJdbBrandId = res.data["brand_id"];
           app.globalData.sessionJdbUserInfo = res.data;
 
+          that.setData({ validateMsg: '登录成功' })
+          //本地存储id
+          wx.setStorage({
+            key: "sessionJdbUkey",
+            data: app.globalData.sessionJdbUkey
+          });
+
+          wx.setStorage({
+            key: "sessionJdbBrandId",
+            data: app.globalData.sessionJdbBrandId
+          });
+
+          wx.setStorage({
+            key: "sessionJdbUserInfo",
+            data: app.globalData.sessionJdbUserInfo
+          });
+
+          wx.setStorage({
+            key: "sessionJdbUnionid",
+            data: ''
+          });
+          wx.setStorage({
+            key: "sessionJdbOpenid",
+            data: ''
+          });
+
+          var category = res.data.category;
           wx.login({
             success: function (res) {
               if (res.code) {
-                that.form.requestPost(that.form.API_CONFIG['bind'], { code: res.code, ukey: app.globalData.sessionJdbUkey, bid: app.globalData.sessionJdbBrandId }, function (res) {
-                  if (res.status == '1') {
-                    that.setData({ validateMsg: '登录成功' })
-                    //本地存储id
-                    app.globalData.sessionJdbUnionid = res.data["unionid"];
-                    wx.setStorage({
-                      key: "sessionJdbUkey",
-                      data: app.globalData.sessionJdbUkey
-                    });
-
-                    wx.setStorage({
-                      key: "sessionJdbBrandId",
-                      data: app.globalData.sessionJdbBrandId
-                    });
-
-                    wx.setStorage({
-                      key: "sessionJdbUserInfo",
-                      data: app.globalData.sessionJdbUserInfo
-                    });
-
+                //发起网络请求
+                that.form.requestPost(that.form.API_CONFIG.common['bind'],{code:res.code},function (res){
+                  if(res.status===1){
+                    app.globalData.sessionJdbUnionid = res.data.unionid;
+                    app.globalData.sessionJdbOpenid  = res.data.openid;
                     wx.setStorage({
                       key: "sessionJdbUnionid",
                       data: app.globalData.sessionJdbUnionid
                     });
-
-
-                    //跳转到相关页面
-                    wx.redirectTo({
-                      url: '/pages/jiaju/index/index'
-                    })
-                  } else {
-                    that.setData({ validateMsg: res.msg })
+                    wx.setStorage({
+                      key: "sessionJdbOpenid",
+                      data: app.globalData.sessionJdbOpenid
+                    });
                   }
+                  wx.redirectTo({ url: '/pages/' + category + '/index/index' });
                 });
               } else {
-                that.setData({ validateMsg: '授权失败' })
+                wx.redirectTo({ url: '/pages/' + category + '/index/index' });
               }
             },
-            fail: function (res) {
-              console.log(res);
-              that.setData({ validateMsg: '授权失败2' })
+            fail:function(){
+              //跳转到相关页面
+              wx.redirectTo({ url: '/pages/' + category + '/index/index'});
             }
           });
-        }
+        };
       })
     }
   },
@@ -106,7 +117,7 @@ Page({
   //初始化验证插件
   _initValidate() {
     const rules = {
-      username: {
+      mobile: {
         required: true
       },
       password: {
@@ -115,7 +126,7 @@ Page({
     };
 
     const messages = {
-      username: {
+      mobile: {
         required: "请输入账号"
       },
       password: {
