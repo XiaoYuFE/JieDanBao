@@ -9,6 +9,14 @@ class form {
       config: 'config',
       notice: 'notice',
     },
+    auto: {
+      order_total: 'order_total',
+      orders: "orders",
+      order_info: 'order_info',
+      opt_order: 'opt_order',
+      config: 'config',
+      notice: 'notice',
+    },
     jinrong:{
       order_total:'order_total',
       orders:"orders",

@@ -17,6 +17,7 @@ App({
     this.globalData.sessionJdbUkey    = wx.getStorageSync('sessionJdbUkey');
     this.globalData.sessionJdbBrandId = wx.getStorageSync('sessionJdbBrandId');
     this.globalData.sessionJdbUnionid = wx.getStorageSync('sessionJdbUnionid');
+    this.globalData.sessionJdbOpenid = wx.getStorageSync('sessionJdbOpenid');
     !this.globalData.sessionJdbUserInfo && (this.globalData.sessionJdbUserInfo = wx.getStorageSync('sessionJdbUserInfo'));
     this.isLogin();
   },

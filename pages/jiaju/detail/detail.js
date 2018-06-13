@@ -36,6 +36,10 @@ Page({
     var next_step = this.data.stepKeyConfig[this.data.stepKey+1];
     wx.showActionSheet({itemList: [this.data.stepText[next_step], '停止服务'],
       success: function (res) {
+        if (res.tapIndex === undefined) {
+          return false;
+        }
+
         var step = res.tapIndex == 1 ? 'void' : next_step;
         that.tracking(step);
         //点击的是步骤,发送数据请求(用户id 订单id)

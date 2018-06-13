@@ -1,68 +1,69 @@
-<view class="caption-top" wx:if="{{(step==0) ? true :false}}">新订单</view>
+<view class="caption-top" wx:if="{{(order.step=='dfw')}}">新订单</view>
 <!--step-end  -->
 
 
 
 <view class='customer-info'>
-  <view class='phone'>{{dataList.signinfo.mobile}} {{dataList.signinfo.realname}}</view>
-  <view class="tip-1" wx:if="{{step>=2 ? true :false}}"></view>
-  <view class="tip-sx" wx:if="{{step==-1 ? true :false}}"></view>
+  <view class='phone'>{{order.mobile}} {{order.realname}}</view>
+  <view class="tip-1" wx:if="{{order.step  == 'ywc'}}"></view>
+  <view class="tip-sx" wx:if="{{order.step == 'void'}}"></view>
 </view>
 
 <view class="decoration-info-box clearfix">
-
-  <view class='item-cell clearfix'>
-    <text class='lab'>意向品牌</text>
-    <view class="para-item">
-      <text class='para-val'>本田</text>
+  <view wx:if="{{order.type == 'new'}}">
+    <view class='item-cell clearfix'>
+      <text class='lab'>意向品牌</text>
+      <view class="para-item">
+        <text class='para-val'>{{order.brand || '未填写'}}</text>
+      </view>
     </view>
-  </view>
-  <view class='item-cell clearfix'>
-    <text class='lab'>意向车系</text>
-    <view class="para-item">
-      <text class='para-val'>飞度</text>
+    <view class='item-cell clearfix'>
+      <text class='lab'>意向车系</text>
+      <view class="para-item">
+        <text class='para-val'>{{order.series || '未填写'}}</text>
+      </view>
     </view>
-  </view>
-  <view class='item-cell clearfix'>
-    <text class='lab'>预算区间</text>
-    <view class="para-item">
-      <text class='para-val'>10-20万</text>
+    <view class='item-cell clearfix'>
+      <text class='lab'>预算区间</text>
+      <view class="para-item">
+        <text class='para-val'>{{order.budget || '未填写'}}</text>
+      </view>
     </view>
-  </view>
-  <view class='item-cell clearfix'>
-    <text class='lab'>意向车型</text>
-    <view class="para-item">
-      <text class='para-val'>小型车</text>
+    <view class='item-cell clearfix'>
+      <text class='lab'>意向车型</text>
+      <view class="para-item">
+        <text class='para-val'>{{order.levels || '未填写'}}</text>
+      </view>
     </view>
   </view>
 
   <!--**********二手车  -->
-  <view class='item-cell clearfix'>
-    <text class='lab'>意向品牌</text>
-    <view class="para-item para-sel-car">
-      <picker bindchange="bindPickerChange" value="{{carTypeIndex}}" range="{{carTypeArray}}">
+  <view wx:else>
+    <view class='item-cell clearfix'>
+      <text class='lab'>意向品牌</text>
+      <view class="para-item para-sel-car">
         <view class="picker">
-          {{carTypeArray[carTypeIndex]}}
+          {{order.usedcar}}
         </view>
-      </picker>
-      <i class="iconfont icon-jiantou arrow-pic"></i>
-      
+        <i class="iconfont icon-jiantou arrow-pic"></i>
+      </view>
+    </view>
+
+    <view class='item-cell clearfix'>
+      <text class='lab'>价格</text>
+      <view class="para-item">
+        <text class='para-val'> {{order.price}}</text>
+      </view>
+    </view>
+
+    <view class='item-cell clearfix'>
+      <text class='lab'>上牌时间</text>
+      <view class="para-item">
+        <text class='para-val'> {{order.license_time}}</text>
+      </view>
     </view>
   </view>
 
-  <view class='item-cell clearfix'>
-    <text class='lab'>价格</text>
-    <view class="para-item">
-      <text class='para-val'>10-20万</text>
-    </view>
-  </view>
-
-  <view class='item-cell clearfix'>
-    <text class='lab'>上牌时间</text>
-    <view class="para-item">
-      <text class='para-val'>小型车</text>
-    </view>
-  </view>
 </view>
 
 
@@ -70,9 +71,9 @@
 
 
 <view class="order-step-wrap  clearfix">
-  <view class="num">订单编号：{{dataList.djid}}</view>
-  <view class="time">派单时间：{{dataList.dj_time}}</view>
-  <view class="order-steps step-{{step+1}}" wx:if="{{(step==6 || step==-1) ? false :true}}">
+  <view class="num">订单编号：{{order.order_no}}</view>
+  <view class="time">派单时间：{{order.c_time}}</view>
+  <view class="order-steps step-{{stepKey+1}}" wx:if="{{(order.step!='void')}}">
     <view class='step-list clearfix'>
       <view class='item-cell item-cell-1'>
         <view class='circle'>
@@ -109,7 +110,7 @@
 <view class='fixed-bottom {{isIpx ? "device-ipx" :""}}'>
   <view class='phone' bindtap='makeCallPhone'>
     <text class='iconfont icon-76 icon-txt'></text>拨打电话</view>
-  <view class='hand-txt {{(step>=2 || step==-1) ? "disabled" :""}}' bindtap='setStepHandler'>
+  <view class='hand-txt {{(order.step == "ywc" || order.step=="void") ? "disabled" :""}}' bindtap='setStepHandler'>
     <text class='txt-1'>订单操作</text>
     <!-- <text class='txt-2'>量房时间：04-10 15:30</text> -->
   </view>
@@ -118,126 +119,3 @@
 <view class="gobackhome" wx:if="{{!!fromWhere ? true :false}}">
   <navigator url="/pages/jiaju/index/index" class='iconfont icon-home'></navigator>
 </view>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <view class="order-info">
-  <view class="txt-1">订单编号：{{dataList.djid}}</view>
-  <view class="txt-1">派单时间：{{dataList.dj_time}}</view>
-  <view class="txt-1">派单员：{{dataList.username}}</view>
-  <view class="order-steps step-{{step+1}}" wx:if="{{(step==6 || step==-1) ? false :true}}">
-    <view class='line-wrap'>
-      <view class='line'></view>
-      <view class='line-on'></view>
-    </view>
-    <view class='step-list clearfix'>
-      <view class='item-cell item-cell-1'>
-        <view class='circle'>
-          <text class='circle-3'></text>
-          <text class='circle-2'></text>
-          <text class='circle-1'></text>
-        </view>
-        <text class='txt'>新订单</text>
-      </view>
-      <view class='item-cell item-cell-2'>
-        <view class='circle'>
-          <text class='circle-3'></text>
-          <text class='circle-2'></text>
-          <text class='circle-1'></text>
-        </view>
-        <text class='txt'>已量房</text>
-      </view>
-      <view class='item-cell item-cell-3'>
-        <view class='circle'>
-          <text class='circle-3'></text>
-          <text class='circle-2'></text>
-          <text class='circle-1'></text>
-        </view>
-        <text class='txt'>设计中</text>
-      </view>
-
-      <view class='item-cell item-cell-4'>
-        <view class='circle'>
-          <text class='circle-3'></text>
-          <text class='circle-2'></text>
-          <text class='circle-1'></text>
-        </view>
-        <text class='txt'>已对比</text>
-      </view>
-      <view class='item-cell item-cell-5'>
-        <view class='circle'>
-          <text class='circle-3'></text>
-          <text class='circle-2'></text>
-          <text class='circle-1'></text>
-        </view>
-        <text class='txt'>已签约</text>
-      </view>
-      <view class='item-cell item-cell-6'>
-        <view class='circle'>
-          <text class='circle-3'></text>
-          <text class='circle-2'></text>
-          <text class='circle-1'></text>
-        </view>
-        <text class='txt'>施工中</text>
-      </view>
-      <view class='item-cell item-cell-7'>
-        <view class='circle'>
-          <text class='circle-3'></text>
-          <text class='circle-2'></text>
-          <text class='circle-1'></text>
-        </view>
-        <text class='txt'>完成</text>
-      </view>
-    </view>
-  </view>
-</view> -->
-
-
-<!-- <view class='decoration-info'>
-  <view class='caption'>装修信息</view>
-
-  <view class='item-cell'>
-    <text class="lab">小区名称：</text>{{dataList.signinfo.community}}</view>
-  <view class='item-cell'>
-    <text class="lab">装修阶段：</text>{{stepText[step]}}</view>
-  <view class='item-cell'>
-    <text class="lab">装修时间：</text>{{dataList.signinfo.d_date}}</view>
-  <view class='item-cell'>
-    <text class="lab">房屋面积：</text>{{dataList.signinfo.area}}</view>
-  <view class='item-cell'>
-    <text class="lab">期望风格：</text>{{dataList.signinfo.d_style}}</view>
-  <view class='item-cell'>
-    <text class="lab">房屋情况：</text>{{dataList.signinfo.fwqk}}</view>
-  <view class='item-cell'>
-    <text class="lab">装修预算：</text>{{dataList.signinfo.price}}</view>
-  <view class='item-cell'>
-    <text class="lab">房屋户型：</text>{{dataList.signinfo.unit}}</view>
-  <view class='item-cell'>
-    <text class="lab">装修时间：</text>{{dataList.signinfo.d_date}}</view>
-</view> -->

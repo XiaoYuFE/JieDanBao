@@ -41,15 +41,13 @@ Page({
   //拨打电话
   makeCallPhone: function () {
     var that = this;
-    wx.makePhoneCall({
-      phoneNumber: that.data.kf_tel //仅为示例，并非真实的电话号码
-    })
+    wx.makePhoneCall({phoneNumber: that.data.kf_tel })
   },
 
   onShareAppMessage: function () {
     return {
       title: '小鱼接单宝',
-      path: '/pages/jiaju/index/index',
+      path: '/pages/login/login',
       imageUrl: "http://m3.xiaoyu.com/img/jiedanbao_share.png",
       success: function (res) {
         wx.showToast({

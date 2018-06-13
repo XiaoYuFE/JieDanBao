@@ -41,6 +41,7 @@ Page({
     wx.showActionSheet({
       itemList: ['服务完成', '停止服务'],
       success: function (res) {
+        if (res.tapIndex === undefined) return false;
         //发送uid orderid  step 给后端
         wx.showLoading({
           title: '加载中',
