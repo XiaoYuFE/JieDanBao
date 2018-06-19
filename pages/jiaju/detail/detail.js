@@ -29,7 +29,7 @@ Page({
   },
   setStepHandler: function () {
     var that = this;
-    if (this.data.step == 'void' || this.data.step=='ywg') {
+    if (this.data.order.step == 'void' || this.data.order.step=='ywg') {
       return false;
     }
 
@@ -41,7 +41,8 @@ Page({
         }
 
         var step = res.tapIndex == 1 ? 'void' : next_step;
-        that.tracking(step);
+        that.tracking(res.tapIndex == 1);
+
         //点击的是步骤,发送数据请求(用户id 订单id)
         if (step == 'sjz') {
           wx.redirectTo({
@@ -81,18 +82,20 @@ Page({
     app.form.tracking('call', 'jdb_jieduan' + k, this.data.order.id);
   },
 
-  tracking:function(opt){
-    var config = { 
-      ylf: 'liangfang', 
-      sjz: 'sheji', 
-      dbz: 'duibi', 
-      yqy: 'qianyue', 
-      sgz: 'shigong', 
-      ywg: 'wancheng',
+  tracking:function(stop = false){
+    var k = this.data.stepKeyConfig.indexOf(this.data.order.step);
+    var config = {
+      dfw: 'liangfang', 
+      ylf: 'sheji', 
+      sjz: 'duibi', 
+      dbz: 'qianyue', 
+      yqy: 'shigong', 
+      sgz: 'wancheng', 
       'void':'stop'
     };
-    var k = this.data.stepKeyConfig.indexOf(opt);
-    app.form.tracking(config[opt], 'jdb_jieduan' + k, this.data.order.id);
+
+    var step = stop ? 'stop' : config[this.data.order.step];
+    app.form.tracking(step, 'jdb_jieduan' + k, this.data.order.id);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -25,7 +25,7 @@ Page({
   formSubmit: function (e) {
     var that = this;
     this.setData({submiting: true})
-
+    app.form.tracking('sheji_ok', 'jdb_jieduan1', this.data.id);
     if (!this.WxValidate.checkForm(e)) {
       const error = this.WxValidate.errorList[0]
       this.setData({

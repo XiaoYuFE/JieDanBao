@@ -37,8 +37,8 @@
     </view>
   </view>
 
-  <!--**********二手车  -->
-  <view wx:else>
+  <!--**********二手车买车  -->
+  <view wx:if="{{order.type == 'old'}}">
     <view class='item-cell clearfix'>
       <text class='lab'>意向品牌</text>
       <view class="para-item para-sel-car">
@@ -64,11 +64,16 @@
     </view>
   </view>
 
+
+
 </view>
 
 
 
-
+<view class="service-info clearfix" wx:if="{{order.remark}}">
+  <view class="tit">服务提醒</view>
+  <view class="cont">{{order.remark}}</view>
+</view>
 
 <view class="order-step-wrap  clearfix">
   <view class="num">订单编号：{{order.order_no}}</view>

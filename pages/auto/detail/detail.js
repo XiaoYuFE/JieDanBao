@@ -28,7 +28,7 @@ Page({
   setStepHandler: function () {
     var that = this;
     //已完成或者跑单不允许操作
-    if (this.data.step == 'void' || this.data.step == 'ywc') {
+    if (this.data.order.step == 'void' || this.data.order.step == 'ywc') {
       return false;
     }
     //下一步操作
@@ -42,7 +42,7 @@ Page({
           return false;
         }
         var step = res.tapIndex == 1 ? 'void' : next_step;
-        that.tracking(step);
+        that.tracking(res.tapIndex == 1);
 
         wx.showLoading({ title: '加载中', mask: true });
 
@@ -80,14 +80,17 @@ Page({
     })
   },
 
-  tracking: function (opt) {
+  tracking: function (stop) {
     var config = {
-      fwz: 'fuwuzhong',
-      ywc: 'wancheng',
+      dfw: 'fuwuzhong',
+      fwz: 'wancheng',
       'void': 'stop'
     };
-    var k = this.data.stepKeyConfig.indexOf(opt);
-    app.form.tracking(config[opt], 'jdb_jieduan' + k, this.data.order.id);
+
+    var k    = this.data.stepKeyConfig.indexOf(this.data.order.step);
+    var step = stop ? 'stop' : config[this.data.order.step];
+    
+    app.form.tracking(config[this.data.order.step], 'jdb_jieduan' + k, this.data.order.id);
   },
 
   /**

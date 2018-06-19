@@ -48,7 +48,7 @@ Page({
           mask: true
         });
         var step = res.tapIndex == 0 ? 'ywc' : 'void';
-        that.tracking(step);
+        that.tracking(res.tapIndex == 1);
 
         app.form.requestPost(app.form.API_CONFIG.jinrong.opt_order, {
           step: step,id: that.data.id
@@ -74,10 +74,12 @@ Page({
     app.form.tracking('call', 'jdb_jieduan' + k, this.data.order.id);
   },
 
-  tracking: function (opt) {
-    var config = {'ywc': 'wancheng', 'void': 'stop'};
-    var k = this.data.stepKeyConfig.indexOf(opt);
-    app.form.tracking(config[opt], 'jdb_jieduan' + k, this.data.order.id);
+  tracking: function (stop = false) {
+    var config = {'dfw': 'wancheng', 'void': 'stop'};
+    var k = this.data.stepKeyConfig.indexOf(this.data.order.step);
+    var step = stop ? 'stop' : config[this.data.order.step];
+
+    app.form.tracking(step, 'jdb_jieduan' + k, this.data.order.id);
   },
 
   /**
@@ -129,3 +131,23 @@ Page({
 
   }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

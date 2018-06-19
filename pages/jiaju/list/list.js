@@ -21,7 +21,6 @@ Page({
         that.setData({scrollHeight: res.windowHeight});
       }
     });
-    this._getDataList();
   },
   navTap: function (event) {
     var step = event.currentTarget.dataset.type;
@@ -39,7 +38,13 @@ Page({
     this._getDataList();
   },
   onShow: function () {
-    
+    this.setData({
+      isLast: false,
+      isNoData: false,
+      dataList: [],
+      currentPage: 1
+    });
+    this._getDataList();
   },
   _getDataList: function (listType, obj, isClear) {
     var that = this;
@@ -60,7 +65,7 @@ Page({
 
       that.data.currentPage++;
       that.data.dataList.push.apply(that.data.dataList, res.data.orders);
-      that.setData({ dataList: that.data.dataList })
+      that.setData({ dataList: that.data.dataList });
     });
   },
   lower: function () {

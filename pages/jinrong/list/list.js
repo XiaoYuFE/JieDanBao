@@ -40,6 +40,12 @@ Page({
     this._getDataList();
   },
   onShow: function () {
+    this.setData({
+      isLast: false,
+      isNoData: false,
+      dataList: [],
+      currentPage: 1
+    });
     this._getDataList();
   },
   _getDataList: function () {

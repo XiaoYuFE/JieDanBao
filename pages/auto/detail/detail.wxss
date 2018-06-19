@@ -410,3 +410,21 @@ page {
   font-size: 24rpx;
   padding: 8rpx 40rpx;
 }
+
+.service-info {
+  padding: 30rpx;
+  position: relative;
+  background:#fff; 
+  margin-bottom:20rpx;
+  font-size:24rpx;
+}
+.service-info .tit{
+  font-size:28rpx;
+  padding:8rpx 0; 
+  color:#1a1a1a; 
+}
+.service-info .cont{
+  font-size:26rpx;
+  color:#666;
+  padding:8rpx 0; 
+}

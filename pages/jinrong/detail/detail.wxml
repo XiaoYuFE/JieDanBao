@@ -41,6 +41,10 @@
   </view>
 </view>
 
+<view class="service-info clearfix" wx:if="{{order.remark}}">
+  <view class="tit">服务提醒</view>
+  <view class="cont">{{order.remark}}</view>
+</view>
 
 <view class="order-step-wrap  clearfix">
   <view class="num">订单编号：{{order.order_no}}</view>

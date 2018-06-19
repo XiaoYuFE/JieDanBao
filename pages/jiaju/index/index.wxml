@@ -84,7 +84,7 @@
   </view>
 
   <view class="item-cell item-7">
-    <navigator url="/pages/jiaju/list/list?toView=ywc">
+    <navigator url="/pages/jiaju/list/list?toView=ywg">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
