@@ -42,10 +42,14 @@
     <view class='item-cell clearfix'>
       <text class='lab'>意向品牌</text>
       <view class="para-item para-sel-car">
-        <view class="picker">
-          {{order.usedcar}}
-        </view>
-        <i class="iconfont icon-jiantou arrow-pic"></i>
+        <navigator url='/pages/auto/h5page/h5page?url={{order.href}}'>
+          <view class="picker">
+            {{order.usedcar}}
+          </view>
+          <i class="iconfont icon-jiantou arrow-pic"></i>
+
+
+        </navigator>
       </view>
     </view>
 

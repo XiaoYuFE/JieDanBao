@@ -6,6 +6,7 @@
     "pages/auto/index/index",
     "pages/auto/list/list",
     "pages/auto/detail/detail",
+    "pages/auto/h5page/h5page",
     
     "pages/setting/setting",
     
