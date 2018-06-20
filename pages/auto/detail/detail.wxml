@@ -122,5 +122,5 @@
 </view>
 
 <view class="gobackhome" wx:if="{{!!fromWhere ? true :false}}">
-  <navigator url="/pages/jiaju/index/index" class='iconfont icon-home'></navigator>
+  <navigator url="/pages/auto/index/index" class='iconfont icon-home'></navigator>
 </view>
