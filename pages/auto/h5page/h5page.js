@@ -15,7 +15,7 @@ Page({
    */
   onLoad: function (options) {
       this.setData({
-         pageurl:options.url
+        pageurl: decodeURIComponent(options.url)
       })
   },
   
@@ -69,7 +69,9 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (options) {
+    var that = this
+    var return_url = options.webViewUrl
+    console.log(options)
   }
 })

@@ -64,7 +64,6 @@ Page({
         console.log(res.errMsg)
       }
     })
-
   },
   makeCallPhone: function () {
     var that = this;
@@ -90,7 +89,7 @@ Page({
     var k    = this.data.stepKeyConfig.indexOf(this.data.order.step);
     var step = stop ? 'stop' : config[this.data.order.step];
     
-    app.form.tracking(config[this.data.order.step], 'jdb_jieduan' + k, this.data.order.id);
+    app.form.tracking(step, 'jdb_jieduan' + k, this.data.order.id);
   },
 
   /**
