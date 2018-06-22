@@ -21,7 +21,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     //获取页面传递过来的id,然后动过id获取订单详情
-    that.setData({fromWhere: options.from});
+    that.setData({fromWhere: !!options.from});
 
     app.form.requestPost(app.form.API_CONFIG.jiaju.order_info, {id: options.id}, function (res) {
       that.setData({ order: res.data, stepKey: that.data.stepKeyConfig.indexOf(res.data.step)})

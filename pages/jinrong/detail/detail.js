@@ -23,7 +23,7 @@ Page({
     var that = this;
     //获取页面传递过来的id,然后动过id获取订单详情
     that.setData({
-      fromWhere: options.from,
+      fromWhere: !!options.from,
       id:options.id
     });
 

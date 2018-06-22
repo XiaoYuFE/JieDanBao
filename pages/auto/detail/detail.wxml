@@ -125,6 +125,6 @@
   </view>
 </view>
 
-<view class="gobackhome" wx:if="{{!!fromWhere ? true :false}}">
+<view class="gobackhome" wx:if="{{fromWhere}}">
   <navigator url="/pages/auto/index/index" class='iconfont icon-home'></navigator>
 </view>
