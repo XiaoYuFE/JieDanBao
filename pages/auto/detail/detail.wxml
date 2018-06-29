@@ -79,14 +79,18 @@
   <!--**********新增其他意向车型  -->
   <view wx:if="{{order.car_news.length > 0}}">
     <view class='item-cell clearfix'>
-      <text class='lab'>其他意向车型</text>
-      <view class="para-item"></view>
+      <text class='lab'>其他意向车系</text>
+      <view class="para-item">
+          <text class='para-val'>{{order.car_news[0].brand_name}}|{{order.car_news[0].series_name}}</text>
+      </view>
     </view>
-    <view wx:for="{{order.car_news}}" wx:key="idx" wx:for-item="item">
-      <view class='item-cell clearfix'>
-        <text class='lab'></text>
-        <view class="para-item">
-          <text class='para-val'>{{item.brand_name}}|{{item.series_name}}</text>
+    <view wx:for="{{order.car_news}}" wx:for-index="idx" wx:for-item="item">
+      <view wx:if="{{idx > 0}}">
+        <view class='item-cell clearfix'>
+          <text class='lab'></text>
+          <view class="para-item">
+            <text class='para-val'>{{item.brand_name}}|{{item.series_name}}</text>
+          </view>
         </view>
       </view>
     </view>
