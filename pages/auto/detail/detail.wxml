@@ -47,8 +47,6 @@
             {{order.usedcar}}
           </view>
           <i class="iconfont icon-jiantou arrow-pic"></i>
-
-
         </navigator>
       </view>
     </view>
@@ -68,6 +66,31 @@
     </view>
   </view>
 
+  <!--**********二手车卖车  -->
+  <view wx:if="{{order.type == 'old_sell'}}">
+    <view class='item-cell clearfix'>
+      <text class='lab'>意向车型</text>
+      <view class="para-item">
+        <text class='para-val'>{{order.cars || '未填写'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!--**********新增其他意向车型  -->
+  <view wx:if="{{order.car_news.length > 0}}">
+    <view class='item-cell clearfix'>
+      <text class='lab'>其他意向车型</text>
+      <view class="para-item"></view>
+    </view>
+    <view wx:for="{{order.car_news}}" wx:key="idx" wx:for-item="item">
+      <view class='item-cell clearfix'>
+        <text class='lab'></text>
+        <view class="para-item">
+          <text class='para-val'>{{item.brand_name}}|{{item.series_name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
 
 
 </view>
