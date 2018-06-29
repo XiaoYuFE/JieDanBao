@@ -92,6 +92,7 @@ page {
 
 .order-steps {
   position: relative;
+  overflow:hidden; 
 }
 
 .order-steps .step-list {
