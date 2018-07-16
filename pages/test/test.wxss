@@ -1,0 +1,38 @@
+.plist-nav-top{
+    display:flex;
+    border-bottom:1rpx solid #e5e5e5; 
+}
+.plist-nav-top .item-cell{
+  flex:1;
+  text-align:center;
+  color:#333333;
+  font-size:32rpx;
+  height:90rpx;
+  line-height:90rpx;
+  padding:4rpx 0;     
+}
+
+.plist-nav-top .item-cell.active{
+  padding-bottom: 0;
+  border-bottom:4rpx solid #3ac6b8; 
+}
+.plist-nav-sub{
+    padding:30rpx;
+    display:flex; 
+}
+.plist-nav-top .item-cell{
+    flex:1; 
+}
+
+.plist-nav-sub .item-cell{
+    
+}
+.plist-nav-sub{
+  
+}
+.plist-nav-sub{
+  
+}
+.plist-nav-sub{
+  
+}
