@@ -1,0 +1,25 @@
+<view class='avatar-box clearfix'>
+    <view class='pic'>
+      <image src='{{xyUserInfo.logo}}' mode="{{aspectFit}}"></image>
+    </view>
+    <view class='hy-tag'>家居商家</view>
+    <view class="txt">家居商家</view>
+    <view class='goset-btn' bindtap='setting'>
+      <navigator url='/pages/setting/setting' hover-class="none">设置<text class='iconfont icon-jiantou txt-arrow'></text></navigator>
+    </view>
+  </view>
+
+
+
+
+
+<view class='list-type-1 clearfix'>
+  <view class='item-1'>
+    本月订单
+    <text class='txt'>{{dataList.month}}</text>
+  </view>
+  <view class='item-2'>
+    总计订单
+    <text class='txt'>{{dataList.total}}</text>
+  </view>
+</view>

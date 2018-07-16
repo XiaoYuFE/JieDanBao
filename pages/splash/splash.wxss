@@ -1,0 +1,101 @@
+.mod-1{
+
+}
+.mod-1 .tit{
+  color:#333333;
+  font-size:38rpx; 
+  text-align:center; 
+   margin-top:50rpx;  
+}
+.mod-1 .txt{
+  color:#999999; 
+  font-size:30rpx;  
+  text-align:center;
+  margin-top:25rpx; 
+}
+.mod-1 .pic-1{
+    width:443rpx;
+    height:422rpx;
+    margin:80rpx auto 0;
+    background:url("https://wnworld.com/images/jiedanbang/splash/splash_1.png") no-repeat center center;
+    background-size: 100% 100%;
+}
+.mod-2 .tit{
+  color:#333333;
+  font-size: 38rpx;
+  text-align:center;  
+}
+.mod-2{
+  margin-top: 140rpx;
+}
+.mod-2 .txt{
+  text-align:center;
+  color:#999999;  
+  margin-top:18rpx; 
+}
+.seller-list{
+  width: 600rpx;
+  margin:45rpx auto 0; 
+}
+.seller-list .item{
+  width: 100rpx;
+  height: 100rpx;
+  line-height:100rpx;
+  text-align:center;  
+  overflow:hidden;
+  float:left;
+  font-size: 0;
+  margin:20rpx 25rpx; 
+  background:#f60;   
+}
+
+.seller-list .item image{
+  max-width: 100%;
+  max-height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.mod-3{
+  margin-top: 140rpx;
+  padding-bottom:70rpx; 
+}
+.mod-3 .tit{
+  color:#333333;
+  font-size: 38rpx;
+  text-align:center;  
+}
+
+.mod-3 .txt{
+  text-align:center;
+  color:#999999;  
+  margin-top:18rpx; 
+}
+
+.mod-3 .pic-1{
+    width:477rpx;
+    height:496rpx;
+    overflow:hidden;
+    margin:92rpx auto 0; 
+    background: url("https://wnworld.com/images/jiedanbang/splash/splash_2.png");
+    background-size: 100% 100%;
+}
+
+
+
+.fixed-bottom-seat{
+   height:94rpx;
+}
+.fixed-bottom{
+  color:#fff;
+  font-size: 36rpx;
+  text-align: center;
+  height:94rpx;
+  line-height:94rpx;
+  background:#3ac6b8;
+  position: fixed;
+  left:0;
+  right:0; 
+  bottom:0;    
+}
+

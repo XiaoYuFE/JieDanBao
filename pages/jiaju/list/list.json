@@ -1,3 +1,8 @@
 {
-  "navigationBarTitleText": "小鱼接单宝"
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "小鱼接单宝",
+    "navigationBarTextStyle": "#f60"
+  }
 }

@@ -1,15 +1,19 @@
 <!--index.wxml-->
-<view class='header-top'>
+
   <view class='avatar-box clearfix'>
     <view class='pic'>
       <image src='{{xyUserInfo.logo}}' mode="{{aspectFit}}"></image>
     </view>
+    <view class='hy-tag'>家居商家</view>
     <view class="txt">{{xyUserInfo.brand_name}}</view>
     <view class='goset-btn' bindtap='setting'>
       <navigator url='/pages/setting/setting' hover-class="none">设置<text class='iconfont icon-jiantou txt-arrow'></text></navigator>
     </view>
   </view>
-</view>
+
+
+
+
 
 <view class='list-type-1 clearfix'>
   <view class='item-1'>
@@ -21,6 +25,39 @@
     <text class='txt'>{{dataList.total}}</text>
   </view>
 </view>
+
+
+<view class='ordernew-box'>
+   <view class='tit'>新订单提醒</view>
+   <view class='mid-tip clearfix'>
+      <view class="num-tip">共有<text>5</text>条新订单等你处理</view>
+      <navigator class='btn-more'>查看全部新订单<text class='iconfont icon-jiantou txt-arrow'></text></navigator>
+   </view>
+
+   <view class='ordernew-card-wrap'>
+    <view class='ordernew-card-box'>
+          <view class='item-cell'></view>
+          <view>sadfasdfasdfsadfasdfa</view>
+          <view>sadfasdfasdfsadfasdfa</view>
+          <view>sadfasdfasdfsadfasdfa</view>
+          <view>sadfasdfasdfsadfasdfa</view>
+          <view>sadfasdfasdfsadfasdfa</view>
+      </view>
+      <view class='ordernew-card-seat-1'></view>
+      <view class='ordernew-card-seat-2'></view>
+     
+      
+   </view>
+</view>
+
+
+<view style='height:250rpx;'></view>
+
+
+
+
+
+
 
 <view class="list-step-wrap clearfix">
   <view class="item-cell item-1">
