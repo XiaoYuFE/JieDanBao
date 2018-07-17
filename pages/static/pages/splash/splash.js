@@ -1,4 +1,4 @@
-// pages/test/test.js
+// pages/static/pages/splash/splash.js
 Page({
 
   /**

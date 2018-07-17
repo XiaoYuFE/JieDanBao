@@ -1,8 +1,15 @@
 {
   "pages": [
-   
+    "pages/staticHtml/jiaju/detailEdit/detailEdit",
+    "pages/staticHtml/jiaju/detail/detail",
     
-    "pages/test/test",
+    
+    "pages/staticHtml/jiaju/list/list",
+    "pages/staticHtml/jiaju/index/index",
+    "pages/staticHtml/splash/splash",
+    
+
+    
     "pages/login/login",
     
     "pages/auto/index/index",

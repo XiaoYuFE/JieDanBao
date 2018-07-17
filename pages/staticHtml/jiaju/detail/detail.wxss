@@ -233,13 +233,16 @@ page{
     color:#3ac6b8; 
 }
 
-.houseinfo-list{
-  padding:0 30rpx;
-  
+.houseinfo-box {
+  border-bottom:20rpx solid #f7f7f7; 
 }
 .houseinfo-box .item-cell{
   border-bottom:1px solid #ebebeb;
   padding:25rpx 0;  
+}
+
+.houseinfo-box .item-cell:last-child{
+  border-bottom:none; 
 }
 .houseinfo-box .item-cell .lab{
   float:left; 
@@ -250,6 +253,100 @@ page{
 
 .houseinfo-box .item-cell .para-item{
   float: right;
-  color:#999999;5
+  color:#999999;
   font-size:28rpx;  
+  max-width:60%; 
+}
+
+
+.houseinfo-list{
+  padding:0 30rpx;
+  
+}
+.houseinfo-list .txt-arrow{
+  font-size: 30rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -2rpx;
+}
+
+
+
+
+.userinfo-box {
+  border-bottom:20rpx solid #f7f7f7; 
+}
+
+.userinfo-caption{
+  padding:0 30rpx;
+  height:88rpx;
+  line-height: 88rpx; 
+  border-bottom:1rpx solid #e5e5e5;  
+}
+.userinfo-caption text{
+    color:#666666;
+    font-size: 28rpx;
+    float:left;  
+}
+
+.userinfo-list{
+  padding:0 30rpx;
+}
+
+.userinfo-list .item-cell{
+  border-bottom:1px solid #ebebeb;
+  padding:25rpx 0;  
+}
+
+.userinfo-list .item-cell:last-child{
+  border-bottom:none; 
+}
+.userinfo-list .item-cell .lab{
+  float:left; 
+  font-size: 30rpx; 
+  color:#333333; 
+}
+
+
+.userinfo-list .item-cell .para-item{
+  float: right;
+  color:#999999;
+  font-size:28rpx;  
+  max-width:60%; 
+}
+
+.userinfo-list  .item-phone{
+   padding: 10rpx 0;
+   line-height:60rpx; 
+}
+.userinfo-list .btn-makecall{
+    height:60rpx;
+    line-height: 60rpx;
+    border:1rpx solid #3ac6b8;
+    border-radius: 50rpx; 
+    padding: 0 20rpx;
+    color:#3ac6b8; 
+}
+
+.userinfo-list .btn-makecall .icon-cpic{
+    font-size: 42rpx;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.fixed-bt-seat{
+  height: 94rpx;
+  line-height: 94rpx;
+}
+.fixed-bt-btn{
+  height: 94rpx;
+  line-height: 94rpx;
+  position: fixed;
+  left:0;
+  bottom:0;
+  width: 100%; 
+  background:#3ac6b8;
+  color:#fefefe;
+  font-size: 36rpx;
+  text-align:center;  
 }

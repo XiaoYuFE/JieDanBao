@@ -1,0 +1,125 @@
+<!--step-end  -->
+
+
+<view class='top-nav'>
+  <navigator>
+    <view class='txt-1'>上门量房待完成
+      <text class='iconfont icon-jiantou txt-arrow'></text>
+    </view>
+    <text class='txt-2'>设置量房时间，及时提醒不跑单</text>
+  </navigator>
+</view>
+
+<view class='houseinfo-box'>
+  <view class='houseinfo-caption clearfix'>
+    <text>订单信息</text>
+    <navigator url='/pages/staticHtml/jiaju/detailEdit/detailEdit'>补全信息</navigator>
+  </view>
+  <view class='houseinfo-list'>
+    <view class='item-cell clearfix'>
+      <text class='lab'>小区名称</text>
+      <view class="para-item">
+        {{order.community || '未填写'}}
+        <text class='iconfont icon-jiantou txt-arrow'></text>
+      </view>
+    </view>
+    <view class='item-cell clearfix'>
+      <text class='lab'>装修预算</text>
+      <view class="para-item">5-10万</view>
+    </view>
+    <view class='item-cell clearfix'>
+      <text class='lab'>装修方式</text>
+      <view class="para-item">全包</view>
+    </view>
+    <view class='item-cell clearfix'>
+      <text class='lab'>房屋户型</text>
+      <view class="para-item">
+        3室2厅0厨0卫0阳台
+      </view>
+    </view>
+    <view class='item-cell clearfix'>
+      <text class='lab'>房屋面积</text>
+      <view class="para-item">
+        120m2
+      </view>
+    </view>
+    <view class='item-cell clearfix'>
+      <text class='lab'>房屋情况</text>
+      <view class="para-item">
+        毛胚
+      </view>
+    </view>
+    <view class='item-cell clearfix'>
+      <text class='lab'>期望风格</text>
+      <view class="para-item">
+        未填写
+      </view>
+    </view>
+    <view class='item-cell clearfix'>
+      <text class='lab'>房屋户型</text>
+      <view class="para-item">
+        3室2厅0厨0卫0阳台
+      </view>
+    </view>
+    <view class='item-cell clearfix'>
+      <text class='lab'>装修日期</text>
+      <view class="para-item">
+        3室2厅0厨0卫0阳台
+      </view>
+    </view>
+    <view class='item-cell clearfix'>
+      <text class='lab'>服务备注</text>
+      <view class="para-item">
+        是个女主人，比较好说话，但是已经对比过很多家，然后这个是她第二套房子，急着装修出租
+      </view>
+    </view>
+
+    <view class='item-cell clearfix'>
+      <text class='lab'>订单号码</text>
+      <view class="para-item">
+        2018070501002
+      </view>
+    </view>
+
+    <view class='item-cell clearfix'>
+      <text class='lab'>派单时间</text>
+      <view class="para-item">
+        2018-07-02 13:13
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class='userinfo-box'>
+  <view class='userinfo-caption clearfix'>
+    <text>用户信息</text>
+  </view>
+  <view class='userinfo-list'>
+    <view class='item-cell clearfix item-phone'>
+      <text class='lab'>陈小姐</text>
+      <view class="para-item">
+            <view class='btn-makecall'><text class='iconfont icon-phone-1 icon-cpic'></text>联系客户</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class='fixed-bt-seat'></view>
+<view class='fixed-bt-btn'>订单流程</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<view class="gobackhome" wx:if="{{!!fromWhere}}">
+  <navigator url="/pages/jiaju/index/index" class='iconfont icon-home'></navigator>
+</view>

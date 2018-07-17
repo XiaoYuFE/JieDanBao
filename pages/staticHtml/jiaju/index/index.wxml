@@ -1,0 +1,122 @@
+<!--index.wxml-->
+
+  <view class='avatar-box clearfix'>
+    <view class='pic'>
+      <image src='{{xyUserInfo.logo}}' mode="{{aspectFit}}"></image>
+    </view>
+    <view class='hy-tag'>家居商家</view>
+    <view class="txt">家居小马甲</view>
+    <view class='goset-btn' bindtap='setting'>
+      <navigator url='/pages/setting/setting' hover-class="none">设置<text class='iconfont icon-jiantou txt-arrow'></text></navigator>
+    </view>
+  </view>
+
+
+
+
+
+<view class='list-type-1 clearfix'>
+  <view class='item-1'>
+    本月订单
+    <text class='txt'>1</text>
+  </view>
+  <view class='item-2'>
+    总计订单
+    <text class='txt'>10</text>
+  </view>
+</view>
+
+
+<view class='ordernew-box'>
+   <view class='tit'>新订单提醒</view>
+   <view class='mid-tip clearfix'>
+      <view class="num-tip">共有<text>5</text>条新订单等你处理</view>
+      <navigator class='btn-more'>查看全部新订单<text class='iconfont icon-jiantou txt-arrow'></text></navigator>
+   </view>
+
+   <view class='ordernew-card-wrap'>
+    <view class='ordernew-card-box'>
+          <view class='item-cell clearfix'>
+              <text class='lab'>姓名：</text>
+              <view class="para-val">陈先生</view>
+          </view>
+          <view class='item-cell clearfix'>
+              <text class='lab'>手机：</text>
+              <view class="para-val">138****2453</view>
+          </view>
+          <view class='item-cell clearfix'>
+              <text class='lab'>小区：</text>
+              <view class="para-val">造纸厂宿舍</view>
+          </view>
+          <view class='item-cell clearfix'>
+              <text class='lab'>预算：</text>
+              <view class="para-val">5-10万</view>
+          </view>
+          <view class='item-cell clearfix'>
+              <text class='lab'>订单有效期：</text>
+              <view class="para-val">
+
+              </view>
+          </view>
+
+          <view class='item-line'></view>
+
+          <button class='item-btn' hover-class="item-btn-hover">立即接单</button> 
+          <view class='item-tip-1'>接单后可查看客户详细资料并直接联系客户</view>
+      </view>
+      <view class='ordernew-card-seat-1'></view>
+      <view class='ordernew-card-seat-2'></view>
+   </view>
+</view>
+
+
+<view class='orderhandle-box'>
+    <view class='tit'>处理中订单</view>
+    <view class='orderhandle-list-box clearfix'>
+        <navigator class='item-cell'>
+            <view class='num'>0</view>
+            <view class='txt'>待量房</view>
+        </navigator>
+        <navigator class='item-cell'>
+            <view class='num'>2</view>
+            <view class='txt'>待设计</view>
+        </navigator>
+        <navigator class='item-cell'>
+            <view class='num'>2</view>
+            <view class='txt'>待设计</view>
+        </navigator>
+    </view>
+</view>
+
+
+<view class='orderfinsh-box'>
+    <view class='tit'>已结束订单</view>
+    <view class='orderfinsh-list-box clearfix'>
+        <navigator class='item-cell item-yqy'>
+            <view class='num'>0</view>
+            <view class='txt'>已签约`</view>
+        </navigator>
+        <navigator class='item-cell item-wcd'>
+            <view class='num'>2</view>
+            <view class='txt'>未成单</view>
+        </navigator>
+        <navigator class='item-cell item-ysx'>
+            <view class='num'>2</view>
+            <view class='txt'>已失效</view>
+        </navigator>
+    </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
