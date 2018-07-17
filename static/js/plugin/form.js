@@ -1,6 +1,8 @@
 class form {
-  API_SERVER = 'https://m3.xiaoyu.com/jiedanbao/';
+  // API_SERVER = 'https://m3.xiaoyu.com/jiedanbao/';
+  API_SERVER = 'https://wnworld.com/api/JieDanBao/';
   API_CONFIG = {
+    
     jiaju:{
       order_total: 'order_total',
       orders: "orders",
@@ -8,6 +10,7 @@ class form {
       opt_order: 'opt_order',
       config: 'config',
       notice: 'notice',
+      order_stop:"order_stop.php"
     },
     auto: {
       order_total: 'order_total',
@@ -57,6 +60,7 @@ class form {
       dataType: "json",
       success: function (res) {
         if (typeof (res.data) != 'object' && (res.data == 404 || res.data.indexOf('A PHP Error was encountered') > -1)) {
+         
           wx.showModal({
             title: '服务错误',
             content: '',
@@ -86,7 +90,7 @@ class form {
         })
       },
       complete: function () {
-
+        wx.hideLoading();
       }
     });
   }
