@@ -103,6 +103,7 @@ page {
 }
 .uploadgallery-wrap{
    padding:0 30rpx; 
+   margin-top: 10rpx;
 }
 .uploadgallery {
   position: relative;
@@ -125,13 +126,25 @@ page {
 .uploadgallery-list .pic {
   width: 108rpx;
   height: 108rpx;
- 
-  overflow: hidden;
   background: #f60;
   float: left;
-  margin-right: 18rpx;
+  margin-left: 28rpx;
   margin-top: 10rpx;
   border-radius: 20rpx;
+  position: relative;
+}
+
+.uploadgallery-list .pic image{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.uploadgallery-list .icon-cpic {
+    color:#fe7581;
+    font-size:34rpx;
+    position:absolute;
+    right: -15rpx;
+    top:-15rpx;   
 }
 
 .uploadgallery-list .upload-addbtn{
@@ -141,11 +154,13 @@ page {
     margin-top: 10rpx;
     border-radius: 20rpx;
     background:#3ac6b8; 
+    margin-left: 28rpx;
 }
 
 .fixed-bottom-seat {
   height: 158rpx;
 }
+
 
 .fixed-bottom-btn {
   height: 128rpx;
@@ -162,11 +177,31 @@ page {
 .fixed-bottom-btn .btn-update {
   height: 88rpx;
   line-height: 88rpx;
+  width: 70%;
+  float: right;
   text-align: center;
   background: #3ac6b8;
   border-radius: 10rpx;
 }
 
+.fixed-bottom-btn .btn-cancel{
+  box-sizing: border-box;
+  width:30%;
+  padding-right:5%; 
+  float:left;   
+}
+.fixed-bottom-btn .btn-cancel text{
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  background: #f0f0f0;
+  border-radius: 10rpx;
+  color:#999999;
+  display:block; 
+}
+.fixed-bottom-btn .btn-cancel text:hover{
+  background:#e6e6e6; 
+}
 
 .cell-radio-box{
    position:absolute;
@@ -174,10 +209,6 @@ page {
    top:25rpx;
    font-size: 28rpx;  
 }
-
-
-
-
 radio-group .radio{
   position:relative;
   padding-left: 55rpx; 
