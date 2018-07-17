@@ -1,0 +1,52 @@
+page{
+  background:#f7f7f7;
+  
+}
+.header-top{
+  padding:20rpx 30rpx;
+  position: relative; 
+}
+.header-top .tit{
+    color:#333;
+    line-height:45rpx; 
+    display:block; 
+    font-size:36rpx;  
+}
+.header-top .tip{
+    color:#666666;
+    font-size:28rpx;
+    margin-top: 10rpx;  
+    display: block;
+}
+.header-top .server-stop{
+  color:#fe7581;
+  position: absolute;
+  right:30rpx;
+  top:25rpx; 
+  font-size: 28rpx;
+}
+
+
+.orderstep-list-wrap{
+  background:#ffffff;
+  padding:0 30rpx;  
+}
+.orderstep-list .item-cell{
+  position: relative;
+}
+
+.orderstep-list .name{
+  color:#333333;
+  font-size:30rpx;
+}
+.orderstep-list .txt-statu{
+    color:#999999;
+     
+}
+.orderstep-list{}
+.orderstep-list{}
+.orderstep-list{}
+.orderstep-list{}
+.orderstep-list{}
+.orderstep-list{}
+.orderstep-list{}

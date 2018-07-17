@@ -1,0 +1,15 @@
+<view class="header-top">
+  <text class='tit'>订单流程</text>
+  <text class='tip'>为了保证派单量，请及时更新订单</text>
+  <view class='server-stop'>终止服务</view>
+</view>
+
+<view class='orderstep-list-wrap'>
+  <view class='orderstep-list'>
+    <view class='item-cell'>
+        <view class='name'>接单</view>
+        <view class='time-finsh'>完成时间：2018-07-05 13:13</view>
+        <text class='txt-statu'>已完成</text>
+    </view>
+  </view>
+</view>

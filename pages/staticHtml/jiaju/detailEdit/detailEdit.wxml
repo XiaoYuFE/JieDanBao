@@ -4,7 +4,6 @@
 
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view class='houseinfo-box'>
-
     <view class='houseinfo-caption clearfix'>
       <text>取消</text>
       <button class='ipt-submit' formType="submit" type="primary" loading="{{submiting}}" disabled='{{submiting}}'>提交</button>

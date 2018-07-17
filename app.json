@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/staticHtml/jiaju/order/order",
     "pages/staticHtml/jiaju/detailEdit/detailEdit",
     "pages/staticHtml/jiaju/detail/detail",
     
