@@ -155,12 +155,16 @@ page {
 
 
 
-.ui-radio radio,.ui-radio checkbox {
-  display: none;
-}
-.ui-radio .text {
-/*设计样式*/
-}
-.ui-radio.active .text {
-  color:#f60; 
+radio .wx-radio-input{
+
+border-radius: 3rpx;
+
+height: 26rpx;
+
+width: 26rpx;
+
+margin-top: -4rpx;
+
+/* 自定义样式.... */
+
 }
