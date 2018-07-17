@@ -16,14 +16,15 @@
   <view class='item-cell'>
     <view class='name'>2.上门量房</view>
     <view class='cell-radio-box'>
-      <radio-group bindchange="radioChange">
-        <label class="ui-radio {{item.checked==true ? 'active':''}}" wx:for="{{items}}">
-                    <radio value=" {{item.value}} " checked="{{item.checked}} "></radio>
-                    <text class="text ">{{item.name}}</text>
-        </label>
-</radio-group>
-    </view>
+      <radio-group class="radio-group" bindchange="radioChange">
 
+        <label class="radio" wx:for="{{items}}">
+
+          <radio value="{{item.value}}" checked="{{item.checked}}" color="#fff" />{{item.name}}
+
+        </label>
+      </radio-group>
+    </view>
   </view>
   <view class='item-cell'>
     <view class='name'>2.上门量房</view>

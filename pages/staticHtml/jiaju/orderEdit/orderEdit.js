@@ -5,12 +5,8 @@ Page({
    */
   data: {
     items: [
-      { value: 'USA', name: '美国' },
-      { value: 'CHN', name: '中国', checked: 'true' },
-      { value: 'BRA', name: '巴西' },
-      { value: 'JPN', name: '日本' },
-      { value: 'ENG', name: '英国' },
-      { value: 'FRA', name: '法国' },
+      { value: '1', name: '已完成'},
+      { value: '0', name: '待完成', checked: 'true'}
     ]
   },
 

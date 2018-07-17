@@ -154,17 +154,35 @@ page {
 }
 
 
+.cell-radio-box{
+   position:absolute; 
+}
 
+
+radio{
+  border-radius: 50%;
+  width: 40rpx;/* 最好是4的倍数，不然会不在中间 */
+  height: 40rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -6rpx;
+  border: 2rpx solid #cacaca;/* 设置边框（外圆） */
+  font-size: 0;/* 让边框重合 */
+}
 radio .wx-radio-input{
+   border-radius: 50%;
+   width: 40rpx;
+   height: 40rpx; 
+   border: none;/* 替换边框（隐藏原有边框） */
+}
 
-border-radius: 3rpx;
-
-height: 26rpx;
-
-width: 26rpx;
-
-margin-top: -4rpx;
-
-/* 自定义样式.... */
-
+radio .wx-radio-input.wx-radio-input-checked::before{
+   border-radius: 50%;
+   width: 40rpx; 
+   height: 40rpx; 
+   text-align: center;
+   border:2rpx solid #3ac6b8;
+   background-color: #3ac6b8; 
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
 }
