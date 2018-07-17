@@ -17,55 +17,81 @@
     <view class='name'>2.上门量房</view>
     <view class='cell-radio-box'>
       <radio-group class="radio-group" bindchange="radioChange">
-
-        <label class="radio" wx:for="{{items}}">
-
-          <radio value="{{item.value}}" checked="{{item.checked}}" color="#fff" />{{item.name}}
-
+        <label class="radio">
+          <radio value="1" class='disabled' disabled checked="" color="#fff" />已完成
+        </label>
+        <label class="radio">
+          <radio class='disabled' value="0" disabled checked="true" color="#fff" />未完成
         </label>
       </radio-group>
     </view>
   </view>
   <view class='item-cell'>
     <view class='name'>2.上门量房</view>
-    <view class='time-finsh'>完成时间：2018-07-05 13:13</view>
-    <text class='txt-statu success'>已完成</text>
-  </view>
-  <view class='item-cell'>
-    <view class='cell-info'>
-      <view class='name'>设计方案</view>
-      <view class='time-finsh'>完成时间：2018-07-05 13:13</view>
-      <text class='txt-statu success-top'>已完成</text>
-      <view class='uploadgallery'>
-        <view class='lab'>方案图片：</view>
-        <view class='uploadgallery-list clearfix'>
-          <view class='pic'>
-            <image src=''></image>
+    <view class='cell-radio-box'>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{items}}">
+          <radio value="{{item.value}}" checked="{{item.checked}}" color="#fff" />{{item.name}}
+        </label>
+      </radio-group>
+    </view>
+    <view class='cell-lf-time clearfix'>
+      <text class='lab'>量房时间</text>
+      <view class='time-picker'>
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <view class="picker">
+            {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
           </view>
-          <view class='pic'>
-            <image src=''></image>
-          </view>
-          <view class='pic'>
-            <image src=''></image>
-          </view>
-          <view class='pic'>
-            <image src=''></image>
-          </view>
-          <view class='pic'>
-            <image src=''></image>
-          </view>
-          <view class='pic'>
-            <image src=''></image>
-          </view>
-        </view>
-
+        </picker>
+        <text class='iconfont icon-jiantou txt-arrow'></text>
       </view>
     </view>
-    <view class='lineh'></view>
+  </view>
+
+
+  <view class='item-cell'>
+    <view class='name'>2.上门量房</view>
+    <view class='time-finsh'>完成时间：2018-07-05 13:13</view>
+    <text class='txt-statu success'>已完成</text>
+
   </view>
   <view class='item-cell'>
     <view class='cell-info'>
-      <view class='name'>合同签约</view>
+      <view class='name'>3.设计方案</view>
+      <view class='time-finsh'>完成时间：2018-07-05 13:13</view>
+      <view class='cell-radio-box'>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio">
+            <radio value="1" disabled checked="" color="#fff" />已完成
+          </label>
+          <label class="radio">
+            <radio class='disabled' value="0" disabled checked="true" color="#fff" />未完成
+          </label>
+        </radio-group>
+      </view>
+
+      <view class='time-remain clearfix'>
+        <text class='lab'>剩余时间：</text>
+        <view class='timing-count'>47小时59分59秒</view>
+        <text class='iconfont icon-tishi icon-cpic'></text>
+      </view>
+      <text class='txt-statu success-top'>已完成</text>
+      <view class='uploadgallery-wrap'>
+        <view class='uploadgallery'>
+          <view class='lab'>方案图片：</view>
+          <view class='uploadgallery-list clearfix'>
+            <view class='pic'>
+              <image src=''></image>
+            </view>
+            <view class='upload-addbtn'>添加</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='item-cell'>
+    <view class='cell-info'>
+      <view class='name'>4.合同签约</view>
       <view class='time-finsh'>完成时间：2018-07-05 13:13</view>
       <view class='agree-price'>合同金额：180000元</view>
       <text class='txt-statu success-top'>已完成</text>
