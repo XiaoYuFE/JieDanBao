@@ -53,6 +53,7 @@ App({
   
   globalData: {
     server: "https://m3.xiaoyu.com/",
+    
     sessionJdbUserInfo:"",//存放小鱼用户的信息
     sessionJdbUkey:"",
     sessionJdbBrandId:"",//商家id

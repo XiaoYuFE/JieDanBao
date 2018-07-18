@@ -1,103 +1,44 @@
 import form from '../../../static/js/plugin/form'
-
+import timer from '../../../static/js/plugin/wxTimer.js'
 const app = getApp();
 app.form = new form(app);
 
 
 
+
 Page({
   data: {
+    
     xyUserInfo: {},
     dataInfo: {},
-    wxTimerList: []
+    wxTimerList: {},
+   
   },
 
-  onLoad: function () {
-    console.dir("onLoad");
+  onLoad: function() {
+    console.group("onLoad事件");
     var that = this;
     //获取配置信息
-    that.setData({ xyUserInfo: app.globalData.sessionJdbUserInfo });
+    that.setData({
+      xyUserInfo: app.globalData.sessionJdbUserInfo
+    });
     app.form.tracking('jdb_index', 'jdb_index', '');
 
-    var timer = require('../../../static/js/plugin/wxTimer.js');
-    var wxTimer = new timer({
-      beginTime: "00:00:05",
-      complete: function () {
-        console.log("完成了")
-      }
-    })
-    wxTimer.start(this);
-
-
+    
   },
 
-  onShow: function () {
-    console.dir("onShow");
-    this._getPageData();
+  onReady: function() {
+    console.group("onReady事件");
   },
 
+  onShow: function() {
+   
+   
+    console.group("onShow事件");
+   
+    var that=this;
 
-  setting: function () {
-    wx.redirectTo({
-      url: '/pages/setting/setting'
-    })
-  },
-
-  //拨打电话
-  makeCallPhone: function () {
-    var that = this;
-    wx.makePhoneCall({ phoneNumber: that.data.kf_tel })
-  },
-
-  onShareAppMessage: function () {
-    return {
-      title: '小鱼接单宝',
-      path: '/pages/login/login',
-      imageUrl: "http://m3.xiaoyu.com/img/jiedanbao_share.png",
-      success: function (res) {
-        wx.showToast({
-          title: '成功',
-          icon: 'success',
-          duration: 2000
-        })
-      },
-      fail: function (res) {
-
-      }
-    }
-  },
-  //日期秒转成分秒
-  _formatDateHMS:function(mss) {
-
-    var hours = parseInt((mss % (60 * 60)) / (60 * 60));
-    var minutes = parseInt((mss % (60 * 60)) / (60));
-    var seconds = mss % 60;
-    if (hours < 10) {
-      hours = "0" + hours;
-    }
-    if (seconds < 10) {
-      seconds = "0" + seconds;
-    }
-    if (minutes < 10) {
-      minutes = "0" + minutes;
-    }
-    return hours + ":" + minutes + ":" + seconds;
-  },
-  _formatDateMS: function (mss) {
-    var minutes = parseInt(mss / 60);
-    var seconds = mss % 60;
-    if (seconds < 10) {
-      seconds = "0" + seconds;
-    }
-    if (minutes < 10) {
-      minutes = "0" + minutes;
-    }
-    return minutes + " 分 " + seconds + " 秒";
-  },
-
-  //获取页面数据（登录以后才执行此步骤）
-  _getPageData: function () {
-    var that = this;
+    //请求数据
     app.form.requestPost(app.form.API_CONFIG.jiaju.order_total, {}, function (res) {
       //判断是否登陆
       var res = {
@@ -124,8 +65,75 @@ Page({
         "msg": "success",
         "redict": ""
       };
-      res.data.new_order.d_time = that._formatDateHMS(60*60*3);
-      that.setData({ dataInfo: res.data });
+      //保存住当前的时间
+     
+      that.setData({
+        dataInfo: res.data
+      });
+
+      console.dir(that.data.wxTimerList)
+
+      var wxTimer1 = new timer({
+        beginTime: 60,
+        name: 'wxTimer1',
+        formatType:"MS",
+        complete: function () {
+          console.log("完成了")
+        },
+        interval: 1,
+        intervalFn: function () {
+          console.dir("xxx")
+        }
+      })
+
+     
+
+      wxTimer1.start(that);
+
     })
   },
+
+  onHide: function() {
+    console.group("onHide事件");
+    
+  },
+  onUnload: function() {
+    console.group("onUnload事件");
+  },
+
+
+  //获取页面数据（登录以后才执行此步骤）
+ 
+
+
+  setting: function() {
+    wx.redirectTo({
+      url: '/pages/setting/setting'
+    })
+  },
+
+
+
+
+
+  onShareAppMessage: function() {
+    return {
+      title: '小鱼接单宝',
+      path: '/pages/login/login',
+      imageUrl: "http://m3.xiaoyu.com/img/jiedanbao_share.png",
+      success: function(res) {
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 2000
+        })
+      },
+      fail: function(res) {
+
+      }
+    }
+  }
+  
+
+
 })

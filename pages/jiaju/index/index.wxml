@@ -31,7 +31,7 @@
    <view class='tit'>新订单提醒</view>
    <view class='mid-tip clearfix'>
       <view class="num-tip">共有<text>{{dataInfo.wjd}}</text>条新订单等你处理</view>
-      <navigator class='btn-more'>查看全部新订单<text class='iconfont icon-jiantou txt-arrow'></text></navigator>
+      <navigator url="/pages/jiaju/list/list" class='btn-more'>查看全部新订单<text class='iconfont icon-jiantou txt-arrow'></text></navigator>
    </view>
 
    <view class='ordernew-card-wrap'>
@@ -55,7 +55,7 @@
           <view class='item-cell clearfix'>
               <text class='lab'>订单有效期：</text>
               <view class="para-val">
-                  {{dataInfo.new_order.d_time}}
+              {{wxTimerFormatMinute}}分{{wxTimerFormatSecond}}秒
               </view>
           </view>
 
@@ -74,16 +74,16 @@
     <view class='tit'>处理中订单</view>
     <view class='orderhandle-list-box clearfix'>
         <navigator class='item-cell'>
-            <view class='num'>0</view>
+            <view class='num'>{{dataInfo.dlf}}</view>
             <view class='txt'>待量房</view>
         </navigator>
         <navigator class='item-cell'>
-            <view class='num'>2</view>
+            <view class='num'>{{dataInfo.dsj}}</view>
             <view class='txt'>待设计</view>
         </navigator>
         <navigator class='item-cell'>
-            <view class='num'>2</view>
-            <view class='txt'>待设计</view>
+            <view class='num'>{{dataInfo.dqy}}</view>
+            <view class='txt'>待签约</view>
         </navigator>
     </view>
 </view>
@@ -93,15 +93,15 @@
     <view class='tit'>已结束订单</view>
     <view class='orderfinsh-list-box clearfix'>
         <navigator class='item-cell item-yqy'>
-            <view class='num'>0</view>
+            <view class='num'>{{dataInfo.yqy}}</view>
             <view class='txt'>已签约`</view>
         </navigator>
         <navigator class='item-cell item-wcd'>
-            <view class='num'>2</view>
+            <view class='num'>{{dataInfo.void}}</view>
             <view class='txt'>未成单</view>
         </navigator>
         <navigator class='item-cell item-ysx'>
-            <view class='num'>2</view>
+            <view class='num'>{{dataInfo.ysx}}</view>
             <view class='txt'>已失效</view>
         </navigator>
     </view>
