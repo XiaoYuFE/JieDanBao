@@ -15,7 +15,7 @@
       <navigator hover-class="n-hover">待设计</navigator>
     </view>
     <view class='item-cell'>
-      <navigator hover-class="n-hover">待设计</navigator>
+      <navigator hover-class="n-hover">待签约</navigator>
     </view>
   </view>
 
@@ -36,8 +36,150 @@
 </view>
 <view class='header-top-seat {{tabType}}'></view>
 
+<view class='nodata-top' wx-if="{{isNoData}}">
+  <text class='iconfont icon-none icon-cpic'></text>暂无数据！</view>
+<view class="scroll-list-wrap">
+  <view wx:for="{{dataInfo}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
+    <view class='item-cell'>
+      <view class='cname'>{{item.name}}</view>
+      <view class='cphone'>{{item.format_mobile}}</view>
+      <view class='cyxdate clearfix'>
+        <text class="txt-1">订单有效期：</text>
+        <view class="cyx-remain">29分13秒 </view>
+        <text class="txt-2">（过期后无法再接单）</text>
+      </view>
 
-<scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" class="scroll-list-wrap">
+      <view class='order-info'>
+        <view class='info-cell clearfix'>
+          <text class='clab'>小区：</text>
+          <view class='cval'>{{item.community}}</view>
+        </view>
+        <view class='info-cell clearfix'>
+          <text class='clab'>预算：</text>
+          <view class='cval'>{{item.price}}</view>
+        </view>
+        <view class='info-cell clearfix'>
+          <text class='clab'>订单号码：</text>
+          <view class='cval'>{{item.order_num}}</view>
+        </view>
+        <view class='info-cell clearfix'>
+          <text class='clab'>派单时间：</text>
+          <view class='cval'>{{send_time}}</view>
+        </view>
+      </view>
+      <view class='c-jdbtn'>
+        <button data-id="{{item.id}}">立即接单</button>
+      </view>
+    </view>
+  </view>
+  <!-- <view class='item-cell'>
+    <view class='cname'>{{}}</view>
+    <view class='cphone'>130****2453</view>
+    <view class='cyxdate clearfix'>
+      <text class="txt-1">订单有效期：</text>
+      <view class="cyx-remain">29分13秒 </view>
+      <text class="txt-2">（过期后无法再接单）</text>
+    </view>
+    
+    <view class='order-info'>
+      <view class='info-cell clearfix'>
+        <text class='clab'>小区：</text>
+        <view class='cval'>造纸厂宿舍造纸厂宿舍</view>
+      </view>
+      <view class='info-cell clearfix'>
+        <text class='clab'>预算：</text>
+        <view class='cval'>5-10万</view>
+      </view>
+      <view class='info-cell clearfix'>
+        <text class='clab'>订单号码：</text>
+        <view class='cval'>2018070501002</view>
+      </view>
+      <view class='info-cell clearfix'>
+        <text class='clab'>派单时间：</text>
+        <view class='cval'>2018-07-05 13:13</view>
+      </view>
+    </view>
+    <view class='c-jdbtn'>
+      <button>立即接单</button>
+    </view>
+  </view> -->
+
+  <!--新订单  -->
+  <!-- <view class='item-cell'>
+    <view class='cname'>陈先生</view>
+    <view class='cphone'>130****2453</view>
+    <view class='cyxdate clearfix'>
+      <text class="txt-1">订单有效期：</text>
+      <view class="cyx-remain">29分13秒 </view>
+      <text class="txt-2">（过期后无法再接单）</text>
+    </view>
+    
+    <view class='order-info'>
+      <view class='info-cell clearfix'>
+        <text class='clab'>小区：</text>
+        <view class='cval'>造纸厂宿舍造纸厂宿舍</view>
+      </view>
+      <view class='info-cell clearfix'>
+        <text class='clab'>预算：</text>
+        <view class='cval'>5-10万</view>
+      </view>
+      <view class='info-cell clearfix'>
+        <text class='clab'>订单号码：</text>
+        <view class='cval'>2018070501002</view>
+      </view>
+      <view class='info-cell clearfix'>
+        <text class='clab'>派单时间：</text>
+        <view class='cval'>2018-07-05 13:13</view>
+      </view>
+    </view>
+    <view class='c-jdbtn'>
+      <button>立即接单</button>
+    </view>
+  </view> -->
+
+
+
+
+  <!-- <view class='item-cell'>
+    <view class='cname'>陈先生</view>
+    <view class='cphone'>130****2453</view>
+    <view class='cyxdate clearfix'>
+      <text class="txt-1">订单有效期：</text>
+      <view class="cyx-remain">29分13秒 </view>
+      <text class="txt-2">（过期后无法再接单）</text>
+    </view>
+    <view class="cmakecall">
+      <text class='iconfont icon-phone-1 icon-cpic'></text>联系客户</view>
+    <view class='order-info'>
+      <view class='info-cell clearfix'>
+        <text class='clab'>小区：</text>
+        <view class='cval'>造纸厂宿舍造纸厂宿舍</view>
+      </view>
+      <view class='info-cell clearfix'>
+        <text class='clab'>预算：</text>
+        <view class='cval'>5-10万</view>
+      </view>
+      <view class='info-cell clearfix'>
+        <text class='clab'>订单号码：</text>
+        <view class='cval'>2018070501002</view>
+      </view>
+      <view class='info-cell clearfix'>
+        <text class='clab'>派单时间：</text>
+        <view class='cval'>2018-07-05 13:13</view>
+      </view>
+    </view>
+    <view class='timeremain clearfix'>
+      <text class='clab'>量房剩余时间：</text>
+      <view class='c-timing'>47小时47分59秒</view>
+    </view>
+    <view class='c-jdbtn'>
+      <button>立即接单</button>
+    </view>
+    <navigator class='cnavigator'>上门量房待完成
+      <text class='iconfont icon-jiantou txt-arrow'></text>
+    </navigator>
+  </view>
+
   <view class='item-cell'>
     <view class='cname'>陈先生</view>
     <view class='cphone'>130****2453</view>
@@ -81,46 +223,6 @@
   <view class='item-cell'>
     <view class='cname'>陈先生</view>
     <view class='cphone'>130****2453</view>
-    <!-- <view class='cyxdate clearfix'>
-      <text class="txt-1">订单有效期：</text>
-      <view class="cyx-remain">29分13秒 </view>
-      <text class="txt-2">（过期后无法再接单）</text>
-    </view> -->
-    <view class="cmakecall">
-      <text class='iconfont icon-phone-1 icon-cpic'></text>联系客户</view>
-    <view class='order-info'>
-      <view class='info-cell clearfix'>
-        <text class='clab'>小区：</text>
-        <view class='cval'>造纸厂宿舍造纸厂宿舍</view>
-      </view>
-      <view class='info-cell clearfix'>
-        <text class='clab'>预算：</text>
-        <view class='cval'>5-10万</view>
-      </view>
-      <view class='info-cell clearfix'>
-        <text class='clab'>订单号码：</text>
-        <view class='cval'>2018070501002</view>
-      </view>
-      <view class='info-cell clearfix'>
-        <text class='clab'>派单时间：</text>
-        <view class='cval'>2018-07-05 13:13</view>
-      </view>
-    </view>
-    <view class='timeremain clearfix'>
-      <text class='clab'>量房剩余时间：</text>
-      <view class='c-timing'>47小时47分59秒</view>
-    </view>
-    <view class='c-jdbtn'>
-      <button>立即接单</button>
-    </view>
-    <navigator class='cnavigator'>上门量房待完成
-      <text class='iconfont icon-jiantou txt-arrow'></text>
-    </navigator>
-  </view>
-
-  <view class='item-cell'>
-    <view class='cname'>陈先生</view>
-    <view class='cphone'>130****2453</view>
     <view class='cyxdate clearfix'>
       <text class="txt-1">订单有效期：</text>
       <view class="cyx-remain">29分13秒 </view>
@@ -156,7 +258,13 @@
     <navigator class='cnavigator'>上门量房待完成
       <text class='iconfont icon-jiantou txt-arrow'></text>
     </navigator>
+  </view> -->
+
+
+</view>
+
+<view class='refresh-bottom' wx-if="{{isLoading}}">
+  <view class='loading-box'>
+    <view class="iconfont icon-loading icon-cpic"></view> 玩命加载中...
   </view>
-
-
-</scroll-view>
+</view>
