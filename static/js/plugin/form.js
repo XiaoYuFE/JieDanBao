@@ -1,8 +1,7 @@
 class form {
-  // API_SERVER = 'https://m3.xiaoyu.com/jiedanbao/';
-  API_SERVER = 'https://wnworld.com/api/JieDanBao/';
+  API_SERVER = 'https://m3.xiaoyu.com/jiedanbao/';
+  // API_SERVER = 'https://wnworld.com/api/JieDanBao/';
   API_CONFIG = {
-    
     jiaju:{
       order_total: 'order_total',
       orders: "orders",

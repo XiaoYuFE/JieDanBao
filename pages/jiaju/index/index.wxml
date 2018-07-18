@@ -4,8 +4,8 @@
     <view class='pic'>
       <image src='{{xyUserInfo.logo}}' mode="{{aspectFit}}"></image>
     </view>
-    <view class='hy-tag'>家居商家</view>
-    <view class="txt">{{xyUserInfo.brand_name}}</view>
+    <view class='hy-tag'>{{xyUserInfo.category_tag}}</view>
+    <view class="txt">{{xyUserInfo.username}}</view>
     <view class='goset-btn' bindtap='setting'>
       <navigator url='/pages/setting/setting' hover-class="none">设置<text class='iconfont icon-jiantou txt-arrow'></text></navigator>
     </view>
@@ -18,11 +18,11 @@
 <view class='list-type-1 clearfix'>
   <view class='item-1'>
     本月订单
-    <text class='txt'>{{dataList.month}}</text>
+    <text class='txt'>{{dataInfo.month}}</text>
   </view>
   <view class='item-2'>
     总计订单
-    <text class='txt'>{{dataList.total}}</text>
+    <text class='txt'>{{dataInfo.total}}</text>
   </view>
 </view>
 
@@ -30,7 +30,7 @@
 <view class='ordernew-box'>
    <view class='tit'>新订单提醒</view>
    <view class='mid-tip clearfix'>
-      <view class="num-tip">共有<text>5</text>条新订单等你处理</view>
+      <view class="num-tip">共有<text>{{dataInfo.wjd}}</text>条新订单等你处理</view>
       <navigator class='btn-more'>查看全部新订单<text class='iconfont icon-jiantou txt-arrow'></text></navigator>
    </view>
 
@@ -38,24 +38,24 @@
     <view class='ordernew-card-box'>
           <view class='item-cell clearfix'>
               <text class='lab'>姓名：</text>
-              <view class="para-val">陈先生</view>
+              <view class="para-val">{{dataInfo.new_order.name}}</view>
           </view>
           <view class='item-cell clearfix'>
               <text class='lab'>手机：</text>
-              <view class="para-val">138****2453</view>
+              <view class="para-val">{{dataInfo.new_order.mobile}}</view>
           </view>
           <view class='item-cell clearfix'>
               <text class='lab'>小区：</text>
-              <view class="para-val">造纸厂宿舍</view>
+              <view class="para-val">{{dataInfo.new_order.community}}</view>
           </view>
           <view class='item-cell clearfix'>
               <text class='lab'>预算：</text>
-              <view class="para-val">5-10万</view>
+              <view class="para-val">{{dataInfo.new_order.price}}</view>
           </view>
           <view class='item-cell clearfix'>
               <text class='lab'>订单有效期：</text>
               <view class="para-val">
-
+                  {{dataInfo.new_order.d_time}}
               </view>
           </view>
 
@@ -113,7 +113,6 @@
 
 
 
-<view style='height:250rpx;'></view>
 
 
 
@@ -121,6 +120,21 @@
 
 
 
+
+
+
+
+
+
+
+<!-- <view style='height:250rpx;'></view> -->
+
+
+
+
+
+
+<!-- 
 <view class="list-step-wrap clearfix">
   <view class="item-cell item-1">
     <navigator url="/pages/jiaju/list/list?toView=dfw">
@@ -208,4 +222,4 @@
   小程序使用有问题？
   <text bindtap='makeCallPhone'>联系我们</text>
   <view class="bg-pic"></view>
-</view>
+</view> -->

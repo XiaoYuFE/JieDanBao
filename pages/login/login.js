@@ -81,6 +81,7 @@ Page({
               if (res.code) {
                 //发起网络请求
                 that.form.requestPost(that.form.API_CONFIG.common['bind'],{code:res.code},function (res){
+                 
                   if(res.status===1){
                     app.globalData.sessionJdbUnionid = res.data.unionid;
                     app.globalData.sessionJdbOpenid  = res.data.openid;

@@ -1,19 +1,10 @@
 {
-  "pages": [
-    "pages/staticHtml/jiaju/orderStop/orderStop",
-    "pages/staticHtml/jiaju/orderEdit/orderEdit",
-    "pages/staticHtml/jiaju/order/order",
-    "pages/staticHtml/jiaju/detailEdit/detailEdit",
-    "pages/staticHtml/jiaju/detail/detail",
-    
-    
-    "pages/staticHtml/jiaju/list/list",
-    "pages/staticHtml/jiaju/index/index",
-    "pages/staticHtml/splash/splash",
-    
+  "pages": [  
 
     
     "pages/login/login",
+    "pages/splash/splash",
+    
     
     "pages/auto/index/index",
     "pages/auto/list/list",

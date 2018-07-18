@@ -30,4 +30,4 @@
 
 
 <view class='fixed-bottom-seat'></view>
-<view class='fixed-bottom'>进入工作区，立即接单</view>
+<view class='fixed-bottom' bindtap="splashEntrance">进入工作区，立即接单</view>
