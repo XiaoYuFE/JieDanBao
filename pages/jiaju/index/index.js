@@ -4,15 +4,12 @@ const app = getApp();
 app.form = new form(app);
 
 
-
-
 Page({
   data: {
-    
     xyUserInfo: {},
     dataInfo: {},
     wxTimerList: {},
-   
+
   },
 
   onLoad: function() {
@@ -23,21 +20,6 @@ Page({
       xyUserInfo: app.globalData.sessionJdbUserInfo
     });
     app.form.tracking('jdb_index', 'jdb_index', '');
-
-    
-  },
-
-  onReady: function() {
-    console.group("onReady事件");
-  },
-
-  onShow: function() {
-   
-   
-    console.group("onShow事件");
-   
-    var that=this;
-
     //请求数据
     app.form.requestPost(app.form.API_CONFIG.jiaju.order_total, {}, function (res) {
       //判断是否登陆
@@ -58,44 +40,46 @@ Page({
             "mobile": "13111112222",
             "community": "万达",
             "price": "20-30万",
-            "d_time": 135547
+            "d_time": 3600
           }
         },
         "status": 1,
         "msg": "success",
         "redict": ""
       };
-      //保存住当前的时间
-     
       that.setData({
         dataInfo: res.data
       });
-
-      console.dir(that.data.wxTimerList)
-
+      //保存住当前的时间
       var wxTimer1 = new timer({
-        beginTime: 60,
-        name: 'wxTimer1',
-        formatType:"MS",
+        beginTime: that.data.dataInfo.new_order.d_time,
+        formatType: "MS",
         complete: function () {
           console.log("完成了")
         },
         interval: 1,
         intervalFn: function () {
-          console.dir("xxx")
         }
       })
-
-     
-
       wxTimer1.start(that);
-
     })
+  },
+
+  onReady: function() {
+    console.group("onReady事件");
+  },
+
+  onShow: function() {
+
+
+    console.group("onShow事件");
+
+    var that = this;
   },
 
   onHide: function() {
     console.group("onHide事件");
-    
+
   },
   onUnload: function() {
     console.group("onUnload事件");
@@ -103,7 +87,7 @@ Page({
 
 
   //获取页面数据（登录以后才执行此步骤）
- 
+
 
 
   setting: function() {
@@ -133,7 +117,7 @@ Page({
       }
     }
   }
-  
+
 
 
 })

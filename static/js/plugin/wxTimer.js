@@ -50,22 +50,18 @@ wxTimer.prototype = {
   //开始
   start: function(self) {
     var that = this;
+    var wxTimerSecond = that.beginTime;
+    var wxTimerList = self.data.wxTimerList;
+    var hmsTime, msTime;
     //开始倒计时
     var count = 0; //这个count在这里应该是表示s数，js中获得时间是ms，所以下面*1000都换成ms
     function begin() {
       count++;
-      var wxTimerList = self.data.wxTimerList;
-      var wxTimerSecond = that.beginTime;
-      var hmsTime,msTime;
+      
       that.beginTime--;
-      
-
-      
-      
-
       if (that.formatType=="HMS"){
         hmsTime = wxTimer._formatDateHMS(that.beginTime);
-        console.dir(hmsTime);
+       
         wxTimerList[that.name] = {
           wxTimerFormatHour: hmsTime.hours,
           wxTimerFormatMinute: hmsTime.hours,
@@ -89,7 +85,7 @@ wxTimer.prototype = {
       }
 
       //时间间隔执行函数
-      if (0 == (count - 1) % that.interval && that.intervalFn) {
+      if (that.intervalFn) {
         that.intervalFn();
       }
       //结束执行函数

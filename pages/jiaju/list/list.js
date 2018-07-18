@@ -1,77 +1,80 @@
-import form from '../../../static/js/plugin/form'
-const app = getApp();
-app.form = new form(app);
+
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    step: "all",
-    isNoData: false,
-    loadMoreData: "加载中...",
-    scrollHeight: "",
-    dataList: [],
-    currentPage: 1,
-    isLast: false,
+      tabType:""
   },
 
+  /**
+   * 生命周期函数--监听页面加载
+   * tabType:xdd(新订单)，clz(处理中)，yjs(已结束)
+   */
   onLoad: function (options) {
-    var that = this;
-    this.setData({ step: options.toView ? options.toView : 'all'});
-
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({scrollHeight: res.windowHeight});
-      }
-    });
+    console.dir(options);
+    options.tabType="xdd";
+      this.setData({
+        tabType: options.tabType
+      })
   },
-  navTap: function (event) {
-    var step = event.currentTarget.dataset.type;
-    if (this.data.step == step) {
-      return false;
-    }
 
-    this.setData({
-      isLast: false,
-      isNoData: false,
-      dataList: [],
-      currentPage: 1,
-      step: step
-    });
-    this._getDataList();
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
   },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
   onShow: function () {
+  
+  },
+  navMainHandle:function(e){
+    //设置标签状态
     this.setData({
-      isLast: false,
-      isNoData: false,
-      dataList: [],
-      currentPage: 1
+      tabType: e.currentTarget.dataset.tabtype
     });
-    this._getDataList();
-  },
-  _getDataList: function (listType, obj, isClear) {
-    var that = this;
-    app.form.requestPost(app.form.API_CONFIG.jiaju.orders, {
-      page: that.data.currentPage,
-      step: that.data.step,
-    }, function (res) {
-      if(res.status !==1)return false;
-      if (res.data.total < 1) {
-        that.setData({ isNoData: true });
-        that.setData({ isLast: true });
-        return false;
-      }
+    //请求数据
+    
 
-      if (res.data.orders.length < res.data.size) {
-        that.setData({isLast: true})
-      }
-
-      that.data.currentPage++;
-      that.data.dataList.push.apply(that.data.dataList, res.data.orders);
-      that.setData({ dataList: that.data.dataList });
-    });
+     
   },
-  lower: function () {
-    if (this.data.isLast) {
-      return false;
-    } 
-    this._getDataList();
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+        console.dir("ASdfasdfasdf");
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
   }
 })
