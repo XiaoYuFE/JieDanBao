@@ -67,6 +67,7 @@ wxTimer.prototype = {
           wxTimerFormatMinute: hmsTime.hours,
           wxTimerFormatSecond: wxTimerFormatSecond,
           wxTimerSecond: wxTimerSecond,
+          wxTimerList: wxTimerList
         }
         
       } else if (that.formatType == "MS"){

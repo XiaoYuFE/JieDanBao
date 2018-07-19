@@ -1,40 +1,40 @@
 <view class='header-top'>
   <view class="plist-nav-top">
-    <view bindtap='navMainHandle' data-tabtype="xdd" class="item-cell {{tabType=='xdd' ? 'active' :''}}">新订单</view>
-    <view bindtap='navMainHandle' data-tabtype="clz" class="item-cell {{tabType=='clz' ? 'active' :''}}">处理中</view>
-    <view bindtap='navMainHandle' data-tabtype="yjs" class="item-cell {{tabType=='yjs' ? 'active' :''}}">已结束</view>
+    <view bindtap='navMainHandle' data-ordertype="xdd"  data-active="{{orderType=='xdd' ? 'active' :''}}" class="item-cell {{orderType=='xdd' ? 'active' :''}}">新订单</view>
+    <view bindtap='navMainHandle' data-ordertype="clz" data-active="{{orderType=='clz' ? 'active' :''}}" class="item-cell {{orderType=='clz' ? 'active' :''}}">处理中</view>
+    <view bindtap='navMainHandle' data-ordertype="yjs" data-active="{{orderType=='yjs' ? 'active' :''}}" class="item-cell {{orderType=='yjs' ? 'active' :''}}">已结束</view>
   </view>
-  <view class='plist-nav-sub' wx:if="{{tabType=='clz' ? true :false}}">
-    <view class='item-cell active'>
-      <navigator hover-class="n-hover">全部</navigator>
+  <view class='plist-nav-sub' wx:if="{{orderType=='clz' ? true :false}}">
+    <view class='item-cell {{orderSubType=="all" ? "active" :""}}'>
+      <text bindtap='navSubHandle' data-ordersubtype="all"  data-active="{{orderSubType=='all' ? 'active' :''}}">全部</text>
     </view>
-    <view class='item-cell'>
-      <navigator hover-class="n-hover">待量房</navigator>
+    <view class='item-cell {{orderSubType=="dlf" ? "active" :""}}'>
+      <text bindtap='navSubHandle' data-ordersubtype="dlf"  data-active="{{orderSubType=='dlf' ? 'active' :''}}">待量房</text>
     </view>
-    <view class='item-cell'>
-      <navigator hover-class="n-hover">待设计</navigator>
+    <view class='item-cell {{orderSubType=="dsj" ? "active" :""}}'>
+      <text bindtap='navSubHandle'  data-ordersubtype="dsj"  data-active="{{orderSubType=='dsj' ? 'active' :''}}">待设计</text>
     </view>
-    <view class='item-cell'>
-      <navigator hover-class="n-hover">待签约</navigator>
+    <view class='item-cell {{orderSubType=="dqy" ? "active" :""}}'>
+      <text bindtap='navSubHandle' data-ordersubtype="dqy"  data-active="{{orderSubType=='dqy' ? 'active' :''}}">待签约</text>
     </view>
   </view>
 
-  <view class='plist-nav-sub' wx:if="{{tabType=='yjs' ? true :false}}">
-    <view class='item-cell active'>
-      <navigator hover-class="n-hover">全部</navigator>
+  <view class='plist-nav-sub' wx:if="{{orderType=='yjs' ? true :false}}">
+    <view class='item-cell {{orderSubType=="all" ? "active" :""}}'>
+      <text bindtap='navSubHandle' data-ordersubtype="all"  data-active="{{orderSubType=='all' ? 'active' :''}}">全部</text>
     </view>
-    <view class='item-cell'>
-      <navigator hover-class="n-hover">已签约</navigator>
+    <view class='item-cell {{orderSubType=="yqy" ? "active" :""}}'>
+      <text bindtap='navSubHandle' data-ordersubtype="yqy"  data-active="{{orderSubType=='yqy' ? 'active' :''}}">已签约</text>
     </view>
-    <view class='item-cell'>
-      <navigator hover-class="n-hover">未成单</navigator>
+    <view class='item-cell {{orderSubType=="wcd" ? "active" :""}}'>
+      <text bindtap='navSubHandle' data-ordersubtype="wcd"  data-active="{{orderSubType=='wcd' ? 'active' :''}}">未成单</text>
     </view>
-    <view class='item-cell'>
-      <navigator hover-class="n-hover">已失效</navigator>
+    <view class='item-cell {{orderSubType=="ysx" ? "active" :""}}'>
+      <text bindtap='navSubHandle' data-ordersubtype="ysx"  data-active="{{orderSubType=='ysx' ? 'active' :''}}">已失效</text>
     </view>
   </view>
 </view>
-<view class='header-top-seat {{tabType}}'></view>
+<view class='header-top-seat {{orderType}}'></view>
 
 <view class='nodata-top' wx-if="{{isNoData}}">
   <text class='iconfont icon-none icon-cpic'></text>暂无数据！</view>
@@ -45,7 +45,7 @@
       <view class='cphone'>{{item.format_mobile}}</view>
       <view class='cyxdate clearfix'>
         <text class="txt-1">订单有效期：</text>
-        <view class="cyx-remain">29分13秒 </view>
+        <view class="cyx-remain">{{wxTimerList[idx].wxTimerFormatMinute}}分{{wxTimerList[idx].wxTimerFormatSecond}}秒 </view>
         <text class="txt-2">（过期后无法再接单）</text>
       </view>
 

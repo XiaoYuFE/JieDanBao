@@ -1,4 +1,6 @@
 
+
+import timer from '../../../static/js/plugin/wxTimer.js'
 Page({
 
   /**
@@ -7,11 +9,12 @@ Page({
   data: {
       isNoData:false,
       isLoading:true,
-      tabType:"",
+     
       
-      orderType:"",
-      prevType:"",//记录上一次点击的是哪个类型
+      orderType: "",//订单大分类
+      orderSubType:"all",//订单子集分类
       page:1,
+      wxTimerList: {},//存放倒计时
       dataInfo:[]
   },
 
@@ -21,11 +24,9 @@ Page({
    */
   onLoad: function (options) {
     console.dir(options);
-    options.tabType="xdd";
+    options.orderType="xdd";
       this.setData({
-        tabType: options.tabType,
-        orderType: options.tabType,
-        prevType: options.tabType
+        orderType: options.orderType
       });
       this._getData();
   },
@@ -44,12 +45,15 @@ Page({
   
   },
   navMainHandle:function(e){
+    //点击的是同一个选项返回
+    if (!!e.currentTarget.dataset.active) return;
+
     //设置标签状态
     this.setData({
-      prevType: this.data.orderType,
-      tabType: e.currentTarget.dataset.tabtype,
-      orderType: e.currentTarget.dataset.tabtype,
-     
+      orderType: e.currentTarget.dataset.ordertype,
+      orderSubType: "all",//订单子集分类
+      dataInfo:[],
+      page: 1
     });
     //页面滚动到顶部
     wx.pageScrollTo({
@@ -57,18 +61,25 @@ Page({
       duration:0
     });
     //点击不是同一个标签，那么就不需要重新加载了
-    if (this.data.prevType != this.data.orderType) {
-      this.setData({
-        dataInfo:"",
-        page:1
-      });
-      //请求数据
-      this._getData();
-    }
-   
-    
+    this._getData();
+  },
 
-     
+  navSubHandle:function(e){
+    if (!!e.currentTarget.dataset.active) return;
+    //设置标签状态
+    this.setData({
+      orderSubType: e.currentTarget.dataset.ordersubtype,
+      dataInfo: [],
+
+      page: 1
+    });
+    //页面滚动到顶部
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 0
+    });
+    //点击不是同一个标签，那么就不需要重新加载了
+    this._getData();
   },
 
 
@@ -80,7 +91,7 @@ Page({
     });
     wx.request({
       url: 'https://wnworld.com/api/JieDanBao/order_list.php',
-      data: { "type": that.data.orderType, "page": that.data.page},
+      data: { "type": that.data.orderType, "page": that.data.page,"subType":that.data.orderSubType},
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
@@ -91,14 +102,24 @@ Page({
         if(res.data.ok){
           for (var i = 0; i < res.data.data.length;i++){
             res.data.data[i].format_mobile = that._formatMobile(res.data.data[i].mobile);
+            //保存住当前的时间
+            var wxTimerStr = "wxTimer"+i;
+            wxTimerStr = new timer({
+              beginTime: res.data.data[i].d_time,
+              formatType: "MS",
+              name: i,
+              complete: function () {
+                console.log("完成了")
+              },
+              interval: 1,
+              intervalFn: function () {
+                console.dir("asdfasdf");
+              }
+            })
+            wxTimerStr.start(that);
           }
           //如果是同一个列表，数据直接加在后面，不是同一个列表就要重新赋值
-          if(that.data.prevType==that.data.orderType){
-            console.dir("ASdfasdf");
-            that.data.dataInfo.push.apply(that.data.dataInfo, res.data.data);
-          }else{
-            that.data.dataInfo=res.data.data;
-          }
+          that.data.dataInfo.push.apply(that.data.dataInfo, res.data.data);
           that.setData({
             page:that.data.page+1,
             dataInfo: that.data.dataInfo,
