@@ -14,7 +14,7 @@ Page({
       orderType: "",//订单大分类
       orderSubType:"all",//订单子集分类
       page:1,
-      wxTimerList:[],//存放倒计时
+      wxTimerList:{},//存放倒计时
       dataInfo:[]
   },
 
@@ -53,6 +53,7 @@ Page({
       orderType: e.currentTarget.dataset.ordertype,
       orderSubType: "all",//订单子集分类
       dataInfo:[],
+      wxTimerList: {},
       page: 1
     });
     //页面滚动到顶部
@@ -70,9 +71,9 @@ Page({
     this.setData({
       orderSubType: e.currentTarget.dataset.ordersubtype,
       dataInfo: [],
-
       page: 1
     });
+    delete this.data.wxTimerList;
     //页面滚动到顶部
     wx.pageScrollTo({
       scrollTop: 0,
@@ -100,28 +101,11 @@ Page({
       success: function (res) {
         console.dir(res);
         if(res.data.ok){
-         
-          
           for (var i = 0; i < res.data.data.length;i++){
             res.data.data[i].format_mobile = that._formatMobile(res.data.data[i].mobile);
             //保存住当前的时间
-            var wxTimerStr = "wxTimer"+i;
-            wxTimerStr = new timer({
-              beginTime: res.data.data[i].d_time,
-              formatType: "MS",
-              name: i,
-              complete: function () {
-                console.log("完成了")
-              },
-              interval: 1,
-              intervalFn: function () {
-                console.log("执行了")
-              }
-            })
-            wxTimerStr.start(that);
-
-            console.dir(that.data.wxTimerList)
           }
+          that._countDown(res.data.data);
           //如果是同一个列表，数据直接加在后面，不是同一个列表就要重新赋值
           that.data.dataInfo.push.apply(that.data.dataInfo, res.data.data);
           that.setData({
@@ -129,7 +113,7 @@ Page({
             dataInfo: that.data.dataInfo,
             isLoading:false
           });
-
+          
         }else{
           console.dir("服务器端返回错误");
         }
@@ -140,6 +124,30 @@ Page({
   _formatMobile:function(phoneNum){
     var phoneNum = String(phoneNum);
     return phoneNum.substring(0, 3) + "****" + phoneNum.substring(8, 11);
+  },
+
+  _countDown:function(data){
+   
+    var that=this;
+    data.forEach(function (item) {
+     
+      var wxTimerName ="wxTimer"+item.id;
+     
+     
+      wxTimerName = new timer({
+        beginTime: item.d_time,
+        formatType: "MS",
+        name: "wxTimer" + item.id,
+        complete: function () {
+          console.log("完成了")
+        },
+        interval: 1,
+        intervalFn: function () {
+        }
+      })
+      wxTimerName.start(that);
+    });
+    console.dir(that.data.wxTimerList);
   },
   /**
    * 生命周期函数--监听页面隐藏

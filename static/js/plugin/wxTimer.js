@@ -75,6 +75,8 @@ wxTimer.prototype = {
         }
       }
 
+     
+
       self.setData({
         wxTimerList: wxTimerList
       });

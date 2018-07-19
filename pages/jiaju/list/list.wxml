@@ -41,11 +41,12 @@
 <view class="scroll-list-wrap">
   <view wx:for="{{dataInfo}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
     <view class='item-cell'>
+    
       <view class='cname'>{{item.name}}</view>
       <view class='cphone'>{{item.format_mobile}}</view>
       <view class='cyxdate clearfix'>
         <text class="txt-1">订单有效期：</text>
-        <view class="cyx-remain">{{wxTimerList[idx].wxTimerFormatMinute}}分{{wxTimerList[idx].wxTimerFormatSecond}}秒 </view>
+        <view class="cyx-remain">{{wxTimerList["wxTimer"+item.id].wxTimerFormatMinute}}分{{wxTimerList["wxTimer"+item.id].wxTimerFormatSecond}}秒 </view>
         <text class="txt-2">（过期后无法再接单）</text>
       </view>
 
