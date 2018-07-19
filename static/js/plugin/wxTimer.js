@@ -51,46 +51,40 @@ wxTimer.prototype = {
   start: function(self) {
     var that = this;
     var wxTimerSecond = that.beginTime;
-    var wxTimerList = self.data.wxTimerList;
     var hmsTime, msTime;
     //开始倒计时
     var count = 0; //这个count在这里应该是表示s数，js中获得时间是ms，所以下面*1000都换成ms
     function begin() {
       count++;
-      
-      that.beginTime--;
+      wxTimerSecond--;
+      var wxTimerList = self.data.wxTimerList;
       if (that.formatType=="HMS"){
-        hmsTime = wxTimer._formatDateHMS(that.beginTime);
+        hmsTime = wxTimer._formatDateHMS(wxTimerSecond);
        
         wxTimerList[that.name] = {
           wxTimerFormatHour: hmsTime.hours,
-          wxTimerFormatMinute: hmsTime.hours,
-          wxTimerFormatSecond: wxTimerFormatSecond,
-          wxTimerSecond: wxTimerSecond,
-          wxTimerList: wxTimerList
+          wxTimerFormatMinute: hmsTime.minutes,
+          wxTimerFormatSecond: hmsTime.seconds
         }
         
       } else if (that.formatType == "MS"){
-        msTime = wxTimer._formatDateMS(that.beginTime);
+        msTime = wxTimer._formatDateMS(wxTimerSecond);
         wxTimerList[that.name] = {
           wxTimerFormatMinute: msTime.minutes,
-          wxTimerFormatSecond: msTime.seconds,
-          wxTimerSecond: wxTimerSecond,
+          wxTimerFormatSecond: msTime.seconds
         }
-        self.setData({
-          wxTimerFormatMinute: msTime.minutes,
-          wxTimerFormatSecond: msTime.seconds,
-          wxTimerSecond: wxTimerSecond,
-          wxTimerList: wxTimerList
-        });
       }
+
+      self.setData({
+        wxTimerList: wxTimerList
+      });
 
       //时间间隔执行函数
       if (that.intervalFn) {
         that.intervalFn();
       }
       //结束执行函数
-      if (that.beginTime <= 0) {
+      if (wxTimerSecond <= 0) {
         if (that.complete) {
           that.complete();
         }

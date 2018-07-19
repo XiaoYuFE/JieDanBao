@@ -14,7 +14,7 @@ Page({
       orderType: "",//订单大分类
       orderSubType:"all",//订单子集分类
       page:1,
-      wxTimerList: {},//存放倒计时
+      wxTimerList:[],//存放倒计时
       dataInfo:[]
   },
 
@@ -100,6 +100,8 @@ Page({
       success: function (res) {
         console.dir(res);
         if(res.data.ok){
+         
+          
           for (var i = 0; i < res.data.data.length;i++){
             res.data.data[i].format_mobile = that._formatMobile(res.data.data[i].mobile);
             //保存住当前的时间
@@ -113,10 +115,12 @@ Page({
               },
               interval: 1,
               intervalFn: function () {
-                console.dir("asdfasdf");
+                console.log("执行了")
               }
             })
             wxTimerStr.start(that);
+
+            console.dir(that.data.wxTimerList)
           }
           //如果是同一个列表，数据直接加在后面，不是同一个列表就要重新赋值
           that.data.dataInfo.push.apply(that.data.dataInfo, res.data.data);
