@@ -39,14 +39,14 @@
 <view class='nodata-top' wx-if="{{isNoData}}">
   <text class='iconfont icon-none icon-cpic'></text>暂无数据！</view>
 <view class="scroll-list-wrap">
-  <view wx:for="{{dataInfo}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
+  <view wx:for="{{dataInfo}}"  wx:key="id" wx:for-index="idx" wx:for-item="item">
     <view class='item-cell'>
     
       <view class='cname'>{{item.name}}</view>
       <view class='cphone'>{{item.format_mobile}}</view>
-      <view class='cyxdate clearfix'>
+      <view class='cyxdate clearfix'  wx-if="{{orderType=='xdd'? true :false}}">
         <text class="txt-1">订单有效期：</text>
-        <view class="cyx-remain">{{wxTimerList["wxTimer"+item.id].wxTimerFormatMinute}}分{{wxTimerList["wxTimer"+item.id].wxTimerFormatSecond}}秒 </view>
+        <view class="cyx-remain">{{wxTimerList[item.id].formatMinute}}分{{wxTimerList[item.id].formatSecond}}秒 </view>
         <text class="txt-2">（过期后无法再接单）</text>
       </view>
 
@@ -65,13 +65,27 @@
         </view>
         <view class='info-cell clearfix'>
           <text class='clab'>派单时间：</text>
-          <view class='cval'>{{send_time}}</view>
+          <view class='cval'>{{item.send_time}}</view>
         </view>
       </view>
-      <view class='c-jdbtn'>
+
+      <!--  新订单的时候显示立即接单按钮  -->
+      <view class='c-jdbtn'  wx-if="{{orderType=='xdd'? true :false}}">
         <button data-id="{{item.id}}">立即接单</button>
       </view>
+      <!--  处理中要显示 步骤剩余时间  步骤按钮 -->
+      <view class='timeremain clearfix'  wx-if="{{orderType=='clz' && item.steptype !='dqy'}}">
+        <text class='clab'>剩余时间：</text>
+        <view class='c-timing'>{{wxTimerList[item.id].formatHour}}时{{wxTimerList[item.id].formatMinute}}分{{wxTimerList[item.id].formatSecond}}秒</view>
+      </view>
+      <navigator class='cnavigator' wx-if="{{orderType!='xdd'? true :false}}">{{item.format_stepname}}
+        <text class='iconfont icon-jiantou txt-arrow'></text>
+      </navigator>
+       <view class="cmakecall" data-phone="{{item.mobile}}" bindtap='makePhoneCall' wx-if="{{orderType!='xdd'? true :false}}">
+      <text class='iconfont icon-phone-1 icon-cpic'></text>联系客户</view>
     </view>
+    <!--联系客户  处理中和已结束才会有的  -->
+   
   </view>
   <!-- <view class='item-cell'>
     <view class='cname'>{{}}</view>

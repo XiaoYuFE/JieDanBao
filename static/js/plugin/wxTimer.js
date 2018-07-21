@@ -3,11 +3,10 @@ var wxTimer = function(initObj) {
   this.beginTime = initObj.beginTime; //开始时间
   this.interval = initObj.interval || 0; //间隔时间
   this.complete = initObj.complete; //结束任务
-  this.intervalFn = initObj.intervalFn; //间隔任务
   this.name = initObj.name; //当前计时器在计时器数组对象中的名字
+  this.intervalFn = initObj.intervalFn; //间隔任务
   this.formatType = initObj.formatType || "HMS";
   this.intervarID; //计时ID
-  this.endSystemTime; //结束的系统时间
 }
 
 //日期秒转成分秒
@@ -48,45 +47,46 @@ wxTimer._formatDateMS = function(mss) {
 
 wxTimer.prototype = {
   //开始
-  start: function(self) {
-    var that = this;
-    var wxTimerSecond = that.beginTime;
+  start: function(self) { 
+    var that=this;
     var hmsTime, msTime;
+    var wxSeconds = that.beginTime;
     //开始倒计时
     var count = 0; //这个count在这里应该是表示s数，js中获得时间是ms，所以下面*1000都换成ms
     function begin() {
       count++;
-      wxTimerSecond--;
+      wxSeconds--;
       var wxTimerList = self.data.wxTimerList;
+      delete wxTimerList[that.name];
+      
       if (that.formatType=="HMS"){
-        hmsTime = wxTimer._formatDateHMS(wxTimerSecond);
-       
+        hmsTime = wxTimer._formatDateHMS(wxSeconds);
         wxTimerList[that.name] = {
-          wxTimerFormatHour: hmsTime.hours,
-          wxTimerFormatMinute: hmsTime.minutes,
-          wxTimerFormatSecond: hmsTime.seconds
+          formatHour: hmsTime.hours,
+          formatMinute: hmsTime.minutes,
+          formatSecond: hmsTime.seconds
         }
-        
       } else if (that.formatType == "MS"){
-        msTime = wxTimer._formatDateMS(wxTimerSecond);
+        msTime = wxTimer._formatDateMS(wxSeconds);
         wxTimerList[that.name] = {
-          wxTimerFormatMinute: msTime.minutes,
-          wxTimerFormatSecond: msTime.seconds
+          formatMinute: msTime.minutes,
+          formatSecond: msTime.seconds
         }
       }
-
      
-
       self.setData({
         wxTimerList: wxTimerList
-      });
+      })
+     
+
+     
 
       //时间间隔执行函数
       if (that.intervalFn) {
         that.intervalFn();
       }
       //结束执行函数
-      if (wxTimerSecond <= 0) {
+      if (wxSeconds <= 0) {
         if (that.complete) {
           that.complete();
         }

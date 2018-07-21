@@ -1,5 +1,6 @@
 <!--index.wxml-->
-
+ 
+  <!--弹出框 end  -->
   <view class='avatar-box clearfix'>
     <view class='pic'>
       <image src='{{xyUserInfo.logo}}' mode="{{aspectFit}}"></image>

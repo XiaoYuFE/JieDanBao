@@ -1,15 +1,47 @@
 <!--index.wxml-->
-
-  <view class='avatar-box clearfix'>
-    <view class='pic'>
-      <image src='{{xyUserInfo.logo}}' mode="{{aspectFit}}"></image>
+<!--弹出框 start  -->
+<view class='wx-dialog wx-dialog-new'>
+  <view class='dialog-new-hd'>
+    <view class='tit'>你有一条新的订单</view>
+    <view class='subtit'>请尽快接单服务客户</view>
+  </view>
+  <view class='dialog-new-bd'>
+    <view class='item-cell clearfix'>
+      <text class='lab'>姓名：</text>
+      <view class="para-val">{{dataInfo.new_order.name}}</view>
     </view>
-    <view class='hy-tag'>{{xyUserInfo.category_tag}}</view>
-    <view class="txt">{{xyUserInfo.username}}</view>
-    <view class='goset-btn' bindtap='setting'>
-      <navigator url='/pages/setting/setting' hover-class="none">设置<text class='iconfont icon-jiantou txt-arrow'></text></navigator>
+    <view class='item-cell clearfix'>
+      <text class='lab'>手机：</text>
+      <view class="para-val">{{dataInfo.new_order.mobile}}</view>
+    </view>
+    <view class='item-cell clearfix'>
+      <text class='lab'>小区：</text>
+      <view class="para-val">{{dataInfo.new_order.community}}</view>
+    </view>
+    <view class='item-cell clearfix'>
+      <text class='lab'>预算：</text>
+      <view class="para-val">{{dataInfo.new_order.price}}</view>
+    </view>
+    <view class='item-cell clearfix'>
+      <text class='lab'>订单有效期：</text>
+      <view class="para-val">
+        {{wxTimerFormatMinute}}分{{wxTimerFormatSecond}}秒
+      </view>
     </view>
   </view>
+</view>
+<view class='avatar-box clearfix'>
+  <view class='pic'>
+    <image src='{{xyUserInfo.logo}}' mode="{{aspectFit}}"></image>
+  </view>
+  <view class='hy-tag'>{{xyUserInfo.category_tag}}</view>
+  <view class="txt">{{xyUserInfo.username}}</view>
+  <view class='goset-btn' bindtap='setting'>
+    <navigator url='/pages/setting/setting' hover-class="none">设置
+      <text class='iconfont icon-jiantou txt-arrow'></text>
+    </navigator>
+  </view>
+</view>
 
 
 
@@ -28,83 +60,86 @@
 
 
 <view class='ordernew-box'>
-   <view class='tit'>新订单提醒</view>
-   <view class='mid-tip clearfix'>
-      <view class="num-tip">共有<text>{{dataInfo.wjd}}</text>条新订单等你处理</view>
-      <navigator url="/pages/jiaju/list/list?tabType=xdd" class='btn-more'>查看全部新订单<text class='iconfont icon-jiantou txt-arrow'></text></navigator>
-   </view>
+  <view class='tit'>新订单提醒</view>
+  <view class='mid-tip clearfix'>
+    <view class="num-tip">共有
+      <text>{{dataInfo.wjd}}</text>条新订单等你处理</view>
+    <navigator url="/pages/jiaju/list/list?tabType=xdd" class='btn-more'>查看全部新订单
+      <text class='iconfont icon-jiantou txt-arrow'></text>
+    </navigator>
+  </view>
 
-   <view class='ordernew-card-wrap'>
+  <view class='ordernew-card-wrap'>
     <view class='ordernew-card-box'>
-          <view class='item-cell clearfix'>
-              <text class='lab'>姓名：</text>
-              <view class="para-val">{{dataInfo.new_order.name}}</view>
-          </view>
-          <view class='item-cell clearfix'>
-              <text class='lab'>手机：</text>
-              <view class="para-val">{{dataInfo.new_order.mobile}}</view>
-          </view>
-          <view class='item-cell clearfix'>
-              <text class='lab'>小区：</text>
-              <view class="para-val">{{dataInfo.new_order.community}}</view>
-          </view>
-          <view class='item-cell clearfix'>
-              <text class='lab'>预算：</text>
-              <view class="para-val">{{dataInfo.new_order.price}}</view>
-          </view>
-          <view class='item-cell clearfix'>
-              <text class='lab'>订单有效期：</text>
-              <view class="para-val">
-              {{wxTimerFormatMinute}}分{{wxTimerFormatSecond}}秒
-              </view>
-          </view>
-
-          <view class='item-line'></view>
-
-          <button class='item-btn' hover-class="item-btn-hover">立即接单</button> 
-          <view class='item-tip-1'>接单后可查看客户详细资料并直接联系客户</view>
+      <view class='item-cell clearfix'>
+        <text class='lab'>姓名：</text>
+        <view class="para-val">{{dataInfo.new_order.name}}</view>
       </view>
-      <view class='ordernew-card-seat-1'></view>
-      <view class='ordernew-card-seat-2'></view>
-   </view>
+      <view class='item-cell clearfix'>
+        <text class='lab'>手机：</text>
+        <view class="para-val">{{dataInfo.new_order.mobile}}</view>
+      </view>
+      <view class='item-cell clearfix'>
+        <text class='lab'>小区：</text>
+        <view class="para-val">{{dataInfo.new_order.community}}</view>
+      </view>
+      <view class='item-cell clearfix'>
+        <text class='lab'>预算：</text>
+        <view class="para-val">{{dataInfo.new_order.price}}</view>
+      </view>
+      <view class='item-cell clearfix'>
+        <text class='lab'>订单有效期：</text>
+        <view class="para-val">
+          {{wxTimerFormatMinute}}分{{wxTimerFormatSecond}}秒
+        </view>
+      </view>
+
+      <view class='item-line'></view>
+
+      <button class='item-btn' hover-class="item-btn-hover">立即接单</button>
+      <view class='item-tip-1'>接单后可查看客户详细资料并直接联系客户</view>
+    </view>
+    <view class='ordernew-card-seat-1'></view>
+    <view class='ordernew-card-seat-2'></view>
+  </view>
 </view>
 
 
 <view class='orderhandle-box'>
-    <view class='tit'>处理中订单</view>
-    <view class='orderhandle-list-box clearfix'>
-        <navigator class='item-cell' hover-class='none' url='/pages/jiaju/list/list?orderType=clz'>
-            <view class='num'>{{dataInfo.dlf}}</view>
-            <view class='txt'>待量房</view>
-        </navigator>
-        <navigator class='item-cell'  hover-class='none' url='/pages/jiaju/list/list?orderType=clz'>
-            <view class='num'>{{dataInfo.dsj}}</view>
-            <view class='txt'>待设计</view>
-        </navigator>
-        <navigator class='item-cell'  hover-class='none' url='/pages/jiaju/list/list?orderType=clz'>
-            <view class='num'>{{dataInfo.dqy}}</view>
-            <view class='txt'>待签约</view>
-        </navigator>
-    </view>
+  <view class='tit'>处理中订单</view>
+  <view class='orderhandle-list-box clearfix'>
+    <navigator class='item-cell' hover-class='none' url='/pages/jiaju/list/list?orderType=clz'>
+      <view class='num'>{{dataInfo.dlf}}</view>
+      <view class='txt'>待量房</view>
+    </navigator>
+    <navigator class='item-cell' hover-class='none' url='/pages/jiaju/list/list?orderType=clz'>
+      <view class='num'>{{dataInfo.dsj}}</view>
+      <view class='txt'>待设计</view>
+    </navigator>
+    <navigator class='item-cell' hover-class='none' url='/pages/jiaju/list/list?orderType=clz'>
+      <view class='num'>{{dataInfo.dqy}}</view>
+      <view class='txt'>待签约</view>
+    </navigator>
+  </view>
 </view>
 
 
 <view class='orderfinsh-box'>
-    <view class='tit'>已结束订单</view>
-    <view class='orderfinsh-list-box clearfix'>
-        <navigator class='item-cell item-yqy'  hover-class='none' url='/pages/jiaju/list/list?orderType=yjs'>
-            <view class='num'>{{dataInfo.yqy}}</view>
-            <view class='txt'>已签约`</view>
-        </navigator>
-        <navigator class='item-cell item-wcd'  hover-class='none' url='/pages/jiaju/list/list?orderType=yjs'>
-            <view class='num'>{{dataInfo.void}}</view>
-            <view class='txt'>未成单</view>
-        </navigator>
-        <navigator class='item-cell item-ysx'  hover-class='none' url='/pages/jiaju/list/list?orderType=yjs'>
-            <view class='num'>{{dataInfo.ysx}}</view>
-            <view class='txt'>已失效</view>
-        </navigator>
-    </view>
+  <view class='tit'>已结束订单</view>
+  <view class='orderfinsh-list-box clearfix'>
+    <navigator class='item-cell item-yqy' hover-class='none' url='/pages/jiaju/list/list?orderType=yjs'>
+      <view class='num'>{{dataInfo.yqy}}</view>
+      <view class='txt'>已签约`</view>
+    </navigator>
+    <navigator class='item-cell item-wcd' hover-class='none' url='/pages/jiaju/list/list?orderType=yjs'>
+      <view class='num'>{{dataInfo.void}}</view>
+      <view class='txt'>未成单</view>
+    </navigator>
+    <navigator class='item-cell item-ysx' hover-class='none' url='/pages/jiaju/list/list?orderType=yjs'>
+      <view class='num'>{{dataInfo.ysx}}</view>
+      <view class='txt'>已失效</view>
+    </navigator>
+  </view>
 </view>
 
 
