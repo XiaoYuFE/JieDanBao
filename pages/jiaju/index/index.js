@@ -97,6 +97,11 @@ Page({
   },
 
 
+  closeDialogNew:function(){
+      
+  },
+
+
 
 
 

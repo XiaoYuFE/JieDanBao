@@ -1,18 +1,28 @@
+
 /*弹出框  */
 .wx-dialog-new{
   background: #fff;
   border-radius: 20rpx;
   position: fixed;
-  left:0;
+  left:50%;
+  margin-left: -315rpx;
   top:0;
   width:630rpx;
   box-sizing: border-box;
-  z-index: 10;
-   padding:30rpx 40rpx;  
-  box-shadow: 0 0 10rpx  #333333;
+  z-index: 100;
+  padding:30rpx 40rpx;
+}
+.wx-dialog-new-mask{
+  position: fixed;
+  left:0;
+  right:0;
+  top:0;
+  bottom: 0;
+  z-index: 99;
+  background-color:rgba(0,0, 0,0.8);
 }
 .dialog-new-hd{
-  padding: 35rpx 0;
+  padding: 25rpx 0 35rpx;
   border-bottom: 1px solid #e5e5e5;
 }
 .dialog-new-hd .tit{
@@ -29,12 +39,14 @@
 }
 
 .dialog-new-bd{
- 
+  border-bottom: 1rpx solid #e5e5e5;
+  padding-bottom: 15rpx;
+  padding-top: 15rpx;
  
 }
 
 .dialog-new-bd .item-cell{
-  padding: 10rpx 0;
+  padding: 12rpx 0;
 }
 
 .odialog-new-bd .item-line{
@@ -52,8 +64,85 @@
 .dialog-new-bd .item-cell .para-val{
   color:#333333; 
   font-size:28rpx; 
+}
+
+.wx-dialog-new .item-btn{
+  width:380rpx;
+  height:88rpx;
+  overflow:hidden;
+  line-height:88rpx;
+  text-align: center;
+  background:#3ac6b8;
+  border-radius:50rpx;
+  color:#fff;  
+  margin:40rpx auto 0;     
+}
+
+
+
+.wx-dialog-new .tip-1{
+  color:#999999;
+  text-align:center;
+  font-size:24rpx;
+  padding: 25rpx 20rpx 15rpx;  
+}
+
+.wx-dialog-new .close-btn{
+  position: absolute;
+  right: 20rpx;
+  top:20rpx;
  
 }
+.wx-dialog-new .close-btn .icon-cpic{
+    font-size: 52rpx;
+    color:#dbe1e6; 
+}
+
+
+
+.dialog-new-result{
+  background: #fff;
+  border-radius: 20rpx;
+  position: fixed;
+  left:50%;
+  margin-left: -315rpx;
+  top:0;
+  width:630rpx;
+  box-sizing: border-box;
+  z-index: 100;
+  padding:40rpx 40rpx  60rpx;
+  border:1rpx solid #f60;
+}
+
+
+.new-result-hd .tit{
+    color: #333333;
+    font-size: 36rpx;
+    text-align: center;
+}
+
+.new-result-hd .subtit{
+    color:#999999;
+    padding-top: 8rpx;
+    font-size: 28rpx;
+    text-align: center; 
+    margin-top:15rpx;
+}
+
+.dialog-new-result .item-btn{
+  width:380rpx;
+  height:88rpx;
+  overflow:hidden;
+  line-height:88rpx;
+  text-align: center;
+  background:#3ac6b8;
+  border-radius:50rpx;
+  color:#fff;  
+  margin:40rpx auto 0;     
+}
+
+
+
 /**index.wxss**/
 .avatar-box {
   padding: 40rpx 30rpx 40rpx 150rpx;

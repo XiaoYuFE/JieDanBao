@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <!--弹出框 start  -->
-<view class='wx-dialog wx-dialog-new'>
+<view class='wx-dialog-new'>
   <view class='dialog-new-hd'>
     <view class='tit'>你有一条新的订单</view>
     <view class='subtit'>请尽快接单服务客户</view>
@@ -29,7 +29,29 @@
       </view>
     </view>
   </view>
+  <button class='item-btn' hover-class="item-btn-hover">立即接单</button>
+  <view class="tip-1">接单后可查看客户详细资料并直接联系客户</view>
+  <view class='close-btn' bindtap='closeDialogNew'><text class='iconfont icon-guanbi icon-cpic'></text></view>
 </view>
+<view class='wx-dialog-new-mask'></view>
+
+<view class='dialog-new-result' style='display:none;'>
+    <view class='new-result-hd'>
+        <view class="tit">接单成功</view>
+        <view class='subtit'>请珍惜每个订单，认真服务客户</view>
+    </view>
+    <button class='item-btn' hover-class="item-btn-hover">立即接单</button>
+
+</view>
+
+<!--弹出框 start  -->
+<view class='wx-dialog-result'>
+    <view class='dialog-new-hd'>
+      <view class='tit'>你有一条新的订单</view>
+    </view>
+    <button class='item-btn' hover-class="item-btn-hover">立即接单</button>
+</view>
+
 <view class='avatar-box clearfix'>
   <view class='pic'>
     <image src='{{xyUserInfo.logo}}' mode="{{aspectFit}}"></image>
