@@ -37,7 +37,8 @@
 
 .houseinfo-box .item-cell{
   border-bottom:1px solid #ebebeb;
-  padding:25rpx 0;  
+  padding:25rpx 0;
+  position: relative;
 }
 
 .houseinfo-box .item-cell:last-child{
@@ -57,6 +58,9 @@
   width:70%; 
   text-align:right; 
 }
+.houseinfo-box .item-cell .ipt-text-hidden{
+  display: none;
+}
 
 
 .houseinfo-list{
@@ -68,6 +72,10 @@
   text-align: right;
   width:100%;
   color:#333333; 
+  box-sizing: border-box;
+  padding-right: 35rpx;
+  position: relative;
+  z-index: 11;
 }
 .houseinfo-list .ipt-text.disabled{
   color:#999; 
@@ -75,12 +83,15 @@
 .houseinfo-list .ipt-placeholder{
    color:#333; 
 }
-.houseinfo-list .txt-arrow{
+.houseinfo-list .icon-cpic{
   font-size: 30rpx;
-  display: inline-block;
-  vertical-align: middle;
-  margin-top: -2rpx;
+  position: absolute;
+    right:0;
+    top: 50%;
+    transform: translate(0,-50%); 
 }
+
+
 
 
 
@@ -127,24 +138,7 @@
   max-width:60%; 
 }
 
-.userinfo-list  .item-phone{
-   padding: 10rpx 0;
-   line-height:60rpx; 
-}
-.userinfo-list .btn-makecall{
-    height:60rpx;
-    line-height: 60rpx;
-    border:1rpx solid #3ac6b8;
-    border-radius: 50rpx; 
-    padding: 0 20rpx;
-    color:#3ac6b8; 
-}
 
-.userinfo-list .btn-makecall .icon-cpic{
-    font-size: 42rpx;
-    display: inline-block;
-    vertical-align: middle;
-}
 
 .fixed-bt-seat{
   height: 94rpx;

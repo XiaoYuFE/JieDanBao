@@ -5,71 +5,101 @@
 <form bindsubmit="formSubmit" bindreset="formReset">
   <view class='houseinfo-box'>
     <view class='houseinfo-caption clearfix'>
-      <text>取消</text>
-      <button class='ipt-submit' formType="submit" type="primary" loading="{{submiting}}" disabled='{{submiting}}'>提交</button>
+      <text bindtap='goBack'>取消</text>
+      <button class='ipt-submit' formType="submit" type="primary">提交</button>
     </view>
     <view class='houseinfo-list'>
       <view class='item-cell clearfix'>
         <text class='lab'>小区名称</text>
         <view class="para-item">
-            <input type='text' name="community" class='ipt-text {{!!dataInfo.community ? "disabled":""}}' value='{{dataInfo.community}}' placeholder='未填写' placeholder-class='ipt-placeholder' />
-            
+          <input type='text' name="community" class='ipt-text {{!!dataInfo.community ? "disabled":""}}' value='{{dataInfo.community}}' placeholder='未填写' placeholder-class='ipt-placeholder' />
         </view>
       </view>
       <view class='item-cell clearfix'>
         <text class='lab'>装修预算</text>
         <view class="para-item">
-             <input type='number' name="price" class='ipt-text {{!!dataInfo.price ? "disabled":""}}' value='{{dataInfo.price || "未填写(单位万元)"}}' />
+          <input type='text' name="price" class='ipt-text' wx-if="{{dataInfo.price}}" value='{{dataInfo.price}}' />
+          <view wx-if="{{!dataInfo.price}}">
+            <picker bindchange="bindPickerChange" value="{{ysIndex}}" range="{{configInfo.price}}">
+              <view class="picker">
+                {{configInfo.price[ysIndex]}}
+              </view>
+            </picker>
+            <input type='text' name="price" class='ipt-text-hidden' value='{{configInfo.price[ysIndex]}}' />
+            <text class='iconfont icon-jiantou icon-cpic'></text>
+          </view>
+
         </view>
       </view>
       <view class='item-cell clearfix'>
         <text class='lab'>装修方式</text>
-        <view class="para-item">全包</view>
+        <view class="para-item">
+          <input type='text' disabled='{{dataInfo.d_type ? "disabled":""}}' name="d_type" class='ipt-text {{!!dataInfo.d_type ? "disabled":""}}' value='{{dataInfo.d_type}}' placeholder='未填写' placeholder-class='ipt-placeholder' />
+        </view>
+
       </view>
       <view class='item-cell clearfix'>
         <text class='lab'>房屋户型</text>
         <view class="para-item">
-          3室2厅0厨0卫0阳台
+          <input type='text' disabled='{{dataInfo.unit ? "disabled":""}}' name="unit" class='ipt-text  {{!!dataInfo.unit ? "disabled":""}}' wx-if="{{dataInfo.unit}}" value='{{dataInfo.unit}}' />
+          <view wx-if="{{dataInfo.unit}}" wx-if="{{!dataInfo.unit}}">
+            <picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{hxIndex}}" range="{{hxList}}">
+              <view class="picker">
+                {{hxList[0][hxIndex[0]]}}{{hxList[1][hxIndex[1]]}}{{hxList[2][hxIndex[2]]}}{{hxList[3][hxIndex[3]]}}{{hxList[4][hxIndex[4]]}}
+              </view>
+            </picker>
+            <input type='text' name="unit" class='ipt-text-hidden' value='{{hxList[0][hxIndex[0]]+hxList[1][hxIndex[1]]+hxList[2][hxIndex[2]]+hxList[3][hxIndex[3]]+hxList[4][hxIndex[4]]}}' />
+            <text class='iconfont icon-jiantou icon-cpic'></text>
+          </view>
         </view>
       </view>
       <view class='item-cell clearfix'>
         <text class='lab'>房屋面积</text>
         <view class="para-item">
-          120m2
+          <input type='text' disabled='{{dataInfo.area ? "disabled":""}}' name="area" class='ipt-text  {{!!dataInfo.area ? "disabled":""}}' wx-if="{{dataInfo.area}}" value='{{dataInfo.area}}' />
         </view>
       </view>
       <view class='item-cell clearfix'>
         <text class='lab'>房屋情况</text>
         <view class="para-item">
-          <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-            <view class="picker"> 
-               {{array[index]}} 
-            </view>
-          </picker>
+          <input type='text' name="fwqk" class='ipt-text' wx-if="{{dataInfo.fwqk}}" value='{{dataInfo.fwqk}}' />
+          <view wx-if="{{!dataInfo.fwqk}}">
+            <picker value="{{fwqkIndex}}" range="{{configInfo.fwqk}}">
+              <view class="picker">
+                {{configInfo.fwqk[fwqkIndex]}}
+              </view>
+            </picker>
+            <input type='text' name="fwqk" class='ipt-text-hidden' value='{{configInfo.fwqk[fwqkIndex]}}' />
+            <text class='iconfont icon-jiantou icon-cpic'></text>
+          </view>
         </view>
       </view>
       <view class='item-cell clearfix'>
         <text class='lab'>期望风格</text>
         <view class="para-item">
-          未填写
+          <input type='text' name="d_style" class='ipt-text' wx-if="{{dataInfo.d_style}}" value='{{dataInfo.d_style}}' />
+          <view wx-if="{{!dataInfo.d_style}}">
+            <picker value="{{zxfgIndex}}" range="{{configInfo.d_style}}">
+              <view class="picker">
+                {{configInfo.d_style[zxfgIndex]}}
+              </view>
+            </picker>
+            <input type='text' name="d_style" class='ipt-text-hidden' value='{{configInfo.d_style[zxfgIndex]}}' />
+            <text class='iconfont icon-jiantou icon-cpic'></text>
+          </view>
         </view>
       </view>
-      <view class='item-cell clearfix'>
-        <text class='lab'>房屋户型</text>
-        <view class="para-item">
-          3室2厅0厨0卫0阳台
-        </view>
-      </view>
+
       <view class='item-cell clearfix'>
         <text class='lab'>装修日期</text>
         <view class="para-item">
-          3室2厅0厨0卫0阳台
+            <input type='text' disabled='{{dataInfo.d_date ? "disabled":""}}' name="d_date" class='ipt-text {{!!dataInfo.d_date ? "disabled":""}}' value='{{dataInfo.d_date}}' placeholder='未填写' placeholder-class='ipt-placeholder' />
         </view>
       </view>
       <view class='item-cell clearfix'>
         <text class='lab'>服务备注</text>
         <view class="para-item">
-          是个女主人，比较好说话，但是已经对比过很多家，然后这个是她第二套房子，急着装修出租
+          <input type='text' disabled='{{dataInfo.remark ? "disabled":""}}' name="remark" class='ipt-text {{!!dataInfo.remark ? "disabled":""}}' value='{{dataInfo.remark}}' placeholder='未填写' placeholder-class='ipt-placeholder' />
         </view>
       </view>
     </view>

@@ -9,7 +9,7 @@ class form {
       order_info: 'order_info/2',
       process_order:'process_order/2',
       upload_img:'upload_img/2',
-      edit_config:'edit_config/2/',
+      edit_config:'edit_config/2',
       opt_order: 'opt_order',
       config: 'config',
       notice: 'notice',

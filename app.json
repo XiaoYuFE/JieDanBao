@@ -2,7 +2,6 @@
   "pages": [  
     "pages/jiaju/detailEdit/detailEdit",
     "pages/jiaju/detail/detail",
-    
     "pages/jiaju/orderEdit/orderEdit",
     "pages/jiaju/list/list",
     "pages/jiaju/order/order",
