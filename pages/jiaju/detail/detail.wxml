@@ -101,7 +101,7 @@
 </view>
 
 <view class='fixed-bt-seat'></view>
-<navigator url='/pages/jiaju/order/order' class='fixed-bt-btn'>订单流程</navigator>
+<navigator url='/pages/jiaju/order/order?id={{dataInfo.id}}' class='fixed-bt-btn'>订单流程</navigator>
 
 
 

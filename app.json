@@ -1,12 +1,14 @@
 {
   "pages": [  
-    
-    "pages/jiaju/detail/detail",
-    "pages/jiaju/order/order",
     "pages/jiaju/orderEdit/orderEdit",
+    "pages/jiaju/list/list",
+    "pages/jiaju/order/order",
+    "pages/jiaju/detail/detail",
+   
+    
     
     "pages/login/login",
-    "pages/jiaju/list/list",
+    
 
    
     

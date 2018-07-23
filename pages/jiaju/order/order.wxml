@@ -9,33 +9,29 @@
     <view class='item-cell'>
         <view class='cell-info'>
             <view class='name'>接单</view>
-            <view class='time-finsh'>完成时间：2018-07-05 13:13</view> 
-            <text class='txt-statu success'>已完成</text>
+            <view class='time-finsh' wx-if="{{dataInfo.wjd==1}}">完成时间：{{dataInfo.receive_time}}</view> 
+            <text class='txt-statu {{dataInfo.wjd==1 ? "success" :""}}'>{{dataInfo.wjd ? "已完成" :"未完成"}}</text>
         </view>
         <view class='lineh'></view>
     </view>
     <view class='item-cell'>
         <view class='cell-info'>
             <view class='name'>上门量房</view>
-            <view class='time-finsh'>完成时间：2018-07-05 13:13</view> 
-            <text class='txt-statu success'>已完成</text>
+            <view class='time-finsh'  wx-if="{{dataInfo.dlf==1}}">完成时间：{{dataInfo.l_time}}</view> 
+            <text class='txt-statu {{dataInfo.dlf==1 ? "success" :""}}'>{{dataInfo.dlf==1 ? "已完成" :"未完成"}}</text>
         </view>
         <view class='lineh'></view>
     </view>
     <view class='item-cell'>
         <view class='cell-info'>
             <view class='name'>设计方案</view>
-            <view class='time-finsh'>完成时间：2018-07-05 13:13</view> 
-            <text class='txt-statu success-top'>已完成</text>
-            <view class='uploadgallery'>
+            <view class='time-finsh' wx-if="{{dataInfo.dsj==1}}">完成时间：{{dataInfo.sj_time}}</view> 
+            <text class='txt-statu  {{dataInfo.dsj==1 ? "success-top" :""}}'>{{dataInfo.dsj==1 ? "已完成" :"未完成"}}</text>
+            <view class='uploadgallery' wx-if='{{dataInfo.dsj==1}}'>
                 <view class='lab'>方案图片：</view>
                 <view class='uploadgallery-list clearfix'>
-                    <view class='pic'><image src=''></image></view>
-                    <view class='pic'><image src=''></image></view>
-                    <view class='pic'><image src=''></image></view>
-                    <view class='pic'><image src=''></image></view>
-                    <view class='pic'><image src=''></image></view>
-                    <view class='pic'><image src=''></image></view>
+                    
+                    <view wx:for="{{dataInfo.sj_img}}"  wx:key="id" wx:for-index="idx" wx:for-item="item" class='pic'><image src='{{item.idx}}' mode='aspectFill'></image></view>
                 </view>
 
             </view>
@@ -45,18 +41,13 @@
     <view class='item-cell'>
         <view class='cell-info'>
             <view class='name'>合同签约</view>
-            <view class='time-finsh'>完成时间：2018-07-05 13:13</view> 
-            <view class='agree-price'>合同金额：180000元</view> 
-            <text class='txt-statu success-top'>已完成</text>
-            <view class='uploadgallery'>
+            <view class='time-finsh'  wx-if="{{dataInfo.dqy==1}}">完成时间：{{dataInfo.ht_time}}</view> 
+            <view class='agree-price' wx-if="{{dataInfo.dqy==1}}">合同金额：{{dataInfo.ht_price}}</view> 
+            <text class='txt-statu  {{dataInfo.dqy==1 ? "success-top" :""}}'>{{dataInfo.dqy==1 ? "已完成" :"未完成"}}</text>
+            <view class='uploadgallery' wx-if='{{dataInfo.dqy==1}}'>
                 <view class='lab'>合同图片：</view>
                 <view class='uploadgallery-list clearfix'>
-                    <view class='pic'><image src=''></image></view>
-                    <view class='pic'><image src=''></image></view>
-                    <view class='pic'><image src=''></image></view>
-                    <view class='pic'><image src=''></image></view>
-                    <view class='pic'><image src=''></image></view>
-                    <view class='pic'><image src=''></image></view>
+                    <view wx:for="{{dataInfo.ht_img}}"  wx:key="id" wx:for-index="idx" wx:for-item="item" class='pic'><image src='{{item.idx}}' mode='aspectFill'></image></view>
                 </view>
 
             </view>
@@ -69,5 +60,5 @@
 
 <view class='fixed-bottom-seat'></view>
 <view class='fixed-bottom-btn'>
-   <navigator url='/pages/jiaju/orderEdit/orderEdit' class='btn-update'>更新流程</navigator>
+   <navigator url='/pages/jiaju/orderEdit/orderEdit?id={{id}}' class='btn-update'>更新流程</navigator>
 </view>

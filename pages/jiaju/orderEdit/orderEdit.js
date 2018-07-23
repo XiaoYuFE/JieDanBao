@@ -1,9 +1,19 @@
+
+import form from '../../../static/js/plugin/form'
+import timer from '../../../static/js/plugin/wxTimer.js'
+const app = getApp();
+app.form = new form(app);
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    id:482,
+    dataInfo:"",
+    radioVal:"",
     items: [
       { value: '1', name: '已完成'},
       { value: '0', name: '待完成', checked: 'true'}
@@ -88,7 +98,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    console.dir(options);
+    var that=this;
+
+    app.form.requestPost(app.form.API_CONFIG.jiaju.process_order, {
+     id:that.data.id
+    }, function (res) {
+        console.dir(res);
+        that.setData({
+          dataInfo:res.data
+        })
+    });
+  },
+
+  radioChange:function(e){
+    this.setData({
+      radioVal: e.detail.value
+    });
   },
 
   /**

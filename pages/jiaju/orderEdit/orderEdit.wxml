@@ -10,20 +10,45 @@
 <view class='orderstep-list'>
   <view class='item-cell'>
     <view class='name'>1.接单</view>
-    <view class='time-finsh'>完成时间：2018-07-05 13:13</view>
-    <text class='txt-statu success'>已完成</text>
-  </view>
-  <view class='item-cell'>
-    <view class='name'>2.上门量房</view>
-    <view class='cell-radio-box'>
+    
+    <view class='time-finsh'  wx-if="{{dataInfo.wjd==1}}">完成时间：2018-07-05 13:13</view>
+    <text class='txt-statu success'  wx-if="{{dataInfo.wjd==1}}">已完成</text>
+    <view class='cell-radio-box'  wx-if="{{dataInfo.wjd==0}}">
       <radio-group class="radio-group" bindchange="radioChange">
         <label class="radio">
-          <radio value="1" class='disabled' disabled checked="" color="#fff" />已完成
+          <radio value="1"   color="#fff" />已完成
         </label>
         <label class="radio">
-          <radio class='disabled' value="0" disabled checked="true" color="#fff" />未完成
+          <radio value="0"   checked="true" color="#fff" />未完成
         </label>
       </radio-group>
+    </view>
+  </view>
+  <!--  上门量房  客户在未接单的时候 该步骤 就要显示radio 不可点击状态 -->
+  <!-- 上门量房完成后  raido 不现实  -->
+  <view class='item-cell'>
+    <view class='name'>2.上门量房</view>
+    <view class='cell-radio-box' wx-if="{{dataInfo.dlf==0}}">
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio">
+          <radio value="1" class='{{dataInfo.wjd==0 ? "disabled" :""}}' disabled='{{dataInfo.wjd==0 ? "disabled" :""}}'  color="#fff" />已完成
+        </label>
+        <label class="radio">
+          <radio value="0" class='{{dataInfo.wjd==0 ? "disabled" :""}}' disabled='{{dataInfo.wjd==0 ? "disabled" :""}}'  checked="true" color="#fff" />未完成
+        </label>
+      </radio-group>
+    </view>
+
+     <view class='cell-lf-time clearfix'  wx-if="{{dataInfo.wjd==1 && dataInfo.dlf==0}}">
+      <text class='lab'>量房时间</text>
+      <view class='time-picker'>
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+          <view class="picker">
+            {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+          </view>
+        </picker>
+        <text class='iconfont icon-jiantou txt-arrow'></text>
+      </view>
     </view>
   </view>
   <view class='item-cell'>

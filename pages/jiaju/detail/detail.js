@@ -19,7 +19,7 @@ Page({
   onLoad: function (options) {
     console.dir(options);
     this.setData({
-      id:482
+      id: options.id
     })
   },
   

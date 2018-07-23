@@ -1,11 +1,16 @@
 // pages/staticHtml/jiaju/order/order.js
+import form from '../../../static/js/plugin/form'
+import timer from '../../../static/js/plugin/wxTimer.js'
+const app = getApp();
+app.form = new form(app);
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    id:"",
+    dataInfo:""
   },
 
   /**
@@ -13,6 +18,18 @@ Page({
    */
   onLoad: function (options) {
       console.dir(options);
+      var that=this;
+      this.setData({
+        id:options.id
+      });
+
+      app.form.requestPost(app.form.API_CONFIG.jiaju.process_order, {
+         id:that.data.id
+      }, function (res) {
+          that.setData({
+            dataInfo:res.data
+          });
+      });
   },
 
   /**
