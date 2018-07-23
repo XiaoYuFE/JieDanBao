@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <!--弹出框 start  -->
-<view class='wx-dialog-new'>
+<view class='wx-dialog-new undis'>
   <view class='dialog-new-hd'>
     <view class='tit'>你有一条新的订单</view>
     <view class='subtit'>请尽快接单服务客户</view>
@@ -33,9 +33,11 @@
   <view class="tip-1">接单后可查看客户详细资料并直接联系客户</view>
   <view class='close-btn' bindtap='closeDialogNew'><text class='iconfont icon-guanbi icon-cpic'></text></view>
 </view>
-<view class='wx-dialog-new-mask'></view>
+<view class='wx-dialog-new-mask undis'></view>
 
-<view class='dialog-new-result' style='display:none;'>
+
+<!--弹出框 接单结果 start  -->
+<view class='dialog-new-result undis'>
     <view class='new-result-hd'>
         <view class="tit">接单成功</view>
         <view class='subtit'>请珍惜每个订单，认真服务客户</view>
@@ -43,14 +45,23 @@
     <button class='item-btn' hover-class="item-btn-hover">立即接单</button>
 
 </view>
+<view class='dialog-new-result-mask undis'></view>
+<!--弹出框 接单结果 end  -->
 
-<!--弹出框 start  -->
-<view class='wx-dialog-result'>
-    <view class='dialog-new-hd'>
-      <view class='tit'>你有一条新的订单</view>
+
+
+<!--弹出框  关闭提示 start  -->
+<view class='dialog-new-tip undis'>
+    <view class='dialog-newtip-hd'>
+      请在订单有效期内完成接单，否则该订单将失效。
     </view>
-    <button class='item-btn' hover-class="item-btn-hover">立即接单</button>
+    <view class='item-btn' >立即接单</view>
 </view>
+<view class='dialog-new-tip-mask undis'></view>
+<!--弹出框  关闭提示 end  -->
+
+
+
 
 <view class='avatar-box clearfix'>
   <view class='pic'>

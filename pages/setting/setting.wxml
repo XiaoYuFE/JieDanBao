@@ -1,6 +1,20 @@
-<view class='setting-m-1 clearfix'>
-  <view class='lab'>新订单推送</view>
-  <view class="switch-item"><switch checked="{{switchChecked}}" bindchange="switch1Change"/></view>
+
+
+<view class='setting-list'>
+    <view class="item-cell clearfix">
+        <view class='lab'>新订单推送</view>
+        <view class="switch-item"><switch checked="{{switchChecked}}" bindchange="switch1Change"/></view>
+    </view>
+
+    <view class="item-cell clearfix">
+        <view class='lab'>微信绑定</view>
+        <view class='para-val'>已绑定，点击可解绑<text class='iconfont icon-jiantou icon-cpic'></text></view>
+    </view>
+
+    <view class="item-cell clearfix">
+        <view class='lab'>在线客服</view>
+        <view class='para-val para-zxkf'><button open-type="contact" /><text class='iconfont icon-jiantou icon-cpic'></text></view>
+    </view>
 </view>
 
 <view class='loginout' bindtap='logout'>退出登录</view>

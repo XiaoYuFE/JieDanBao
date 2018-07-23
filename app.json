@@ -1,8 +1,10 @@
 {
   "pages": [  
+    "pages/setting/setting",
+    "pages/login/login",
     "pages/jiaju/index/index",
     "pages/jiaju/list/list",
-    "pages/login/login",
+    
     "pages/splash/splash",
     
     
@@ -11,7 +13,7 @@
     "pages/auto/detail/detail",
     "pages/auto/h5page/h5page",
     
-    "pages/setting/setting",
+    
     
 
    

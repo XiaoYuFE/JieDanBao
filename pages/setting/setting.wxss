@@ -1,12 +1,11 @@
 page{
   background:#f6f6f6; 
 }
-.setting-m-1{
+/* .setting-m-1{
   padding:20rpx 40rpx;
   position: relative;
   background: #fff;
-  margin-bottom: 20rpx; 
-  margin-top: 20rpx; 
+  margin-top: 20rpx;    
 }
 
 .setting-m-1 .lab{
@@ -21,7 +20,7 @@ page{
 
 .setting-m-1 .switch-item{
   float:right; 
-}
+} */
 
 .loginout{
   height:88rpx;
@@ -29,6 +28,71 @@ page{
   overflow:hidden;
   text-align: center;
   color:#14c67d;
-  background:#fff;
-  margin-top:    
+  background:#fff; 
+  margin:20rpx 30rpx;
+  border:1rpx solid #e5e5e5;
+  border-radius:10rpx; 
 }
+
+
+
+.setting-list{
+    background:#fff;
+    padding: 0 30rpx;
+    margin-top: 20rpx; 
+}
+
+.setting-list .item-cell{
+      position: relative;
+      line-height: 90rpx;
+      border-bottom:1rpx solid #e5e5e5; 
+}
+.setting-list .item-cell:last-child{
+  border-bottom:none; 
+}
+.setting-list .item-cell .lab{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    color:#333333;
+    font-size: 30rpx; 
+    transform: translate(0,-50%);
+      
+}
+
+.setting-list .item-cell .switch-item{
+  float:right; 
+}
+
+.setting-list .item-cell .para-val{
+  float:right;
+  width: 60%;
+  text-align: right;
+  color:#999999;
+  font-size: 28rpx; 
+  position: relative;
+}
+
+.setting-list .item-cell .icon-cpic{
+ 
+   display: inline-block;
+   vertical-align: middle;
+  
+}
+
+.setting-list .item-cell .para-val.para-zxkf .icon-cpic{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+.setting-list .item-cell .para-val.para-zxkf button{
+    
+    height:89rpx; 
+    background:none; 
+    border:none;
+}
+
+.setting-list .item-cell .para-val.para-zxkf button::after {
+  border: 0;
+} 
