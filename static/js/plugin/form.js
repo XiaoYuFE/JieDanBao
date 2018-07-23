@@ -3,7 +3,7 @@ class form {
   // API_SERVER = 'https://wnworld.com/api/JieDanBao/';
   API_CONFIG = {
     jiaju:{
-      order_total: 'order_total',
+      order_total: 'order_total/2',
       orders: "orders",
       order_info: 'order_info',
       opt_order: 'opt_order',
@@ -31,7 +31,8 @@ class form {
       login:'login',
       notice: 'notice',
       bind:'bind',
-      tracking:'tracking'
+      tracking:'tracking',
+	  shops:'shops'
     }
   };
 

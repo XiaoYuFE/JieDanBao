@@ -1,4 +1,5 @@
-
+import form from '../../static/js/plugin/form'
+const app = getApp();
 
 Page({
 
@@ -6,14 +7,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    shops: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this;
+
+    app.form.requestPost(app.form.API_CONFIG.common.shops,{}, function (res) {
+		that.setData({
+			shops: res.data
+		});
+    });
   },
 
   /**

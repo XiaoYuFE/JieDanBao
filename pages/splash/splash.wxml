@@ -8,14 +8,9 @@
     <view class='tit'>和他们一起使用接单宝</view>
     <view class='txt'>全行业支持，5000+商家的共同选择</view>
     <view class='seller-list clearfix'>
-      <view class="item"><image src='/imgDemo/pic1.png'></image></view>
-      <view class="item"><image src='/imgDemo/pic1.png'></image></view>
-      <view class="item"><image src='/imgDemo/pic1.png'></image></view>
-      <view class="item"><image src='/imgDemo/pic1.png'></image></view>
-      <view class="item"><image src='/imgDemo/pic1.png'></image></view>
-      <view class="item"><image src='/imgDemo/pic1.png'></image></view>
-      <view class="item"><image src='/imgDemo/pic1.png'></image></view>
-      <view class="item"><image src='/imgDemo/pic1.png'></image></view>
+	<view wx:for="{{shops}}" wx:key="idx" wx:for-item="item">
+		<view class="item"><image src='{{item.img}}'></image></view>
+	</view>
     </view>
 </view>
 
