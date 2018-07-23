@@ -2,7 +2,7 @@
 
 
 <view class='top-nav'>
-  <navigator>
+  <navigator url='/pages/jiaju/order/order?id={{dataInfo.id}}'>
     <view class='txt-1'>上门量房待完成
       <text class='iconfont icon-jiantou txt-arrow'></text>
     </view>

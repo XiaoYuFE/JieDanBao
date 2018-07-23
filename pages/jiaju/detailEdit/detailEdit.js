@@ -67,7 +67,9 @@ Page({
   },
 
   formSubmit:function(e){
+      wx.showLoading();
       console.dir(e.detail.value);
+
   },
   
 

@@ -10,16 +10,16 @@
 <view class='orderstep-list'>
   <view class='item-cell'>
     <view class='name'>1.接单</view>
-    
-    <view class='time-finsh'  wx-if="{{dataInfo.wjd==1}}">完成时间：2018-07-05 13:13</view>
-    <text class='txt-statu success'  wx-if="{{dataInfo.wjd==1}}">已完成</text>
-    <view class='cell-radio-box'  wx-if="{{dataInfo.wjd==0}}">
+
+    <view class='time-finsh' wx-if="{{dataInfo.wjd==1}}">完成时间：2018-07-05 13:13</view>
+    <text class='txt-statu success' wx-if="{{dataInfo.wjd==1}}">已完成</text>
+    <view class='cell-radio-box' wx-if="{{dataInfo.wjd==0}}">
       <radio-group class="radio-group" bindchange="radioChange">
         <label class="radio">
-          <radio value="1"   color="#fff" />已完成
+          <radio value="1" color="#fff" />已完成
         </label>
         <label class="radio">
-          <radio value="0"   checked="true" color="#fff" />未完成
+          <radio value="0" checked="true" color="#fff" />未完成
         </label>
       </radio-group>
     </view>
@@ -31,20 +31,20 @@
     <view class='cell-radio-box' wx-if="{{dataInfo.dlf==0}}">
       <radio-group class="radio-group" bindchange="radioChange">
         <label class="radio">
-          <radio value="1" class='{{dataInfo.wjd==0 ? "disabled" :""}}' disabled='{{dataInfo.wjd==0 ? "disabled" :""}}'  color="#fff" />已完成
+          <radio value="1" class='{{dataInfo.wjd==0 ? "disabled" :""}}' disabled='{{dataInfo.wjd==0 ? "disabled" :""}}' color="#fff" />已完成
         </label>
         <label class="radio">
-          <radio value="0" class='{{dataInfo.wjd==0 ? "disabled" :""}}' disabled='{{dataInfo.wjd==0 ? "disabled" :""}}'  checked="true" color="#fff" />未完成
+          <radio value="0" class='{{dataInfo.wjd==0 ? "disabled" :""}}' disabled='{{dataInfo.wjd==0 ? "disabled" :""}}' checked="true" color="#fff" />未完成
         </label>
       </radio-group>
     </view>
 
-     <view class='cell-lf-time clearfix'  wx-if="{{dataInfo.wjd==1 && dataInfo.dlf==0}}">
+    <view class='cell-lf-time clearfix' wx-if="{{dataInfo.wjd==1 && dataInfo.dlf==0}}">
       <text class='lab'>量房时间</text>
       <view class='time-picker'>
-        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-          <view class="picker">
-            {{multiArray[0][multiIndex[0]]}}，{{multiArray[1][multiIndex[1]]}}，{{multiArray[2][multiIndex[2]]}}
+        <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+          <view class="tui-picker-detail">
+            {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}
           </view>
         </picker>
         <text class='iconfont icon-jiantou txt-arrow'></text>
@@ -135,10 +135,12 @@
           </view>
           <view class='pic'>
             <text class='icon-jianhao iconfont icon-cpic'></text>
-           <image src='' mode='{{aspectFill}}'></image>
+            <image src='' mode='{{aspectFill}}'></image>
           </view>
-          
-          <view class='upload-addbtn' bindtap='uploadFangAn'><text class='iconfont icon-tianjia icon-cadd'></text></view>
+
+          <view class='upload-addbtn' bindtap='uploadFangAn'>
+            <text class='iconfont icon-tianjia icon-cadd'></text>
+          </view>
         </view>
       </view>
     </view>
@@ -172,7 +174,7 @@
             <text class='icon-jianhao iconfont icon-cpic'></text>
             <image src='' mode='{{aspectFill}}'></image>
           </view>
-          
+
           <view class='upload-addbtn'>添加</view>
         </view>
       </view>
