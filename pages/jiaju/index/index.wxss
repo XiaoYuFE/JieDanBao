@@ -71,6 +71,20 @@
   font-size:28rpx; 
 }
 
+.ordernew-card-box .time-count{
+  color:#fe7581;
+  font-size: 28rpx; 
+  float:left; 
+  min-width: 165rpx;
+ 
+}
+.ordernew-card-box .time-tip{
+  color:#666666; 
+  font-size: 28rpx; 
+  margin-left: 15rpx;
+  float:left; 
+}
+
 .wx-dialog-new .item-btn{
   width:380rpx;
   height:88rpx;
@@ -152,7 +166,7 @@
   position: fixed;
   left:50%;
   margin-left: -315rpx;
-  top:30%;
+  top:35%;
   width:630rpx;
   box-sizing: border-box;
   z-index: 100;

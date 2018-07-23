@@ -1,0 +1,76 @@
+<!--step-end  -->
+
+
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class='houseinfo-box'>
+    <view class='houseinfo-caption clearfix'>
+      <text>取消</text>
+      <button class='ipt-submit' formType="submit" type="primary" loading="{{submiting}}" disabled='{{submiting}}'>提交</button>
+    </view>
+    <view class='houseinfo-list'>
+      <view class='item-cell clearfix'>
+        <text class='lab'>小区名称</text>
+        <view class="para-item">
+             <input type='text' name="" class='ipt-text' value='未填写' />
+        </view>
+      </view>
+      <view class='item-cell clearfix'>
+        <text class='lab'>装修预算</text>
+        <view class="para-item">
+             <input type='number' name="" class='ipt-text' value='未填写(单位万元)' />
+        </view>
+      </view>
+      <view class='item-cell clearfix'>
+        <text class='lab'>装修方式</text>
+        <view class="para-item">全包</view>
+      </view>
+      <view class='item-cell clearfix'>
+        <text class='lab'>房屋户型</text>
+        <view class="para-item">
+          3室2厅0厨0卫0阳台
+        </view>
+      </view>
+      <view class='item-cell clearfix'>
+        <text class='lab'>房屋面积</text>
+        <view class="para-item">
+          120m2
+        </view>
+      </view>
+      <view class='item-cell clearfix'>
+        <text class='lab'>房屋情况</text>
+        <view class="para-item">
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker"> 
+               {{array[index]}} 
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class='item-cell clearfix'>
+        <text class='lab'>期望风格</text>
+        <view class="para-item">
+          未填写
+        </view>
+      </view>
+      <view class='item-cell clearfix'>
+        <text class='lab'>房屋户型</text>
+        <view class="para-item">
+          3室2厅0厨0卫0阳台
+        </view>
+      </view>
+      <view class='item-cell clearfix'>
+        <text class='lab'>装修日期</text>
+        <view class="para-item">
+          3室2厅0厨0卫0阳台
+        </view>
+      </view>
+      <view class='item-cell clearfix'>
+        <text class='lab'>服务备注</text>
+        <view class="para-item">
+          是个女主人，比较好说话，但是已经对比过很多家，然后这个是她第二套房子，急着装修出租
+        </view>
+      </view>
+    </view>
+  </view>
+</form>

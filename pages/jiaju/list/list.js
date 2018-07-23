@@ -1,6 +1,8 @@
 
-
+import form from '../../../static/js/plugin/form'
 import timer from '../../../static/js/plugin/wxTimer.js'
+const app = getApp();
+app.form = new form(app);
 Page({
 
   /**
@@ -12,7 +14,7 @@ Page({
      
       
       orderType: "",//订单大分类
-      orderSubType:"all",//订单子集分类
+      orderStep:"all",//订单子集分类
       page:1,
       wxTimerList:{},//存放倒计时
       wxTimerInstance:{},
@@ -21,14 +23,20 @@ Page({
 
   /**
    * 生命周期函数--监听页面加载
-   * tabType:xdd(新订单)，clz(处理中)，yjs(已结束)
+   * type:wjd(新订单)，clz(处理中)，yjs(已结束)
+   * step: 所有的步骤
    */
   onLoad: function (options) {
     console.dir(options);
-    options.orderType="xdd";
-      this.setData({
-        orderType: options.orderType
-      });
+   
+      // this.setData({
+      //   orderType: options.ordertype,
+      //   orderStep: options.step,
+      // });
+    this.setData({
+      orderType:"xdd",
+      orderStep:"all",
+    });
       this._getData();
   },
 
@@ -52,7 +60,7 @@ Page({
     //设置标签状态
     this.setData({
       orderType: e.currentTarget.dataset.ordertype,
-      orderSubType: "all",//订单子集分类
+      orderStep: "all",//订单子集分类
       dataInfo:[],
       isNoData: false,
       page: 1
@@ -70,8 +78,9 @@ Page({
     if (!!e.currentTarget.dataset.active) return;
     this._clearIntervalWxtimer();
     //设置标签状态
+    console.dir(e.currentTarget);
     this.setData({
-      orderSubType: e.currentTarget.dataset.ordersubtype,
+      orderStep: e.currentTarget.dataset.orderstep,
       dataInfo: [],
       isNoData: false,
       page: 1
@@ -104,40 +113,26 @@ Page({
     this.setData({
       isLoading:true
     });
-    wx.request({
-      url: 'https://wnworld.com/api/JieDanBao/order_list.php',
-      data: { "type": that.data.orderType, "page": that.data.page,"subType":that.data.orderSubType},
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      method: "POST",
-      dataType: "json",
-      success: function (res) {
-        console.dir(res);
-        if(res.data.ok){
-          for (var i = 0; i < res.data.data.length;i++){
-            res.data.data[i].format_mobile = that._formatMobile(res.data.data[i].mobile);
-            res.data.data[i].format_stepname = that._formatStepName(res.data.data[i].steptype);
-            that._countDown(res.data.data[i]);
-          }
+    app.form.requestPost(app.form.API_CONFIG.jiaju.orders, {
+      ordertype:that.data.orderType,
+      step: that.data.orderStep,
+    }, function (res) {
+      console.dir(res);
+      for (var i = 0; i < res.data.orders.length; i++) {
+        res.data.orders[i].format_mobile = that._formatMobile(res.data.orders[i].mobile);
+        res.data.orders[i].format_stepname = that._formatStepName(res.data.orders[i].step);
+        that._countDown(res.data.orders[i]);
+      }
+      //如果是同一个列表，数据直接加在后面，不是同一个列表就要重新赋值
+      that.data.dataInfo.push.apply(that.data.dataInfo, res.data.orders);
+      that.setData({
+        page:that.data.page+1,
+        dataInfo: that.data.dataInfo,
+        isLoading:false
+      });
 
-         
-
-         
-          //如果是同一个列表，数据直接加在后面，不是同一个列表就要重新赋值
-          that.data.dataInfo.push.apply(that.data.dataInfo, res.data.data);
-          that.setData({
-            page:that.data.page+1,
-            dataInfo: that.data.dataInfo,
-            isLoading:false
-          });
-
-          if (that.data.dataInfo.length ==0) {
-            that.setData({ isNoData:true})
-          }
-        }else{
-          console.dir("服务器端返回错误");
-        }
+      if (that.data.dataInfo.length ==0) {
+        that.setData({ isNoData:true})
       }
     })
   },

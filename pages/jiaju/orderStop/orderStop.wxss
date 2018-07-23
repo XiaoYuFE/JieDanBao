@@ -1,0 +1,118 @@
+page{
+  background:#f7f7f7; 
+}
+.header-tip{
+  color:#999999; 
+  height:93rpx;
+  line-height:93rpx;
+  font-size:28rpx;
+  padding:0 30rpx;   
+}
+.reason-list{
+  background:#fff;
+  padding:10rpx 30rpx; 
+  color:#333333;  
+}
+.reason-list .item-cell{
+  border-bottom:1px solid #e5e5e5;
+  padding:25rpx 0;  
+}
+.reason-list .item-cell .lab{
+  font-size: 30rpx;
+}
+.reason-list .item-cell .paraval{
+  float: right;
+  color:#999999;
+  font-size: 28rpx; 
+}
+.reason-list .item-cell.item-reason{
+  border-bottom:none; 
+}
+.reason-list .item-cell.item-reason .lab{
+  display: block;
+}
+.reason-list .item-cell.item-reason textarea{
+  font-size: 28rpx;
+  color:#333333;
+  width: 100%; 
+  height: 160rpx;
+  margin-top: 10rpx; 
+}
+.ipt-submit{
+    padding:20rpx 30rpx 0; 
+}
+.ipt-submit button{
+  height:88rpx;
+  line-height:88rpx;
+  text-align: center;
+  background:#3ac6b8;
+  color:#fff;
+  font-size: 36rpx;   
+}
+.ipt-submit button.hover{
+  background:#37baad; 
+}
+.ipt-submit button:disabled{
+  background:#37baad;
+    opacity: 0.2;
+}
+
+
+
+
+.cell-radio-box{
+  float: right;
+   font-size: 28rpx;  
+}
+radio-group .radio{
+  position:relative;
+  padding-left: 55rpx; 
+  margin-left:25rpx; 
+}
+radio .wx-radio-input{
+   border-radius: 50%;
+   width: 42rpx;
+   height: 42rpx;
+   box-sizing: border-box;
+   border:2rpx solid #cacaca;
+   position: absolute;
+   left:0;
+   top: 50%;
+   -webkit-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+}
+radio.disabled .wx-radio-input{
+  background:#e1e1e1;
+  border-color:#cacaca; 
+}
+radio .wx-radio-input.wx-radio-input-checked::before{
+   content: "\e600";
+   font-family:"iconfont";
+   font-size:48rpx;
+   color:#3ac6b8;  
+   transform:translate(-50%, -50%);
+   -webkit-transform:translate(-50%, -50%) ;
+}
+radio.disabled .wx-radio-input.wx-radio-input-checked::before{
+    color:#e1e1e1; 
+}
+
+.validate-msg{
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%,0);
+   font-size: 30rpx;
+   padding: 25rpx 35rpx;
+   border-radius: 10rpx;
+   color:#fff; 
+   opacity:0;
+   visibility: hidden;
+   transition: all 0.25s ease-out;
+   background-color: rgba(0,0,0,0.6);
+}
+.validate-msg.active{
+    visibility: visible;
+    opacity: 1;
+   
+}

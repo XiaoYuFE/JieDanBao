@@ -1,0 +1,33 @@
+<view class='validate-msg {{!!isValidElemShow ? "active" :""}}'>{{validateMsg}}</view>
+
+<form bindsubmit="formSubmit">
+  <view class="header-tip">提前终止此条订单的服务</view>
+  <view class="reason-list">
+    <view class='item-cell'>
+      <text class='lab'>终止原因</text>
+      <view class='cell-radio-box'>
+        <radio-group class="radio-group" name="reasonRadio">
+          <label class="radio">
+            <radio value="1" checked="" color="#fff" />已签约
+          </label>
+          <label class="radio">
+            <radio value="0" checked="true" color="#fff" />已跑单
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <view class='item-cell'>
+      <text class='lab'>当前进度</text>
+      <view class='paraval'>
+          待量房
+      </view>
+    </view>
+    <view class='item-cell item-reason'>
+      <text class='lab'>原因描述</text>
+      <textarea name="reasonTextarea" maxlength="1000"  placeholder="请输入提前终止服务的原因，我们将认真评估并考虑" />
+    </view>
+  </view>
+
+  <view class="ipt-submit"><button type='primary'  hover-class="hover" formType="submit">提交</button></view>
+</form>
+

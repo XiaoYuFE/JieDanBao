@@ -2,67 +2,29 @@ import form from '../../../static/js/plugin/form'
 import timer from '../../../static/js/plugin/wxTimer.js'
 const app = getApp();
 app.form = new form(app);
-
-
 Page({
   data: {
     xyUserInfo: {},
     dataInfo: {},
     wxTimerList: {},
-
+    wxTimerInstance: {},
+    newDiaToggle:false,
+    resultDiaToggle:false,
+    tipDiaToggle:false
   },
 
   onLoad: function() {
     console.group("onLoad事件");
+    console.dir(app.globalData.sessionJdbUserInfo);
     var that = this;
     //获取配置信息
     that.setData({
       xyUserInfo: app.globalData.sessionJdbUserInfo
     });
     app.form.tracking('jdb_index', 'jdb_index', '');
-    //请求数据
-    app.form.requestPost(app.form.API_CONFIG.jiaju.order_total, {}, function (res) {
-      //判断是否登陆
-      var res = {
-        "data": {
-          "wjd": 1,
-          "dlf": 0,
-          "dsj": 0,
-          "dqy": 0,
-          "yqy": 0,
-          "void": 0,
-          "ysx": 10,
-          "month": 2,
-          "total": 13,
-          "new_order": {
-            "id": "59",
-            "name": "test",
-            "mobile": "13111112222",
-            "community": "万达",
-            "price": "20-30万",
-            "d_time": 3600
-          }
-        },
-        "status": 1,
-        "msg": "success",
-        "redict": ""
-      };
-      that.setData({
-        dataInfo: res.data
-      });
-      //保存住当前的时间
-      var wxTimer1 = new timer({
-        beginTime: that.data.dataInfo.new_order.d_time,
-        formatType: "MS",
-        complete: function () {
-          console.log("完成了")
-        },
-        interval: 1,
-        intervalFn: function () {
-        }
-      })
-      wxTimer1.start(that);
-    })
+
+    this._getData();
+    
   },
 
   onReady: function() {
@@ -70,13 +32,76 @@ Page({
   },
 
   onShow: function() {
-
-
     console.group("onShow事件");
-
     var that = this;
   },
 
+  _getData:function(){
+    var that=this;
+    //请求数据
+    app.form.requestPost(app.form.API_CONFIG.jiaju.order_total, {}, function (res) {
+      //判断是否登陆
+      
+      if (!!res.data.new_order){
+        //保存住当前的时间
+        res.data.format_mobile = that._formatMobile(res.data.new_order.mobile);
+        that._countDown(res.data.new_order);
+      }
+      that.setData({
+        dataInfo: res.data
+      });
+        
+    })
+  },
+  _formatMobile: function (phoneNum) {
+    var phoneNum = String(phoneNum);
+    return phoneNum.substring(0, 3) + "****" + phoneNum.substring(8, 11);
+  },
+  _countDown: function (item) {
+    var that = this;
+    var wxTimerName = "wxTimer" + item.id;
+    wxTimerName = new timer({
+      beginTime: item.d_time,
+      formatType: "MS",
+      name: item.id,
+      complete: function () {
+        console.log("完成了")
+      },
+      interval: 1,
+      intervalFn: function () {
+
+      }
+    })
+    wxTimerName.start(that);
+    that.data.wxTimerInstance[item.id] = wxTimerName;
+  },
+
+  openNewDialog:function(){
+    //请求数据
+    var that=this;
+    wx.showLoading();
+   
+    app.form.requestPost(app.form.API_CONFIG.jiaju.opt_orders, {
+      id: that.data.dataInfo.new_order.id,
+      step:"wjd"
+    }, function (res) {
+        if(!!res.status){
+          that.setData({
+            resultDiaToggle:true
+          });
+        }
+    });
+  },
+  resultDialogBtn:function(){
+    //隐藏弹出框
+    this.setData({
+      resultDiaToggle: false
+    });
+    //跳转到详细页
+    wx.navigateTo({
+      url: '/pages/detail/detail?id=' + this.dataInfo.new_order.id,
+    })
+  },
   onHide: function() {
     console.group("onHide事件");
 

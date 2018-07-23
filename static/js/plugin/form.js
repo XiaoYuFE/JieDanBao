@@ -4,8 +4,9 @@ class form {
   API_CONFIG = {
     jiaju:{
       order_total: 'order_total/2',
-      orders: "orders",
-      order_info: 'order_info',
+      opt_orders:'opt_orders/2',
+      orders: "orders/2",
+      order_info: 'order_info/2',
       opt_order: 'opt_order',
       config: 'config',
       notice: 'notice',

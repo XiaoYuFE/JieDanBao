@@ -1,13 +1,25 @@
 {
   "pages": [  
-    "pages/setting/setting",
+    
+    "pages/jiaju/detail/detail",
+    "pages/jiaju/order/order",
+    "pages/jiaju/orderEdit/orderEdit",
+    
     "pages/login/login",
-    "pages/jiaju/index/index",
     "pages/jiaju/list/list",
+
+   
     
     "pages/splash/splash",
+    "pages/jiaju/index/index",
     
     
+    
+    
+    
+    
+    
+    "pages/setting/setting",
     "pages/auto/index/index",
     "pages/auto/list/list",
     "pages/auto/detail/detail",
@@ -19,7 +31,7 @@
    
     
     "pages/jiaju/cost/cost",
-    "pages/jiaju/detail/detail",
+    
 
 
     "pages/jinrong/index/index",

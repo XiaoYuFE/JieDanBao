@@ -1,16 +1,19 @@
 <view class="mod-1">
+    <image src='https://wnworld.com/images/jiedanbang/splash/banner.jpg' mode='aspectFill'></image>
+    <view class='btn-jd'>立刻接单</view>
+</view>
+
+<!-- <view class="mod-1">
     <view class='tit'>全新接单宝</view>
     <view class='txt'>订单源源不断，接单接到手软</view>
     <view class='pic-1'></view>
-</view>
+</view> -->
 
 <view class='mod-2'>
-    <view class='tit'>和他们一起使用接单宝</view>
+    <view class='tit'><text class="line-l"></text>和他们一起使用接单宝<text class="line-r"></text></view>
     <view class='txt'>全行业支持，5000+商家的共同选择</view>
     <view class='seller-list clearfix'>
-	<view wx:for="{{shops}}" wx:key="idx" wx:for-item="item">
-		<view class="item"><image src='{{item.img}}'></image></view>
-	</view>
+		  <view class="item"  wx:for="{{shops}}" wx:key="idx" wx:for-item="item"><image src='{{item.img}}' mode="aspectFit"></image></view>
     </view>
 </view>
 
@@ -18,11 +21,11 @@
 
 
 <view class='mod-3'>
-    <view class='tit'>连接千万用户</view>
+    <view class='tit'><text class="line-l"></text>连接千万用户<text class="line-r"></text></view>
     <view class='txt'>小鱼网全网资源，大数据精准匹配</view>
     <view class="pic-1"></view>
 </view>
 
 
 <view class='fixed-bottom-seat'></view>
-<view class='fixed-bottom' bindtap="splashEntrance">进入工作区，立即接单</view>
+<view class='fixed-bottom' bindtap="splashEntrance">立即接单</view>

@@ -37,15 +37,15 @@
 
 
 <!--弹出框 接单结果 start  -->
-<view class='dialog-new-result undis'>
+<view class='dialog-new-result'  wx-if="{{resultDiaToggle}}">
     <view class='new-result-hd'>
         <view class="tit">接单成功</view>
         <view class='subtit'>请珍惜每个订单，认真服务客户</view>
     </view>
-    <button class='item-btn' hover-class="item-btn-hover">立即接单</button>
+    <button class='item-btn' bindtap='resultDialogBtn' hover-class="item-btn-hover">知道了</button>
 
 </view>
-<view class='dialog-new-result-mask undis'></view>
+<view class='dialog-new-result-mask' wx-if="{{resultDiaToggle}}"></view>
 <!--弹出框 接单结果 end  -->
 
 
@@ -55,7 +55,7 @@
     <view class='dialog-newtip-hd'>
       请在订单有效期内完成接单，否则该订单将失效。
     </view>
-    <view class='item-btn' >立即接单</view>
+    <view class='item-btn'>立即接单</view>
 </view>
 <view class='dialog-new-tip-mask undis'></view>
 <!--弹出框  关闭提示 end  -->
@@ -67,7 +67,7 @@
   <view class='pic'>
     <image src='{{xyUserInfo.logo}}' mode="{{aspectFit}}"></image>
   </view>
-  <view class='hy-tag'>{{xyUserInfo.category_tag}}</view>
+  <view class='hy-tag'>{{xyUserInfo.category_name}}</view>
   <view class="txt">{{xyUserInfo.username}}</view>
   <view class='goset-btn' bindtap='setting'>
     <navigator url='/pages/setting/setting' hover-class="none">设置
@@ -92,12 +92,12 @@
 </view>
 
 
-<view class='ordernew-box'>
+<view class='ordernew-box' wx-if="{{dataInfo.new_order}}">
   <view class='tit'>新订单提醒</view>
   <view class='mid-tip clearfix'>
     <view class="num-tip">共有
       <text>{{dataInfo.wjd}}</text>条新订单等你处理</view>
-    <navigator url="/pages/jiaju/list/list?tabType=xdd" class='btn-more'>查看全部新订单
+    <navigator url="/pages/jiaju/list/list?ordertype=wjd&step=all" class='btn-more'>查看全部新订单
       <text class='iconfont icon-jiantou txt-arrow'></text>
     </navigator>
   </view>
@@ -106,7 +106,7 @@
     <view class='ordernew-card-box'>
       <view class='item-cell clearfix'>
         <text class='lab'>姓名：</text>
-        <view class="para-val">{{dataInfo.new_order.name}}</view>
+        <view class="para-val">{{dataInfo.new_order.name ? dataInfo.new_order.name :"--"}}</view>
       </view>
       <view class='item-cell clearfix'>
         <text class='lab'>手机：</text>
@@ -114,7 +114,7 @@
       </view>
       <view class='item-cell clearfix'>
         <text class='lab'>小区：</text>
-        <view class="para-val">{{dataInfo.new_order.community}}</view>
+        <view class="para-val">{{dataInfo.new_order.community ? dataInfo.new_order.community : "--"}}</view>
       </view>
       <view class='item-cell clearfix'>
         <text class='lab'>预算：</text>
@@ -123,13 +123,14 @@
       <view class='item-cell clearfix'>
         <text class='lab'>订单有效期：</text>
         <view class="para-val">
-          {{wxTimerFormatMinute}}分{{wxTimerFormatSecond}}秒
+            <view class='time-count'>{{wxTimerList[dataInfo.new_order.id].formatMinute}}分{{wxTimerList[dataInfo.new_order.id].formatSecond}}秒</view>
+            <view class='time-tip'>(过期后无法再接单)</view>
         </view>
       </view>
 
       <view class='item-line'></view>
 
-      <button class='item-btn' hover-class="item-btn-hover">立即接单</button>
+      <button class='item-btn' bindtap='openNewDialog' hover-class="item-btn-hover">立即接单</button>
       <view class='item-tip-1'>接单后可查看客户详细资料并直接联系客户</view>
     </view>
     <view class='ordernew-card-seat-1'></view>
@@ -141,15 +142,15 @@
 <view class='orderhandle-box'>
   <view class='tit'>处理中订单</view>
   <view class='orderhandle-list-box clearfix'>
-    <navigator class='item-cell' hover-class='none' url='/pages/jiaju/list/list?orderType=clz'>
+    <navigator class='item-cell' hover-class='none' url='/pages/jiaju/list/list?ordertype=clz&step=dlf'>
       <view class='num'>{{dataInfo.dlf}}</view>
       <view class='txt'>待量房</view>
     </navigator>
-    <navigator class='item-cell' hover-class='none' url='/pages/jiaju/list/list?orderType=clz'>
+    <navigator class='item-cell' hover-class='none' url='/pages/jiaju/list/list?ordertype=clz&step=dsj'>
       <view class='num'>{{dataInfo.dsj}}</view>
       <view class='txt'>待设计</view>
     </navigator>
-    <navigator class='item-cell' hover-class='none' url='/pages/jiaju/list/list?orderType=clz'>
+    <navigator class='item-cell' hover-class='none' url='/pages/jiaju/list/list??ordertype=clz&step=dqy'>
       <view class='num'>{{dataInfo.dqy}}</view>
       <view class='txt'>待签约</view>
     </navigator>
@@ -160,15 +161,15 @@
 <view class='orderfinsh-box'>
   <view class='tit'>已结束订单</view>
   <view class='orderfinsh-list-box clearfix'>
-    <navigator class='item-cell item-yqy' hover-class='none' url='/pages/jiaju/list/list?orderType=yjs'>
+    <navigator class='item-cell item-yqy' hover-class='none' url='/pages/jiaju/list/list?ordertype=yjs&step=yqy'>
       <view class='num'>{{dataInfo.yqy}}</view>
       <view class='txt'>已签约`</view>
     </navigator>
-    <navigator class='item-cell item-wcd' hover-class='none' url='/pages/jiaju/list/list?orderType=yjs'>
+    <navigator class='item-cell item-wcd' hover-class='none' url='/pages/jiaju/list/list?ordertype=yjs&step=void'>
       <view class='num'>{{dataInfo.void}}</view>
       <view class='txt'>未成单</view>
     </navigator>
-    <navigator class='item-cell item-ysx' hover-class='none' url='/pages/jiaju/list/list?orderType=yjs'>
+    <navigator class='item-cell item-ysx' hover-class='none' url='/pages/jiaju/list/list?ordertype=yjs&step=ysx'>
       <view class='num'>{{dataInfo.ysx}}</view>
       <view class='txt'>已失效</view>
     </navigator>
