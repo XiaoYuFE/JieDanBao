@@ -69,6 +69,12 @@
   width:100%;
   color:#333333; 
 }
+.houseinfo-list .ipt-text.disabled{
+  color:#999; 
+}
+.houseinfo-list .ipt-placeholder{
+   color:#333; 
+}
 .houseinfo-list .txt-arrow{
   font-size: 30rpx;
   display: inline-block;

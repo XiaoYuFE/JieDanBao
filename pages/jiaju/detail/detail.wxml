@@ -13,7 +13,7 @@
 <view class='houseinfo-box'>
   <view class='houseinfo-caption clearfix'>
     <text>订单信息</text>
-    <navigator url='/pages/staticHtml/jiaju/detailEdit/detailEdit'>补全信息</navigator>
+    <navigator url='/pages/jiaju/detailEdit/detailEdit?id={{id}}'>补全信息</navigator>
   </view>
   <view class='houseinfo-list'>
     <view class='item-cell clearfix'>

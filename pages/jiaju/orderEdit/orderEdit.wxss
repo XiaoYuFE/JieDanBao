@@ -152,9 +152,15 @@ page {
    height: 108rpx;
     float:left; 
     margin-top: 10rpx;
-    border-radius: 20rpx;
-    background:#3ac6b8; 
+    
+    font-size: 0;
     margin-left: 28rpx;
+}
+.uploadgallery-list .upload-addbtn .icon-cadd{
+  color:#d8dce6;
+  font-size: 120rpx; 
+  display: inline-block;
+  vertical-align: top;
 }
 
 .fixed-bottom-seat {

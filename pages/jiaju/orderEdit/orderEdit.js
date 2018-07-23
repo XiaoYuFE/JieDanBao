@@ -4,6 +4,70 @@ import timer from '../../../static/js/plugin/wxTimer.js'
 const app = getApp();
 app.form = new form(app);
 
+// var DataTimer=(function(){
+//   let date = new Date//当前日期
+//   let year = date.getFullYear()//当前年
+//   let month = date.getMonth() + 1//当前月份
+//   let day = date.getDate()//当天
+  
+//   let monthList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]//月份列表
+//   let nowMonthList = []//本年剩余年份
+
+
+//   for (let i = month; i < 13; i++) {
+//     nowMonthList.push(i)
+//   }
+ 
+//   let yearList = [year]//年份最大可能
+//   for (let i = 0; i < 10; i++) {
+//     yearList.push(year + i + 1)
+//   }
+
+//   let leapYear = function (Year) {//判断是否闰年 
+//     if (((Year % 4) == 0) && ((Year % 100) != 0) || ((Year % 400) == 0)) {
+//       return (true);
+//     } else { return (false); }
+//   }
+
+//   let monthAll=[];
+//   let dayAll=[];
+//   for (let i = 0; i < yearList.length; i++) {//遍历年
+//     let mList
+//     if (yearList[i] == year) {//判断当前年份
+//       mList = nowMonthList
+//     } else {
+//       mList = monthList
+//     }
+//     monthAll.push(mList)
+//     for (let j = 0; j < mList.length; j++) {//循环月份
+//       let t_days = [31, 28 + leapYear(yearList[i]), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+//       let t_days_thisYear = []
+//       if (yearList[i] == year) {
+//         for (let m = 0; m < nowMonthList.length; m++) {
+//           t_days_thisYear.push(t_days[mList[m] - 1])
+//         }
+//         t_days = t_days_thisYear
+//       } else {
+//         t_days = [31, 28 + leapYear(yearList[i]), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+//       }
+//       for (let k = 0; k < t_days[j]; k++) {//循环每天
+//         let days = k + 1;
+//         if (days < 10) {
+//           days = "0" + days
+//         }
+//       }
+//     }
+//   }
+//   return {
+//     years: yearList,
+//     months: monthAll,
+//     days: dayAll
+//   }
+
+// })();
+
+// console.dir(DataTimer);
+
 
 Page({
 
@@ -11,9 +75,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    id:482,
+    id:488,
     dataInfo:"",
     radioVal:"",
+
+
     items: [
       { value: '1', name: '已完成'},
       { value: '0', name: '待完成', checked: 'true'}
@@ -115,6 +181,27 @@ Page({
     this.setData({
       radioVal: e.detail.value
     });
+  },
+
+  uploadFangAn:function(){
+    wx.chooseImage({
+      success: function (res) {
+        var tempFilePaths = res.tempFilePaths
+        wx.uploadFile({
+          url: app.form.API_CONFIG.jiaju.orders, //仅为示例，非真实的接口地址
+          filePath: tempFilePaths[0],
+          name: 'img',
+          formData: {
+
+          },
+          success: function (res) {
+            var data = res.data
+            console.dir(data);
+            //do something
+          }
+        })
+      }
+    })
   },
 
   /**
