@@ -8,6 +8,8 @@ Page({
   data: {
     id: 482, //481待设计  488 未接单  482待量房  480 待签约
     dataInfo: "",
+
+
     radioVal: "",
 
 
@@ -17,8 +19,10 @@ Page({
 
     sjFinshTime: "", //设计完成时间
     sj_img: [],
+    sj_img_str:"",
 
     ht_img: [],
+    ht_img_str:"",
 
     step: "",
     stepName: "",
@@ -44,11 +48,14 @@ Page({
     app.form.requestPost(app.form.API_CONFIG.jiaju.process_order, {
       id: that.data.id
     }, function(res) {
+      
       that.setData({
         dataInfo: res.data,
         sjFinshTime: res.data.sj_time
       });
       that._getStepName(res.data);
+      res.data.sj_d_time=3600;
+      that._countDown(res.data.sj_d_time)
 
       //量房时间为空的时候
 
@@ -82,7 +89,7 @@ Page({
     console.dir(e.detail.value);
     var that = this;
     wx.showLoading();
-    app.form.requestPost(app.form.API_CONFIG.jiaju.process_order, e.detail.value, function(res) {
+    app.form.requestPost(app.form.API_CONFIG.jiaju.opt_orders, e.detail.value, function(res) {
       console.dir(res);
       wx.hideLoading();
       if (res.status == 1) {
@@ -105,15 +112,14 @@ Page({
       }
     })
   },
-
+  //单选按钮改变的时候
   radioChange: function(e) {
     console.dir("radioChange");
     this.setData({
       radioVal: e.detail.value
     });
-
     if (this.data.step == "dlf") {
-        //分两种情况
+        //待量房的时候，选择单选按钮，那么步骤要跟着改变
         this.setData({
           step:this.data.radioVal
         })
@@ -173,7 +179,8 @@ Page({
     const sj_img = this.data.sj_img;
     sj_img.splice(index, 1);
     this.setData({
-      sj_img: sj_img
+      sj_img: sj_img,
+      sj_img_str: sj_img.join(",")
     });
   },
 
@@ -187,7 +194,7 @@ Page({
         console.dir(app.form.API_CONFIG.jiaju.upload_img);
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths;
-        console.dir(app.globalData.sessionJdbUkey)
+      
         for (var i in tempFilePaths) {
           wx.uploadFile({
             url: app.form.API_SERVER + app.form.API_CONFIG.jiaju.upload_img,
@@ -198,12 +205,14 @@ Page({
               ukey: app.globalData.sessionJdbUkey
             },
             success: function(res) {
-              const imgArr = that.data.sj_img;
+              console.dir("asdfasdfasd");
+              var imgArr = that.data.sj_img;
               res.data = JSON.parse(res.data);
               imgArr.push(res.data.data["full_url"]);
 
               that.setData({
-                sj_img: imgArr
+                sj_img: imgArr,
+                sj_img_str:imgArr.join(",")
               });
 
             }
@@ -218,7 +227,8 @@ Page({
     const ht_img = this.data.ht_img;
     ht_img.splice(index, 1);
     this.setData({
-      ht_img: ht_img
+      ht_img: ht_img,
+      ht_img_str: ht_img.join(",")
     });
   },
 
@@ -248,7 +258,8 @@ Page({
               imgArr.push(res.data.data["full_url"]);
 
               that.setData({
-                ht_img: imgArr
+                ht_img: imgArr,
+                ht_img_str: imgArr.join(",")
               });
 
             }

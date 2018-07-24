@@ -70,36 +70,39 @@
     <view class='item-cell'>
 
       <view class='name'>3.设计方案</view>
-      <view class='time-finsh' wx-if="{{dataInfo.dsj==1 || sjFinshTime}}">完成时间：{{sjFinshTime || dataInfo.sj_time}}</view>
+      <view class='time-finsh' wx-if="{{(dataInfo.dsj==1 || sjFinshTime) && !radioVal}}">完成时间：{{sjFinshTime || dataInfo.sj_time}}</view>
       <view class='cell-radio-box' wx-if="{{dataInfo.dsj==0}}">
         <radio-group class='radio-group {{dataInfo.dlf==0 ? "disabled" :""}}' bindchange="radioChange">
           <label class="radio">
             <radio value="1" disabled='{{dataInfo.dlf==0 ? "disabled" :""}}' color="#fff" />已完成
           </label>
           <label class="radio">
-            <radio class='disabled' checked disabled='{{dataInfo.dlf==0 ? "disabled" :""}}' color="#fff" />未完成
+            <radio value='0' class='disabled' checked disabled='{{dataInfo.dlf==0 ? "disabled" :""}}' color="#fff" />未完成
           </label>
         </radio-group>
       </view>
 
-      <view class='time-remain clearfix' wx-if="{{dataInfo.dsj==0 && dataInfo.dlf==1}}">
+      <view class='time-remain clearfix' wx-if="{{dataInfo.dsj==0 && dataInfo.dlf==1 && radioVal==0}}">
         <text class='lab'>剩余时间：</text>
         <view class='timing-count'>{{wxTimerList["wxTimer"].formatHour}}时{{wxTimerList["wxTimer"].formatMinute}}分{{wxTimerList["wxTimer"].formatSecond}}秒</view>
         <text class='iconfont icon-tishi icon-cpic'></text>
       </view>
 
-      <view class='uploadgallery-wrap' wx-if="{{dataInfo.dlf==1 && dataInfo.dsj==0}}">
+      <view class='uploadgallery-wrap' wx-if="{{dataInfo.dlf==1 && dataInfo.dsj==0 && radioVal==1}}">
         <view class='uploadgallery'>
           <view class='lab'>方案图片</view>
           <view class='uploadgallery-list clearfix'>
             <view class='pic' wx:for="{{sj_img}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
               <text class='icon-jianhao iconfont icon-cpic' data-index="{{idx}}" bindtap='delSjUpload'></text>
               <image src='{{item}}' mode='{{aspectFill}}'></image>
+              
             </view>
             <!-- <view class='pic'>
             <text class='icon-jianhao iconfont icon-cpic'></text>
             <image src='' mode='{{aspectFill}}'></image>
           </view>  -->
+            
+           
 
             <view class='upload-addbtn' bindtap='uploadFangAn'>
               <text class='iconfont icon-tianjia icon-cadd'></text>
@@ -108,7 +111,7 @@
         </view>
       </view>
 
-
+       <input type='text' wx-if="{{dataInfo.dlf==1 && dataInfo.dsj==0}}" maxlength="-1" class='ipt-hidden' name="imgs" value="{{sj_img_str}}"></input>
 
       <text class='txt-statu success' wx-if="{{dataInfo.dsj==1}}">已完成</text>
 
@@ -188,7 +191,7 @@
             <text class='icon-jianhao iconfont icon-cpic'></text>
             <image src='' mode='{{aspectFill}}'></image>
           </view> -->
-
+            <input type='text' wx-if="{{dataInfo.dsj==1 && dataInfo.dqy==0}}" maxlength="-1" class='ipt-hidden' name="imgs" value="{{ht_img_str}}"></input>
             <view class='upload-addbtn' bindtap='uploadHeTong'>
               <text class='iconfont icon-tianjia icon-cadd'></text>
             </view>

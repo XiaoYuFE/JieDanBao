@@ -1,8 +1,9 @@
 {
   "pages": [ 
+    "pages/jiaju/orderEdit/orderEdit",
      "pages/jiaju/detail/detail",
     "pages/jiaju/list/list",
-    "pages/jiaju/orderEdit/orderEdit",
+   
     
     
     "pages/jiaju/detailEdit/detailEdit",
