@@ -10,6 +10,7 @@ class form {
       process_order:'process_order/2',
       upload_img:'upload_img/2',
       edit_config:'edit_config/2',
+      get_sj_time:"get_sj_time/2",
       opt_order: 'opt_order',
       config: 'config',
       notice: 'notice',

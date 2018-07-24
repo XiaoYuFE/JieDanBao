@@ -1,6 +1,6 @@
 
-import WxValidate from '../../../../static/js/plugin/WxValidate'
-import form from '../../../../static/js/plugin/form'
+import form from '../../../static/js/plugin/form'
+import WxValidate from '../../../static/js/plugin/WxValidate'
 const app = getApp();
 app.form = new form(app);
 Page({

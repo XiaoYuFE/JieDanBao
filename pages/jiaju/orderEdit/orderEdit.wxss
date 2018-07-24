@@ -108,7 +108,7 @@ page {
 .uploadgallery {
   position: relative;
   padding-left: 140rpx;
-  margin-top: 5rpx;
+  margin-top: 28rpx;
   border-top:1rpx solid #e5e5e5;
 }
 
@@ -126,7 +126,8 @@ page {
 .uploadgallery-list .pic {
   width: 108rpx;
   height: 108rpx;
-  background: #f60;
+  
+  border:1px solid #e5e5e5; 
   float: left;
   margin-left: 28rpx;
   margin-top: 10rpx;
@@ -152,15 +153,17 @@ page {
    height: 108rpx;
     float:left; 
     margin-top: 10rpx;
-    
+    position: relative;
     font-size: 0;
     margin-left: 28rpx;
 }
 .uploadgallery-list .upload-addbtn .icon-cadd{
   color:#d8dce6;
-  font-size: 120rpx; 
-  display: inline-block;
-  vertical-align: top;
+  font-size: 132rpx; 
+  position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
 }
 
 .fixed-bottom-seat {
@@ -220,6 +223,7 @@ radio-group .radio{
   padding-left: 55rpx; 
   margin-left:25rpx; 
 }
+
 radio .wx-radio-input{
    border-radius: 50%;
    width: 42rpx;
@@ -232,10 +236,20 @@ radio .wx-radio-input{
    -webkit-transform: translate(0,-50%);
     transform: translate(0,-50%);
 }
-radio.disabled .wx-radio-input{
+radio-group.disabled .radio{
+  color:#999999; 
+}
+radio-group.disabled .radio .wx-radio-input{
   background:#e1e1e1;
   border-color:#cacaca; 
 }
+
+radio-group.disabled radio .wx-radio-input.wx-radio-input-checked::before{
+   color:#e1e1e1; 
+  border-color:#cacaca; 
+}
+
+
 radio .wx-radio-input.wx-radio-input-checked::before{
    content: "\e600";
    font-family:"iconfont";
@@ -244,9 +258,7 @@ radio .wx-radio-input.wx-radio-input-checked::before{
    transform:translate(-50%, -50%);
    -webkit-transform:translate(-50%, -50%) ;
 }
-radio.disabled .wx-radio-input.wx-radio-input-checked::before{
-    color:#e1e1e1; 
-}
+
 
 /**量房时间**/
 

@@ -35,13 +35,14 @@ function getWeekday(year, month, day) {
 }
 
 function getMonthDay(year, month) {
-
-  year = year.substr(0, year.length - 1);
-  month = month.substr(0, month.length - 1);
+ 
+  // year = year.substr(0, year.length - 1);
+  // month = month.substr(0, month.length - 1);
+  // console.dir(month.length);
   //console.log(year);
   //console.log(month);
   var flag = year % 400 == 0 || (year % 4 == 0 && year % 100 != 0), array = null;
-
+  console.dir(month);
   switch (month) {
     case '01':
     case '03':
@@ -70,9 +71,9 @@ function getMonthDay(year, month) {
 function getNewDateArry() {
   // 当前时间的处理
   var newDate = new Date();
-  var year = withData(newDate.getFullYear()) + '年',
-    mont = withData(newDate.getMonth() + 1) + '月',
-    date = withData(newDate.getDate()) + '日',
+  var year = withData(newDate.getFullYear()),
+    mont = withData(newDate.getMonth() + 1),
+    date = withData(newDate.getDate()),
     hour = withData(newDate.getHours()),
     minu = withData(newDate.getMinutes())
   return [year, mont, date, hour, minu];
@@ -86,6 +87,7 @@ function dateTimePicker(startYear, endYear, date) {
   // 默认开始显示数据
   //console.log(date) 初始无数据
   var defaultDate = date ? [...date.split(' ')[0].split('-'), ...date.split(' ')[1].split(':')] : getNewDateArry();
+  
   // console.log(defaultDate[2]) day
   // 处理联动列表数据
   /*年月日 时分秒*/
@@ -95,11 +97,11 @@ function dateTimePicker(startYear, endYear, date) {
   dateTimeArray[3] = getLoopArray(0, 23);
   dateTimeArray[4] = getLoopArray(0, 59);
   dateTimeArray[5] = getLoopArray(0, 59);
-
+  console.dir(defaultDate)
   dateTimeArray.forEach((current, index) => {
     dateTime.push(current.indexOf(defaultDate[index]));
   });
-
+  console.dir(dateTime);
   return {
     dateTimeArray: dateTimeArray,
     defaultDay: defaultDate[2],
