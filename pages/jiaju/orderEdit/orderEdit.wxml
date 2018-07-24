@@ -1,114 +1,120 @@
 <view class="header-top">
   <text class='tit'>订单流程</text>
   <text class='tip'>为了保证派单量，请及时更新订单</text>
-  <navigator url='/pages/jiaju/orderStop/orderStop?id={{id}}&step=' class='server-stop'>
+  <navigator url='/pages/jiaju/orderStop/orderStop?id={{id}}&step={{step}}&stepname={{stepName}}' class='server-stop'>
     <text class='iconfont icon-gantanhao icon-cpic'></text>终止服务</navigator>
 </view>
 
 
+<form bindsubmit="formSubmit">
+ <input type='text' name="step" class='ipt-hidden' value='{{step}}'></input>
+ <input type='text' name="id" class='ipt-hidden' value='{{id}}'></input>
+  <view class='orderstep-list'>
+    <view class='item-cell'>
+      <view class='name'>1.接单</view>
 
-<view class='orderstep-list'>
-  <view class='item-cell'>
-    <view class='name'>1.接单</view>
-
-    <view class='time-finsh' wx-if="{{dataInfo.wjd==1}}">完成时间：2018-07-05 13:13</view>
-    <text class='txt-statu success' wx-if="{{dataInfo.wjd==1}}">已完成</text>
-    <view class='cell-radio-box' wx-if="{{dataInfo.wjd==0}}">
-      <radio-group class="radio-group" bindchange="radioChange">
-        <label class="radio">
-          <radio value="1" color="#fff" />已完成
-        </label>
-        <label class="radio">
-          <radio value="0" checked="true" color="#fff" />未完成
-        </label>
-      </radio-group>
-    </view>
-  </view>
-  <!--  上门量房  客户在未接单的时候 该步骤 就要显示radio 不可点击状态 -->
-  <!-- 上门量房完成后  raido 不现实  -->
-  <view class='item-cell'>
-    <view class='name'>2.上门量房</view>
-    <view class='time-finsh' wx-if="{{dataInfo.dlf==1}}">完成时间：{{dataInfo.l_time}}</view>
-    <view class='cell-radio-box' wx-if="{{dataInfo.dlf==0}}">
-      <radio-group class='radio-group {{dataInfo.wjd==0 ? "disabled" :""}}' bindchange="radioChange">
-        <label class="radio">
-          <radio value="1" disabled='{{dataInfo.wjd==0 ? "disabled" :""}}' color="#fff" />已完成
-        </label>
-        <label class="radio">
-          <radio value="0" disabled='{{dataInfo.wjd==0 ? "disabled" :""}}' checked="true" color="#fff" />未完成
-        </label>
-      </radio-group>
-    </view>
-    <view class='cell-lf-time clearfix' wx-if="{{dataInfo.wjd==1 && dataInfo.dlf==0}}">
-      <text class='lab'>量房时间</text>
-      <view class='time-picker'>
-        <picker mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
-          <view class="tui-picker-detail">
-            {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}
-          </view>
-        </picker>
-        <text class='iconfont icon-jiantou txt-arrow'></text>
+      <view class='time-finsh' wx-if="{{dataInfo.wjd==1}}">完成时间：2018-07-05 13:13</view>
+      <text class='txt-statu success' wx-if="{{dataInfo.wjd==1}}">已完成</text>
+      <view class='cell-radio-box' wx-if="{{dataInfo.wjd==0}}">
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio">
+            <radio value="1" color="#fff" />已完成
+          </label>
+          <label class="radio">
+            <radio value="0" checked="true" color="#fff" />未完成
+          </label>
+        </radio-group>
       </view>
     </view>
+    <!--  上门量房  客户在未接单的时候 该步骤 就要显示radio 不可点击状态 -->
+    <!-- 上门量房完成后  raido 不现实  -->
+    <view class='item-cell'>
+      <view class='name'>2.上门量房</view>
+      <view class='time-finsh' wx-if="{{dataInfo.dlf==1}}">完成时间：{{dataInfo.l_time}}</view>
+      <view class='cell-radio-box' wx-if="{{dataInfo.dlf==0}}">
+        <radio-group class='radio-group {{dataInfo.wjd==0 ? "disabled" :""}}' bindchange="radioChange">
+          <label class="radio">
+            <radio value="ylf" disabled='{{dataInfo.wjd==0 ? "disabled" :""}}'  color="#fff" />已完成
+          </label>
+          <label class="radio">
+            <radio value="dlf" disabled='{{dataInfo.wjd==0 ? "disabled" :""}}' checked="true" color="#fff" />未完成
+          </label>
+        </radio-group>
+      </view>
+      <view class='cell-lf-time clearfix' wx-if="{{dataInfo.wjd==1 && dataInfo.dlf==0}}">
+        <text class='lab'>量房时间</text>
+        <view class='time-picker'>
+          <picker class='{{!lfTime ? "hidden" :""}}' mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+            <view class="tui-picker-detail">
+              {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}} {{dateTimeArray1[3][dateTime1[3]]}}:{{dateTimeArray1[4][dateTime1[4]]}}
+            </view>
 
-    <text class='txt-statu success' wx-if="{{dataInfo.dlf==1}}">已完成</text>
-  </view>
+          </picker>
+          <!--  -->
+          <input type='text' name="time" value='{{lfTime}}' wx-if="{{dataInfo.wjd==1 && dataInfo.dlf==0}}" class='ipt-text-lf {{lfTime ? "hidden" :""}}' placeholder='{{radioVal=="dlf" ? "请设置上门量房的时间" :"请设置完成量房的时间"}}'></input>
+          <text class='iconfont icon-jiantou txt-arrow'></text>
+        </view>
 
-  <!-- <view class='item-cell'>
+      </view>
+
+      <text class='txt-statu success' wx-if="{{dataInfo.dlf==1}}">已完成</text>
+    </view>
+
+    <!-- <view class='item-cell'>
     <view class='name'>2.上门量房</view>
     <view class='time-finsh'>完成时间：2018-07-05 13:13</view>
     <text class='txt-statu success'>已完成</text>
   </view> -->
 
 
-  <view class='item-cell'>
+    <view class='item-cell'>
 
-    <view class='name'>3.设计方案</view>
-    <view class='time-finsh' wx-if="{{dataInfo.dsj==1 || sjFinshTime}}">完成时间：{{sjFinshTime || dataInfo.sj_time}}</view>
-    <view class='cell-radio-box' wx-if="{{dataInfo.dsj==0}}">
-      <radio-group class='radio-group {{dataInfo.dlf==0 ? "disabled" :""}}' bindchange="radioChange">
-        <label class="radio">
-          <radio value="1" disabled='{{dataInfo.dlf==0 ? "disabled" :""}}' color="#fff" />已完成
-        </label>
-        <label class="radio">
-          <radio class='disabled' checked disabled='{{dataInfo.dlf==0 ? "disabled" :""}}' color="#fff" />未完成
-        </label>
-      </radio-group>
-    </view>
+      <view class='name'>3.设计方案</view>
+      <view class='time-finsh' wx-if="{{dataInfo.dsj==1 || sjFinshTime}}">完成时间：{{sjFinshTime || dataInfo.sj_time}}</view>
+      <view class='cell-radio-box' wx-if="{{dataInfo.dsj==0}}">
+        <radio-group class='radio-group {{dataInfo.dlf==0 ? "disabled" :""}}' bindchange="radioChange">
+          <label class="radio">
+            <radio value="1" disabled='{{dataInfo.dlf==0 ? "disabled" :""}}' color="#fff" />已完成
+          </label>
+          <label class="radio">
+            <radio class='disabled' checked disabled='{{dataInfo.dlf==0 ? "disabled" :""}}' color="#fff" />未完成
+          </label>
+        </radio-group>
+      </view>
 
-    <view class='time-remain clearfix' wx-if="{{dataInfo.dsj==0 && dataInfo.dlf==1}}">
-      <text class='lab'>剩余时间：</text>
-      <view class='timing-count'>{{wxTimerList["wxTimer"].formatHour}}时{{wxTimerList["wxTimer"].formatMinute}}分{{wxTimerList["wxTimer"].formatSecond}}秒</view>
-      <text class='iconfont icon-tishi icon-cpic'></text>
-    </view>
+      <view class='time-remain clearfix' wx-if="{{dataInfo.dsj==0 && dataInfo.dlf==1}}">
+        <text class='lab'>剩余时间：</text>
+        <view class='timing-count'>{{wxTimerList["wxTimer"].formatHour}}时{{wxTimerList["wxTimer"].formatMinute}}分{{wxTimerList["wxTimer"].formatSecond}}秒</view>
+        <text class='iconfont icon-tishi icon-cpic'></text>
+      </view>
 
-    <view class='uploadgallery-wrap' wx-if="{{dataInfo.dlf==1 && dataInfo.dsj==0}}">
-      <view class='uploadgallery'>
-        <view class='lab'>方案图片</view>
-        <view class='uploadgallery-list clearfix'>
-          <view class='pic' wx:for="{{sj_img}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
-            <text class='icon-jianhao iconfont icon-cpic' data-index="{{idx}}" bindtap='delSjUpload'></text>
-            <image src='{{item}}' mode='{{aspectFill}}'></image>
-          </view>
-          <!-- <view class='pic'>
+      <view class='uploadgallery-wrap' wx-if="{{dataInfo.dlf==1 && dataInfo.dsj==0}}">
+        <view class='uploadgallery'>
+          <view class='lab'>方案图片</view>
+          <view class='uploadgallery-list clearfix'>
+            <view class='pic' wx:for="{{sj_img}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
+              <text class='icon-jianhao iconfont icon-cpic' data-index="{{idx}}" bindtap='delSjUpload'></text>
+              <image src='{{item}}' mode='{{aspectFill}}'></image>
+            </view>
+            <!-- <view class='pic'>
             <text class='icon-jianhao iconfont icon-cpic'></text>
             <image src='' mode='{{aspectFill}}'></image>
           </view>  -->
 
-          <view class='upload-addbtn' bindtap='uploadFangAn'>
-            <text class='iconfont icon-tianjia icon-cadd'></text>
+            <view class='upload-addbtn' bindtap='uploadFangAn'>
+              <text class='iconfont icon-tianjia icon-cadd'></text>
+            </view>
           </view>
         </view>
       </view>
+
+
+
+      <text class='txt-statu success' wx-if="{{dataInfo.dsj==1}}">已完成</text>
+
+
     </view>
-
-    
-
-    <text class='txt-statu success' wx-if="{{dataInfo.dsj==1}}">已完成</text>
-
-
-  </view>
-  <!-- <view class='item-cell'>
+    <!-- <view class='item-cell'>
 
     <view class='name'>3.设计方案</view>
     <view class='time-finsh'>完成时间：2018-07-05 13:13</view>
@@ -150,31 +156,31 @@
     </view>
 
   </view>   -->
-  <view class='item-cell'>
+    <view class='item-cell'>
 
-    <view class='name'>4.合同签约</view>
-    <view class='time-finsh' wx-if="{{dataInfo.dqy==1}}">完成时间：2018-07-05 13:13</view>
-    <view class='agree-price' wx-if="{{dataInfo.dqy==1}}">合同金额：180000元</view>
-    <text class='txt-statu success-top' wx-if="{{dataInfo.dqy==1}}">已完成</text>
-    <view class='cell-radio-box' wx-if="{{dataInfo.dqy==0}}">
-      <radio-group class='radio-group {{dataInfo.dsj==0 ? "disabled" :""}}' bindchange="radioChange">
-        <label class="radio">
-          <radio value="1" disabled='{{dataInfo.dsj==0 ? "disabled" :""}}' color="#fff" />已完成
-        </label>
-        <label class="radio">
-          <radio value="0" disabled='{{dataInfo.dsj==0 ? "disabled" :""}}' checked color="#fff" />未完成
-        </label>
-      </radio-group>
-    </view>
-    <view class="uploadgallery-wrap" wx-if="{{dataInfo.dsj==1 && dataInfo.dqy==0}}">
-      <view class='uploadgallery'>
-        <view class='lab'>合同图片</view>
-        <view class='uploadgallery-list clearfix'>
-          <view class='pic' wx:for="{{ht_img}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
-            <text class='icon-jianhao iconfont icon-cpic' data-index="{{idx}}" bindtap='delHtUpload'></text>
-            <image src='{{item}}' mode='{{aspectFill}}'></image>
-          </view>
-          <!-- <view class='pic'>
+      <view class='name'>4.合同签约</view>
+      <view class='time-finsh' wx-if="{{dataInfo.dqy==1}}">完成时间：2018-07-05 13:13</view>
+      <view class='agree-price' wx-if="{{dataInfo.dqy==1}}">合同金额：180000元</view>
+      <text class='txt-statu success-top' wx-if="{{dataInfo.dqy==1}}">已完成</text>
+      <view class='cell-radio-box' wx-if="{{dataInfo.dqy==0}}">
+        <radio-group class='radio-group {{dataInfo.dsj==0 ? "disabled" :""}}' bindchange="radioChange">
+          <label class="radio">
+            <radio value="1" disabled='{{dataInfo.dsj==0 ? "disabled" :""}}' color="#fff" />已完成
+          </label>
+          <label class="radio">
+            <radio value="0" disabled='{{dataInfo.dsj==0 ? "disabled" :""}}' checked color="#fff" />未完成
+          </label>
+        </radio-group>
+      </view>
+      <view class="uploadgallery-wrap" wx-if="{{dataInfo.dsj==1 && dataInfo.dqy==0}}">
+        <view class='uploadgallery'>
+          <view class='lab'>合同图片</view>
+          <view class='uploadgallery-list clearfix'>
+            <view class='pic' wx:for="{{ht_img}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
+              <text class='icon-jianhao iconfont icon-cpic' data-index="{{idx}}" bindtap='delHtUpload'></text>
+              <image src='{{item}}' mode='{{aspectFill}}'></image>
+            </view>
+            <!-- <view class='pic'>
             <text class='icon-jianhao iconfont icon-cpic'></text>
             <image src='' mode='{{aspectFill}}'></image>
           </view>
@@ -183,23 +189,24 @@
             <image src='' mode='{{aspectFill}}'></image>
           </view> -->
 
-          <view class='upload-addbtn' bindtap='uploadHeTong'>
-            <text class='iconfont icon-tianjia icon-cadd'></text>
+            <view class='upload-addbtn' bindtap='uploadHeTong'>
+              <text class='iconfont icon-tianjia icon-cadd'></text>
+            </view>
           </view>
         </view>
       </view>
     </view>
+
+
   </view>
 
 
-</view>
 
-
-
-<view class='fixed-bottom-seat'></view>
-<view class='fixed-bottom-btn'>
-  <view class='btn-cancel'>
-    <text bindtap='goBack'>取消</text>
+  <view class='fixed-bottom-seat'></view>
+  <view class='fixed-bottom-btn'>
+    <view class='btn-cancel'>
+      <text bindtap='goBack'>取消</text>
+    </view>
+    <button class='btn-update' form-type="submit">保存更新</button>
   </view>
-  <navigator class='btn-update'>保存更新</navigator>
-</view>
+</form>

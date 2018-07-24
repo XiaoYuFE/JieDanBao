@@ -97,6 +97,9 @@ radio.disabled .wx-radio-input.wx-radio-input-checked::before{
     color:#e1e1e1; 
 }
 
+.ipt-hidden{
+  display:none; 
+}
 .validate-msg{
     position: absolute;
     left: 50%;

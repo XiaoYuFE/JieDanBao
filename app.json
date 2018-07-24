@@ -1,10 +1,12 @@
 {
-  "pages": [  
-   
-    "pages/jiaju/orderEdit/orderEdit",
-    "pages/jiaju/detail/detail",
-    "pages/jiaju/detailEdit/detailEdit",
+  "pages": [ 
+     "pages/jiaju/detail/detail",
     "pages/jiaju/list/list",
+    "pages/jiaju/orderEdit/orderEdit",
+    
+    
+    "pages/jiaju/detailEdit/detailEdit",
+    
     "pages/jiaju/order/order",
     "pages/jiaju/orderStop/orderStop",
     

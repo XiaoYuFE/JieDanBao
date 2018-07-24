@@ -88,13 +88,32 @@ page {
   margin-top: 10rpx;
 }
 
-.orderstep-list .txt-statu {
+.ipt-hidden{
+  display:none; 
+}
+
+.orderstep-list .txt-statu{
   color: #999;
   position: absolute;
   right:30rpx;
   top: 50%;
   transform: translate(0, -50%);
   font-size: 28rpx;
+}
+
+.ipt-text-lf{
+  position:absolute;
+    right:40rpx;
+   width: 286rpx;
+   box-sizing: border-box;
+    top: 50%;
+   
+    background:#fff; 
+    
+    transform: translate(0,-50%);
+}
+.ipt-text-lf.hidden{
+  display:none; 
 }
 
 .orderstep-list .txt-statu.success-top {
@@ -188,6 +207,7 @@ page {
   line-height: 88rpx;
   width: 70%;
   float: right;
+  color:#fff; 
   text-align: center;
   background: #3ac6b8;
   border-radius: 10rpx;
@@ -269,6 +289,7 @@ radio .wx-radio-input.wx-radio-input-checked::before{
   line-height:40rpx;
   border-top:1px solid #e5e5e5; 
   margin:25rpx 30rpx 0;
+  position:relative; 
   
   
 }
@@ -282,8 +303,18 @@ radio .wx-radio-input.wx-radio-input-checked::before{
     position: relative; 
 }
 .cell-lf-time .time-picker picker{
-  padding-right: 40rpx;
   
+  position:relative;
+  z-index: 10;
+ 
+  
+}
+.cell-lf-time .time-picker picker.hidden{
+   opacity: 0; 
+}
+
+.cell-lf-time .time-picker .tui-picker-detail{
+padding-right: 40rpx;
 }
 
 .cell-lf-time .time-picker .txt-arrow{

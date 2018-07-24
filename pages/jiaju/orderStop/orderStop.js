@@ -10,6 +10,8 @@ Page({
    */
   data: {
     validateMsg:"",
+    step:"",
+    stepName:"",
     isValidElemShow:false,
     animationData: {}
   },
@@ -21,6 +23,10 @@ Page({
    */
   onLoad: function (options) {
     this._initValidate();
+    this.setData({
+      step:options.step,
+      stepName:options.stepname
+    });
   },
   onReady: function () {
    
