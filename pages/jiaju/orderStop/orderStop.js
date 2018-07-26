@@ -9,11 +9,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id:"",
     validateMsg:"",
     step:"",
     stepName:"",
     isValidElemShow:false,
-    animationData: {}
+    animationData: {},
+    ht_img: [],
+    ht_img_str: "",
+    radioVal: "void"
   },
 
   
@@ -24,12 +28,56 @@ Page({
   onLoad: function (options) {
     this._initValidate();
     this.setData({
+      id:509,
       step:options.step,
       stepName:options.stepname
     });
   },
   onReady: function () {
    
+  },
+
+  radioChange:function(e){
+    this.setData({
+      radioVal: e.detail.value
+    });
+  },
+
+  uploadHeTong: function () {
+    var that = this;
+    wx.chooseImage({
+      count: 9, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        console.dir(app.form.API_CONFIG.jiaju.upload_img);
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        var tempFilePaths = res.tempFilePaths;
+        console.dir(app.globalData.sessionJdbUkey)
+        for (var i in tempFilePaths) {
+          wx.uploadFile({
+            url: app.form.API_SERVER + app.form.API_CONFIG.jiaju.upload_img,
+            filePath: tempFilePaths[i],
+            name: 'img',
+            formData: {
+              bid: app.globalData.sessionJdbBrandId,
+              ukey: app.globalData.sessionJdbUkey
+            },
+            success: function (res) {
+              const imgArr = that.data.ht_img;
+              res.data = JSON.parse(res.data);
+              imgArr.push(res.data.data["full_url"]);
+
+              that.setData({
+                ht_img: imgArr,
+                ht_img_str: imgArr.join(",")
+              });
+
+            }
+          });
+        }
+      }
+    })
   },
   
 

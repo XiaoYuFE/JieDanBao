@@ -1,7 +1,8 @@
 <view class="header-top">
   <text class='tit'>订单流程</text>
   <text class='tip'>为了保证派单量，请及时更新订单</text>
-  <view class='server-stop'><text class='iconfont icon-gantanhao icon-cpic'></text>终止服务</view>
+  <navigator url='/pages/jiaju/orderStop/orderStop?id={{id}}&step={{step}}&stepname={{stepName}}' class='server-stop'>
+    <text class='iconfont icon-gantanhao icon-cpic'></text>终止服务</navigator>
 </view>
 
 <view class='orderstep-list-wrap'>

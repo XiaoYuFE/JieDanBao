@@ -8,9 +8,9 @@ Page({
     dataInfo: {},
     wxTimerList: {},
     wxTimerInstance: {},
-    newDiaToggle:false,
-    resultDiaToggle:false,
-    tipDiaToggle:false
+    newDiaToggle: false,
+    
+    tipDiaToggle: false
   },
 
   onLoad: function() {
@@ -24,7 +24,7 @@ Page({
     app.form.tracking('jdb_index', 'jdb_index', '');
 
     this._getData();
-    
+
   },
 
   onReady: function() {
@@ -36,13 +36,14 @@ Page({
     var that = this;
   },
 
-  _getData:function(){
-    var that=this;
+  _getData: function() {
+    var that = this;
     //请求数据
-    app.form.requestPost(app.form.API_CONFIG.jiaju.order_total, {}, function (res) {
+    wx.showLoading()
+    app.form.requestPost(app.form.API_CONFIG.jiaju.order_total, {}, function(res) {
       //判断是否登陆
-      
-      if (!!res.data.new_order){
+      wx.hideLoading()
+      if (!!res.data.new_order) {
         //保存住当前的时间
         res.data.format_mobile = that._formatMobile(res.data.new_order.mobile);
         that._countDown(res.data.new_order);
@@ -50,25 +51,26 @@ Page({
       that.setData({
         dataInfo: res.data
       });
-        
+
     })
   },
-  _formatMobile: function (phoneNum) {
+  _formatMobile: function(phoneNum) {
     var phoneNum = String(phoneNum);
     return phoneNum.substring(0, 3) + "****" + phoneNum.substring(8, 11);
   },
-  _countDown: function (item) {
+  _countDown: function(item) {
     var that = this;
     var wxTimerName = "wxTimer" + item.id;
     wxTimerName = new timer({
       beginTime: item.d_time,
       formatType: "MS",
       name: item.id,
-      complete: function () {
-        console.log("完成了")
+      complete: function() {
+        console.log("完成了");
+        that._getData();
       },
       interval: 1,
-      intervalFn: function () {
+      intervalFn: function() {
 
       }
     })
@@ -76,32 +78,24 @@ Page({
     that.data.wxTimerInstance[item.id] = wxTimerName;
   },
 
-  openNewDialog:function(){
+  ljjdHandleBtn: function() {
     //请求数据
-    var that=this;
+    var that = this;
     wx.showLoading();
-   
+
     app.form.requestPost(app.form.API_CONFIG.jiaju.opt_orders, {
       id: that.data.dataInfo.new_order.id,
-      step:"wjd"
-    }, function (res) {
-        if(!!res.status){
-          that.setData({
-            resultDiaToggle:true
-          });
-        }
+      step: "wjd"
+    }, function(res) {
+      wx.hideLoading();
+      if (!!res.status) {
+        wx.navigateTo({
+          url: '/pages/jiaju/detail/detail?fromWhere=dialog&id=' + that.data.dataInfo.new_order.id,
+        })
+      }
     });
   },
-  resultDialogBtn:function(){
-    //隐藏弹出框
-    this.setData({
-      resultDiaToggle: false
-    });
-    //跳转到详细页
-    wx.navigateTo({
-      url: '/pages/detail/detail?id=' + this.dataInfo.new_order.id,
-    })
-  },
+  
   onHide: function() {
     console.group("onHide事件");
 
@@ -122,8 +116,8 @@ Page({
   },
 
 
-  closeDialogNew:function(){
-      
+  closeDialogNew: function() {
+
   },
 
 

@@ -10,6 +10,8 @@ Page({
    */
   data: {
     id:"",
+    stepName:"",
+    step:"",
     dataInfo:""
   },
 
@@ -20,7 +22,9 @@ Page({
       console.dir(options);
       var that=this;
       this.setData({
-        id:options.id
+        id:options.id,
+        step:options.step,
+        stepName: this._formatStepName(options.step)
       });
 
       app.form.requestPost(app.form.API_CONFIG.jiaju.process_order, {
@@ -30,6 +34,31 @@ Page({
             dataInfo:res.data
           });
       });
+  },
+
+  _formatStepName: function (stepType) {
+    var step;
+    switch (stepType) {
+      case "dlf":
+        step = "待量房";
+        break;
+      case "dsj":
+        step = "待设计";
+        break;
+      case "dqy":
+        step = "待签约";
+        break;
+      case "yqy":
+        step = "已签约";
+        break;
+      case "void":
+        step =  "未成单";
+        break;
+      case "ysx":
+        step= "已失效";
+        break;
+    }
+    return step;
   },
 
   /**

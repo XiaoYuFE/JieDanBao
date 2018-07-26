@@ -1,5 +1,38 @@
-page{
- 
+
+
+.dialog-new-result{
+  background: #fff;
+  border-radius: 10rpx;
+  position: fixed;
+  left:50%;
+  margin-left: -315rpx;
+  top:30%;
+  width:630rpx;
+  box-sizing: border-box;
+  z-index: 100;
+  padding:40rpx 40rpx  60rpx;
+  
+}
+.dialog-new-result-mask{
+  position: fixed;
+  left:0;
+  right:0;
+  top:0;
+  bottom: 0;
+  z-index: 99;
+  background-color:rgba(0,0, 0,0.8);
+}
+
+.dialog-new-result .item-btn{
+  width:380rpx;
+  height:88rpx;
+  overflow:hidden;
+  line-height:88rpx;
+  text-align: center;
+  background:#3ac6b8;
+  border-radius:50rpx;
+  color:#fff;  
+  margin:40rpx auto 0;     
 }
 
 

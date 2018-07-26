@@ -9,14 +9,15 @@
 
 
 
-
+.ipt-hidden{
+  display:none; 
+}
 
 .houseinfo-caption{
   padding:20rpx 30rpx;
   background:#f7f7f7; 
   height:60rpx;
-  line-height: 60rpx; 
- 
+  line-height: 60rpx;
 }
 .houseinfo-caption text{
     color:#666666;
@@ -90,7 +91,18 @@
     top: 50%;
     transform: translate(0,-50%); 
 }
-
+.houseinfo-list .item-cell.item-unitpfm{
+      position: relative;
+}
+.houseinfo-list .item-cell.item-unitpfm .unitpfm{
+    position:absolute;
+    right:0;
+    top: 50%;
+    transform: translate(0,-50%); 
+}
+.houseinfo-list .item-cell.item-unitpfm .ipt-text{
+  padding-right: 45rpx;
+}
 
 
 
@@ -129,6 +141,7 @@
   font-size: 30rpx; 
   color:#333333; 
 }
+
 
 
 .userinfo-list .item-cell .para-item{

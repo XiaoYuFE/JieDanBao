@@ -3,6 +3,7 @@
 
 
 <form bindsubmit="formSubmit" bindreset="formReset">
+   <input type='text' class='ipt-hidden' name="id" value="{{id}}"  />
   <view class='houseinfo-box'>
     <view class='houseinfo-caption clearfix'>
       <text bindtap='goBack'>取消</text>
@@ -20,7 +21,7 @@
         <view class="para-item">
           <input type='text' name="price" class='ipt-text' wx-if="{{dataInfo.price}}" value='{{dataInfo.price}}' />
           <view wx-if="{{!dataInfo.price}}">
-            <picker bindchange="bindPickerChange" value="{{ysIndex}}" range="{{configInfo.price}}">
+            <picker bindchange="bindPickerYsChange" value="{{ysIndex}}" range="{{configInfo.price}}">
               <view class="picker">
                 {{configInfo.price[ysIndex]}}
               </view>
@@ -34,7 +35,14 @@
       <view class='item-cell clearfix'>
         <text class='lab'>装修方式</text>
         <view class="para-item">
-          <input type='text' disabled='{{dataInfo.d_type ? "disabled":""}}' name="d_type" class='ipt-text {{!!dataInfo.d_type ? "disabled":""}}' value='{{dataInfo.d_type}}' placeholder='未填写' placeholder-class='ipt-placeholder' />
+            <picker bindchange="bindPickerFsChange" value="{{fsIndex}}" range="{{dType}}" range-key="{{'name'}}">
+              <view class="picker">
+                {{dType[fsIndex].name}}
+              </view>
+            </picker>
+            <input type='text' name="d_type" class='ipt-text-hidden' value='{{fsIndex+1}}' />
+            <text class='iconfont icon-jiantou icon-cpic'></text>
+          <!-- <input type='text' disabled='{{dataInfo.d_type ? "disabled":""}}' name="d_type" class='ipt-text {{!!dataInfo.d_type ? "disabled":""}}' value='{{dataInfo.format_d_type}}' placeholder='未填写' placeholder-class='ipt-placeholder' /> -->
         </view>
 
       </view>
@@ -43,20 +51,21 @@
         <view class="para-item">
           <input type='text' disabled='{{dataInfo.unit ? "disabled":""}}' name="unit" class='ipt-text  {{!!dataInfo.unit ? "disabled":""}}' wx-if="{{dataInfo.unit}}" value='{{dataInfo.unit}}' />
           <view wx-if="{{dataInfo.unit}}" wx-if="{{!dataInfo.unit}}">
-            <picker mode="multiSelector" bindchange="bindMultiPickerChange" value="{{hxIndex}}" range="{{hxList}}">
+            <picker mode="multiSelector" bindchange="bindMultiPickerChangeHX" value="{{hxIndex}}" range="{{hxList}}">
               <view class="picker">
                 {{hxList[0][hxIndex[0]]}}{{hxList[1][hxIndex[1]]}}{{hxList[2][hxIndex[2]]}}{{hxList[3][hxIndex[3]]}}{{hxList[4][hxIndex[4]]}}
               </view>
             </picker>
-            <input type='text' name="unit" class='ipt-text-hidden' value='{{hxList[0][hxIndex[0]]+hxList[1][hxIndex[1]]+hxList[2][hxIndex[2]]+hxList[3][hxIndex[3]]+hxList[4][hxIndex[4]]}}' />
+            <input type='text' name="unit" class='ipt-text-hidden' value='{{hxIndex[0]+"|"+hxIndex[1]+"|"+hxIndex[2]+"|"+hxIndex[3]+"|"+hxIndex[4]}}' />
             <text class='iconfont icon-jiantou icon-cpic'></text>
           </view>
         </view>
       </view>
-      <view class='item-cell clearfix'>
+      <view class='item-cell clearfix item-unitpfm'>
         <text class='lab'>房屋面积</text>
         <view class="para-item">
-          <input type='text' disabled='{{dataInfo.area ? "disabled":""}}' name="area" class='ipt-text  {{!!dataInfo.area ? "disabled":""}}' wx-if="{{dataInfo.area}}" value='{{dataInfo.area}}' />
+          <input type='text' disabled='{{dataInfo.area ? "disabled":""}}' name="area" class='ipt-text  {{!!dataInfo.area ? "disabled":""}}'  value='{{dataInfo.area}}' placeholder='未填写' />
+          <text class='unitpfm'>m2</text>
         </view>
       </view>
       <view class='item-cell clearfix'>

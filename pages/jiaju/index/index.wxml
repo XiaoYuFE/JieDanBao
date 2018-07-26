@@ -36,17 +36,7 @@
 <view class='wx-dialog-new-mask undis'></view>
 
 
-<!--弹出框 接单结果 start  -->
-<view class='dialog-new-result'  wx-if="{{resultDiaToggle}}">
-    <view class='new-result-hd'>
-        <view class="tit">接单成功</view>
-        <view class='subtit'>请珍惜每个订单，认真服务客户</view>
-    </view>
-    <button class='item-btn' bindtap='resultDialogBtn' hover-class="item-btn-hover">知道了</button>
 
-</view>
-<view class='dialog-new-result-mask' wx-if="{{resultDiaToggle}}"></view>
-<!--弹出框 接单结果 end  -->
 
 
 
@@ -130,7 +120,7 @@
 
       <view class='item-line'></view>
 
-      <button class='item-btn' bindtap='openNewDialog' hover-class="item-btn-hover">立即接单</button>
+      <button class='item-btn' bindtap='ljjdHandleBtn' hover-class="item-btn-hover">立即接单</button>
       <view class='item-tip-1'>接单后可查看客户详细资料并直接联系客户</view>
     </view>
     <view class='ordernew-card-seat-1' wx-if="{{dataInfo.wjd > 1 ? true :false}}"></view>

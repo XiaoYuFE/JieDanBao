@@ -1,12 +1,24 @@
 <!--step-end  -->
 
+<!--弹出框 接单结果 start  -->
+<view class='dialog-new-result'  wx-if="{{fromWhere}}">
+    <view class='new-result-hd'>
+        <view class="tit">接单成功</view>
+        <view class='subtit'>请珍惜每个订单，认真服务客户</view>
+    </view>
+    <button class='item-btn' bindtap='resultDialogBtn' hover-class="item-btn-hover">知道了</button>
+
+</view>
+<view class='dialog-new-result-mask' wx-if="{{fromWhere}}"></view>
+<!--弹出框 接单结果 end  -->
+
 
 <view class='top-nav'>
   <navigator url='/pages/jiaju/order/order?id={{dataInfo.id}}'>
-    <view class='txt-1'>上门量房待完成
+    <view class='txt-1'>{{dataInfo.format_stepname}}
       <text class='iconfont icon-jiantou txt-arrow'></text>
     </view>
-    <text class='txt-2'>设置量房时间，及时提醒不跑单</text>
+    <text class='txt-2'>{{dataInfo.format_steptip}}</text>
   </navigator>
 </view>
 
@@ -101,7 +113,7 @@
 </view>
 
 <view class='fixed-bt-seat'></view>
-<navigator url='/pages/jiaju/order/order?id={{dataInfo.id}}' class='fixed-bt-btn'>订单流程</navigator>
+<navigator url='/pages/jiaju/order/order?id={{dataInfo.id}}&step={{dataInfo.step}}' class='fixed-bt-btn'>订单流程</navigator>
 
 
 

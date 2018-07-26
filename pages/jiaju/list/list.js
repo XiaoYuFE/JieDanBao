@@ -153,7 +153,7 @@ Page({
           case "yqy":
             stepName = "已签约";
             break;
-          case "wcd":
+          case "void":
             stepName = "未成单";
             break;
           case "ysx":
@@ -197,6 +197,22 @@ Page({
      
     
    
+  },
+  ljjdHandleBtn: function () {
+    //请求数据
+    var that = this;
+    wx.showLoading();
+    app.form.requestPost(app.form.API_CONFIG.jiaju.opt_orders, {
+      id: that.data.dataInfo.new_order.id,
+      step: "wjd"
+    }, function (res) {
+      wx.hideLoading();
+      if (!!res.status) {
+        wx.navigateTo({
+          url: '/pages/jiaju/detail/detail?fromWhere=dialog&id=' + that.data.dataInfo.new_order.id,
+        })
+      }
+    });
   },
   /**
    * 生命周期函数--监听页面隐藏

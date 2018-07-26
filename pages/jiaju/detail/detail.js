@@ -10,6 +10,7 @@ Page({
    */
   data: {
     id:"",
+    fromWhere:"",
     dataInfo:""
   },
 
@@ -19,7 +20,8 @@ Page({
   onLoad: function (options) {
     console.dir(options);
     this.setData({
-      id: 482
+      id: options.id,
+      fromWhere: options.fromWhere ? options.fromWhere :""
     })
   },
   
@@ -41,6 +43,9 @@ Page({
       id: that.data.id
     }, function (res) {
         console.dir(res);
+        var stepObj = that._formatStepName(res.data.step);
+        res.data.format_stepname = stepObj.stepName;
+        res.data.format_steptip = stepObj.tip;
         that.setData({
           dataInfo:res.data
         })
@@ -51,6 +56,43 @@ Page({
     wx.makePhoneCall({
       phoneNumber: e.currentTarget.dataset.phone,
     })
+  },
+
+  _formatStepName: function (stepType) {
+    var step={};
+    switch (stepType) {
+      case "dlf":
+        step.stepName = "上门量房待完成";
+        step.tip ="设置量房时间，及时提醒不跑单";
+        break;
+      case "dsj":
+        step.stepName = "设计方案待完成";
+        step.tip = "设置设计方案时间，及时提醒不跑单";
+        break;
+      case "dqy":
+        step.stepName = "签约待完成";
+        step.tip = "设置签约信息，及时提醒不跑单";
+        break;
+      case "yqy":
+        step.stepName = "已签约";
+        step.tip = "";
+        break;
+      case "void":
+        step.stepName = "未成单";
+        step.tip = "";
+        break;
+      case "ysx":
+        step.stepName = "已失效";
+        step.tip = "";
+        break;
+    }
+    return step;
+  },
+
+  resultDialogBtn:function(){
+      this.setData({
+        fromWhere:""
+      })
   },
 
   /**

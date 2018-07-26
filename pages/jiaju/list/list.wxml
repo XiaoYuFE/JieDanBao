@@ -71,7 +71,7 @@
 
       <!--  新订单的时候显示立即接单按钮  -->
       <view class='c-jdbtn'  wx-if="{{orderType=='wjd'? true :false}}">
-        <button data-id="{{item.id}}">立即接单</button>
+        <button data-id="{{item.id}}" bindtap='ljjdHandleBtn'>立即接单</button>
       </view>
       <!--  处理中要显示 步骤剩余时间  步骤按钮 -->
      

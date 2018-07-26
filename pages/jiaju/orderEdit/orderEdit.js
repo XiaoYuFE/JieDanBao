@@ -43,7 +43,10 @@ Page({
    */
   onLoad: function(options) {
     console.dir(options);
-    var that = this;
+    var that=this;
+    this.setData({
+      id:options.id
+    })
 
     app.form.requestPost(app.form.API_CONFIG.jiaju.process_order, {
       id: that.data.id
