@@ -133,8 +133,8 @@
       <button class='item-btn' bindtap='openNewDialog' hover-class="item-btn-hover">立即接单</button>
       <view class='item-tip-1'>接单后可查看客户详细资料并直接联系客户</view>
     </view>
-    <view class='ordernew-card-seat-1'></view>
-    <view class='ordernew-card-seat-2'></view>
+    <view class='ordernew-card-seat-1' wx-if="{{dataInfo.wjd > 1 ? true :false}}"></view>
+    <view class='ordernew-card-seat-2' wx-if="{{dataInfo.wjd > 1 ? true :false}}"></view>
   </view>
 </view>
 
