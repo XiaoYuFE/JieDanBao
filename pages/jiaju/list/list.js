@@ -120,6 +120,7 @@ Page({
         for (var i = 0; i < res.data.orders.length; i++) {
           res.data.orders[i].format_mobile = that._formatMobile(res.data.orders[i].mobile);
           res.data.orders[i].format_stepname = that._formatStepName(res.data.orders[i].step);
+          res.data.orders[i].d_time = parseInt(res.data.orders[i].d_time);
           that._countDown(res.data.orders[i]);
         }
         that.data.dataInfo.push.apply(that.data.dataInfo, res.data.orders);
@@ -171,9 +172,16 @@ Page({
     var that=this;
      
     var wxTimerName = "wxTimer" + item.id;
+    var formatType="";
+    if (that.data.orderStep=="wjd"){
+      formatType="MS";
+    }else{
+      formatType = "HMS";
+    }
+
     wxTimerName = new timer({
       beginTime: item.d_time,
-      formatType: "MS",
+      formatType: formatType,
       name: item.id,
       complete: function () {
         console.log("完成了")
@@ -184,6 +192,7 @@ Page({
       }
     })
     wxTimerName.start(that);
+    
     that.data.wxTimerInstance[item.id] = wxTimerName;
      
     

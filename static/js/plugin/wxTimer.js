@@ -1,6 +1,7 @@
 var wxTimer = function(initObj) {
   initObj = initObj || {};
-  this.beginTime = initObj.beginTime; //开始时间
+  initObj.beginTime = initObj.beginTime ? initObj.beginTime : 0;
+  this.beginTime = Math.abs(initObj.beginTime); //开始时间
   this.interval = initObj.interval || 0; //间隔时间
   this.complete = initObj.complete; //结束任务
   this.name = initObj.name; //当前计时器在计时器数组对象中的名字
@@ -55,7 +56,12 @@ wxTimer.prototype = {
     var count = 0; //这个count在这里应该是表示s数，js中获得时间是ms，所以下面*1000都换成ms
     function begin() {
       count++;
-      wxSeconds--;
+      if (that.beginTime > 0){
+        wxSeconds--;
+      } else if (that.beginTime < 0){
+        wxSeconds++;
+      }
+      
       var wxTimerList = self.data.wxTimerList;
       delete wxTimerList[that.name];
       
