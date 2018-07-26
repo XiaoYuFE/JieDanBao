@@ -3,15 +3,17 @@ const app = getApp();
 app.form = new form(app);
 Page({
   data: {
-    switchChecked: ""
+    switchChecked: "",
+    bind_title:"",
+    is_bind:""
   },
   onLoad: function (options) {
     var that = this;
     if (!app.globalData.sessionJdbUnionid){
       that.setData({ switchChecked: false });
     }
-    app.form.requestPost(app.form.API_CONFIG.common.notice,{unionid:app.globalData.sessionJdbUnionid}, function (res) {
-      that.setData({ switchChecked: res.data});
+    app.form.requestPost(app.form.API_CONFIG.common.setting,{unionid:app.globalData.sessionJdbUnionid}, function (res) {
+      that.setData({ switchChecked: res.data.jiaju_notice, bind_title: res.data.bind_title, is_bind: res.data.is_bind});
     });
   },
   switch1Change: function (e) {
@@ -20,6 +22,16 @@ Page({
       if (res.status !== 1) {
         wx.showModal({ content: res.msg, showCancel: false})
         that.setData({ switchChecked: !e.detail.value})
+      }
+    })
+  },
+  bind_login: function () {
+    var that = this;
+    app.form.requestPost(app.form.API_CONFIG.common.bind_setting, { unionid: app.globalData.sessionJdbUnionid, uid: app.globalData.sessionJdbUserInfo.user_id, bind: that.data.is_bind}, function (res) {
+      if (res.status !== 1) {
+        wx.showModal({ content: res.msg, showCancel: false })
+      }else{
+        that.setData({ bind_title: res.data.bind_title, bind: res.data.is_bind})
       }
     })
   },
@@ -34,5 +46,5 @@ Page({
         });
       },1500)
     });
-  }
+  },
 })

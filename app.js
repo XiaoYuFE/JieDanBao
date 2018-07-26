@@ -16,14 +16,17 @@ App({
     });
   },
   //每次关闭后在进来（不管有没有删除都会触发这个事件）
-  onShow:function(){
+  onShow: function (options){
     console.dir("App-onShow");
     this.globalData.sessionJdbUkey    = wx.getStorageSync('sessionJdbUkey');
     this.globalData.sessionJdbBrandId = wx.getStorageSync('sessionJdbBrandId');
     this.globalData.sessionJdbUnionid = wx.getStorageSync('sessionJdbUnionid');
     this.globalData.sessionJdbOpenid = wx.getStorageSync('sessionJdbOpenid');
     !this.globalData.sessionJdbUserInfo && (this.globalData.sessionJdbUserInfo = wx.getStorageSync('sessionJdbUserInfo'));
-    this.isLogin();
+    console.dir(options);
+    if (options.path !=='pages/splash/splash'){
+      this.isLogin();
+    }
   },
 
   isLogin: function (status){

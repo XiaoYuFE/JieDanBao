@@ -8,7 +8,7 @@
 
     <view class="item-cell clearfix">
         <view class='lab'>微信绑定</view>
-        <view class='para-val'>已绑定，点击可解绑<text class='iconfont icon-jiantou icon-cpic'></text></view>
+        <view class='para-val' bindtap='bind_login'>{{bind_title}}<text class='iconfont icon-jiantou icon-cpic'></text></view>
     </view>
 
     <view class="item-cell clearfix">

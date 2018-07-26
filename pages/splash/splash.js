@@ -14,19 +14,76 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
     var that = this;
 
     app.form.requestPost(app.form.API_CONFIG.common.shops,{}, function (res) {
-		that.setData({
-			shops: res.data
-		});
+		  that.setData({shops: res.data	});
     });
   },
   
   splashEntrance:function(){
-    wx.navigateTo({
-      url: '/pages/login/login'
-    })
+    var user = app.globalData.sessionJdbUserInfo;
+    if (user) {
+      console.log('login', user);
+      wx.redirectTo({ url: '/pages/' + user.category + '/index/index' });
+    }
+    //微信自动登录
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          //发起网络请求
+          app.form.requestPost(app.form.API_CONFIG.common['login'], { code: res.code }, function (res) {
+            if (res.status === 1) {
+              //动态全局赋值
+              app.globalData.sessionJdbUkey = res.data["ukey"];
+              app.globalData.sessionJdbBrandId = res.data["brand_id"];
+              app.globalData.sessionJdbUserInfo = res.data;
+              app.globalData.sessionJdbUnionid = res.data.unionid;
+              app.globalData.sessionJdbOpenid = res.data.openid;
+              //本地存储id
+              wx.setStorage({
+                key: "sessionJdbUkey",
+                data: app.globalData.sessionJdbUkey
+              });
+
+              wx.setStorage({
+                key: "sessionJdbBrandId",
+                data: app.globalData.sessionJdbBrandId
+              });
+
+              wx.setStorage({
+                key: "sessionJdbUserInfo",
+                data: app.globalData.sessionJdbUserInfo
+              });
+
+              wx.setStorage({
+                key: "sessionJdbUnionid",
+                data: ''
+              });
+              wx.setStorage({
+                key: "sessionJdbOpenid",
+                data: ''
+              });
+              wx.setStorage({
+                key: "sessionJdbUnionid",
+                data: app.globalData.sessionJdbUnionid
+              });
+              wx.setStorage({
+                key: "sessionJdbOpenid",
+                data: app.globalData.sessionJdbOpenid
+              });
+              var category = res.data.category;
+              wx.redirectTo({ url: '/pages/' + category + '/index/index' });
+            }else{
+              wx.navigateTo({
+                url: '/pages/login/login'
+              })
+            }
+          });
+        }
+      }
+    });
   },
 
   /**

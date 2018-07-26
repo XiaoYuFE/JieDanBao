@@ -33,11 +33,13 @@ class form {
       notice: 'notice',
     },
     common:{
-      login:'login',
+      login:'login2',
       notice: 'notice',
       bind:'bind',
       tracking:'tracking',
-	  shops:'shops'
+	    shops:'shops',
+      setting: 'setting',
+      bind_setting: 'bind_setting'
     }
   };
 
