@@ -1,12 +1,12 @@
 <!--step-end  -->
 
 <!--弹出框 接单结果 start  -->
-<view class='dialog-new-result'  wx-if="{{fromWhere}}">
-    <view class='new-result-hd'>
-        <view class="tit">接单成功</view>
-        <view class='subtit'>请珍惜每个订单，认真服务客户</view>
-    </view>
-    <button class='item-btn' bindtap='resultDialogBtn' hover-class="item-btn-hover">知道了</button>
+<view class='dialog-new-result' wx-if="{{fromWhere}}">
+  <view class='new-result-hd'>
+    <view class="tit">接单成功</view>
+    <view class='subtit'>请珍惜每个订单，认真服务客户</view>
+  </view>
+  <button class='item-btn' bindtap='resultDialogBtn' hover-class="item-btn-hover">知道了</button>
 
 </view>
 <view class='dialog-new-result-mask' wx-if="{{fromWhere}}"></view>
@@ -15,11 +15,23 @@
 
 <view class='top-nav'>
   <navigator url='/pages/jiaju/order/order?id={{dataInfo.id}}'>
+
     <view class='txt-1'>{{dataInfo.format_stepname}}
       <text class='iconfont icon-jiantou txt-arrow'></text>
     </view>
-    <text class='txt-2'>{{dataInfo.format_steptip}}</text>
-  </navigator>
+      </navigator>
+    <text class='txt-2' wx-if="{{!dataInfo.d_time}}">{{dataInfo.format_steptip}}</text>
+
+    <!-- 设置待量房 -->
+    <view class='time-confirm' wx-if="{{dataInfo.l_time && dataInfo.step=='dlf' }}">
+      <text>量房时间：</text>{{dataInfo.l_time}}
+    </view>
+    <view class='time-confirm' wx-if="{{dataInfo.l_time && dataInfo.step=='dsj' }}">
+      <text>设计时间：</text>{{dataInfo.sj_time}}
+    </view>
+    <view class='c-timing clearfix' wx-if="{{dataInfo.d_time && (dataInfo.step=='dlf' ||dataInfo.step=='dsj' )}}">
+      <text class='tip-lab'>{{dataInfo.d_time < 0 ?"已经超时":"剩余时间"}}：</text><view class="time-count">{{wxTimerList["wxTimer"].formatHour}}时{{wxTimerList["wxTimer"].formatMinute}}分{{wxTimerList["wxTimer"].formatSecond}}秒</view><text class='iconfont icon-tishi  icon-cpic' bindtap='openTipDialog'></text></view>
+
 </view>
 
 <view class='houseinfo-box'>
@@ -67,7 +79,7 @@
         {{dataInfo.d_style || '未填写'}}
       </view>
     </view>
-   
+
     <view class='item-cell clearfix'>
       <text class='lab'>装修日期</text>
       <view class="para-item">
@@ -77,7 +89,7 @@
     <view class='item-cell clearfix'>
       <text class='lab'>服务备注</text>
       <view class="para-item">
-         {{dataInfo.remark || '未填写'}}
+        {{dataInfo.remark || '未填写'}}
       </view>
     </view>
 
@@ -106,7 +118,8 @@
     <view class='item-cell clearfix item-phone'>
       <text class='lab'>{{dataInfo.realname}}</text>
       <view class="para-item">
-            <view class='btn-makecall' data-phone="{{dataInfo.mobile}}" bindtap='makePhoneCall' ><text class='iconfont icon-phone-1 icon-cpic'></text>联系客户</view>
+        <view class='btn-makecall' data-phone="{{dataInfo.mobile}}" bindtap='makePhoneCall'>
+          <text class='iconfont icon-phone-1 icon-cpic'></text>联系客户</view>
       </view>
     </view>
   </view>

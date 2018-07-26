@@ -7,29 +7,76 @@ Page({
     xyUserInfo: {},
     dataInfo: {},
     wxTimerList: {},
+    fromWhere:"",
+    fromDataInfo:{},
     wxTimerInstance: {},
     newDiaToggle: false,
-    
     tipDiaToggle: false
   },
 
-  onLoad: function() {
-    console.group("onLoad事件");
-    console.dir(app.globalData.sessionJdbUserInfo);
+  onLoad: function(options) {
     var that = this;
     //获取配置信息
-    that.setData({
-      xyUserInfo: app.globalData.sessionJdbUserInfo
+    this.setData({
+      xyUserInfo: app.globalData.sessionJdbUserInfo,
+      // fromWhere:options.from ? options.from :"",
+      // fromId:options.fromId,
+      fromWhere:"xxx",
+      fromId:482
     });
-    console.dir(this.data.xyUserInfo)
     app.form.tracking('jdb_index', 'jdb_index', '');
+    //如果是从推送消息来的，要去请求
+    if(this.data.fromWhere){
+      this.setData({
+        newDiaToggle:true
+      });
+      app.form.requestPost(app.form.API_CONFIG.jiaju.order_info, {
+        id:this.data.fromId
+      }, function (res) {
+          that.setData({
+            fromDataInfo:res.data
+          });
 
+        var fromSendwxTimer = new timer({
+          beginTime: res.data.d_time,
+          formatType: "HMS",
+          name: "fromSendwxTimer",
+          complete: function () {
+            console.log("完成了")
+          },
+          interval: 1,
+          intervalFn: function () {
+
+          }
+        })
+        fromSendwxTimer.start(that);
+
+     
+      });
+
+    }
     this._getData();
+    
+   
+    
 
   },
 
   onReady: function() {
     console.group("onReady事件");
+  },
+
+  newDiaClose:function(){
+    this.setData({
+      newDiaToggle: false,
+      tipDiaToggle:true
+    })
+  },
+
+  newTipDiaClose:function(){
+    this.setData({
+      tipDiaToggle: false
+    });
   },
 
   onShow: function() {
@@ -79,13 +126,15 @@ Page({
     that.data.wxTimerInstance[item.id] = wxTimerName;
   },
 
-  ljjdHandleBtn: function() {
+  ljjdHandleBtn: function(e) {
     //请求数据
+
     var that = this;
+    var id = e.target.dataset.id;
     wx.showLoading();
 
     app.form.requestPost(app.form.API_CONFIG.jiaju.opt_orders, {
-      id: that.data.dataInfo.new_order.id,
+      id: id,
       step: "wjd"
     }, function(res) {
       wx.hideLoading();
@@ -117,9 +166,7 @@ Page({
   },
 
 
-  closeDialogNew: function() {
 
-  },
 
 
 

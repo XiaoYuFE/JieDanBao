@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <!--弹出框 start  -->
-<view class='wx-dialog-new undis'>
+<view class='wx-dialog-new' wx-if="{{newDiaToggle}}">
   <view class='dialog-new-hd'>
     <view class='tit'>你有一条新的订单</view>
     <view class='subtit'>请尽快接单服务客户</view>
@@ -8,32 +8,32 @@
   <view class='dialog-new-bd'>
     <view class='item-cell clearfix'>
       <text class='lab'>姓名：</text>
-      <view class="para-val">{{dataInfo.new_order.name}}</view>
+      <view class="para-val">{{fromDataInfo.realname}}</view>
     </view>
     <view class='item-cell clearfix'>
       <text class='lab'>手机：</text>
-      <view class="para-val">{{dataInfo.new_order.mobile}}</view>
+      <view class="para-val">{{fromDataInfo.mobile}}</view>
     </view>
     <view class='item-cell clearfix'>
       <text class='lab'>小区：</text>
-      <view class="para-val">{{dataInfo.new_order.community}}</view>
+      <view class="para-val">{{fromDataInfo.community || "未填写"}}</view>
     </view>
     <view class='item-cell clearfix'>
       <text class='lab'>预算：</text>
-      <view class="para-val">{{dataInfo.new_order.price}}</view>
+      <view class="para-val">{{fromDataInfo.price || "未填写"}}</view>
     </view>
     <view class='item-cell clearfix'>
       <text class='lab'>订单有效期：</text>
       <view class="para-val">
-        {{wxTimerFormatMinute}}分{{wxTimerFormatSecond}}秒
+        {{wxTimerList["fromSendwxTimer"].formatMinute}}分{{wxTimerList["fromSendwxTimer"].formatSecond}}秒
       </view>
     </view>
   </view>
-  <button class='item-btn' hover-class="item-btn-hover">立即接单</button>
+  <button class='item-btn' data-id="{{fromDataInfo.id}}" bindtap='ljjdHandleBtn' hover-class="item-btn-hover">立即接单</button>
   <view class="tip-1">接单后可查看客户详细资料并直接联系客户</view>
-  <view class='close-btn' bindtap='closeDialogNew'><text class='iconfont icon-guanbi icon-cpic'></text></view>
+  <view class='close-btn' bindtap='newDiaClose'><text class='iconfont icon-guanbi icon-cpic'></text></view>
 </view>
-<view class='wx-dialog-new-mask undis'></view>
+<view class='wx-dialog-new-mask'  wx-if="{{newDiaToggle}}" bindtap='newDiaClose'></view>
 
 
 
@@ -41,13 +41,13 @@
 
 
 <!--弹出框  关闭提示 start  -->
-<view class='dialog-new-tip undis'>
+<view class='dialog-new-tip' wx-if="{{tipDiaToggle}}">
     <view class='dialog-newtip-hd'>
       请在订单有效期内完成接单，否则该订单将失效。
     </view>
-    <view class='item-btn'>立即接单</view>
+    <view class='item-btn' bindtap='newTipDiaClose'>我知道了</view>
 </view>
-<view class='dialog-new-tip-mask undis'></view>
+<view class='dialog-new-tip-mask'  wx-if="{{tipDiaToggle}}"></view>
 <!--弹出框  关闭提示 end  -->
 
 
@@ -120,7 +120,7 @@
 
       <view class='item-line'></view>
 
-      <button class='item-btn' bindtap='ljjdHandleBtn' hover-class="item-btn-hover">立即接单</button>
+      <button class='item-btn' data-id="{{dataInfo.new_order.id}}" bindtap='ljjdHandleBtn' hover-class="item-btn-hover">立即接单</button>
       <view class='item-tip-1'>接单后可查看客户详细资料并直接联系客户</view>
     </view>
     <view class='ordernew-card-seat-1' wx-if="{{dataInfo.wjd > 1 ? true :false}}"></view>
@@ -140,7 +140,7 @@
       <view class='num'>{{dataInfo.dsj}}</view>
       <view class='txt'>待设计</view>
     </navigator>
-    <navigator class='item-cell' hover-class='none' url='/pages/jiaju/list/list??ordertype=clz&step=dqy'>
+    <navigator class='item-cell' hover-class='none' url='/pages/jiaju/list/list?ordertype=clz&step=dqy'>
       <view class='num'>{{dataInfo.dqy}}</view>
       <view class='txt'>待签约</view>
     </navigator>

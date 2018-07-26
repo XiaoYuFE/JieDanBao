@@ -11,7 +11,9 @@ Page({
   data: {
     id:"",
     fromWhere:"",
-    dataInfo:""
+    dataInfo:"",
+    wxTimerList: {}, //存放倒计时
+    wxTimerInstance: null,
   },
 
   /**
@@ -23,6 +25,28 @@ Page({
       id: options.id,
       fromWhere: options.fromWhere ? options.fromWhere :""
     })
+  },
+
+  _clearIntervalWxtimer: function () {
+    this.data.wxTimerInstance.stop();
+  },
+
+  _countDown: function (item) {
+    var that = this;
+    var wxTimerName = new timer({
+      beginTime: item,
+      formatType: "HMS",
+      name: "wxTimer",
+      complete: function () {
+        console.log("完成了")
+      },
+      interval: 1,
+      intervalFn: function () {
+
+      }
+    })
+    wxTimerName.start(that);
+    that.data.wxTimerInstance = wxTimerName;
   },
   
 
@@ -46,10 +70,19 @@ Page({
         var stepObj = that._formatStepName(res.data.step);
         res.data.format_stepname = stepObj.stepName;
         res.data.format_steptip = stepObj.tip;
+        that._countDown(res.data.d_time)
         that.setData({
           dataInfo:res.data
         })
     });
+  },
+
+
+  openTipDialog:function(){
+    wx.showModal({
+      content: '为了保证服务效率与质量，提升用户体验，一些环节会设置服务剩余时间。请在剩余时间内及时完成服务，否则该订单有可能会失效，不能再联系客户。',
+      showCancel:false
+    })
   },
 
   makePhoneCall: function (e) {

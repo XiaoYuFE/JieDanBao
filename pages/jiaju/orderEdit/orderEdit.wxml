@@ -13,7 +13,7 @@
     <view class='item-cell'>
       <view class='name'>1.接单</view>
 
-      <view class='time-finsh' wx-if="{{dataInfo.wjd==1}}">完成时间：2018-07-05 13:13</view>
+      <view class='time-finsh' wx-if="{{dataInfo.wjd==1}}">完成时间：{{dataInfo.receive_time}}</view>
       <text class='txt-statu success' wx-if="{{dataInfo.wjd==1}}">已完成</text>
       <view class='cell-radio-box' wx-if="{{dataInfo.wjd==0}}">
         <radio-group class="radio-group" bindchange="radioChange">
@@ -83,7 +83,7 @@
       </view>
 
       <view class='time-remain clearfix' wx-if="{{dataInfo.dsj==0 && dataInfo.dlf==1 && radioVal==0}}">
-        <text class='lab'>剩余时间：</text>
+        <text class='lab'>{{dataInfo.sj_d_time >=0 ? "剩余时间" :"已超时"}}：</text>
         <view class='timing-count'>{{wxTimerList["wxTimer"].formatHour}}时{{wxTimerList["wxTimer"].formatMinute}}分{{wxTimerList["wxTimer"].formatSecond}}秒</view>
         <text class='iconfont icon-tishi icon-cpic'></text>
       </view>

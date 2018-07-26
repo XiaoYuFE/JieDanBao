@@ -1,6 +1,7 @@
 var wxTimer = function(initObj) {
   initObj = initObj || {};
   initObj.beginTime = initObj.beginTime ? initObj.beginTime : 0;
+  this.originalTime = initObj.beginTime;
   this.beginTime = Math.abs(initObj.beginTime); //开始时间
   this.interval = initObj.interval || 0; //间隔时间
   this.complete = initObj.complete; //结束任务
@@ -8,6 +9,8 @@ var wxTimer = function(initObj) {
   this.intervalFn = initObj.intervalFn; //间隔任务
   this.formatType = initObj.formatType || "HMS";
   this.intervarID; //计时ID
+
+  console.dir(this.beginTime);
 }
 
 //日期秒转成分秒
@@ -56,9 +59,9 @@ wxTimer.prototype = {
     var count = 0; //这个count在这里应该是表示s数，js中获得时间是ms，所以下面*1000都换成ms
     function begin() {
       count++;
-      if (that.beginTime > 0){
+      if (that.originalTime > 0){
         wxSeconds--;
-      } else if (that.beginTime < 0){
+      } else if (that.originalTime < 0){
         wxSeconds++;
       }
       
