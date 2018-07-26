@@ -162,8 +162,8 @@
     <view class='item-cell'>
 
       <view class='name'>4.合同签约</view>
-      <view class='time-finsh' wx-if="{{dataInfo.dqy==1}}">完成时间：2018-07-05 13:13</view>
-      <view class='agree-price' wx-if="{{dataInfo.dqy==1}}">合同金额：180000元</view>
+      <view class='time-finsh' wx-if="{{dataInfo.dqy==1}}">完成时间：{{dataInfo.ht_time}}</view>
+      <view class='agree-price' wx-if="{{dataInfo.dqy==1}}">合同金额：{{dataInfo.ht_price}}元</view>
       <text class='txt-statu success-top' wx-if="{{dataInfo.dqy==1}}">已完成</text>
       <view class='cell-radio-box' wx-if="{{dataInfo.dqy==0}}">
         <radio-group class='radio-group {{dataInfo.dsj==0 ? "disabled" :""}}' bindchange="radioChange">
@@ -175,7 +175,7 @@
           </label>
         </radio-group>
       </view>
-      <view class="uploadgallery-wrap" wx-if="{{dataInfo.dsj==1 && dataInfo.dqy==0}}">
+      <view class="uploadgallery-wrap" wx-if="{{dataInfo.dsj==1 && dataInfo.dqy==0 && radioVal==1}}">
         <view class='uploadgallery'>
           <view class='lab'>合同图片</view>
           <view class='uploadgallery-list clearfix'>
@@ -197,6 +197,11 @@
             </view>
           </view>
         </view>
+      </view>
+
+      <view class='ht-price clearfix' wx-if="{{dataInfo.dsj==1 && dataInfo.dqy==0 && radioVal==1}}">
+            <view class='lab'>合同金额</view>
+            <view class='price-val'><input type="text" name="price" class='ipt-txt' /><text class='unitdw'>元</text></view>
       </view>
     </view>
 

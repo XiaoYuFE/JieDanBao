@@ -1,6 +1,6 @@
 <view class='header-top'>
   <view class="plist-nav-top">
-    <view bindtap='navMainHandle' data-ordertype="xdd"  data-active="{{orderType=='xdd' ? 'active' :''}}" class="item-cell {{orderType=='wjd' ? 'active' :''}}">新订单</view>
+    <view bindtap='navMainHandle' data-ordertype="wjd"  data-active="{{orderType=='wjd' ? 'active' :''}}" class="item-cell {{orderType=='wjd' ? 'active' :''}}">新订单</view>
     <view bindtap='navMainHandle' data-ordertype="clz" data-active="{{orderType=='clz' ? 'active' :''}}" class="item-cell {{orderType=='clz' ? 'active' :''}}">处理中</view>
     <view bindtap='navMainHandle' data-ordertype="yjs" data-active="{{orderType=='yjs' ? 'active' :''}}" class="item-cell {{orderType=='yjs' ? 'active' :''}}">已结束</view>
   </view>
@@ -44,7 +44,7 @@
     
       <view class='cname'>{{item.realname  ? item.realname :"未填写"}}</view>
       <view class='cphone'>{{item.format_mobile}}</view>
-      <view class='cyxdate clearfix'  wx-if="{{orderType=='xdd'? true :false}}">
+      <view class='cyxdate clearfix'  wx-if="{{orderType=='wjd'? true :false}}">
         <text class="txt-1">订单有效期：</text>
         <view class="cyx-remain">{{wxTimerList[item.id].formatMinute}}分{{wxTimerList[item.id].formatSecond}}秒 </view>
         <text class="txt-2">（过期后无法再接单）</text>
@@ -70,7 +70,7 @@
       </view>
 
       <!--  新订单的时候显示立即接单按钮  -->
-      <view class='c-jdbtn'  wx-if="{{orderType=='xdd'? true :false}}">
+      <view class='c-jdbtn'  wx-if="{{orderType=='wjd'? true :false}}">
         <button data-id="{{item.id}}">立即接单</button>
       </view>
       <!--  处理中要显示 步骤剩余时间  步骤按钮 -->
@@ -78,10 +78,10 @@
         <text class='clab'>剩余时间：</text>
         <view class='c-timing'>{{wxTimerList[item.id].formatHour}}时{{wxTimerList[item.id].formatMinute}}分{{wxTimerList[item.id].formatSecond}}秒</view>
       </view>
-      <navigator url='/pages/jiaju/detail/detail?id={{item.id}}' class='cnavigator' wx-if="{{orderType!='xdd'? true :false}}">{{item.format_stepname}}
+      <navigator url='/pages/jiaju/detail/detail?id={{item.id}}' class='cnavigator' wx-if="{{orderType!='wjd'? true :false}}">{{item.format_stepname}}
         <text class='iconfont icon-jiantou txt-arrow'></text>
       </navigator>
-       <view class="cmakecall" data-phone="{{item.mobile}}" bindtap='makePhoneCall' wx-if="{{orderType!='xdd'? true :false}}">
+       <view class="cmakecall" data-phone="{{item.mobile}}" bindtap='makePhoneCall' wx-if="{{orderType!='wjd'? true :false}}">
       <text class='iconfont icon-phone-1 icon-cpic'></text>联系客户</view>
     </view>
     <!--联系客户  处理中和已结束才会有的  -->

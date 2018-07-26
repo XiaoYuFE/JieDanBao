@@ -43,8 +43,6 @@ page {
   border-bottom: 1rpx solid #e5e5e5;
 }
 
-
-
 .orderstep-list .lineh {
   content: "";
   width: 2rpx;
@@ -88,65 +86,66 @@ page {
   margin-top: 10rpx;
 }
 
-.ipt-hidden{
-  display:none; 
+.ipt-hidden {
+  display: none;
 }
 
-.orderstep-list .txt-statu{
+.orderstep-list .txt-statu {
   color: #999;
   position: absolute;
-  right:30rpx;
+  right: 30rpx;
   top: 50%;
   transform: translate(0, -50%);
   font-size: 28rpx;
 }
 
-.ipt-text-lf{
-  position:absolute;
-    right:40rpx;
-   width: 286rpx;
-   box-sizing: border-box;
-    top: 50%;
-   
-    background:#fff; 
-    
-    transform: translate(0,-50%);
+.ipt-text-lf {
+  position: absolute;
+  right: 40rpx;
+  width: 286rpx;
+  box-sizing: border-box;
+  top: 50%;
+  background: #fff;
+  transform: translate(0, -50%);
 }
-.ipt-text-lf.hidden{
-  display:none; 
+
+.ipt-text-lf.hidden {
+  display: none;
 }
 
 .orderstep-list .txt-statu.success-top {
   top: 55rpx;
   color: #3ac6b8;
 }
-.uploadgallery-wrap{
-   padding:0 30rpx; 
-   margin-top: 10rpx;
+
+.uploadgallery-wrap {
+  padding: 0 30rpx;
+  margin-top: 10rpx;
 }
+
 .uploadgallery {
   position: relative;
   padding-left: 140rpx;
   margin-top: 28rpx;
-  border-top:1rpx solid #e5e5e5;
+  border-top: 1rpx solid #e5e5e5;
 }
 
 .uploadgallery .lab {
-  color: #333333;
+  color: #333;
   font-size: 30rpx;
   left: 0;
-  top:64rpx;
+  top: 64rpx;
   position: absolute;
 }
 
-.uploadgallery-list{
+.uploadgallery-list {
   padding-top: 20rpx;
 }
+
 .uploadgallery-list .pic {
   width: 108rpx;
   height: 108rpx;
-  
-  border:1px solid #e5e5e5; 
+  border: 1px solid #e5e5e5;
   float: left;
   margin-left: 28rpx;
   margin-top: 10rpx;
@@ -154,41 +153,41 @@ page {
   position: relative;
 }
 
-.uploadgallery-list .pic image{
+.uploadgallery-list .pic image {
   max-width: 100%;
   max-height: 100%;
 }
 
 .uploadgallery-list .icon-cpic {
-    color:#fe7581;
-    font-size:34rpx;
-    position:absolute;
-    right: -15rpx;
-    top:-15rpx;   
+  color: #fe7581;
+  font-size: 34rpx;
+  position: absolute;
+  right: -15rpx;
+  top: -15rpx;
 }
 
-.uploadgallery-list .upload-addbtn{
-   width: 108rpx;
-   height: 108rpx;
-    float:left; 
-    margin-top: 10rpx;
-    position: relative;
-    font-size: 0;
-    margin-left: 28rpx;
+.uploadgallery-list .upload-addbtn {
+  width: 108rpx;
+  height: 108rpx;
+  float: left;
+  margin-top: 10rpx;
+  position: relative;
+  font-size: 0;
+  margin-left: 28rpx;
 }
-.uploadgallery-list .upload-addbtn .icon-cadd{
-  color:#d8dce6;
-  font-size: 132rpx; 
+
+.uploadgallery-list .upload-addbtn .icon-cadd {
+  color: #d8dce6;
+  font-size: 132rpx;
   position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .fixed-bottom-seat {
   height: 158rpx;
 }
-
 
 .fixed-bottom-btn {
   height: 128rpx;
@@ -207,137 +206,178 @@ page {
   line-height: 88rpx;
   width: 70%;
   float: right;
-  color:#fff; 
+  color: #fff;
   text-align: center;
   background: #3ac6b8;
   border-radius: 10rpx;
 }
 
-.fixed-bottom-btn .btn-cancel{
+.fixed-bottom-btn .btn-cancel {
   box-sizing: border-box;
-  width:30%;
-  padding-right:5%; 
-  float:left;   
+  width: 30%;
+  padding-right: 5%;
+  float: left;
 }
-.fixed-bottom-btn .btn-cancel text{
+
+.fixed-bottom-btn .btn-cancel text {
   height: 88rpx;
   line-height: 88rpx;
   text-align: center;
   background: #f0f0f0;
   border-radius: 10rpx;
-  color:#999999;
-  display:block; 
-}
-.fixed-bottom-btn .btn-cancel text:hover{
-  background:#e6e6e6; 
+  color: #999;
+  display: block;
 }
 
-.cell-radio-box{
-   position:absolute;
-   right:30rpx;
-   top:25rpx;
-   font-size: 28rpx;  
-}
-radio-group .radio{
-  position:relative;
-  padding-left: 55rpx; 
-  margin-left:25rpx; 
+.fixed-bottom-btn .btn-cancel text:hover {
+  background: #e6e6e6;
 }
 
-radio .wx-radio-input{
-   border-radius: 50%;
-   width: 42rpx;
-   height: 42rpx;
-   box-sizing: border-box;
-   border:2rpx solid #cacaca;
-   position: absolute;
-   left:0;
-   top: 50%;
-   -webkit-transform: translate(0,-50%);
-    transform: translate(0,-50%);
-}
-radio-group.disabled .radio{
-  color:#999999; 
-}
-radio-group.disabled .radio .wx-radio-input{
-  background:#e1e1e1;
-  border-color:#cacaca; 
+.cell-radio-box {
+  position: absolute;
+  right: 30rpx;
+  top: 25rpx;
+  font-size: 28rpx;
 }
 
-radio-group.disabled radio .wx-radio-input.wx-radio-input-checked::before{
-   color:#e1e1e1; 
-  border-color:#cacaca; 
+radio-group .radio {
+  position: relative;
+  padding-left: 55rpx;
+  margin-left: 25rpx;
 }
 
-
-radio .wx-radio-input.wx-radio-input-checked::before{
-   content: "\e600";
-   font-family:"iconfont";
-   font-size:48rpx;
-   color:#3ac6b8;  
-   transform:translate(-50%, -50%);
-   -webkit-transform:translate(-50%, -50%) ;
+radio .wx-radio-input {
+  border-radius: 50%;
+  width: 42rpx;
+  height: 42rpx;
+  box-sizing: border-box;
+  border: 2rpx solid #cacaca;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
 }
 
+radio-group.disabled .radio {
+  color: #999;
+}
+
+radio-group.disabled .radio .wx-radio-input {
+  background: #e1e1e1;
+  border-color: #cacaca;
+}
+
+radio-group.disabled radio .wx-radio-input.wx-radio-input-checked::before {
+  color: #e1e1e1;
+  border-color: #cacaca;
+}
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+  content: "\e600";
+  font-family: "iconfont";
+  font-size: 48rpx;
+  color: #3ac6b8;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
 
 /**量房时间**/
 
-.cell-lf-time{
-  padding:20rpx  0 0;
+.cell-lf-time {
+  padding: 20rpx 0 0;
+  color: #333;
+  line-height: 40rpx;
+  border-top: 1px solid #e5e5e5;
+  margin: 25rpx 30rpx 0;
+  position: relative;
+}
 
-  color:#333333; 
-  line-height:40rpx;
-  border-top:1px solid #e5e5e5; 
-  margin:25rpx 30rpx 0;
-  position:relative; 
-  
-  
+.cell-lf-time .lab {
+  float: left;
+  font-size: 26rpx;
 }
-.cell-lf-time .lab{
-    float:left; 
-    font-size:26rpx;
+
+.cell-lf-time .time-picker {
+  float: right;
+  font-size: 28rpx;
+  position: relative;
 }
-.cell-lf-time .time-picker{
-    float:right;
-    font-size:28rpx; 
-    position: relative; 
-}
-.cell-lf-time .time-picker picker{
-  
-  position:relative;
+
+.cell-lf-time .time-picker picker {
+  position: relative;
   z-index: 10;
- 
+}
+
+.cell-lf-time .time-picker picker.hidden {
+  opacity: 0;
+}
+
+.cell-lf-time .time-picker .tui-picker-detail {
+  padding-right: 40rpx;
+}
+
+.cell-lf-time .time-picker .txt-arrow {
+  position: absolute;
+  right: -20rpx;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+/**剩余时间*/
+
+.time-remain {
+  color: #fe7581;
+  padding: 10rpx 30rpx;
+  font-size: 26rpx;
+}
+
+.time-remain .lab {
+  float: left;
+}
+
+.time-remain  .timing-count {
+  float: left;
+}
+
+.time-remain .icon-cpic {
+  float: left;
+  margin-left: 20rpx;
+  font-weight: bold;
+}
+
+.ht-price {
+  position: relative;
+  padding:25rpx 30rpx; 
+}
+
+.ht-price .lab {
+  color: #333;
+  font-size: 30rpx;
+  float:left; 
+  
   
 }
-.cell-lf-time .time-picker picker.hidden{
-   opacity: 0; 
+
+.ht-price .ipt-txt{
+  float:left; 
+  text-align: right;
+  width: 100%;
+ 
 }
 
-.cell-lf-time .time-picker .tui-picker-detail{
-padding-right: 40rpx;
-}
-
-.cell-lf-time .time-picker .txt-arrow{
+.ht-price .unitdw{
     position: absolute;
-    right:-20rpx;
+    right: 0;
     top: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%); 
+    transform: translate(0,-50%);
 }
-/**剩余时间*/
-.time-remain{
-  color:#fe7581;
-  padding:10rpx 30rpx; 
-  font-size:26rpx;  
-}
-.time-remain .lab{
-    float:left;
-}
-.time-remain  .timing-count{
-  float:left; 
-}
-.time-remain .icon-cpic{
-  float:left; 
-  margin-left:20rpx; 
-  font-weight:bold; 
+
+.ht-price .price-val{
+  float:right;
+  width:60%; 
+  position: relative;
+  font-size: 30rpx;
+  padding-right: 40rpx;
 }

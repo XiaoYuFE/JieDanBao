@@ -29,14 +29,11 @@ Page({
   onLoad: function (options) {
     console.dir(options);
    
-      // this.setData({
-      //   orderType: options.ordertype,
-      //   orderStep: options.step,
-      // });
-    this.setData({
-      orderType:"xdd",
-      orderStep:"all",
-    });
+      this.setData({
+        orderType: options.ordertype,
+        orderStep: options.step,
+      });
+   
       this._getData();
   },
 
@@ -60,7 +57,7 @@ Page({
     //设置标签状态
     this.setData({
       orderType: e.currentTarget.dataset.ordertype,
-      orderStep: "all",//订单子集分类
+      orderStep: e.currentTarget.dataset.ordertype=="wjd" ? "wjd":"all",
       dataInfo:[],
       isNoData: false,
       page: 1
@@ -116,24 +113,27 @@ Page({
     app.form.requestPost(app.form.API_CONFIG.jiaju.orders, {
       ordertype:that.data.orderType,
       step: that.data.orderStep,
+      page:that.data.page
     }, function (res) {
       console.dir(res);
-      for (var i = 0; i < res.data.orders.length; i++) {
-        res.data.orders[i].format_mobile = that._formatMobile(res.data.orders[i].mobile);
-        res.data.orders[i].format_stepname = that._formatStepName(res.data.orders[i].step);
-        that._countDown(res.data.orders[i]);
+      if (res.data.orders){
+        for (var i = 0; i < res.data.orders.length; i++) {
+          res.data.orders[i].format_mobile = that._formatMobile(res.data.orders[i].mobile);
+          res.data.orders[i].format_stepname = that._formatStepName(res.data.orders[i].step);
+          that._countDown(res.data.orders[i]);
+        }
+        that.data.dataInfo.push.apply(that.data.dataInfo, res.data.orders);
+        that.setData({
+          page: that.data.page + 1,
+          dataInfo: that.data.dataInfo,
+          isLoading: false
+        });
+        if (that.data.dataInfo.length == 0) {
+          that.setData({ isNoData: true })
+        }
       }
+      
       //如果是同一个列表，数据直接加在后面，不是同一个列表就要重新赋值
-      that.data.dataInfo.push.apply(that.data.dataInfo, res.data.orders);
-      that.setData({
-        page:that.data.page+1,
-        dataInfo: that.data.dataInfo,
-        isLoading:false
-      });
-
-      if (that.data.dataInfo.length ==0) {
-        that.setData({ isNoData:true})
-      }
     })
   },
 

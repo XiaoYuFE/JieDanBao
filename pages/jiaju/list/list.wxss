@@ -12,7 +12,7 @@ page{
 .header-top-seat{
   background:#f7f7f7; 
 }
-.header-top-seat.xdd{
+.header-top-seat.wjd{
    height:101rpx; 
 }
 .header-top-seat.clz,.header-top-seat.yjs{

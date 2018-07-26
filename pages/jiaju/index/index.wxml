@@ -97,7 +97,7 @@
   <view class='mid-tip clearfix'>
     <view class="num-tip">共有
       <text>{{dataInfo.wjd}}</text>条新订单等你处理</view>
-    <navigator url="/pages/jiaju/list/list?ordertype=wjd&step=all" class='btn-more'>查看全部新订单
+    <navigator url="/pages/jiaju/list/list?ordertype=wjd&step=wjd" class='btn-more'>查看全部新订单
       <text class='iconfont icon-jiantou txt-arrow'></text>
     </navigator>
   </view>
