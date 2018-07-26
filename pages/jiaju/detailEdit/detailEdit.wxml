@@ -86,14 +86,16 @@
       <view class='item-cell clearfix'>
         <text class='lab'>期望风格</text>
         <view class="para-item">
+
           <input type='text' name="d_style" class='ipt-text' wx-if="{{dataInfo.d_style}}" value='{{dataInfo.d_style}}' />
+          <text class='default-tip' wx-if="{{!qwfgObjIdStr}}">请选择</text>
           <view wx-if="{{!dataInfo.d_style}}">
-            <picker value="{{qwfgIndex}}" bindchange='bindPickerChangeQxfg' range="{{configInfo.d_style}}" range-key="{{'name'}}">
+            <picker value="{{qwfgIndex}}" bindchange='bindPickerChangeQwfg' range="{{configInfo.d_style}}" range-key="{{'name'}}">
               <view class="picker">
-                {{configInfo.d_style[qwfgIndex].name}}
+                {{qwfgObjNameStr}}
               </view>
             </picker>
-            <input type='text' name="d_style" class='ipt-text-hidden' value='{{qwfgIndex}}' />
+            <input type='text' name="d_style" class='ipt-text-hidden' value='{{qwfgObjIdStr}}' />
             <text class='iconfont icon-jiantou icon-cpic'></text>
           </view>
         </view>

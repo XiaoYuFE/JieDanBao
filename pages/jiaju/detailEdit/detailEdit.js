@@ -19,7 +19,47 @@ Page({
     fsIndex:0,
     fwqkIndex:0,
     qwfgIndex:0,
+    qwfgObj:{},
+    qwfgObjIdStr:"",
+    qwfgObjNameStr: "",
     configInfo:""
+  },
+
+  _getQwfgName:function(id){
+    
+   
+    for (var i = 0; i < this.data.configInfo.d_style.length;i++){
+      if (this.data.configInfo.d_style[i].id==id){
+        return this.data.configInfo.d_style[i].name;
+      }
+    }
+   
+  },
+
+  bindPickerChangeQwfg: function (e) {
+    
+    var index = parseInt(e.detail.value)+1;
+    var qwfgObj = Object.assign({}, this.data.qwfgObj);
+    var qwfgObjId=[];
+    var qwfgObjName=[];
+    
+    if (!qwfgObj.index){
+      qwfgObj[index] = this._getQwfgName(index);
+    }
+   
+    this.setData({
+      qwfgObj: qwfgObj
+    });
+    for(var i in qwfgObj){
+      qwfgObjId.push(i);
+      qwfgObjName.push(qwfgObj[i]);
+    }
+    console.dir(qwfgObjName)
+    this.setData({
+      qwfgObjIdStr:qwfgObjId.join("|"),
+      qwfgObjNameStr: qwfgObjName.join(",")
+    });
+  
   },
 
   bindPickerYsChange: function (e) {
@@ -49,11 +89,7 @@ Page({
     })
   },
 
-  bindPickerChangeZxfg:function(e){
-    this.setData({
-      qwfgIndex: e.detail.value
-    })
-  },
+  
 
   /**
    * 生命周期函数--监听页面加载

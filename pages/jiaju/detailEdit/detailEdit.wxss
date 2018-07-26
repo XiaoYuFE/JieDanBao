@@ -13,6 +13,14 @@
   display:none; 
 }
 
+.default-tip{
+  position:absolute; 
+  right:35rpx;
+  top:50%;
+  color:#333; 
+  transform:translate(0,-50%);
+}
+
 .houseinfo-caption{
   padding:20rpx 30rpx;
   background:#f7f7f7; 
@@ -80,6 +88,7 @@
   padding-right: 35rpx;
   position: relative;
   z-index: 11;
+  height:40rpx; 
 }
 .houseinfo-list .ipt-text.disabled{
   color:#999; 
