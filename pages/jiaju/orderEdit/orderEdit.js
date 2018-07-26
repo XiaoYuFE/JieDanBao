@@ -57,30 +57,34 @@ Page({
         sjFinshTime: res.data.sj_time
       });
       that._getStepName(res.data);
-      res.data.sj_d_time=3600;
+      
       that._countDown(res.data.sj_d_time)
 
       //量房时间为空的时候
-
-      if (res.data.l_time.indexOf("0000") !== -1) {
+     
+      if (res.data.l_time.indexOf("0000") < 0) {
         that.setData({
           isLftimerEmpty: false,
+          lfTime: res.data.l_time,
           date: res.data.l_time
+        });
+        console.dir(that.data.date)
+        var obj1 = dateTimePicker.dateTimePicker(that.data.startYear, that.data.endYear, that.data.date);
+        that.setData({
+          dateTimeArray1: obj1.dateTimeArray,
+          dateTime1: obj1.dateTime
         });
       }
 
     });
 
 
-    var obj1 = dateTimePicker.dateTimePicker(this.data.startYear, this.data.endYear, this.data.date);
+    
     // 精确到分的处理，将数组的秒去掉
-    var lastArray = obj1.dateTimeArray.pop();
-    console.dir(obj1.dateTime);
+    // var lastArray = obj1.dateTimeArray.pop();
+    // console.dir(obj1.dateTime);
 
-    this.setData({
-      dateTimeArray1: obj1.dateTimeArray,
-      dateTime1: obj1.dateTime
-    });
+   
 
 
 

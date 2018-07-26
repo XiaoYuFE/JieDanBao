@@ -143,6 +143,7 @@ radio.disabled .wx-radio-input.wx-radio-input-checked::before{
    visibility: hidden;
    transition: all 0.25s ease-out;
    background-color: rgba(0,0,0,0.6);
+   z-index: 10;
 }
 .validate-msg.active{
     visibility: visible;
