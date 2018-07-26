@@ -32,7 +32,7 @@
       <text class='lab'>小区名称</text>
       <view class="para-item">
         {{dataInfo.community || '未填写'}}
-        <text class='iconfont icon-jiantou txt-arrow'></text>
+        <text class='iconfont icon-jiantou txt-arrow' wx-if="{{dataInfo.community}}"></text>
       </view>
     </view>
     <view class='item-cell clearfix'>

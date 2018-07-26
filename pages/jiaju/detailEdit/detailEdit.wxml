@@ -35,7 +35,7 @@
       <view class='item-cell clearfix'>
         <text class='lab'>装修方式</text>
         <view class="para-item">
-            <picker bindchange="bindPickerFsChange" value="{{fsIndex}}" range="{{dType}}" range-key="{{'name'}}">
+            <picker bindchange="bindPickerChangeFs" value="{{fsIndex}}" range="{{dType}}" range-key="{{'name'}}">
               <view class="picker">
                 {{dType[fsIndex].name}}
               </view>
@@ -64,7 +64,7 @@
       <view class='item-cell clearfix item-unitpfm'>
         <text class='lab'>房屋面积</text>
         <view class="para-item">
-          <input type='text' disabled='{{dataInfo.area ? "disabled":""}}' name="area" class='ipt-text  {{!!dataInfo.area ? "disabled":""}}'  value='{{dataInfo.area}}' placeholder='未填写' />
+          <input type='text' disabled='{{dataInfo.area ? "disabled":""}}' name="area" class='ipt-text  {{!!dataInfo.area ? "disabled":""}}'  value='{{dataInfo.area}}' placeholder='未填写' placeholder-class="placeholder" />
           <text class='unitpfm'>m2</text>
         </view>
       </view>
@@ -73,9 +73,9 @@
         <view class="para-item">
           <input type='text' name="fwqk" class='ipt-text' wx-if="{{dataInfo.fwqk}}" value='{{dataInfo.fwqk}}' />
           <view wx-if="{{!dataInfo.fwqk}}">
-            <picker value="{{fwqkIndex}}" range="{{configInfo.fwqk}}">
+            <picker value="{{fwqkIndex}}" bindchange='bindPickerChangeQk' range="{{configInfo.fwqk}}" range-key="{{'name'}}">
               <view class="picker">
-                {{configInfo.fwqk[fwqkIndex]}}
+                {{configInfo.fwqk[fwqkIndex].name}}
               </view>
             </picker>
             <input type='text' name="fwqk" class='ipt-text-hidden' value='{{configInfo.fwqk[fwqkIndex]}}' />
@@ -88,12 +88,12 @@
         <view class="para-item">
           <input type='text' name="d_style" class='ipt-text' wx-if="{{dataInfo.d_style}}" value='{{dataInfo.d_style}}' />
           <view wx-if="{{!dataInfo.d_style}}">
-            <picker value="{{zxfgIndex}}" range="{{configInfo.d_style}}">
+            <picker value="{{qwfgIndex}}" bindchange='bindPickerChangeQxfg' range="{{configInfo.d_style}}" range-key="{{'name'}}">
               <view class="picker">
-                {{configInfo.d_style[zxfgIndex]}}
+                {{configInfo.d_style[qwfgIndex].name}}
               </view>
             </picker>
-            <input type='text' name="d_style" class='ipt-text-hidden' value='{{configInfo.d_style[zxfgIndex]}}' />
+            <input type='text' name="d_style" class='ipt-text-hidden' value='{{qwfgIndex}}' />
             <text class='iconfont icon-jiantou icon-cpic'></text>
           </view>
         </view>

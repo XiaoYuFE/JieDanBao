@@ -18,7 +18,7 @@ Page({
     ysIndex:0,
     fsIndex:0,
     fwqkIndex:0,
-    zxfgIndex:0,
+    qwfgIndex:0,
     configInfo:""
   },
 
@@ -28,7 +28,7 @@ Page({
       ysIndex: e.detail.value
     })
   },
-  bindPickerFsChange: function (e) {
+  bindPickerChangeFs: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       fsIndex: parseInt(e.detail.value)
@@ -40,6 +40,18 @@ Page({
     this.setData({
       hxIndex: e.detail.value,
       hxIndexStr:this.data.hxIndex.join("|")
+    })
+  },
+
+  bindPickerChangeQk:function(e){
+    this.setData({
+      fwqkIndex: e.detail.value
+    })
+  },
+
+  bindPickerChangeZxfg:function(e){
+    this.setData({
+      qwfgIndex: e.detail.value
     })
   },
 
@@ -56,15 +68,13 @@ Page({
     app.form.requestPost(app.form.API_CONFIG.jiaju.edit_config, {}, function (res) {
       console.dir(res);
       that.setData({
-        configInfo: res.data
+        configInfo:res.data
       });
     });
     
     app.form.requestPost(app.form.API_CONFIG.jiaju.order_info, {
         id:that.data.id
     },function(res){
-        
-      res ={ "data": { "id": 509, "c_time": "2018-07-26 11:23:25", "l_time": "0000-00-00 00:00:00", "sj_time": "0000-00-00 00:00:00", "step": "dlf", "order_no": "180726010012", "d_time": "", "mobile": "18606005002", "realname": "\u59dc\u5148\u751f", "d_type":"", "fwqk": null, "d_style": "", "price": "", "unit": "", "d_date": "", "community": "", "remark": "", "area": "" }, "status": 1, "msg": "success", "redict": "" }
         if (res.data.d_type==1){
           res.data.format_d_type="全包"
         } else if (res.data.d_type==2){

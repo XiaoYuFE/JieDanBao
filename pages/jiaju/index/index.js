@@ -21,6 +21,7 @@ Page({
     that.setData({
       xyUserInfo: app.globalData.sessionJdbUserInfo
     });
+    console.dir(this.data.xyUserInfo)
     app.form.tracking('jdb_index', 'jdb_index', '');
 
     this._getData();

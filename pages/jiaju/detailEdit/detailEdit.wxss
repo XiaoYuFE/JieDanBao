@@ -41,6 +41,9 @@
   padding:25rpx 0;
   position: relative;
 }
+.houseinfo-box .item-cell .placeholder{
+    color:#333;
+}
 
 .houseinfo-box .item-cell:last-child{
   border-bottom:none; 
