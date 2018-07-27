@@ -9,7 +9,7 @@
       <view class='cell-radio-box'>
         <radio-group class="radio-group" name="step" bindchange="radioChange">
           <label class="radio">
-            <radio  value="yqy" checked="" color="#fff" />已签约
+            <radio  value="dqy" checked="" color="#fff" />已签约
           </label>
           <label class="radio">
             <radio value="void" checked color="#fff" />已跑单
@@ -28,7 +28,7 @@
       <textarea name="reason" maxlength="1000" placeholder="请输入提前终止服务的原因，我们将认真评估并考虑" />
     </view>
 
-    <view class='item-cell item-htje' wx-if="{{radioVal=='yqy'}}">
+    <view class='item-cell item-htje' wx-if="{{radioVal=='dqy'}}">
       <text class='lab'>合同金额</text>
       <view class='paraval'>
         <input type='text' name="price" class='ipt-text' />
@@ -36,7 +36,7 @@
       </view>
     </view>
 
-    <view class='item-cell clearfix item-sctp' wx-if="{{radioVal=='yqy'}}">
+    <view class='item-cell clearfix item-sctp' wx-if="{{radioVal=='dqy'}}">
       <text class='lab'>合同照片</text>
 
       <view class='uploadgallery-list clearfix'>
