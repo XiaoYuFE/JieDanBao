@@ -140,7 +140,7 @@ Page({
               wx.navigateTo({
                 url: '/pages/jiaju/order/order?id=' + that.data.id + "&step=" + that.data.stepNext+"&stepName=" + that.data.stepName
               })
-            },1500)
+            },1000)
           }
         })
       } else {

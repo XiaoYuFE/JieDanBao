@@ -85,8 +85,7 @@
 <view class='ordernew-box' wx-if="{{dataInfo.new_order}}">
   <view class='tit'>新订单提醒</view>
   <view class='mid-tip clearfix'>
-    <view class="num-tip">共有
-      <text>{{dataInfo.wjd}}</text>条新订单等你处理</view>
+    <view class="num-tip">共有<text>{{dataInfo.wjd}}</text>条新订单等你处理</view>
     <navigator url="/pages/jiaju/list/list?ordertype=wjd&step=wjd" class='btn-more'>查看全部新订单
       <text class='iconfont icon-jiantou txt-arrow'></text>
     </navigator>
@@ -95,26 +94,26 @@
   <view class='ordernew-card-wrap'>
     <view class='ordernew-card-box'>
       <view class='item-cell clearfix'>
-        <text class='lab'>姓名：</text>
+        <text class='lab'>姓名:</text>
         <view class="para-val">{{dataInfo.new_order.name ? dataInfo.new_order.name :"--"}}</view>
       </view>
       <view class='item-cell clearfix'>
-        <text class='lab'>手机：</text>
+        <text class='lab'>手机:</text>
         <view class="para-val">{{dataInfo.new_order.mobile}}</view>
       </view>
       <view class='item-cell clearfix'>
-        <text class='lab'>小区：</text>
+        <text class='lab'>小区:</text>
         <view class="para-val">{{dataInfo.new_order.community ? dataInfo.new_order.community : "--"}}</view>
       </view>
       <view class='item-cell clearfix'>
-        <text class='lab'>预算：</text>
+        <text class='lab'>预算:</text>
         <view class="para-val">{{dataInfo.new_order.price}}</view>
       </view>
       <view class='item-cell clearfix'>
-        <text class='lab'>订单有效期：</text>
+        <text class='lab'>订单有效期:</text>
         <view class="para-val">
             <view class='time-count'>{{wxTimerList[dataInfo.new_order.id].formatMinute}}分{{wxTimerList[dataInfo.new_order.id].formatSecond}}秒</view>
-            <view class='time-tip'>(过期后无法再接单)</view>
+            <view class='time-tip'>( 过期后无法再接单 )</view>
         </view>
       </view>
 
@@ -153,7 +152,7 @@
   <view class='orderfinsh-list-box clearfix'>
     <navigator class='item-cell item-yqy' hover-class='none' url='/pages/jiaju/list/list?ordertype=yjs&step=yqy'>
       <view class='num'>{{dataInfo.yqy}}</view>
-      <view class='txt'>已签约`</view>
+      <view class='txt'>已签约</view>
     </navigator>
     <navigator class='item-cell item-wcd' hover-class='none' url='/pages/jiaju/list/list?ordertype=yjs&step=void'>
       <view class='num'>{{dataInfo.void}}</view>

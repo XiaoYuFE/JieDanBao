@@ -144,7 +144,7 @@ Page({
                   wx.navigateTo({
                     url: '/pages/jiaju/detail/detail?id=' + that.data.id,
                   })
-                },2000)
+                },800)
             },
             fail: function() {
                

@@ -75,7 +75,7 @@
   color:#fe7581;
   font-size: 28rpx; 
   float:left; 
-  min-width: 165rpx;
+  min-width: 160rpx;
  
 }
 .ordernew-card-box .time-tip{
@@ -285,9 +285,11 @@
 
 .list-type-1 .item-1 .txt {
   color: #1a1a1a;
-  font-size: 48rpx;
+  font-size: 44rpx;
   font-weight: bold;
   margin-left: 8rpx;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .list-type-1  .item-2 {
@@ -302,6 +304,9 @@
   color: #1a1a1a;
   font-size: 44rpx;
   font-weight: bold;
+    margin-left: 8rpx;
+    display: inline-block;
+  vertical-align: middle;
 }
 
 .ordernew-box {
