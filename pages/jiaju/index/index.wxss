@@ -97,6 +97,10 @@
   margin:40rpx auto 0;     
 }
 
+.wx-dialog-new .item-btn.disabled{
+  opacity: 0.2;
+}
+
 
 
 .wx-dialog-new .tip-1{

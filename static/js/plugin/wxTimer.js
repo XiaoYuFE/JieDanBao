@@ -1,7 +1,8 @@
 var wxTimer = function(initObj) {
   initObj = initObj || {};
   initObj.beginTime = initObj.beginTime ? initObj.beginTime : 0;
-  this.originalTime = initObj.beginTime;
+  this.originalTime = initObj.beginTime ? initObj.beginTime : true;
+  this.isReverse = initObj.isReverse ? initObj.isReverse :true;
   this.beginTime = Math.abs(initObj.beginTime); //开始时间
   this.interval = initObj.interval || 0; //间隔时间
   this.complete = initObj.complete; //结束任务
@@ -9,8 +10,11 @@ var wxTimer = function(initObj) {
   this.intervalFn = initObj.intervalFn; //间隔任务
   this.formatType = initObj.formatType || "HMS";
   this.intervarID; //计时ID
+ 
+  if (!this.isReverse && this.originalTime <0){ 
+    this.beginTime=0;
+  }
 
-  console.dir(this.beginTime);
 }
 
 //日期秒转成分秒
@@ -61,7 +65,8 @@ wxTimer.prototype = {
       count++;
       if (that.originalTime > 0){
         wxSeconds--;
-      } else if (that.originalTime < 0){
+      } else if (that.originalTime <=0 && that.isReverse){
+       
         wxSeconds++;
       }
       

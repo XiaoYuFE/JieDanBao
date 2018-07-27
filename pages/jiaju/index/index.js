@@ -10,6 +10,7 @@ Page({
     fromWhere:"",
     fromId:"",
     fromDataInfo:{},
+    fromDisabled:false,
     wxTimerInstance: {},
     newDiaToggle: false,
     tipDiaToggle: false
@@ -20,10 +21,9 @@ Page({
     //获取配置信息
     this.setData({
       xyUserInfo: app.globalData.sessionJdbUserInfo,
-      // fromWhere:options.fromWhere ? options.fromWhere :"",
-      // fromId:options.fromId,
-      fromWhere:"xxx",
-      fromId:527
+      fromWhere:options.fromWhere ? options.from :"",
+      fromId: options.id ? options.id :"",
+     
     });
     app.form.tracking('jdb_index', 'jdb_index', '');
     //如果是从推送消息来的，要去请求
@@ -40,10 +40,13 @@ Page({
 
         var fromSendwxTimer = new timer({
           beginTime: res.data.d_time,
+          
           formatType: "HMS",
           name: "fromSendwxTimer",
           complete: function () {
-            console.log("完成了")
+            that.setData({
+              fromDisabled:true
+            })
           },
           interval: 1,
           intervalFn: function () {
@@ -129,7 +132,7 @@ Page({
 
   ljjdHandleBtn: function(e) {
     //请求数据
-
+    if (this.data.fromDisabled) return;
     var that = this;
     var id = e.target.dataset.id;
     wx.showLoading();

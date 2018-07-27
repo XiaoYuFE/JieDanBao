@@ -29,7 +29,7 @@
       </view>
     </view>
   </view>
-  <button class='item-btn' data-id="{{fromDataInfo.id}}" bindtap='ljjdHandleBtn' hover-class="item-btn-hover">立即接单</button>
+  <button class='item-btn {{fromDisabled ? "disabled" :""}}}' data-id="{{fromDataInfo.id}}" bindtap='ljjdHandleBtn' hover-class="item-btn-hover">立即接单</button>
   <view class="tip-1">接单后可查看客户详细资料并直接联系客户</view>
   <view class='close-btn' bindtap='newDiaClose'><text class='iconfont icon-guanbi icon-cpic'></text></view>
 </view>

@@ -35,14 +35,17 @@
       <view class='item-cell clearfix'>
         <text class='lab'>装修方式</text>
         <view class="para-item">
-            <picker bindchange="bindPickerChangeFs" value="{{fsIndex}}" range="{{dType}}" range-key="{{'name'}}">
+         
+            <picker wx-if="{{!dataInfo.d_type}}" bindchange="bindPickerChangeFs" value="{{fsIndex}}" range="{{dType}}" range-key="{{'name'}}">
               <view class="picker">
                 {{dType[fsIndex].name}}
               </view>
             </picker>
-            <input type='text' name="d_type" class='ipt-text-hidden' value='{{fsIndex+1}}' />
-            <text class='iconfont icon-jiantou icon-cpic'></text>
-          <!-- <input type='text' disabled='{{dataInfo.d_type ? "disabled":""}}' name="d_type" class='ipt-text {{!!dataInfo.d_type ? "disabled":""}}' value='{{dataInfo.format_d_type}}' placeholder='未填写' placeholder-class='ipt-placeholder' /> -->
+            <input wx-if="{{!dataInfo.d_type}}" type='text' name="d_type" class='ipt-text-hidden' value='{{fsIndex+1}}' />
+            <text class='iconfont icon-jiantou icon-cpic' wx-if="{{!dataInfo.d_type}}"></text>
+
+             <input type='text' wx-if="{{dataInfo.d_type}}" disabled='{{dataInfo.d_type ? "disabled":""}}' name="d_type" class='ipt-text {{!!dataInfo.d_type ? "disabled":""}}' value='{{dataInfo.d_type}}' placeholder='未填写'  />
+         
         </view>
 
       </view>
@@ -78,7 +81,7 @@
                 {{configInfo.fwqk[fwqkIndex].name}}
               </view>
             </picker>
-            <input type='text' name="fwqk" class='ipt-text-hidden' value='{{configInfo.fwqk[fwqkIndex]}}' />
+            <input type='text' name="fwqk" class='ipt-text-hidden' value='{{fwqkIndex+1}}' />
             <text class='iconfont icon-jiantou icon-cpic'></text>
           </view>
         </view>
@@ -88,7 +91,7 @@
         <view class="para-item">
 
           <input type='text' name="d_style" class='ipt-text' wx-if="{{dataInfo.d_style}}" value='{{dataInfo.d_style}}' />
-          <text class='default-tip' wx-if="{{!qwfgObjIdStr}}">请选择</text>
+          <text class='default-tip' wx-if="{{!dataInfo.d_style}}">请选择</text>
           <view wx-if="{{!dataInfo.d_style}}">
             <picker value="{{qwfgIndex}}" bindchange='bindPickerChangeQwfg' range="{{configInfo.d_style}}" range-key="{{'name'}}">
               <view class="picker">

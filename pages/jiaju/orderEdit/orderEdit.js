@@ -79,6 +79,9 @@ Page({
     });
 
 
+
+
+
     
     // 精确到分的处理，将数组的秒去掉
     // var lastArray = obj1.dateTimeArray.pop();
@@ -90,6 +93,13 @@ Page({
 
 
 
+  },
+
+  openDiaSjfaTip:function(){
+    wx.showModal({
+      content: '为了保证服务效率与质量，提升用户体验，一些环节会设置服务剩余时间。请在剩余时间内及时完成服务，否则该订单有可能会失效，不能再联系客户。',
+      showCancel: false
+    })
   },
 
   formSubmit: function(e) {

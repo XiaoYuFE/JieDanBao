@@ -75,7 +75,7 @@
       </view>
       <!--  处理中要显示 步骤剩余时间  步骤按钮 -->
      
-      <view class='timeremain clearfix'  wx-if="{{orderType=='clz' && item.steptype !='dqy'}}">
+      <view class='timeremain clearfix'  wx-if="{{orderType=='clz' && item.steptype !='dqy' && item.d_time}}">
         <text class='clab'>{{item.d_time >= 0 ? "剩余时间":"已超时"}}:</text>
         <view class='c-timing'>{{wxTimerList[item.id].formatHour}}时{{wxTimerList[item.id].formatMinute}}分{{wxTimerList[item.id].formatSecond}}秒</view>
       </view>

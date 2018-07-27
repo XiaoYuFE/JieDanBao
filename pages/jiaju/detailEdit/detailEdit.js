@@ -85,7 +85,7 @@ Page({
 
   bindPickerChangeQk:function(e){
     this.setData({
-      fwqkIndex: e.detail.value
+      fwqkIndex: parseInt(e.detail.value)
     })
   },
 
@@ -97,7 +97,7 @@ Page({
   onLoad: function (options) {
     console.dir(options);
     this.setData({
-      id:options.id
+      id: options.id
     });
     var that=this;
 
@@ -145,7 +145,7 @@ Page({
           })
           setTimeout(function(){
             wx.navigateBack();
-          },2000)
+          },1500)
         }else{
           wx.showToast({
             title: '信息更新失败！',

@@ -70,7 +70,7 @@
     <view class='item-cell'>
 
       <view class='name'>3.设计方案</view>
-      <view class='time-finsh' wx-if="{{(dataInfo.dsj==1 || sjFinshTime) && !radioVal}}">完成时间：{{sjFinshTime || dataInfo.sj_time}}</view>
+      <view class='time-finsh' wx-if="{{(dataInfo.sj_time || sjFinshTime) && (radioVal==0 || radioVal=='dlf' || radioVal=='ylf')}}">完成时间：{{sjFinshTime || dataInfo.sj_time}}</view>
       <view class='cell-radio-box' wx-if="{{dataInfo.dsj==0}}">
         <radio-group class='radio-group {{dataInfo.dlf==0 ? "disabled" :""}}' bindchange="radioChange">
           <label class="radio">
@@ -85,7 +85,7 @@
       <view class='time-remain clearfix' wx-if="{{dataInfo.dsj==0 && dataInfo.dlf==1 && radioVal==0}}">
         <text class='lab'>{{dataInfo.sj_d_time >=0 ? "剩余时间" :"已超时"}}：</text>
         <view class='timing-count'>{{wxTimerList["wxTimer"].formatHour}}时{{wxTimerList["wxTimer"].formatMinute}}分{{wxTimerList["wxTimer"].formatSecond}}秒</view>
-        <text class='iconfont icon-tishi icon-cpic'></text>
+        <text class='iconfont icon-tishi icon-cpic' bindtap='openDiaSjfaTip'></text>
       </view>
 
       <view class='uploadgallery-wrap' wx-if="{{dataInfo.dlf==1 && dataInfo.dsj==0 && radioVal==1}}">
