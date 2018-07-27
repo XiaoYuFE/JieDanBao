@@ -10,7 +10,7 @@
     <view class='item-cell'>
         <view class='cell-info'>
             <view class='name'>接单</view>
-            <view class='time-finsh' wx-if="{{dataInfo.wjd==1}}">完成时间：{{dataInfo.receive_time}}</view> 
+            <view class='time-finsh' wx-if="{{dataInfo.step=='wjd'}}">完成时间：{{dataInfo.receive_time}}</view> 
             <text class='txt-statu {{dataInfo.wjd==1 ? "success" :""}}'>{{dataInfo.wjd ? "已完成" :"未完成"}}</text>
         </view>
         <view class='lineh'></view>

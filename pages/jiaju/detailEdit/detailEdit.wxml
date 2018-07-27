@@ -26,7 +26,7 @@
                 {{configInfo.price[ysIndex]}}
               </view>
             </picker>
-            <input type='text' name="price" class='ipt-text-hidden' value='{{configInfo.price[ysIndex]}}' />
+            <input type='text' name="price" class='ipt-text-hidden' value='{{ysIndex}}' />
             <text class='iconfont icon-jiantou icon-cpic'></text>
           </view>
 

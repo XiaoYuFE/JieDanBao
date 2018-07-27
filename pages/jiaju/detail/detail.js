@@ -23,7 +23,7 @@ Page({
     console.group("detail页面onLoad事件");
     console.dir(options);
     this.setData({
-      id: 520,
+      id: options.id,
       fromWhere: options.fromWhere ? options.fromWhere :""
     })
   },

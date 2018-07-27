@@ -26,14 +26,6 @@ Page({
         step:options.step,
         stepName: this._formatStepName(options.step)
       });
-
-      app.form.requestPost(app.form.API_CONFIG.jiaju.process_order, {
-         id:that.data.id
-      }, function (res) {
-          that.setData({
-            dataInfo:res.data
-          });
-      });
   },
 
   _formatStepName: function (stepType) {
@@ -61,6 +53,17 @@ Page({
     return step;
   },
 
+  _getData:function(){
+    var that=this;
+    app.form.requestPost(app.form.API_CONFIG.jiaju.process_order, {
+      id: that.data.id
+    }, function (res) {
+      that.setData({
+        dataInfo: res.data
+      });
+    });
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -72,7 +75,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-   
+    this._getData();
   },
 
   /**
