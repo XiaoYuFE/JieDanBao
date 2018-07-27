@@ -1,7 +1,7 @@
 {
   "pages": [ 
-    
-   "pages/splash/splash",
+    "pages/login/login",
+    "pages/splash/splash",
     "pages/jiaju/index/index",
     "pages/jiaju/detail/detail",
    "pages/jiaju/detailEdit/detailEdit",
@@ -25,7 +25,7 @@
    
    
     
-    "pages/login/login",
+    
     
 
    

@@ -10,10 +10,11 @@ App({
       success: function (res) {
         var name = 'iPhone X'
         if (res.model.indexOf(name) > -1) {
-          that.globalData.isIpx = true
+          that.globalData.isIpx = true;
         }
       }
     });
+    wx.redirectTo({ url: '/pages/splash/splash' });
   },
   //每次关闭后在进来（不管有没有删除都会触发这个事件）
   onShow: function (options){

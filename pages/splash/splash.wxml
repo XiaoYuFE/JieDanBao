@@ -1,6 +1,6 @@
 <view class="mod-1">
     <image src='https://wnworld.com/images/jiedanbang/splash/banner.jpg' mode='aspectFill'></image>
-    <view class='btn-jd' bindtap='splashEntrance'>立刻接单</view>
+    <view class='btn-jd' bindtap='splashEntrance'>立即接单</view>
 </view>
 
 <!-- <view class="mod-1">
