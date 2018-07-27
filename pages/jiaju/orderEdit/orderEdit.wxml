@@ -111,7 +111,7 @@
         </view>
       </view>
 
-       <input type='text' wx-if="{{dataInfo.dlf==1 && dataInfo.dsj==0}}" maxlength="-1" class='ipt-hidden' name="imgs" value="{{sj_img_str}}"></input>
+       <input type='text' wx-if="{{dataInfo.dlf==1 && dataInfo.dsj==0}}" maxlength="-1" class='ipt-hidden' name="imgs" value="{{sj_img_str_server}}"></input>
 
       <text class='txt-statu success' wx-if="{{dataInfo.dsj==1}}">已完成</text>
 

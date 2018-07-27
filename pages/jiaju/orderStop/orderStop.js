@@ -16,6 +16,8 @@ Page({
     animationData: {},
     ht_img: [],
     ht_img_str: "",
+    ht_img_server: [],
+    ht_img_str_server: "",
     radioVal: "void",
 
     rules: {},
@@ -71,12 +73,15 @@ Page({
             },
             success: function(res) {
               const imgArr = that.data.ht_img;
+              var imgServer=that.data.ht_img_server;
               res.data = JSON.parse(res.data);
               imgArr.push(res.data.data["full_url"]);
-
+              imgServer.push(res.data.data["url"]);
               that.setData({
                 ht_img: imgArr,
-                ht_img_str: imgArr.join(",")
+                ht_img_str: imgArr.join(","),
+                ht_img_server: imgServer,
+                ht_img_str_server: imgServer.join(","),
               });
 
             }
@@ -89,10 +94,14 @@ Page({
   delHtUpload: function (e) {
     var index = e.target.dataset.index;
     const ht_img = this.data.ht_img;
+    var ht_img_server = this.data.ht_img_server;
     ht_img.splice(index, 1);
+    ht_img_server.splice(index, 1);
     this.setData({
       ht_img: ht_img,
-      ht_img_str: ht_img.join(",")
+      ht_img_str: ht_img.join(","),
+      ht_img_server: ht_img_server,
+      ht_img_str_server: ht_img_server.join(","),
     });
   },
 

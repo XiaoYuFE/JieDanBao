@@ -21,8 +21,14 @@ Page({
     sj_img: [],
     sj_img_str:"",
 
+    sj_img_server: [],
+    sj_img_str_server: "",
+
     ht_img: [],
     ht_img_str:"",
+
+    ht_img_server: [],
+    ht_img_str_server: "",
 
     step: "",
     stepName: "",
@@ -194,10 +200,14 @@ Page({
   delSjUpload: function(e) {
     var index = e.target.dataset.index;
     const sj_img = this.data.sj_img;
+    var sj_img_server = this.data.sj_img_server;
     sj_img.splice(index, 1);
+    sj_img_server.splice(index, 1);
     this.setData({
       sj_img: sj_img,
-      sj_img_str: sj_img.join(",")
+      sj_img_str: sj_img.join(","),
+      sj_img_server: sj_img_server,
+      sj_img_str_server: sj_img_server.join(",")
     });
   },
 
@@ -224,12 +234,16 @@ Page({
             success: function(res) {
               console.dir("asdfasdfasd");
               var imgArr = that.data.sj_img;
+              var imgServer = that.data.sj_img_server;
               res.data = JSON.parse(res.data);
               imgArr.push(res.data.data["full_url"]);
-
+              imgServer.push(res.data.data["url"]);
+             
               that.setData({
                 sj_img: imgArr,
-                sj_img_str:imgArr.join(",")
+                sj_img_str:imgArr.join(","),
+                sj_img_server: imgServer,
+                sj_img_str_server: imgServer.join(","),
               });
 
             }
@@ -242,10 +256,14 @@ Page({
   delHtUpload: function(e) {
     var index = e.target.dataset.index;
     const ht_img = this.data.ht_img;
+    const ht_img_server = this.data.ht_img_server;
     ht_img.splice(index, 1);
+    ht_img_server.splice(index, 1);
     this.setData({
       ht_img: ht_img,
-      ht_img_str: ht_img.join(",")
+      ht_img_str: ht_img.join(","),
+      ht_img_server: ht_img_server,
+      ht_img_server_str: ht_img_server.join(",")
     });
   },
 
@@ -271,12 +289,15 @@ Page({
             },
             success: function(res) {
               const imgArr = that.data.ht_img;
+              var imgServer = that.data.ht_img_server;
               res.data = JSON.parse(res.data);
               imgArr.push(res.data.data["full_url"]);
-
+              imgServer.push(res.data.data["url"]);
               that.setData({
                 ht_img: imgArr,
-                ht_img_str: imgArr.join(",")
+                ht_img_str: imgArr.join(","),
+                sj_img_server: imgServer,
+                sj_img_str_server: imgServer.join(","),
               });
 
             }

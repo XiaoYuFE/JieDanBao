@@ -44,7 +44,7 @@
           <text class='icon-jianhao iconfont icon-cpic' data-index="{{idx}}" bindtap='delHtUpload'></text>
           <image src='{{item}}' mode='{{aspectFill}}'></image>
         </view>
-        <input type='text' maxlength="-1" class='ipt-hidden' name="imgs" value="{{ht_img_str}}"></input>
+        <input type='text' maxlength="-1" class='ipt-hidden' name="imgs" value="{{ht_img_str_server}}"></input>
         <view class='upload-addbtn' bindtap='uploadHeTong'>
           <text class='iconfont icon-tianjia icon-cadd'></text>
         </view>
