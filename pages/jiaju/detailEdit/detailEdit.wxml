@@ -13,7 +13,7 @@
       <view class='item-cell clearfix'>
         <text class='lab'>小区名称</text>
         <view class="para-item">
-          <input type='text'  disabled='{{!!dataInfo.community ? true:false}}' name="community" class='ipt-text {{!!dataInfo.community ? "disabled":""}}' value='{{dataInfo.community}}' placeholder='未填写' placeholder-class='ipt-placeholder' />
+          <input type='text'  disabled='{{!!dataInfo.community ? true:false}}' name="community" class='ipt-text ipt-nopadding {{!!dataInfo.community ? "disabled":""}}' value='{{dataInfo.community}}' placeholder='未填写' placeholder-class='ipt-placeholder' />
         </view>
       </view>
       <view class='item-cell clearfix'>
@@ -44,7 +44,7 @@
             <input wx-if="{{!dataInfo.d_type}}" type='text' name="d_type" class='ipt-text-hidden' value='{{fsIndex+1}}' />
             <text class='iconfont icon-jiantou icon-cpic' wx-if="{{!dataInfo.d_type}}"></text>
 
-             <input type='text' wx-if="{{dataInfo.d_type}}" disabled='{{dataInfo.d_type ? "disabled":""}}' name="d_type" class='ipt-text {{!!dataInfo.d_type ? "disabled":""}}' value='{{dataInfo.d_type}}' placeholder='未填写'  />
+             <input type='text' wx-if="{{dataInfo.d_type}}" disabled='{{dataInfo.d_type ? "disabled":""}}' name="d_type" class='ipt-text  {{!!dataInfo.d_type ? "disabled":""}}' value='{{dataInfo.d_type}}' placeholder='未填写'  />
          
         </view>
 
@@ -107,13 +107,13 @@
       <view class='item-cell clearfix'>
         <text class='lab'>装修日期</text>
         <view class="para-item">
-            <input type='text' disabled='{{dataInfo.d_date ? "disabled":""}}' name="d_date" class='ipt-text {{!!dataInfo.d_date ? "disabled":""}}' value='{{dataInfo.d_date}}' placeholder='未填写' placeholder-class='ipt-placeholder' />
+            <input type='text' disabled='{{dataInfo.d_date ? "disabled":""}}' name="d_date" class='ipt-text ipt-nopadding {{!!dataInfo.d_date ? "disabled":""}}' value='{{dataInfo.d_date}}' placeholder='未填写' placeholder-class='ipt-placeholder' />
         </view>
       </view>
       <view class='item-cell clearfix'>
         <text class='lab'>服务备注</text>
         <view class="para-item">
-          <input type='text' disabled='{{dataInfo.remark ? "disabled":""}}' name="remark" class='ipt-text {{!!dataInfo.remark ? "disabled":""}}' value='{{dataInfo.remark}}' placeholder='未填写' placeholder-class='ipt-placeholder' />
+          <input type='text' disabled='{{dataInfo.remark ? "disabled":""}}' name="remark" class='ipt-text ipt-nopadding {{!!dataInfo.remark ? "disabled":""}}' value='{{dataInfo.remark}}' placeholder='未填写' placeholder-class='ipt-placeholder' />
         </view>
       </view>
     </view>
