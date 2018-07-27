@@ -94,7 +94,7 @@
           <view class='uploadgallery-list clearfix'>
             <view class='pic' wx:for="{{sj_img}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
               <text class='icon-jianhao iconfont icon-cpic' data-index="{{idx}}" bindtap='delSjUpload'></text>
-              <image src='{{item}}' mode='{{aspectFill}}'></image>
+              <view class="img-wrap"><image src='{{item}}' data-src="{{item}}" data-index="{{idx}}" mode='aspectFit' bindtap='previewFaImg'></image></view>
               
             </view>
             <!-- <view class='pic'>
@@ -181,7 +181,7 @@
           <view class='uploadgallery-list clearfix'>
             <view class='pic' wx:for="{{ht_img}}" wx:key="id" wx:for-index="idx" wx:for-item="item">
               <text class='icon-jianhao iconfont icon-cpic' data-index="{{idx}}" bindtap='delHtUpload'></text>
-              <image src='{{item}}' mode='{{aspectFill}}'></image>
+              <view class="img-wrap"><image src='{{item}}' data-src="{{item}}" data-index="{{idx}}" mode='aspectFit' bindtap='previewHtImg'></image></view>
             </view>
             <!-- <view class='pic'>
             <text class='icon-jianhao iconfont icon-cpic'></text>

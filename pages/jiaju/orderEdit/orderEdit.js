@@ -51,7 +51,7 @@ Page({
     console.dir(options);
     var that=this;
     this.setData({
-      id:options.id
+      id: options.id
     })
 
     app.form.requestPost(app.form.API_CONFIG.jiaju.process_order, {
@@ -105,6 +105,21 @@ Page({
     wx.showModal({
       content: '为了保证服务效率与质量，提升用户体验，一些环节会设置服务剩余时间。请在剩余时间内及时完成服务，否则该订单有可能会失效，不能再联系客户。',
       showCancel: false
+    })
+  },
+
+  previewFaImg:function(e){
+   
+    wx.previewImage({
+      current: e.target.dataset.src, // 当前显示图片的http链接
+      urls: this.data.sj_img // 需要预览的图片http链接列表
+    })
+  },
+  previewHtImg: function (e) {
+   
+    wx.previewImage({
+      current: e.target.dataset.src, // 当前显示图片的http链接
+      urls: this.data.ht_img // 需要预览的图片http链接列表
     })
   },
 
@@ -227,7 +242,7 @@ Page({
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function(res) {
-        console.dir(app.form.API_CONFIG.jiaju.upload_img);
+        
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths;
       
@@ -241,7 +256,7 @@ Page({
               ukey: app.globalData.sessionJdbUkey
             },
             success: function(res) {
-              console.dir("asdfasdfasd");
+             
               var imgArr = that.data.sj_img;
               var imgServer = that.data.sj_img_server;
               res.data = JSON.parse(res.data);

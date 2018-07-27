@@ -74,14 +74,14 @@
       <view class='item-cell clearfix'>
         <text class='lab'>房屋情况</text>
         <view class="para-item">
-          <input type='text' name="fwqk" class='ipt-text' wx-if="{{dataInfo.fwqk}}" value='{{dataInfo.fwqk}}' />
+          <input type='text' name="fwqk" disabled='{{dataInfo.fwqk ? true :false}}' class='ipt-text {{dataInfo.fwqk ? "disabled" :""}}' wx-if="{{dataInfo.fwqk}}" value='{{dataInfo.fwqk}}' />
           <view wx-if="{{!dataInfo.fwqk}}">
             <picker value="{{fwqkIndex}}" bindchange='bindPickerChangeQk' range="{{configInfo.fwqk}}" range-key="{{'name'}}">
               <view class="picker">
                 {{configInfo.fwqk[fwqkIndex].name}}
               </view>
             </picker>
-            <input type='text' name="fwqk" class='ipt-text-hidden' value='{{fwqkIndex+1}}' />
+            <input type='text' wx-if="{{!dataInfo.fwqk}}"  name="fwqk" class='ipt-text-hidden' value='{{fwqkIndex+1}}' />
             <text class='iconfont icon-jiantou icon-cpic'></text>
           </view>
         </view>
@@ -90,8 +90,8 @@
         <text class='lab'>期望风格</text>
         <view class="para-item">
 
-          <input type='text' name="d_style" class='ipt-text' wx-if="{{dataInfo.d_style}}" value='{{dataInfo.d_style}}' />
-          <text class='default-tip' wx-if="{{!dataInfo.d_style}}">请选择</text>
+          <input type='text' name="d_style" class='ipt-text  {{dataInfo.d_style ? "disabled" :""}}' wx-if="{{dataInfo.d_style}}" value='{{dataInfo.d_style}}' />
+          <text class='default-tip' wx-if="{{!dataInfo.d_style && !qwfgObjIdStr}}">请选择</text>
           <view wx-if="{{!dataInfo.d_style}}">
             <picker value="{{qwfgIndex}}" bindchange='bindPickerChangeQwfg' range="{{configInfo.d_style}}" range-key="{{'name'}}">
               <view class="picker">

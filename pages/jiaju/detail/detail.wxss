@@ -269,6 +269,7 @@
   display: inline-block;
   vertical-align: middle;
   margin-left: 10rpx;
+  margin-top: -2rpx;
 }
 
 .top-nav .c-timing .tip-lab {
@@ -279,7 +280,7 @@
 
 .top-nav .c-timing .time-count {
   float: left;
-  width:220rpx;
+  width:205rpx;
  
 }
 

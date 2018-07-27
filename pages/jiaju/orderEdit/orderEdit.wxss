@@ -143,9 +143,8 @@ page {
 }
 
 .uploadgallery-list .pic {
-  width: 108rpx;
-  height: 108rpx;
-  border: 1px solid #e5e5e5;
+
+  
   float: left;
   margin-left: 28rpx;
   margin-top: 10rpx;
@@ -157,7 +156,14 @@ page {
   max-width: 100%;
   max-height: 100%;
 }
+.uploadgallery-list .pic .img-wrap{
+border: 1px solid #e5e5e5;
+border-radius: 10rpx;
 
+overflow:hidden;  
+  width: 108rpx;
+  height: 108rpx;
+}
 .uploadgallery-list .icon-cpic {
   color: #fe7581;
   font-size: 34rpx;
