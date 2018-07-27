@@ -59,7 +59,7 @@ Page({
       });
 
     }
-    this._getData();
+   
     
    
     
@@ -86,6 +86,7 @@ Page({
   onShow: function() {
     console.group("onShow事件");
     var that = this;
+    this._getData();
   },
 
   _getData: function() {
