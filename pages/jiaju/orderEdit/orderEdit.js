@@ -29,7 +29,7 @@ Page({
 
     ht_img_server: [],
     ht_img_str_server: "",
-
+    nextStep:"",
     step: "",
     stepName: "",
     lfTime: "", //判断量房时间，然后显示提示文字
@@ -37,7 +37,7 @@ Page({
     dateTimeArray1: null,
     dateTime1: null,
     startYear: 2010,
-    stepName: "",
+   
     endYear: 2050
   },
 
@@ -122,7 +122,9 @@ Page({
           duration: 2000,
           success:function(){
             setTimeout(function(){
-              wx.navigateBack();
+              wx.navigateTo({
+                url: '/pages/jiaju/order/order?id=' + that.data.id + "&step=" + that.data.stepNext+"&stepName=" + that.data.stepName
+              })
             },1500)
           }
         })
@@ -135,6 +137,7 @@ Page({
       }
     })
   },
+ 
   //单选按钮改变的时候
   radioChange: function(e) {
     console.dir("radioChange");
@@ -177,23 +180,29 @@ Page({
   _getStepName: function(data) {
     var that = this;
     var step = "",
+    stepNext,
       stepName = "";
     if (data.wjd == 0) {
       step = "wjd";
       stepName = "未接单";
+      stepNext="dlf";
     } else if (data.wjd == 1 && data.dlf == 0) {
       step = "dlf";
       stepName = "待量房";
+      stepNext = "dsj";
     } else if (data.wjd == 1 && data.dlf == 1 && data.dsj == 0) {
       step = "dsj";
       stepName = "待设计";
+      stepNext = "dqy";
     } else if (data.wjd == 1 && data.dlf == 1 && data.dsj == 1 && data.dqy == 0) {
       step = "dqy";
       stepName = "待签约";
+      stepNext = "yqy";
     }
     that.setData({
       step: step,
-      stepName: stepName
+      stepName: stepName,
+      stepNext: stepNext
     })
 
   },
