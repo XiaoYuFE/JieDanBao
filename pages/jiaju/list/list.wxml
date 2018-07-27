@@ -79,10 +79,10 @@
         <text class='clab'>{{item.d_time >= 0 ? "剩余时间":"已超时"}}:</text>
         <view class='c-timing'>{{wxTimerList[item.id].formatHour}}时{{wxTimerList[item.id].formatMinute}}分{{wxTimerList[item.id].formatSecond}}秒</view>
       </view>
-      <navigator url='/pages/jiaju/detail/detail?id={{item.id}}' class='cnavigator' wx-if="{{orderType!='wjd'? true :false}}">{{item.format_stepname}}
+      <navigator url='/pages/jiaju/detail/detail?id={{item.id}}' class='cnavigator' wx-if="{{item.step!='wjd'? true :false}}">{{item.format_stepname}}
         <text class='iconfont icon-jiantou txt-arrow'></text>
       </navigator>
-       <view class="cmakecall" data-phone="{{item.mobile}}" bindtap='makePhoneCall' wx-if="{{orderType!='wjd'? true :false}}">
+       <view class="cmakecall" data-phone="{{item.mobile}}" bindtap='makePhoneCall' wx-if="{{item.step!='wjd' && item.step !='void' && item.step !='ysx'}}">
       <text class='iconfont icon-phone-1 icon-cpic'></text>联系客户</view>
     </view>
     <!--联系客户  处理中和已结束才会有的  -->

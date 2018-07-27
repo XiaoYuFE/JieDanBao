@@ -30,6 +30,7 @@ Page({
    */
   onLoad: function(options) {
     this._initValidate();
+    console.dir(options);
     this.setData({
       id: options.id,
       step: options.step,

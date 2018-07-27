@@ -34,7 +34,7 @@ Page({
         orderStep: options.step,
       });
    
-      this._getData();
+      
   },
 
   /**
@@ -48,7 +48,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this._getData();
   },
   navMainHandle:function(e){
     //点击的是同一个选项返回

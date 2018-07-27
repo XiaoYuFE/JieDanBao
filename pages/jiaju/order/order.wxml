@@ -1,7 +1,13 @@
 <view class="header-top">
   <text class='tit'>订单流程</text>
-  <text class='tip'>{{dataInfo.dqy==1 ? "恭喜你，完成订单所有流程":"为了保证派单量，请及时更新订单"}}</text>
-  <navigator wx-if="{{dataInfo.dqy !=1}}" url='/pages/jiaju/orderStop/orderStop?id={{id}}&step={{step}}&stepname={{stepName}}' class='server-stop'>
+  <view class='tip'>
+      <text wx:if="{{step=='ysq'}}">恭喜你，完成订单所有流程</text>
+      <text wx:elif="{{step=='void'}}">该订单已终止服务</text>
+      <text wx:elif="{{step=='ysx'}}">该订单已失效</text>
+      <text wx:else>为了保证派单量，请及时更新订单</text>
+      
+  </view>
+  <navigator wx-if="{{step!='yqy' && step !='void' && step !='ysx'}}" url='/pages/jiaju/orderStop/orderStop?id={{id}}&step={{step}}&stepname={{stepName}}' class='server-stop'>
     <text class='iconfont icon-gantanhao icon-cpic'></text>终止服务</navigator>
 </view>
 
@@ -11,7 +17,7 @@
         <view class='cell-info'>
             <view class='name'>接单</view>
             <view class='time-finsh' wx-if="{{dataInfo.step=='wjd'}}">完成时间：{{dataInfo.receive_time}}</view> 
-            <text class='txt-statu {{dataInfo.wjd==1 ? "success" :""}}'>{{dataInfo.wjd ? "已完成" :"未完成"}}</text>
+            <text class='txt-statu {{dataInfo.wjd==1 ? "success" :""}}'>{{dataInfo.wjd==1 ? "已完成" :"未完成"}}</text>
         </view>
         <view class='lineh'></view>
     </view>
@@ -59,7 +65,7 @@
 </view>
 
 
-<view class='fixed-bottom-seat'></view>
-<view class='fixed-bottom-btn'>
-   <navigator url='/pages/jiaju/orderEdit/orderEdit?id={{id}}' class='btn-update'>更新流程</navigator>
+<view class='fixed-bottom-seat' wx-if="{{step!='yqy' && step !='void' && step !='ysx'}}"></view>
+<view class='fixed-bottom-btn' wx-if="{{step!='yqy' && step !='void' && step !='ysx'}}">
+   <navigator url='/pages/jiaju/orderEdit/orderEdit?id={{id}}&step={{step}}' class='btn-update'>更新流程</navigator>
 </view>

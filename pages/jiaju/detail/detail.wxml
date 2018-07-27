@@ -14,7 +14,7 @@
 
 
 <view class='top-nav'>
-  <navigator url='/pages/jiaju/order/order?id={{dataInfo.id}}'>
+  <navigator url='/pages/jiaju/order/order?id={{dataInfo.id}}&step={{dataInfo.step}}'>
     <view class='txt-1'>{{dataInfo.format_stepname}}
       <text class='iconfont icon-jiantou txt-arrow'></text>
     </view>
@@ -34,7 +34,7 @@
 <view class='houseinfo-box'>
   <view class='houseinfo-caption clearfix'>
     <text>订单信息</text>
-    <navigator url='/pages/jiaju/detailEdit/detailEdit?id={{id}}'>补全信息</navigator>
+    <navigator wx-if="{{dataInfo.step!='wjd' && dataInfo.step !='void' && dataInfo.step !='ysx'}}" url='/pages/jiaju/detailEdit/detailEdit?id={{id}}'>补全信息</navigator>
   </view>
   <view class='houseinfo-list'>
     <view class='item-cell clearfix'>
@@ -137,6 +137,6 @@
 
 
 
-<view class="gobackhome" wx:if="{{!!fromWhere}}">
+<!-- <view class="gobackhome" wx:if="{{!!fromWhere}}">
   <navigator url="/pages/jiaju/index/index" class='iconfont icon-home'></navigator>
-</view>
+</view> -->
