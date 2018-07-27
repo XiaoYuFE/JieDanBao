@@ -20,9 +20,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.group("detail页面onLoad事件");
     console.dir(options);
     this.setData({
-      id: options.id,
+      id: 520,
       fromWhere: options.fromWhere ? options.fromWhere :""
     })
   },
@@ -103,19 +104,19 @@ Page({
         step.tip = "设置设计方案时间，及时提醒不跑单";
         break;
       case "dqy":
-        step.stepName = "签约待完成";
-        step.tip = "设置签约信息，及时提醒不跑单";
+        step.stepName = "合同签约待完成";
+        step.tip = "请及时更新订单";
         break;
       case "yqy":
-        step.stepName = "已签约";
+        step.stepName = "合同签约已完成";
         step.tip = "";
         break;
       case "void":
-        step.stepName = "未成单";
+        step.stepName = "已终止服务";
         step.tip = "";
         break;
       case "ysx":
-        step.stepName = "已失效";
+        step.stepName = "订单已失效";
         step.tip = "";
         break;
     }

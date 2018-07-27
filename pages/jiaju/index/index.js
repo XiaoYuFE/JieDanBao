@@ -8,6 +8,7 @@ Page({
     dataInfo: {},
     wxTimerList: {},
     fromWhere:"",
+    fromId:"",
     fromDataInfo:{},
     wxTimerInstance: {},
     newDiaToggle: false,
@@ -19,10 +20,10 @@ Page({
     //获取配置信息
     this.setData({
       xyUserInfo: app.globalData.sessionJdbUserInfo,
-      // fromWhere:options.from ? options.from :"",
+      // fromWhere:options.fromWhere ? options.fromWhere :"",
       // fromId:options.fromId,
       fromWhere:"xxx",
-      fromId:482
+      fromId:527
     });
     app.form.tracking('jdb_index', 'jdb_index', '');
     //如果是从推送消息来的，要去请求

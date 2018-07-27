@@ -1,3 +1,17 @@
+.new-result-hd .tit{
+    color: #333333;
+    font-size: 36rpx;
+    text-align: center;
+}
+
+.new-result-hd .subtit{
+    color:#999999;
+    padding-top: 8rpx;
+    font-size: 28rpx;
+    text-align: center; 
+    margin-top:15rpx;
+}
+
 .dialog-new-result {
   background: #fff;
   border-radius: 10rpx;
@@ -265,7 +279,7 @@
 
 .top-nav .c-timing .time-count {
   float: left;
-  width:190rpx;
+  width:220rpx;
  
 }
 

@@ -198,18 +198,18 @@ Page({
     
    
   },
-  ljjdHandleBtn: function () {
+  ljjdHandleBtn: function (e) {
     //请求数据
     var that = this;
     wx.showLoading();
     app.form.requestPost(app.form.API_CONFIG.jiaju.opt_orders, {
-      id: that.data.dataInfo.new_order.id,
+      id: e.target.dataset.id,
       step: "wjd"
     }, function (res) {
       wx.hideLoading();
       if (!!res.status) {
         wx.navigateTo({
-          url: '/pages/jiaju/detail/detail?fromWhere=dialog&id=' + that.data.dataInfo.new_order.id,
+          url: '/pages/jiaju/detail/detail?fromWhere=dialog&id=' + e.target.dataset.id,
         })
       }
     });

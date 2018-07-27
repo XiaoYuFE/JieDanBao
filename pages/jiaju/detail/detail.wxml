@@ -15,22 +15,19 @@
 
 <view class='top-nav'>
   <navigator url='/pages/jiaju/order/order?id={{dataInfo.id}}'>
-
     <view class='txt-1'>{{dataInfo.format_stepname}}
       <text class='iconfont icon-jiantou txt-arrow'></text>
     </view>
-      </navigator>
-    <text class='txt-2' wx-if="{{!dataInfo.d_time}}">{{dataInfo.format_steptip}}</text>
+  </navigator>
+  <text class='txt-2' wx-if="{{!dataInfo.d_time}}">{{dataInfo.format_steptip}}</text>
 
     <!-- 设置待量房 -->
-    <view class='time-confirm' wx-if="{{dataInfo.l_time && dataInfo.step=='dlf' }}">
-      <text>量房时间：</text>{{dataInfo.l_time}}
-    </view>
+   
     <view class='time-confirm' wx-if="{{dataInfo.l_time && dataInfo.step=='dsj' }}">
       <text>设计时间：</text>{{dataInfo.sj_time}}
     </view>
     <view class='c-timing clearfix' wx-if="{{dataInfo.d_time && (dataInfo.step=='dlf' ||dataInfo.step=='dsj' )}}">
-      <text class='tip-lab'>{{dataInfo.d_time < 0 ?"已经超时":"剩余时间"}}：</text><view class="time-count">{{wxTimerList["wxTimer"].formatHour}}时{{wxTimerList["wxTimer"].formatMinute}}分{{wxTimerList["wxTimer"].formatSecond}}秒</view><text class='iconfont icon-tishi  icon-cpic' bindtap='openTipDialog'></text></view>
+      <text class='tip-lab'>{{dataInfo.d_time < 0 ?"已超时":"剩余时间"}}：</text><view class="time-count">{{wxTimerList["wxTimer"].formatHour}}时{{wxTimerList["wxTimer"].formatMinute}}分{{wxTimerList["wxTimer"].formatSecond}}秒</view><text class='iconfont icon-tishi  icon-cpic' bindtap='openTipDialog'></text></view>
 
 </view>
 

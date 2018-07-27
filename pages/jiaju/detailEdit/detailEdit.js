@@ -133,12 +133,26 @@ Page({
   },
 
   formSubmit:function(e){
+    var that=this;
       wx.showLoading();
-      app.form.requestPost(app.form.API_CONFIG.jiaju.edit_signup,e, function (res) {
+      app.form.requestPost(app.form.API_CONFIG.jiaju.edit_signup,e.detail.value, function (res) {
         console.dir(res);
-        that.setData({
-          configInfo: res.data
-        });
+        if(res.status==1){
+          wx.showToast({
+            title: '信息更新成功！',
+            icon: 'success',
+            duration: 2000
+          })
+          setTimeout(function(){
+            wx.navigateBack();
+          },2000)
+        }else{
+          wx.showToast({
+            title: '信息更新失败！',
+            duration: 2000
+          })
+        }
+        
 
       });
 
