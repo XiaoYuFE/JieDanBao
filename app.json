@@ -7,7 +7,11 @@
     "pages/jiaju/detail/detail",
    
     "pages/jiaju/orderEdit/orderEdit",
+
     "pages/jiaju/detailEdit/detailEdit",
+
+    "pages/map/map",
+
     
     "pages/jiaju/orderStop/orderStop",
     
