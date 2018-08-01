@@ -31,7 +31,8 @@ Page({
       if (res.status !== 1) {
         wx.showModal({ content: res.msg, showCancel: false })
       }else{
-        that.setData({ bind_title: res.data.bind_title, bind: res.data.is_bind})
+        wx.showModal({ content: res.data.show_title, showCancel: false })
+        that.setData({ bind_title: res.data.bind_title, is_bind: res.data.is_bind})
       }
     })
   },
