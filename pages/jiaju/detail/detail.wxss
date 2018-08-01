@@ -280,7 +280,7 @@
 
 .top-nav .c-timing .time-count {
   float: left;
-  width:205rpx;
+  width:270rpx;
  
 }
 

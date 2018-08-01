@@ -20,3 +20,7 @@
     </view>
   </form>
 </view>
+
+
+
+<button open-type="contact" class='bt-tip'>没有帐号？免费入驻接单宝</button>

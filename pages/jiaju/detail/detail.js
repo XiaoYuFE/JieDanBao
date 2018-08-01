@@ -12,6 +12,7 @@ Page({
     id:"",
     fromWhere:"",
     dataInfo:"",
+    lftimeEmty:true,
     wxTimerList: {}, //存放倒计时
     wxTimerInstance: null,
   },
@@ -21,11 +22,12 @@ Page({
    */
   onLoad: function (options) {
     console.group("detail页面onLoad事件");
-    console.dir(options);
+   
     this.setData({
       id: options.id,
       fromWhere: options.fromWhere ? options.fromWhere :""
     })
+    
   },
 
   _clearIntervalWxtimer: function () {
@@ -36,7 +38,7 @@ Page({
     var that = this;
     var wxTimerName = new timer({
       beginTime: item,
-      formatType: "HMS",
+      formatType: "DHMS",
       name: "wxTimer",
       complete: function () {
         console.log("完成了")
@@ -52,29 +54,40 @@ Page({
   
 
  
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onPullDownRefresh: function () {
+    console.group("onPullDownRefresh");
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    this._getData("onPullDownRefresh");
+  },
+  onShow:function(){
+    this._getData();
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+
+
+  _getData:function(typeStr){
     var that=this;
     app.form.requestPost(app.form.API_CONFIG.jiaju.order_info, {
       id: that.data.id
     }, function (res) {
-        console.dir(res);
-        var stepObj = that._formatStepName(res.data.step);
-        res.data.format_stepname = stepObj.stepName;
-        res.data.format_steptip = stepObj.tip;
-        that._countDown(res.data.d_time)
+      that._clearIntervalWxtimer();
+      if (typeStr = "onPullDownRefresh") {
+        wx.hideNavigationBarLoading() //完成停止加载
+        wx.stopPullDownRefresh() //停止下拉刷新
+      }
+      var stepObj = that._formatStepName(res.data.step);
+      res.data.format_stepname = stepObj.stepName;
+      res.data.format_steptip = stepObj.tip;
+      that._countDown(res.data.d_time)
+      that.setData({
+        dataInfo: res.data
+      });
+
+      if (res.data.l_time.indexOf("0000") < 0) {
         that.setData({
-          dataInfo:res.data
+          lftimeEmty: false
         })
+      }
     });
   },
 
@@ -129,38 +142,6 @@ Page({
       })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  
+  
 })

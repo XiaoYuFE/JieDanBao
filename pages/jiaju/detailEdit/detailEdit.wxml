@@ -107,7 +107,13 @@
       <view class='item-cell clearfix'>
         <text class='lab'>装修日期</text>
         <view class="para-item">
-            <input type='text' disabled='{{dataInfo.d_date ? "disabled":""}}' name="d_date" class='ipt-text ipt-nopadding {{!!dataInfo.d_date ? "disabled":""}}' value='{{dataInfo.d_date}}' placeholder='未填写' placeholder-class='ipt-placeholder' />
+            <picker wx-if="{{!dataInfo.d_date}}" class='{{!dataInfo.d_date && !zxrqData ? "picker-ddate-hidden":"picker-ddate"}}' mode="multiSelector" value="{{dateTime1}}" bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" range="{{dateTimeArray1}}">
+            <view class="tui-picker-detail">
+              {{dateTimeArray1[0][dateTime1[0]]}}-{{dateTimeArray1[1][dateTime1[1]]}}-{{dateTimeArray1[2][dateTime1[2]]}}
+            </view>
+          </picker>
+          <input type='text' name="d_date" class='ipt-text  {{zxrqData ? "ipt-ddate-hidden" :""}}' value='{{dataInfo.d_date || zxrqData}}' placeholder='请选择' placeholder-class='ipt-placeholder' />
+          <text class='iconfont icon-jiantou icon-cpic'></text>
         </view>
       </view>
       <view class='item-cell clearfix'>

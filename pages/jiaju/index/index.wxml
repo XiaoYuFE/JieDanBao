@@ -8,23 +8,23 @@
   <view class='dialog-new-bd'>
     <view class='item-cell clearfix'>
       <text class='lab'>姓名：</text>
-      <view class="para-val">{{fromDataInfo.realname}}</view>
+      <view class="para-val {{!fromDataInfo.realname ? 'para-val-no' :''}}">{{fromDataInfo.realname}}</view>
     </view>
     <view class='item-cell clearfix'>
       <text class='lab'>手机：</text>
-      <view class="para-val">{{fromDataInfo.mobile}}</view>
+      <view class="para-val {{!fromDataInfo.mobile ? 'para-val-no' :''}}">{{fromDataInfo.mobile}}</view>
     </view>
     <view class='item-cell clearfix'>
       <text class='lab'>小区：</text>
-      <view class="para-val">{{fromDataInfo.community || "未填写"}}</view>
+      <view class="para-val {{!fromDataInfo.community ? 'para-val-no' :''}}">{{fromDataInfo.community || "未填写"}}</view>
     </view>
     <view class='item-cell clearfix'>
       <text class='lab'>预算：</text>
-      <view class="para-val">{{fromDataInfo.price || "未填写"}}</view>
+      <view class="para-val {{!fromDataInfo.price ? 'para-val-no' :''}}">{{fromDataInfo.price || "未填写"}}</view>
     </view>
     <view class='item-cell clearfix'>
       <text class='lab'>订单有效期：</text>
-      <view class="para-val">
+      <view class="para-val para-val-time">
         {{wxTimerList["fromSendwxTimer"].formatMinute}}分{{wxTimerList["fromSendwxTimer"].formatSecond}}秒
       </view>
     </view>

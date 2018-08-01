@@ -47,7 +47,6 @@
   border-bottom: 1rpx solid #e5e5e5;
   padding-bottom: 15rpx;
   padding-top: 15rpx;
- 
 }
 
 .dialog-new-bd .item-cell{
@@ -69,6 +68,13 @@
 .dialog-new-bd .item-cell .para-val{
   color:#333333; 
   font-size:28rpx; 
+}
+
+.dialog-new-bd .item-cell .para-val.para-val-no{
+  color:#999; 
+}
+.dialog-new-bd .item-cell .para-val.para-val-time{
+   color:#fe7581;
 }
 
 .ordernew-card-box .time-count{
@@ -547,19 +553,19 @@
 }
 
 .orderfinsh-box .item-cell.item-wcd .num{
-  color:#fe7581; 
+  color:#c4c4c7; 
 }
 
 .orderfinsh-box .item-cell.item-wcd .txt{
-  background:#fe7581; 
+  background:#c4c4c7; 
 }
 
 .orderfinsh-box .item-cell.item-ysx .num{
-  color:#e0e0e0; 
+  color:#c4c4c7; 
 }
 
 .orderfinsh-box .item-cell.item-ysx .txt{
-  background:#e0e0e0; 
+  background:#c4c4c7; 
 }
 
 

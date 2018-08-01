@@ -19,15 +19,18 @@
       <text class='iconfont icon-jiantou txt-arrow'></text>
     </view>
   </navigator>
-  <text class='txt-2' wx-if="{{!dataInfo.d_time}}">{{dataInfo.format_steptip}}</text>
+  <text class='txt-2' wx-if="{{!dataInfo.d_time && lftimeEmty}}">{{dataInfo.format_steptip}}</text>
 
     <!-- 设置待量房 -->
    
     <view class='time-confirm' wx-if="{{dataInfo.l_time && dataInfo.step=='dsj' }}">
       <text>设计时间：</text>{{dataInfo.sj_time}}
     </view>
+    <view class='time-confirm' wx-if="{{dataInfo.step=='dlf' && !lftimeEmty }}">
+      <text>量房时间：</text>{{dataInfo.l_time}}
+    </view>
     <view class='c-timing clearfix' wx-if="{{dataInfo.d_time && (dataInfo.step=='dlf' ||dataInfo.step=='dsj' )}}">
-      <text class='tip-lab'>{{dataInfo.d_time < 0 ?"已超时":"剩余时间"}}：</text><view class="time-count">{{wxTimerList["wxTimer"].formatHour}}时{{wxTimerList["wxTimer"].formatMinute}}分{{wxTimerList["wxTimer"].formatSecond}}秒</view><text class='iconfont icon-tishi  icon-cpic' bindtap='openTipDialog'></text></view>
+      <text class='tip-lab'>{{dataInfo.d_time < 0 ?"已超时":"剩余时间"}}：</text><view class="time-count">{{wxTimerList["wxTimer"].formatDay}}天{{wxTimerList["wxTimer"].formatHour}}时{{wxTimerList["wxTimer"].formatMinute}}分{{wxTimerList["wxTimer"].formatSecond}}秒</view><text class='iconfont icon-tishi  icon-cpic' bindtap='openTipDialog'></text></view>
 
 </view>
 
@@ -55,7 +58,7 @@
     <view class='item-cell clearfix'>
       <text class='lab'>房屋户型</text>
       <view class="para-item">
-        {{dataInfo.unit}}
+        {{dataInfo.unit || '未填写'}}
       </view>
     </view>
     <view class='item-cell clearfix'>
@@ -93,14 +96,14 @@
     <view class='item-cell clearfix'>
       <text class='lab'>订单号码</text>
       <view class="para-item">
-        2018070501002
+         {{dataInfo.order_no}}
       </view>
     </view>
 
     <view class='item-cell clearfix'>
       <text class='lab'>派单时间</text>
       <view class="para-item">
-        2018-07-02 13:13
+         {{dataInfo.c_time}}
       </view>
     </view>
   </view>
@@ -115,7 +118,7 @@
     <view class='item-cell clearfix item-phone'>
       <text class='lab'>{{dataInfo.realname}}</text>
       <view class="para-item">
-        <view class='btn-makecall' data-phone="{{dataInfo.mobile}}" bindtap='makePhoneCall'>
+        <view class='btn-makecall' wx-if="{{dataInfo.step!='void' && dataInfo.step!='ysx'}}" data-phone="{{dataInfo.mobile}}" bindtap='makePhoneCall'>
           <text class='iconfont icon-phone-1 icon-cpic'></text>联系客户</view>
       </view>
     </view>

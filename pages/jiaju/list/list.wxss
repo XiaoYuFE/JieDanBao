@@ -144,6 +144,11 @@ page{
   font-size: 28rpx;
 }
 
+.scroll-list-wrap .order-info .cval.cval-no{
+  color:#999; 
+  
+}
+
 .scroll-list-wrap .timeremain{
   text-align:center;
   margin-top:20rpx;  

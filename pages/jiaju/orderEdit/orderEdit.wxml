@@ -84,7 +84,7 @@
 
       <view class='time-remain clearfix' wx-if="{{dataInfo.dsj==0 && dataInfo.dlf==1 && radioVal==0}}">
         <text class='lab'>{{dataInfo.sj_d_time >=0 ? "剩余时间" :"已超时"}}：</text>
-        <view class='timing-count'>{{wxTimerList["wxTimer"].formatHour}}时{{wxTimerList["wxTimer"].formatMinute}}分{{wxTimerList["wxTimer"].formatSecond}}秒</view>
+        <view class='timing-count'>{{wxTimerList["wxTimer"].formatDay}}天{{wxTimerList["wxTimer"].formatHour}}时{{wxTimerList["wxTimer"].formatMinute}}分{{wxTimerList["wxTimer"].formatSecond}}秒</view>
         <text class='iconfont icon-tishi icon-cpic' bindtap='openDiaSjfaTip'></text>
       </view>
 

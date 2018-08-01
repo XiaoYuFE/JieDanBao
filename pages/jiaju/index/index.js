@@ -59,15 +59,17 @@ Page({
       });
 
     }
-   
-    
-   
-    
 
+    this._getData();
   },
 
   onReady: function() {
     console.group("onReady事件");
+  },
+
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    this._getData("onPullDownRefresh");
   },
 
   newDiaClose:function(){
@@ -82,20 +84,16 @@ Page({
       tipDiaToggle: false
     });
   },
-
-  onShow: function() {
-    console.group("onShow事件");
-    var that = this;
-    this._getData();
-  },
-
-  _getData: function() {
+  _getData: function(typeStr) {
     var that = this;
     //请求数据
-    wx.showLoading()
+    
     app.form.requestPost(app.form.API_CONFIG.jiaju.order_total, {}, function(res) {
       //判断是否登陆
-      wx.hideLoading()
+      if (typeStr ="onPullDownRefresh"){
+          wx.hideNavigationBarLoading() //完成停止加载
+          wx.stopPullDownRefresh() //停止下拉刷新
+      }
       if (!!res.data.new_order) {
         //保存住当前的时间
         res.data.format_mobile = that._formatMobile(res.data.new_order.mobile);
@@ -151,32 +149,11 @@ Page({
     });
   },
   
-  onHide: function() {
-    console.group("onHide事件");
-
-  },
-  onUnload: function() {
-    console.group("onUnload事件");
-  },
-
-
-  //获取页面数据（登录以后才执行此步骤）
-
-
-
   setting: function() {
     wx.redirectTo({
       url: '/pages/setting/setting'
     })
   },
-
-
-
-
-
-
-
-
   onShareAppMessage: function() {
     return {
       title: '小鱼接单宝',

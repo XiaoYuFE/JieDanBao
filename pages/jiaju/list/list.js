@@ -28,13 +28,17 @@ Page({
    */
   onLoad: function (options) {
     console.dir(options);
-   
       this.setData({
         orderType: options.ordertype,
         orderStep: options.step,
       });
-   
-      
+    this._getData();
+  },
+
+
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    this._getData("onPullDownRefresh");
   },
 
   /**
@@ -48,7 +52,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this._getData();
+    
   },
   navMainHandle:function(e){
     //点击的是同一个选项返回
@@ -105,17 +109,22 @@ Page({
 
 
 
-  _getData:function(){
+  _getData:function(typeStr){
     var that=this;
-    this.setData({
-      isLoading:true
-    });
+    if (!typeStr){
+      this.setData({
+        isLoading: true
+      });
+    }
     app.form.requestPost(app.form.API_CONFIG.jiaju.orders, {
       ordertype:that.data.orderType,
       step: that.data.orderStep,
-      page:that.data.page
+      page: !typeStr ? that.data.page:1
     }, function (res) {
-      console.dir(res);
+      if (typeStr) {
+        wx.hideNavigationBarLoading() //完成停止加载
+        wx.stopPullDownRefresh() //停止下拉刷新
+      }
       if (res.data.orders){
         for (var i = 0; i < res.data.orders.length; i++) {
           res.data.orders[i].format_mobile = that._formatMobile(res.data.orders[i].mobile);
@@ -123,9 +132,14 @@ Page({
           res.data.orders[i].d_time = parseInt(res.data.orders[i].d_time);
           that._countDown(res.data.orders[i]);
         }
-        that.data.dataInfo.push.apply(that.data.dataInfo, res.data.orders);
+        if (!typeStr) {
+          that.data.dataInfo.push.apply(that.data.dataInfo, res.data.orders);
+        }else{
+          that.data.dataInfo = res.data.orders;
+        }
+        
         that.setData({
-          page: that.data.page + 1,
+          page:!typeStr ? (that.data.page + 1) :1,
           dataInfo: that.data.dataInfo,
           isLoading: false
         });
@@ -176,7 +190,7 @@ Page({
     if (that.data.orderStep=="wjd"){
       formatType="MS";
     }else{
-      formatType = "HMS";
+      formatType = "DHMS";
     }
 
     wxTimerName = new timer({
@@ -214,26 +228,7 @@ Page({
       }
     });
   },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
   
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
 
   /**
    * 页面上拉触底事件的处理函数

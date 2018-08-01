@@ -37,7 +37,6 @@ Page({
     dateTimeArray1: null,
     dateTime1: null,
     startYear: 2010,
-   
     endYear: 2050
   },
 
@@ -53,21 +52,27 @@ Page({
     this.setData({
       id: options.id
     })
+  },
 
+  _getData:function(typeStr){
+    var that=this;
     app.form.requestPost(app.form.API_CONFIG.jiaju.process_order, {
       id: that.data.id
-    }, function(res) {
-      
+    }, function (res) {
+      if (typeStr) {
+        wx.hideNavigationBarLoading() //完成停止加载
+        wx.stopPullDownRefresh() //停止下拉刷新
+      }
       that.setData({
         dataInfo: res.data,
         sjFinshTime: res.data.sj_time
       });
       that._getStepName(res.data);
-      
+
       that._countDown(res.data.sj_d_time)
 
       //量房时间为空的时候
-     
+
       if (res.data.l_time.indexOf("0000") < 0) {
         that.setData({
           isLftimerEmpty: false,
@@ -83,23 +88,23 @@ Page({
       }
 
     });
-
-
-
-
-
-    
-    // 精确到分的处理，将数组的秒去掉
-    // var lastArray = obj1.dateTimeArray.pop();
-    // console.dir(obj1.dateTime);
-
-   
-
-
-
-
-
   },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this._getData();
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    this._getData("onPullDownRefresh");
+  },
+
 
   openDiaSjfaTip:function(){
     wx.showModal({
@@ -134,7 +139,7 @@ Page({
         wx.showToast({
           title: '更新成功',
           icon: 'success',
-          duration: 2000,
+          duration: 1000,
           success:function(){
             setTimeout(function(){
               wx.navigateTo({
@@ -175,7 +180,7 @@ Page({
     var that = this;
     var wxTimerName = new timer({
       beginTime: item,
-      formatType: "HMS",
+      formatType: "DHMS",
       name: "wxTimer",
       complete: function() {
         console.log("完成了")
@@ -370,55 +375,5 @@ Page({
 
   goBack: function() {
     wx.navigateBack()
-  },
-
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
-
   }
 })

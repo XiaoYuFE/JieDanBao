@@ -1,5 +1,5 @@
 
-
+import dateTimePicker from '../../../static/js/plugin/dateTimePicker.js'
 import form from '../../../static/js/plugin/form'
 const app = getApp();
 app.form = new form(app);
@@ -22,7 +22,16 @@ Page({
     qwfgObj:{},
     qwfgObjIdStr:"",
     qwfgObjNameStr: "",
-    configInfo:""
+    configInfo:"",
+
+    zxrqData:"",
+
+
+    date: "",
+    dateTimeArray1: null,
+    
+    startYear: 2010,
+    endYear: 2050
   },
 
   _getQwfgName:function(id){
@@ -89,6 +98,31 @@ Page({
     })
   },
 
+  //确认以后会触发这个事件
+  changeDateTime1(e) {
+    var that = this;
+    var eVal = e.detail.value;
+
+    var timeVal = that.data.dateTimeArray1[0][eVal[0]] + "-" + that.data.dateTimeArray1[1][eVal[1]] + "-" + that.data.dateTimeArray1[2][eVal[2]];
+   
+    this.setData({
+      zxrqData: timeVal
+    });
+  },
+
+  changeDateTimeColumn1(e) {
+    console.dir("changeDateTimeColumn1")
+    var arr = this.data.dateTime1,
+      dateArr = this.data.dateTimeArray1;
+
+    arr[e.detail.column] = e.detail.value;
+    console.dir(e.detail.value);
+    this.setData({
+      dateTimeArray1: dateArr,
+      dateTime1: arr
+    });
+  },
+
   
 
   /**
@@ -121,13 +155,30 @@ Page({
         that.setData({
           dataInfo:res.data
         });
-      
+    });
+
+    var obj1 = dateTimePicker.dateTimePicker(that.data.startYear, that.data.endYear, that.data.date);
+    var lastArray = obj1.dateTimeArray.splice(3,3);
+    var lastTime = obj1.dateTime.pop();
+    that.setData({
+      dateTimeArray1: obj1.dateTimeArray,
+      dateTime1: obj1.dateTime
     });
    
 
     
   },
+  changeDateTimeColumn1(e) {
+    console.dir("changeDateTimeColumn1")
+    var arr = this.data.dateTime1,
+      dateArr = this.data.dateTimeArray1;
 
+    arr[e.detail.column] = e.detail.value;
+    this.setData({
+      dateTimeArray1: dateArr,
+      dateTime1: arr
+    });
+  },
   goBack:function(){
     wx.navigateBack();
   },

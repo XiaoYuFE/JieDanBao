@@ -42,8 +42,8 @@
   <view wx:for="{{dataInfo}}"  wx:key="id" wx:for-index="idx" wx:for-item="item">
     <view class='item-cell'>
     
-      <view class='cname'>{{item.realname  ? item.realname :"未填写"}}</view>
-      <view class='cphone'>{{item.format_mobile}}</view>
+      <view class='cname'>{{item.realname || "未填写"}}</view>
+      <view class='cphone'>{{item.format_mobile || "未填写"}}</view>
       <view class='cyxdate clearfix'  wx-if="{{orderType=='wjd'? true :false}}">
         <text class="txt-1">订单有效期：</text>
         <view class="cyx-remain">{{wxTimerList[item.id].formatMinute}}分{{wxTimerList[item.id].formatSecond}}秒 </view>
@@ -53,19 +53,19 @@
       <view class='order-info'>
         <view class='info-cell clearfix'>
           <text class='clab'>小区：</text>
-          <view class='cval'>{{item.community}}</view>
+          <view class='cval {{item.community || "cval-no"}}'>{{item.community || '未填写'}}</view>
         </view>
         <view class='info-cell clearfix'>
           <text class='clab'>预算：</text>
-          <view class='cval'>{{item.price}}</view>
+          <view class='cval {{item.price || "cval-no"}}'>{{item.price || '未填写'}}</view>
         </view>
         <view class='info-cell clearfix'>
           <text class='clab'>订单号码：</text>
-          <view class='cval'>{{item.order_no}}</view>
+          <view class='cval {{item.order_no || "cval-no"}}'>{{item.order_no || '未填写'}}</view>
         </view>
         <view class='info-cell clearfix'>
           <text class='clab'>派单时间：</text>
-          <view class='cval'>{{item.c_time}}</view>
+          <view class='cval {{item.c_time || "cval-no"}}'>{{item.c_time || '未填写'}}</view>
         </view>
       </view>
 
@@ -77,7 +77,7 @@
      
       <view class='timeremain clearfix'  wx-if="{{orderType=='clz' && item.steptype !='dqy' && item.d_time}}">
         <text class='clab'>{{item.d_time >= 0 ? "剩余时间":"已超时"}}:</text>
-        <view class='c-timing'>{{wxTimerList[item.id].formatHour}}时{{wxTimerList[item.id].formatMinute}}分{{wxTimerList[item.id].formatSecond}}秒</view>
+        <view class='c-timing'>{{wxTimerList[item.id].formatDay}}天{{wxTimerList[item.id].formatHour}}时{{wxTimerList[item.id].formatMinute}}分{{wxTimerList[item.id].formatSecond}}秒</view>
       </view>
       <navigator url='/pages/jiaju/detail/detail?id={{item.id}}' class='cnavigator' wx-if="{{item.step!='wjd'? true :false}}">{{item.format_stepname}}
         <text class='iconfont icon-jiantou txt-arrow'></text>

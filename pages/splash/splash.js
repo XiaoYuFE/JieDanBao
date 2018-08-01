@@ -14,9 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
     var that = this;
-
     app.form.requestPost(app.form.API_CONFIG.common.shops,{}, function (res) {
 		  that.setData({shops: res.data	});
     });
@@ -118,7 +116,13 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    app.form.requestPost(app.form.API_CONFIG.common.shops, {}, function (res) {
+      wx.hideNavigationBarLoading() //完成停止加载
+      wx.stopPullDownRefresh() //停止下拉刷新
+      that.setData({ shops: res.data });
+
+    });
   },
 
   /**
