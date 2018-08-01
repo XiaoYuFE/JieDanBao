@@ -132,10 +132,19 @@
   font-size: 36rpx;
   text-align: center;
   height: 94rpx;
+  border-radius:0;
   line-height: 94rpx;
   background: #3ac6b8;
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
+}
+.fixed-bottom[disabled]:not([type]){
+  background: #3ac6b8;
+  color:#fff; 
+}
+.mod-1 .btn-jd[disabled]:not([type]){
+  background: #3ac6b8;
+  color:#fff; 
 }

@@ -8,6 +8,10 @@ Page({
    */
   data: {
     shops: {},
+    disabled1:false,
+    loading1:false,
+    disabled2: false,
+    loading2: false,
   },
 
   /**
@@ -20,7 +24,21 @@ Page({
     });
   },
   
-  splashEntrance:function(){
+  splashEntrance:function(e){
+    var that=this;
+    if(e.target.dataset.role==1){
+      this.setData({
+        loading1: true,
+        disabled1: true
+      })
+    }else{
+      this.setData({
+        loading2: true,
+        disabled2: true
+      
+      })
+    }
+   
     var user = app.globalData.sessionJdbUserInfo;
     if (user) {
       console.log('login', user);
@@ -32,6 +50,12 @@ Page({
         if (res.code) {
           //发起网络请求
           app.form.requestPost(app.form.API_CONFIG.common['login'], { code: res.code }, function (res) {
+            that.setData({
+              loading1: false,
+              disabled1: false,
+              loading2: false,
+              disabled2: false,
+            })
             if (res.status === 1) {
               //动态全局赋值
               app.globalData.sessionJdbUkey = res.data["ukey"];

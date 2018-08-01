@@ -31,7 +31,7 @@ Page({
   },
 
   _clearIntervalWxtimer: function () {
-    this.data.wxTimerInstance.stop();
+    this.data.wxTimerInstance && this.data.wxTimerInstance.stop();
   },
 
   _countDown: function (item) {
