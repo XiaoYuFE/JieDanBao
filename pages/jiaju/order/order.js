@@ -12,7 +12,9 @@ Page({
     id:"",
     stepName:"",
     step:"",
-    dataInfo:""
+  
+    dataInfo:"",
+    isDownRefresh: false
   },
 
   /**
@@ -61,11 +63,27 @@ Page({
       if (typeStr) {
         wx.hideNavigationBarLoading() //完成停止加载
         wx.stopPullDownRefresh() //停止下拉刷新
+        that.setData({
+          isDownRefresh: false
+        });
       }
       that.setData({
         dataInfo: res.data
       });
     });
+  },
+
+  previewFaImg: function (e) {
+    wx.previewImage({
+      current: e.target.dataset.src, // 当前显示图片的http链接
+      urls: this.data.dataInfo.sj_img // 需要预览的图片http链接列表
+    })
+  },
+  previewHtImg: function (e) {
+    wx.previewImage({
+      current: e.target.dataset.src, // 当前显示图片的http链接
+      urls: this.data.dataInfo.ht_img // 需要预览的图片http链接列表
+    })
   },
 
   /**
@@ -102,6 +120,9 @@ Page({
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading() //在标题栏中显示加载
     this._getData("onPullDownRefresh");
+    this.setData({
+      isDownRefresh: true
+    });
   },
 
   /**

@@ -1,3 +1,9 @@
+<view class="coms-downrefresh-loading coms-downrefresh-current" wx-if="{{isDownRefresh}}" >
+  <div class="k-line k-line-1"></div>
+  <div class="k-line k-line-2"></div>
+  <div class="k-line k-line-3"></div>
+  <div class="k-line k-line-4"></div>
+</view>
 <view class="header-top">
   <text class='tit'>订单流程</text>
   <view class='tip'>
@@ -38,7 +44,7 @@
                 <view class='lab'>方案图片：</view>
                 <view class='uploadgallery-list clearfix'>
                     
-                    <view wx:for="{{dataInfo.sj_img}}"  wx:key="id" wx:for-index="idx" wx:for-item="item" class='pic'><image src='{{item}}' mode='aspectFill'></image></view>
+                    <view wx:for="{{dataInfo.sj_img}}"  wx:key="id" wx:for-index="idx" wx:for-item="item" class='pic'><image src='{{item}}' bindtap='previewFaImg' data-src="{{item}}" mode='aspectFill'></image></view>
                 </view>
 
             </view>
@@ -54,7 +60,7 @@
             <view class='uploadgallery' wx-if='{{dataInfo.dqy==1}}'>
                 <view class='lab'>合同图片：</view>
                 <view class='uploadgallery-list clearfix'>
-                    <view wx:for="{{dataInfo.ht_img}}"  wx:key="id" wx:for-index="idx" wx:for-item="item" class='pic'><image src='{{item}}' mode='aspectFill'></image></view>
+                    <view wx:for="{{dataInfo.ht_img}}"  wx:key="id" wx:for-index="idx" wx:for-item="item" class='pic'><image src='{{item}}'  bindtap='previewHtImg' data-src="{{item}}" mode='aspectFill'></image></view>
                 </view>
 
             </view>

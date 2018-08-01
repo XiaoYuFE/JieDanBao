@@ -15,6 +15,7 @@ Page({
     lftimeEmty:true,
     wxTimerList: {}, //存放倒计时
     wxTimerInstance: null,
+    isDownRefresh: false
   },
 
   /**
@@ -58,6 +59,9 @@ Page({
     console.group("onPullDownRefresh");
     wx.showNavigationBarLoading() //在标题栏中显示加载
     this._getData("onPullDownRefresh");
+    this.setData({
+      isDownRefresh: true
+    });
   },
   onShow:function(){
     this._getData();
@@ -74,6 +78,9 @@ Page({
       if (typeStr = "onPullDownRefresh") {
         wx.hideNavigationBarLoading() //完成停止加载
         wx.stopPullDownRefresh() //停止下拉刷新
+        that.setData({
+          isDownRefresh: false
+        });
       }
       var stepObj = that._formatStepName(res.data.step);
       res.data.format_stepname = stepObj.stepName;

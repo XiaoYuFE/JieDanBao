@@ -1,6 +1,9 @@
 page{
   background:#f7f7f7;
 }
+.coms-downrefresh-current{
+  padding-bottom: 30rpx;
+}
 .header-top{
   padding:30rpx;
   position: relative; 

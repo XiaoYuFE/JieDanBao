@@ -20,7 +20,7 @@ Page({
     sjFinshTime: "", //设计完成时间
     sj_img: [],
     sj_img_str:"",
-
+    isDownRefresh: false,
     sj_img_server: [],
     sj_img_str_server: "",
 
@@ -62,6 +62,9 @@ Page({
       if (typeStr) {
         wx.hideNavigationBarLoading() //完成停止加载
         wx.stopPullDownRefresh() //停止下拉刷新
+        that.setData({
+          isDownRefresh: false
+        });
       }
       that.setData({
         dataInfo: res.data,
@@ -102,6 +105,9 @@ Page({
    */
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading() //在标题栏中显示加载
+    this.setData({
+      isDownRefresh: true
+    });
     this._getData("onPullDownRefresh");
   },
 
@@ -114,7 +120,6 @@ Page({
   },
 
   previewFaImg:function(e){
-   
     wx.previewImage({
       current: e.target.dataset.src, // 当前显示图片的http链接
       urls: this.data.sj_img // 需要预览的图片http链接列表
