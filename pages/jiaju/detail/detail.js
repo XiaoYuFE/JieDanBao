@@ -92,6 +92,18 @@ Page({
     })
   },
 
+  openMap:function(){
+    var that = this;
+    console.dir(that.data)
+    if (that.data.dataInfo.community){
+      wx.redirectTo({
+        url: '/pages/map/map?title=' + that.data.dataInfo.community,
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    }
+  },
   _formatStepName: function (stepType) {
     var step={};
     switch (stepType) {

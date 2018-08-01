@@ -1,0 +1,9 @@
+     <map
+      id="myMap"
+      style="width: 100%; height: 100vh;"
+      latitude="{{location.lat}}"
+      longitude="{{location.lng}}"
+      markers="{{markers}}"
+      covers="{{covers}}"
+      show-location
+    ></map>
