@@ -1,9 +1,7 @@
-     <map
-      id="myMap"
-      style="width: 100%; height: 100vh;"
-      latitude="{{location.lat}}"
-      longitude="{{location.lng}}"
-      markers="{{markers}}"
-      covers="{{covers}}"
-      show-location
-    ></map>
+<view wx:if="{{lat}}">
+      <map id="myMap" style="width: 100%; height: 100vh;" latitude="{{lat}}" longitude="{{lng}}" markers="{{markers}}" show-location></map>
+</view>
+<view wx:else> 
+<map id="myMap" style="width: 100%; height: 100vh;" show-location ></map>
+</view>
+    

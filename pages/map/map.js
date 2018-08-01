@@ -8,6 +8,9 @@ Page({
     */
   data: {
     title: "",
+    lat:"",
+    lng: "",
+    markers:""
   },
   /**
    * 生命周期函数--监听页面加载
@@ -38,10 +41,11 @@ Page({
     qqmapsdk.search({
       keyword: that.data.title,
       success: function (res) {
-        if(res.data){
-          console.log(res.data['0']['location'])
+        if(res.data['0']){
+          console.log(res.data)
           that.setData({
-            'location': res.data['0']['location'],
+            'lat': res.data['0']['location']['lat'],
+            'lng': res.data['0']['location']['lng'],
             'markers': [{
               id: 1,
               latitude: res.data['0']['location']['lat'],
