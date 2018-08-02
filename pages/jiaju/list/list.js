@@ -18,8 +18,7 @@ Page({
       page:1,
       wxTimerList:{},//存放倒计时
       wxTimerInstance:{},
-      dataInfo:[],
-      isDownRefresh: false
+      dataInfo:[]
   },
 
   /**
@@ -40,8 +39,7 @@ Page({
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading() //在标题栏中显示加载
     this.setData({
-      isNoData:false,
-      isDownRefresh: true
+      isNoData:false
     });
     this._getData("onPullDownRefresh");
   },
@@ -129,7 +127,6 @@ Page({
       if (typeStr) {
         wx.hideNavigationBarLoading() //完成停止加载
         wx.stopPullDownRefresh() //停止下拉刷新
-        that.setData({ isDownRefresh: false })
       }
       if (res.data.orders){
         for (var i = 0; i < res.data.orders.length; i++) {

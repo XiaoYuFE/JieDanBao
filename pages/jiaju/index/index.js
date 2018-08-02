@@ -14,7 +14,7 @@ Page({
     wxTimerInstance: {},
     newDiaToggle: false,
     tipDiaToggle: false,
-    isDownRefresh:false
+
   },
 
   onLoad: function(options) {
@@ -71,10 +71,7 @@ Page({
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading() //在标题栏中显示加载
     
-    this.setData({
-      isDownRefresh:true
-    });
-   
+    
       this._getData("onPullDownRefresh");
    
   },
@@ -100,7 +97,7 @@ Page({
       if (typeStr ="onPullDownRefresh"){
           wx.hideNavigationBarLoading() //完成停止加载
           wx.stopPullDownRefresh() //停止下拉刷新
-          that.setData({ isDownRefresh:false})
+          
       }
       if (!!res.data.new_order) {
         //保存住当前的时间

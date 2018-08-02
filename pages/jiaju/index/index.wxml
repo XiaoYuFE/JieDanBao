@@ -51,12 +51,7 @@
 <!--弹出框  关闭提示 end  -->
 
 
-<view class="coms-downrefresh-loading" wx-if="{{isDownRefresh}}" >
-  <div class="k-line k-line-1"></div>
-  <div class="k-line k-line-2"></div>
-  <div class="k-line k-line-3"></div>
-  <div class="k-line k-line-4"></div>
-</view>
+
 
 <view class='avatar-box clearfix'>
   <view class='pic'>

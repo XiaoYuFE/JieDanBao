@@ -1,9 +1,4 @@
-<view class="coms-downrefresh-loading coms-downrefresh-current" wx-if="{{isDownRefresh}}" >
-  <div class="k-line k-line-1"></div>
-  <div class="k-line k-line-2"></div>
-  <div class="k-line k-line-3"></div>
-  <div class="k-line k-line-4"></div>
-</view>
+
 <view class="header-top">
   <text class='tit'>订单流程</text>
   <view class='tip'>
