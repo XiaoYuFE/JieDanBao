@@ -29,8 +29,14 @@
       <text class='para-val'>{{order.job || '未填写'}}</text>
     </view>
   </view>
+  <view class='item-cell clearfix'>
+    <text class='lab'>意向产品</text>
+    <view class="para-item">
+      <text class='para-val'>{{order.product || '未填写'}}</text>
+    </view>
+  </view>
 </view>
-
+ 
 <view class="decoration-info-box clearfix" wx:else>
  <view class='caption'>信用卡办卡信息</view>
   <view class='item-cell clearfix'>
