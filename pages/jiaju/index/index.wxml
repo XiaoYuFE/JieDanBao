@@ -48,7 +48,7 @@
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
-      <text class="txt">设计中</text>
+      <text class="txt">已报价</text>
       <view class="num">{{dataList.sjz}}</view>
     </navigator>
   </view>
@@ -58,7 +58,7 @@
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
-      <text class="txt">对比中</text>
+      <text class="txt">已签约</text>
       <view class="num">{{dataList.dbz}}</view>
     </navigator>
   </view>
@@ -68,7 +68,7 @@
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
-      <text class="txt">已签约</text>
+      <text class="txt">安装中</text>
       <view class="num">{{dataList.yqy}}</view>
     </navigator>
   </view>
@@ -78,7 +78,7 @@
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
-      <text class="txt">施工中</text>
+      <text class="txt">完工验收</text>
       <view class="num">{{dataList.sgz}}</view>
     </navigator>
   </view>
@@ -88,18 +88,8 @@
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
-      <text class="txt">验收完成</text>
-      <view class="num">{{dataList.ywc}}</view>
-    </navigator>
-  </view>
-
-  <view class="item-cell item-8">
-    <navigator url="/pages/jiaju/list/list?toView=void">
-      <view class="pic-icon">
-        <view class='pic'></view>
-      </view>
       <text class="txt">跑单</text>
-      <view class="num">{{dataList.void}}</view>
+      <view class="num">{{dataList.ywc}}</view>
     </navigator>
   </view>
 </view>

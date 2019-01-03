@@ -1,4 +1,7 @@
 <view class="caption-top" wx:if="{{(order.step=='dfw')}}">新订单</view>
+<view class="caption-top" wx:if="{{(order.step=='ylf')}}">已量房</view>
+<view class="caption-top" wx:if="{{(order.step=='dfw')}}">新订单</view>
+<view class="caption-top" wx:if="{{(order.step=='dfw')}}">新订单</view>
 <!--step-end  -->
 
 
