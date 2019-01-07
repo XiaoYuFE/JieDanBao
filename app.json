@@ -10,11 +10,11 @@
     
     "pages/setting/setting",
     
-"pages/jiaju/list/list",
+    "pages/jiaju/list/list",
     "pages/jiaju/index/index",
-    
-    "pages/jiaju/cost/cost",
     "pages/jiaju/detail/detail",
+    "pages/jiaju/cost/cost",
+    
 
 
     "pages/jinrong/index/index",

@@ -711,7 +711,7 @@ page{
 .order-step-wrap{
   background:#fff;
   padding:20rpx 40rpx;
-  margin-bottom:40rpx; 
+  margin-bottom:20rpx; 
 }
 
 
@@ -744,4 +744,19 @@ page{
   font-size:26rpx;
   color:#666;
   padding:8rpx 0; 
+}
+
+.order-info{
+  margin-bottom: 50rpx;
+  background:#fff; 
+}
+.order-info .cap-1{
+    color:#333333;
+    font-size:32rpx; 
+    margin:0 0 15rpx 0;  
+}
+.order-info .list{
+  color:#222222;
+  line-height: 1.7;
+  font-size: 26rpx; 
 }

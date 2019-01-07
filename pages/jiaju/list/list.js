@@ -15,14 +15,22 @@ Page({
   onLoad: function (options) {
     var that = this;
     this.setData({ step: options.toView ? options.toView : 'all'});
+    console.dir(options)
 
     wx.getSystemInfo({
       success: function (res) {
         that.setData({scrollHeight: res.windowHeight});
       }
     });
+
+    const query = wx.createSelectorQuery()
+    query.select('#ylf').boundingClientRect()
+    query.exec(function (res) {
+      console.dir(res);
+    })
+    
   },
-  navTap: function (event) {
+  navTap:function (event) {
     var step = event.currentTarget.dataset.type;
     if (this.data.step == step) {
       return false;

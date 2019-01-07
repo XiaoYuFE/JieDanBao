@@ -121,6 +121,7 @@ page {
   font-size:42rpx;
   position:relative;
   clear:both; 
+  height:40rpx; 
   display:inline-block;   
 }
 .list-step-wrap .item-cell .num .circle{

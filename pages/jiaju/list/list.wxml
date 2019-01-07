@@ -1,26 +1,26 @@
-<scroll-view scroll-x="true" bindscroll="scroll" class="nav-scroll clearfix" scroll-into-view="{{toView}}" id='J_nav-scroll'>
-  <view class='scroll-view-item {{step=="all" || !step ? "active":""}}' data-type='all' bindtap='navTap'>
+<scroll-view scroll-x="true" bindscroll="scroll" class="nav-scroll clearfix" scroll-into-view="{{toView}}" id='J_nav-scroll'  scroll-with-animation="true">
+  <view class='scroll-view-item {{step=="all" || !step ? "active":""}}' id='all' data-type='all' bindtap='navTap'>
     <text class="txt">全部</text>
   </view>
-  <view class='scroll-view-item {{step=="dfw" ? "active":""}}' data-type='dfw' bindtap='navTap'>
+  <view class='scroll-view-item {{step=="dfw" ? "active":""}}'  id='dfw' data-type='dfw' bindtap='navTap'>
     <text class="txt">新订单</text>
   </view>
-  <view class='scroll-view-item {{step=="ylf" ? "active":""}}' data-type='ylf' bindtap='navTap'>
+  <view class='scroll-view-item {{step=="ylf" ? "active":""}}' id='ylf' data-type='ylf' bindtap='navTap'>
     <text class="txt">已量房</text>
   </view>
-  <view class='scroll-view-item {{step=="sjz" ? "active":""}}' data-type='sjz' bindtap='navTap'>
+  <view class='scroll-view-item {{step=="ybj" ? "active":""}}'id='ybj'  data-type='ybj' bindtap='navTap'>
     <text class="txt">已报价</text>
   </view>
-  <view class='scroll-view-item {{step=="dbz" ? "active":""}}' data-type='dbz' bindtap='navTap'>
-    <text class="txt"> 已签约</text>
+  <view class='scroll-view-item {{step=="yqy" ? "active":""}}' id='yqy' data-type='yqy' bindtap='navTap'>
+    <text class="txt">已签约</text>
   </view>
-  <view class='scroll-view-item {{step=="yqy" ? "active":""}}' data-type='yqy' bindtap='navTap'>
+  <view class='scroll-view-item {{step=="azz" ? "active":""}}' id='azz' data-type='azz' bindtap='navTap'>
     <text class="txt">安装中</text>
   </view>
-  <view class='scroll-view-item {{step=="sgz" ? "active":""}}' data-type='sgz' bindtap='navTap'>
-    <text class="txt">完成验收</text>
+  <view class='scroll-view-item {{step=="ywg" ? "active":""}}' id='ywg'  data-type='ywg' bindtap='navTap'>
+    <text class="txt">完工验收</text>
   </view>
-  <view class='scroll-view-item {{step=="ywg" ? "active":""}}' data-type='ywg' bindtap='navTap'>
+  <view class='scroll-view-item {{step=="void" ? "active":""}}' id='void' data-type='void' bindtap='navTap'>
     <text class="txt">跑单</text>
   </view>
 </scroll-view>

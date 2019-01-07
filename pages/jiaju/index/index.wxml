@@ -44,42 +44,42 @@
     </navigator>
   </view>
   <view class="item-cell item-3">
-    <navigator url="/pages/jiaju/list/list?toView=sjz">
+    <navigator url="/pages/jiaju/list/list?toView=ybj">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
       <text class="txt">已报价</text>
-      <view class="num">{{dataList.sjz}}</view>
+      <view class="num">{{dataList.ybj}}</view>
     </navigator>
   </view>
 
   <view class="item-cell item-4">
-    <navigator url="/pages/jiaju/list/list?toView=dbz">
-      <view class="pic-icon">
-        <view class='pic'></view>
-      </view>
-      <text class="txt">已签约</text>
-      <view class="num">{{dataList.dbz}}</view>
-    </navigator>
-  </view>
-
-  <view class="item-cell item-5">
     <navigator url="/pages/jiaju/list/list?toView=yqy">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
-      <text class="txt">安装中</text>
+      <text class="txt">已签约</text>
       <view class="num">{{dataList.yqy}}</view>
     </navigator>
   </view>
 
+  <view class="item-cell item-5">
+    <navigator url="/pages/jiaju/list/list?toView=azz">
+      <view class="pic-icon">
+        <view class='pic'></view>
+      </view>
+      <text class="txt">安装中</text>
+      <view class="num">{{dataList.azz}}</view>
+    </navigator>
+  </view>
+
   <view class="item-cell item-6">
-    <navigator url="/pages/jiaju/list/list?toView=sgz">
+    <navigator url="/pages/jiaju/list/list?toView=ywg">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
       <text class="txt">完工验收</text>
-      <view class="num">{{dataList.sgz}}</view>
+      <view class="num">{{dataList.ywg}}</view>
     </navigator>
   </view>
 
@@ -89,7 +89,7 @@
         <view class='pic'></view>
       </view>
       <text class="txt">跑单</text>
-      <view class="num">{{dataList.ywc}}</view>
+      <view class="num">{{dataList.void}}</view>
     </navigator>
   </view>
 </view>
