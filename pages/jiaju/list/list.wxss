@@ -18,11 +18,11 @@ page {
 }
 .nav-scroll .scroll-view-item{
 
-  line-height:86rpx; 
+  line-height:80rpx; 
   background:#fff;
   color:#3c4050;
   font-size:30rpx;
-  padding:3px 30rpx;  
+  padding:5px 30rpx;  
   display: inline-block;
     
 }
@@ -30,7 +30,8 @@ page {
 .nav-scroll .scroll-view-item.active{
   padding-bottom:0;
   color:#14c67d;
-  border-bottom:3rpx solid #14c67d;  
+  border-bottom:5rpx solid #14c67d; 
+ 
 }
 
 .list-wrap{
@@ -78,14 +79,15 @@ page {
 .order-list .order-num{
   float:left; 
   font-size:28rpx;
-  color:#3c4050;  
+  color:#444444;  
 }
 
 
 
 .order-list .order-time{
   float:right;
-  font-size:22rpx;  
+  font-size:26rpx;
+  color:#999999;   
 }
 
 .order-list .soma-hd text {
@@ -121,19 +123,19 @@ page {
 } */
 
 .order-list .person-info {
-  color: #1a1a1a;
-  font-size: 28rpx;
+  color: #222;
+  font-size: 34rpx;
   margin-top: 15rpx;
  
 }
 .order-list .person-info text{
-  color:#666666;
-  font-size:24rpx;  
+  color:#222;
+  font-size:26rpx;  
 }
 
 .order-list .address {
-  color: #666;
-  font-size: 24rpx;
+  color: #222222;
+  font-size: 26rpx;
   margin-top:15rpx; 
   /* position: absolute;
   right: 27rpx;

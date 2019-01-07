@@ -1,6 +1,6 @@
 {
   "pages": [
-
+   
     "pages/login/login",
     
     "pages/auto/index/index",
@@ -10,9 +10,9 @@
     
     "pages/setting/setting",
     
-
+"pages/jiaju/list/list",
     "pages/jiaju/index/index",
-    "pages/jiaju/list/list",
+    
     "pages/jiaju/cost/cost",
     "pages/jiaju/detail/detail",
 
