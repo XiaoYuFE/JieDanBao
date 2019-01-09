@@ -419,7 +419,7 @@ page{
 
 /* 77777 */
 
-.order-steps.step-6 .item-cell-1 .circle .circle-1 {
+.order-steps.step-7 .item-cell-1 .circle .circle-1 {
   background-color: #14c67d;
 }
 
@@ -694,6 +694,9 @@ page{
   border-bottom:1px solid #ebebeb;
   padding:25rpx 0;  
 }
+.decoration-info-box .item-cell:last-child{
+  border:none;
+}
 .decoration-info-box .item-cell .lab{
   float:left; 
   font-size:28rpx;
@@ -715,18 +718,14 @@ page{
 }
 
 
-.order-step-wrap .num{
-  background:#fff;
-  color:#666;
-  font-size:24rpx;
-  padding:8rpx 0;  
+.order-step-wrap .cap-1{
+   color:#333333;
+    font-size:32rpx; 
+    margin:0 0 25rpx 0;  
 }
-.order-step-wrap .time{
-  background:#fff;
-  color:#666;
-  font-size:24rpx; 
-  padding:8rpx 0;  
-}
+
+
+
 
 .service-info {
   padding: 30rpx;

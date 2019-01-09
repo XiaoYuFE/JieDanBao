@@ -84,8 +84,7 @@
 </view>
 
 <view class="order-step-wrap  clearfix">
-  <view class="num">订单编号：{{order.oder_no}}</view>
-  <view class="time">派单时间：{{order.c_time}}</view>
+  <view class='cap-1'>订单流程</view>
   <view class="order-steps step-{{stepKey+1}}" wx:if="{{(order.step!='void')}}">
     <view class='line-wrap'>
       <view class='line'></view>
@@ -156,8 +155,8 @@
 <view class='order-info'>
   <view class='cap-1'>订单信息</view>
   <view class='list'>
-      <view>订单编号：181219010004</view>
-      <view>派单时间：2018－12-19  17:29:10</view>
+      <view>订单编号：{{order.order_no}}</view>
+      <view>派单时间：{{order.c_time}}</view>
   </view>
 </view>
 

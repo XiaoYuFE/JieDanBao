@@ -8,6 +8,7 @@ Page({
     loadMoreData: "加载中...",
     scrollHeight: "",
     dataList: [],
+    scrollLeft:0,
     currentPage: 1,
     isLast: false,
   },
@@ -24,9 +25,11 @@ Page({
     });
 
     const query = wx.createSelectorQuery()
-    query.select('#ylf').boundingClientRect()
+    query.select('#' + options.toView).boundingClientRect()
     query.exec(function (res) {
-      console.dir(res);
+      that.setData({
+          scrollLeft:res[0].left
+      })
     })
     
   },

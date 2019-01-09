@@ -1,4 +1,4 @@
-<scroll-view scroll-x="true" bindscroll="scroll" class="nav-scroll clearfix" scroll-into-view="{{toView}}" id='J_nav-scroll'  scroll-with-animation="true">
+<scroll-view scroll-x="true" bindscroll="scroll" class="nav-scroll clearfix" scroll-into-view="{{toView}}" id='J_nav-scroll'scroll-left="{{scrollLeft}}"  scroll-with-animation="true">
   <view class='scroll-view-item {{step=="all" || !step ? "active":""}}' id='all' data-type='all' bindtap='navTap'>
     <text class="txt">全部</text>
   </view>
@@ -27,7 +27,7 @@
 
 
 <scroll-view style="height:{{scrollHeight}}px" scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" class="list-wrap">
-  <view class="order-nodata-tip {{dataList.length < 1 ? 'active' :''}}">暂无数据 !</view>
+  <view class="order-nodata-tip {{((dataList.length < 1) && isLast) ? 'active' :''}}">暂无数据 !</view>
 
   <view style='padding-bottom:40rpx;padding-top:120rpx'>
     <view class='order-list' wx:for="{{dataList}}" wx:key="idx" wx:for-item="item">

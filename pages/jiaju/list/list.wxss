@@ -39,6 +39,7 @@ page {
   
   box-sizing:border-box;  
 }
+
 /* .order-list {
   margin: 0rpx 30rpx 40rpx;
   background: #fff;
