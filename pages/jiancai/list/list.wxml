@@ -1,0 +1,67 @@
+<scroll-view scroll-x="true" bindscroll="scroll" class="nav-scroll clearfix" scroll-into-view="{{toView}}" id='J_nav-scroll'scroll-left="{{scrollLeft}}"  scroll-with-animation="true">
+  <view class='scroll-view-item {{step=="all" || !step ? "active":""}}' id='all' data-type='all' bindtap='navTap'>
+    <text class="txt">全部</text>
+  </view>
+  <view class='scroll-view-item {{step=="dfw" ? "active":""}}'  id='dfw' data-type='dfw' bindtap='navTap'>
+    <text class="txt">新订单</text>
+  </view>
+  <view class='scroll-view-item {{step=="ylf" ? "active":""}}' id='ylf' data-type='ylf' bindtap='navTap'>
+    <text class="txt">已量房</text>
+  </view>
+  <view class='scroll-view-item {{step=="ybj" ? "active":""}}'id='ybj'  data-type='ybj' bindtap='navTap'>
+    <text class="txt">已报价</text>
+  </view>
+  <view class='scroll-view-item {{step=="yqy" ? "active":""}}' id='yqy' data-type='yqy' bindtap='navTap'>
+    <text class="txt">已签约</text>
+  </view>
+  <view class='scroll-view-item {{step=="azz" ? "active":""}}' id='azz' data-type='azz' bindtap='navTap'>
+    <text class="txt">安装中</text>
+  </view>
+  <view class='scroll-view-item {{step=="ywg" ? "active":""}}' id='ywg'  data-type='ywg' bindtap='navTap'>
+    <text class="txt">完工验收</text>
+  </view>
+  <view class='scroll-view-item {{step=="void" ? "active":""}}' id='void' data-type='void' bindtap='navTap'>
+    <text class="txt">跑单</text>
+  </view>
+</scroll-view>
+
+
+<scroll-view style="height:{{scrollHeight}}px" scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" class="list-wrap">
+  <view class="order-nodata-tip {{((dataList.length < 1) && isLast) ? 'active' :''}}">暂无数据 !</view>
+
+  <view style='padding-bottom:40rpx;padding-top:120rpx'>
+    <view class='order-list' wx:for="{{dataList}}" wx:key="idx" wx:for-item="item">
+      <view class='soma-hd'>
+        <view class="order-num">订单编号：{{item.order_no}}</view>
+        <view class='order-time'>{{item.c_time}}</view>
+      </view>
+      <navigator url="/pages/jiaju/detail/detail?id={{item.id}}"> 
+        <view class='soma-list'>
+          <view class='item-cell'>
+            <view class="person-info">{{item.mobile}}
+              <text wx:if="{{item.realname}}">({{item.realname}})</text>
+            </view>
+            <view class='address'>{{item.community}}</view>
+            <view class="arrow-box">
+                <text class="txt" wx:if="{{ (step=='all' && item.step=='dfw' )}}">新订单</text>
+                <text class="txt" wx:if="{{ (step=='all' && item.step=='ylf' )}}">已量房</text>
+                <text class="txt" wx:if="{{ (step=='all' && item.step=='sjz' )}}">设计中</text>
+                <text class="txt" wx:if="{{ (step=='all' && item.step=='dbz' )}}">对比中</text>
+                <text class="txt" wx:if="{{ (step=='all' && item.step=='yqy' )}}">已签约</text>
+                <text class="txt" wx:if="{{ (step=='all' && item.step=='sgz' )}}">施工中</text>
+                <text class="txt" wx:if="{{ (step=='all' && item.step=='ywg' )}}">已完成</text>
+                <text class="txt" wx:if="{{ (step=='all' && item.step=='void' )}}">已失效</text>
+                <text class='iconfont icon-jiantou icon-pic'></text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+
+  <view class='refresh-bottom' wx:if="{{isLast ? false :true}}">
+    <view class='loading-box'>
+      <view class="iconfont icon-loading"></view>
+    </view>{{loadMoreData}}
+  </view>
+</scroll-view>

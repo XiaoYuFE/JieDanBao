@@ -1,0 +1,68 @@
+
+
+.validate-msg{
+    border:1px solid #f60;
+    color: #f60;
+    padding:15rpx 10rpx; 
+    background:#fff;  
+    font-size:24rpx;
+    position: absolute;
+    left: 50%;
+    top:30rpx;
+    transform: translate(-50%,0);
+   
+}
+.cost-container{
+  padding:125rpx 30rpx 0; 
+}
+
+.cost-container .tip-1{
+  color:#3c4050;
+  font-size:28rpx;
+  padding-bottom:20rpx;   
+}
+
+.form-item{
+  position: relative;
+  background:#fff;
+  border:1rpx solid #ebebeb; 
+  padding-left:110rpx; 
+  
+}
+
+.form-item .lab{
+ 
+  
+  
+ 
+ color:#cccccc;
+ text-align: center;
+ font-size:48rpx;  
+ position: absolute;
+ left:0;
+ top: 50%;
+ width:105rpx; 
+ transform: translate(0, -50%);
+ border-right:1rpx solid #ebebeb; 
+  
+}
+
+.form-item .ipt-text{
+  height:50rpx; 
+  padding:15rpx 10rpx 15rpx 25rpx; 
+ 
+}
+
+.ipt-submit{
+  position:absolute;
+  right:0;
+  top:-1rpx;
+  z-index:20;   
+}
+.ipt-submit button{
+  height:82rpx;
+  line-height:82rpx;
+  padding:0 80rpx;
+  background:#14c67d;   
+  border-radius:0; 
+}
