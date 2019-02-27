@@ -12,7 +12,7 @@ Page({
   onLoad: function () {
     var that = this;
     //获取配置信息
-    app.form.requestPost(app.form.API_CONFIG.jiaju.config, {}, function (res) {
+    app.form.requestPost(app.form.API_CONFIG.jiancai.config, {}, function (res) {
       that.setData({ kf_tel: res.data.kf_tel });
     });
     that.setData({ xyUserInfo: app.globalData.sessionJdbUserInfo });
@@ -27,7 +27,7 @@ Page({
   //获取页面数据（登录以后才执行此步骤）
   _getPageData: function () {
     var that = this;
-    app.form.requestPost(app.form.API_CONFIG.jiaju.order_total,{}, function (res) {
+    app.form.requestPost(app.form.API_CONFIG.jiancai.order_total,{}, function (res) {
       //判断是否登陆
       that.setData({dataList: res.data});
     })

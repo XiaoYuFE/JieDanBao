@@ -24,7 +24,7 @@
 
 <view class="list-step-wrap clearfix">
   <view class="item-cell item-1">
-    <navigator url="/pages/jiaju/list/list?toView=dfw">
+    <navigator url="/pages/jiancai/list/list?toView=dfw">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
@@ -35,7 +35,7 @@
     </navigator>
   </view>
   <view class="item-cell item-2">
-    <navigator url="/pages/jiaju/list/list?toView=ylf">
+    <navigator url="/pages/jiancai/list/list?toView=ylf">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
@@ -44,7 +44,7 @@
     </navigator>
   </view>
   <view class="item-cell item-3">
-    <navigator url="/pages/jiaju/list/list?toView=ybj">
+    <navigator url="/pages/jiancai/list/list?toView=ybj">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
@@ -54,7 +54,7 @@
   </view>
 
   <view class="item-cell item-4">
-    <navigator url="/pages/jiaju/list/list?toView=yqy">
+    <navigator url="/pages/jiancai/list/list?toView=yqy">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
@@ -64,7 +64,7 @@
   </view>
 
   <view class="item-cell item-5">
-    <navigator url="/pages/jiaju/list/list?toView=azz">
+    <navigator url="/pages/jiancai/list/list?toView=azz">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>
@@ -84,7 +84,7 @@
   </view>
 
   <view class="item-cell item-7">
-    <navigator url="/pages/jiaju/list/list?toView=ywg">
+    <navigator url="/pages/jiancai/list/list?toView=void">
       <view class="pic-icon">
         <view class='pic'></view>
       </view>

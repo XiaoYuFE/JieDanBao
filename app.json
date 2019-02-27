@@ -1,6 +1,8 @@
 {
   "pages": [
 
+    
+    
     "pages/login/login",
     
     "pages/auto/index/index",
@@ -16,6 +18,11 @@
     "pages/jiaju/cost/cost",
     "pages/jiaju/detail/detail",
 
+
+    "pages/jiancai/index/index",
+    "pages/jiancai/list/list",
+    "pages/jiancai/cost/cost",
+"pages/jiancai/detail/detail",
 
     "pages/jinrong/index/index",
     "pages/jinrong/list/list",

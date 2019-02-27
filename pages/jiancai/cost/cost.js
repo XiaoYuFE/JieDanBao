@@ -36,7 +36,7 @@ Page({
     } else {
       //验证通过进行后端请求
 
-      app.form.requestPost(app.form.API_CONFIG.jiaju.opt_order, {
+      app.form.requestPost(app.form.API_CONFIG.jiancai.opt_order, {
         id: that.data.id,step: that.data.step,price: e.detail.value.totalprice
       }, function (res) {
         that.setData({submiting: false});
@@ -48,7 +48,7 @@ Page({
 
         //如果提交成功
         wx.showToast({title: '提交成功',duration: 2000,success: function () {
-            wx.redirectTo({url: '/pages/jiaju/detail/detail?id=' + that.data.id})
+          wx.redirectTo({ url: '/pages/jiancai/detail/detail?id=' + that.data.id})
         }});
       })
 

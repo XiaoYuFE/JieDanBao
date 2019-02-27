@@ -1,5 +1,5 @@
 class form {
-  API_SERVER = 'https://m3.xiaoyu.com/jiedanbao/';
+  API_SERVER = 'https://m4.xiaoyu.com/jiedanbao/';
   API_CONFIG = {
     jiaju:{
       order_total: 'order_total',
@@ -20,6 +20,14 @@ class form {
     jinrong:{
       order_total:'order_total',
       orders:"orders",
+      order_info: 'order_info',
+      opt_order: 'opt_order',
+      config: 'config',
+      notice: 'notice',
+    },
+    jiancai: {
+      order_total: 'order_total',
+      orders: "orders",
       order_info: 'order_info',
       opt_order: 'opt_order',
       config: 'config',

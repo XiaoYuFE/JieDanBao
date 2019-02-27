@@ -1,14 +1,13 @@
-<view class="caption-top" wx:if="{{(order.step=='dfw')}}">新订单</view>
-<view class="caption-top" wx:if="{{(order.step=='ylf')}}">已量房</view>
-<view class="caption-top" wx:if="{{(order.step=='dfw')}}">新订单</view>
-<view class="caption-top" wx:if="{{(order.step=='dfw')}}">新订单</view>
+<view class="caption-top" wx:if="{{(order.step!='void' && order.step!='ywg')}}">{{stepText[order.step]}}</view>
+
 <!--step-end  -->
 
 
 
 <view class='customer-info'>
   <view class='tit'>客户信息</view>
-  <view class='phone'>{{order.mobile}} {{order.realname}}</view>
+  <view class='username'> {{order.realname}}</view>
+  <view class='phone'>{{order.mobile}}</view>
   <view class="tip-1" wx:if="{{order.step  == 'ywg'}}"></view>
   <view class="tip-sx" wx:if="{{order.step == 'void'}}"></view>
 </view>
@@ -113,7 +112,7 @@
           <text class='circle-2'></text>
           <text class='circle-1'></text>
         </view>
-        <text class='txt'>设计中</text>
+        <text class='txt'>已报价</text>
       </view>
 
       <view class='item-cell item-cell-4'>
@@ -122,7 +121,7 @@
           <text class='circle-2'></text>
           <text class='circle-1'></text>
         </view>
-        <text class='txt'>已对比</text>
+        <text class='txt'>已签约</text>
       </view>
       <view class='item-cell item-cell-5'>
         <view class='circle'>
@@ -130,7 +129,7 @@
           <text class='circle-2'></text>
           <text class='circle-1'></text>
         </view>
-        <text class='txt'>已签约</text>
+        <text class='txt'>安装中</text>
       </view>
       <view class='item-cell item-cell-6'>
         <view class='circle'>
@@ -138,18 +137,12 @@
           <text class='circle-2'></text>
           <text class='circle-1'></text>
         </view>
-        <text class='txt'>施工中</text>
+        <text class='txt'>已完成</text>
       </view>
-      <view class='item-cell item-cell-7'>
-        <view class='circle'>
-          <text class='circle-3'></text>
-          <text class='circle-2'></text>
-          <text class='circle-1'></text>
-        </view>
-        <text class='txt'>完成</text>
-      </view>
+      
     </view>
   </view>
+  <view class='order-void' wx:if="{{(order.step=='void')}}">已失效</view>
 </view>
 
 <view class='order-info'>

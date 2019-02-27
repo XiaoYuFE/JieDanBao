@@ -16,15 +16,19 @@ page{
   background:#fff; 
   margin-bottom:20rpx
 }
-
+.customer-info .username{
+   color: #14c67d;
+  font-size: 32rpx;
+  text-align: center;
+}
 .customer-info .tit {
   color:#1a1a1a;
-  font-size:28rpx;
+  font-size:32rpx;
 }
 
 .customer-info .phone {
   color: #14c67d;
-  font-size: 36rpx;
+  font-size: 40rpx;
   text-align: center;
 }
 
@@ -97,27 +101,24 @@ page{
 }
 
 .order-steps.step-2  .line-wrap .line-on {
-  width: 16.66%;
+  width: 20%;
 }
 
 .order-steps.step-3  .line-wrap .line-on {
-  width: 33.33%;
+  width: 40%;
 }
 
 .order-steps.step-4  .line-wrap .line-on {
-  width: 50%;
+  width: 60%;
 }
 
 .order-steps.step-5  .line-wrap .line-on {
-  width: 66.66%;
+  width: 80%;
 }
 .order-steps.step-6  .line-wrap .line-on {
-  width: 83.33%;
-}
-
-.order-steps.step-7  .line-wrap .line-on {
   width: 100%;
 }
+
 
 .order-steps.step-1 .step-list .item-cell-1 .txt, 
 
@@ -511,7 +512,7 @@ page{
 
 .order-steps .step-list .item-cell {
   float: left;
-  width: 14.28%;
+  width: 16.66%;
 }
 
 .order-steps .step-list .item-cell .txt {
@@ -758,4 +759,11 @@ page{
   color:#222222;
   line-height: 1.7;
   font-size: 26rpx; 
+}
+
+.order-void{
+  text-align: center;
+  color:#999999;
+  font-size: 36rpx;
+  padding:15rpx 0;  
 }

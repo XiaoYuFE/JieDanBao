@@ -59,7 +59,7 @@ Page({
   },
   _getDataList: function (listType, obj, isClear) {
     var that = this;
-    app.form.requestPost(app.form.API_CONFIG.jiaju.orders, {
+    app.form.requestPost(app.form.API_CONFIG.jiancai.orders, {
       page: that.data.currentPage,
       step: that.data.step,
     }, function (res) {

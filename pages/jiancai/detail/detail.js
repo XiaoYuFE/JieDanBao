@@ -7,8 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    stepText: {dfw:'新订单',ylf:'已量房', sjz:'设计中', dbz:'已对比', yqy:'已签约', sgz:'施工中', ywg:'完成','void':'跑单'},
-    stepKeyConfig:['dfw','ylf','sjz','dbz','yqy','sgz','ywg','void'],
+    stepText: { dfw: '新订单', ylf: '已量房', ybj: '已报价', yqy: '已签约', azz: '安装中', ywg:'已完工'},
+    stepKeyConfig: ['dfw', 'ylf', 'ybj', 'yqy', 'azz','ywg'],
     order:{},
     isIpx:app.globalData.isIpx,
     fromWhere:"",
@@ -23,7 +23,7 @@ Page({
     //获取页面传递过来的id,然后动过id获取订单详情
     that.setData({fromWhere: !!options.from});
 
-    app.form.requestPost(app.form.API_CONFIG.jiaju.order_info, {id: options.id}, function (res) {
+    app.form.requestPost(app.form.API_CONFIG.jiancai.order_info, { id: options.id}, function (res) {
       that.setData({ order: res.data, stepKey: that.data.stepKeyConfig.indexOf(res.data.step)})
     });
   },
@@ -44,16 +44,16 @@ Page({
         that.tracking(res.tapIndex == 1);
 
         //点击的是步骤,发送数据请求(用户id 订单id)
-        if (step == 'sjz') {
+        if (step == 'ylf') {
           wx.redirectTo({
-            url: '/pages/jiaju/cost/cost?id=' + that.data.order.id + "&step=" + step
+            url: '/pages/jiancai/cost/cost?id=' + that.data.order.id + "&step=" + step
           });
           return false;
         }
 
         wx.showLoading({ title: '加载中', mask: true });
 
-        app.form.requestPost(app.form.API_CONFIG.jiaju.opt_order, {
+        app.form.requestPost(app.form.API_CONFIG.jiancai.opt_order, {
           step: step,
           id: that.data.order.id
         }, function (res) {
@@ -84,16 +84,16 @@ Page({
 
   tracking:function(stop = false){
     var k = this.data.stepKeyConfig.indexOf(this.data.order.step);
+    console.dir(k)
     var config = {
       dfw: 'liangfang', 
-      ylf: 'sheji', 
-      sjz: 'duibi', 
-      dbz: 'qianyue', 
-      yqy: 'shigong', 
-      sgz: 'wancheng', 
+      ylf: 'yibaojia', 
+      ybj: 'yiqianyue', 
+      yqy: 'anzhuangzhong', 
+      azz: 'yiwancheng', 
       'void':'stop'
     };
-
+   
     var step = stop ? 'stop' : config[this.data.order.step];
     app.form.tracking(step, 'jdb_jieduan' + k, this.data.order.id);
   },
