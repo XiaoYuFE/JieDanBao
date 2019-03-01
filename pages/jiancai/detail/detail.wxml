@@ -150,6 +150,10 @@
   <view class='list'>
       <view>订单编号：{{order.order_no}}</view>
       <view>派单时间：{{order.c_time}}</view>
+      <view>量房时间：{{order.lf_time}}</view>
+      <view>报价时间：{{order.bj_time}}</view>
+      <view>签约时间：{{order.qy_time}}</view>
+      <view>安装时间：{{order.az_time}}</view>
   </view>
 </view>
 
