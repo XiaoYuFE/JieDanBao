@@ -42,9 +42,9 @@ Page({
 
         var step = res.tapIndex == 1 ? 'void' : next_step;
         that.tracking(res.tapIndex == 1);
-
+        
         //点击的是步骤,发送数据请求(用户id 订单id)
-        if (step == 'ybf') {
+        if (step == 'ybj') {
           wx.redirectTo({
             url: '/pages/jiancai/cost/cost?id=' + that.data.order.id + "&step=" + step
           });
