@@ -44,7 +44,7 @@ Page({
         that.tracking(res.tapIndex == 1);
 
         //点击的是步骤,发送数据请求(用户id 订单id)
-        if (step == 'ylf') {
+        if (step == 'ybf') {
           wx.redirectTo({
             url: '/pages/jiancai/cost/cost?id=' + that.data.order.id + "&step=" + step
           });
