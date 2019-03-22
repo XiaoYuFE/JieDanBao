@@ -34,45 +34,62 @@ Page({
     }
 
     var next_step = this.data.stepKeyConfig[this.data.stepKey+1];
-    wx.showActionSheet({itemList: [this.data.stepText[next_step], '停止服务'],
-      success: function (res) {
-        if (res.tapIndex === undefined) {
-          return false;
+
+    wx.getSystemInfo({
+      success: function (result) {
+        let itemList;
+        if (result.platform == 'android') {
+          itemList = [that.data.stepText[next_step], '停止服务', "取消"]
+        } else {
+          itemList = [that.data.stepText[next_step], '停止服务']
         }
+        wx.showActionSheet({
+          itemList: itemList,
+          success: function (res) {
+            if (res.tapIndex === undefined) {
+              return false;
+            }
 
-        var step = res.tapIndex == 1 ? 'void' : next_step;
-        that.tracking(res.tapIndex == 1);
+            if (res.tapIndex === 2) {
+              return false;
+            }
 
-        //点击的是步骤,发送数据请求(用户id 订单id)
-        if (step == 'sjz') {
-          wx.redirectTo({
-            url: '/pages/jiaju/cost/cost?id=' + that.data.order.id + "&step=" + step
-          });
-          return false;
-        }
+            var step = res.tapIndex == 1 ? 'void' : next_step;
+            that.tracking(res.tapIndex == 1);
 
-        wx.showLoading({ title: '加载中', mask: true });
+            //点击的是步骤,发送数据请求(用户id 订单id)
+            if (step == 'sjz') {
+              wx.redirectTo({
+                url: '/pages/jiaju/cost/cost?id=' + that.data.order.id + "&step=" + step
+              });
+              return false;
+            }
 
-        app.form.requestPost(app.form.API_CONFIG.jiaju.opt_order, {
-          step: step,
-          id: that.data.order.id
-        }, function (res) {
-          wx.hideLoading();
-          wx.showModal({ content: res.msg, showCancel: false });
-          if (res.status != 1) {
-            return false;
+            wx.showLoading({ title: '加载中', mask: true });
+
+            app.form.requestPost(app.form.API_CONFIG.jiaju.opt_order, {
+              step: step,
+              id: that.data.order.id
+            }, function (res) {
+              wx.hideLoading();
+              wx.showModal({ content: res.msg, showCancel: false });
+              if (res.status != 1) {
+                return false;
+              }
+
+              that.data.order.step = step;
+              that.data.stepKey = that.data.stepKeyConfig.indexOf(step);
+
+              that.setData({ order: that.data.order, stepKey: that.data.stepKey });
+            });
+          },
+          fail: function (res) {
+            console.log(res.errMsg)
           }
-
-          that.data.order.step = step;
-          that.data.stepKey    = that.data.stepKeyConfig.indexOf(step);
-
-          that.setData({ order: that.data.order, stepKey: that.data.stepKey});
-        });
-      },
-      fail: function (res) {
-        console.log(res.errMsg)
+        })
       }
-    })
+    });
+   
 
   },
   makeCallPhone: function () {
