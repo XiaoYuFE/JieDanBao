@@ -55,11 +55,19 @@
     </view>
   </view>
 
+  <view class='item-cell clearfix'>
+    <text class='lab'>量房时间</text>
+    <view class="para-item">
+      <text class='para-val'>~~~~~~</text>
+    </view>
+  </view>
+
 </view>
 
 <view class="service-info clearfix" wx:if="{{order.remark}}">
   <view class="tit">服务提醒</view>
   <view class="cont">{{order.remark}}</view>
+  <view class='lf-time'>量房时间：04-10 15:30</view>
 </view>
 
 <view class="order-step-wrap  clearfix">
@@ -139,7 +147,7 @@
     <text class='iconfont icon-76 icon-txt'></text>拨打电话</view>
   <view class='hand-txt {{(order.step == "ywg" || order.step=="void") ? "disabled" :""}}' bindtap='setStepHandler'>
     <text class='txt-1'>订单操作</text>
-    <!-- <text class='txt-2'>量房时间：04-10 15:30</text> -->
+    
   </view>
 </view>
 
