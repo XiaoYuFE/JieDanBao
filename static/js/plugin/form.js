@@ -1,6 +1,6 @@
 class form {
 
-  API_SERVER = 'https://m4.xiaoyu.com/jiedanbao/';
+  API_SERVER = 'https://m3.xiaoyu.com/jiedanbao/';
 
   // API_SERVER = 'http://mapi2.dev.xiaoyu.com/jiedanbao/';
 
