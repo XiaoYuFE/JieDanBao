@@ -55,12 +55,7 @@
     </view>
   </view>
 
-  <view class='item-cell clearfix'>
-    <text class='lab'>量房时间</text>
-    <view class="para-item">
-      <text class='para-val'>~~~~~~</text>
-    </view>
-  </view>
+ 
 
 </view>
 
@@ -142,14 +137,24 @@
 
 
 <view class='fixed-bottom-seat {{isIpx ? "device-ipx" :""}}'></view>
-<view class='fixed-bottom {{isIpx ? "device-ipx" :""}}'>
+<!-- <view class='fixed-bottom {{isIpx ? "device-ipx" :""}}'>
   <view class='phone' bindtap='makeCallPhone'>
     <text class='iconfont icon-76 icon-txt'></text>拨打电话</view>
   <view class='hand-txt {{(order.step == "ywg" || order.step=="void") ? "disabled" :""}}' bindtap='setStepHandler'>
     <text class='txt-1'>订单操作</text>
     
   </view>
+</view> -->
+<view class='fixed-bottom-handler {{isIpx ? "device-ipx" :""}}'>
+    <view class='soma-hd'>请选择相对应的进度</view>
+    <view class='soma-bd'>
+        <view class='item-list clearfix'><text class='active'>步骤1</text><text>步骤1</text><text>步骤1</text><text>步骤1</text></view>
+        <textarea maxlength="-1"  class='ipt-textarea'></textarea>
+    </view>
+    <view class='ipt-submit-wrap'><button class='btn-submit' form-type="submit">提交</button></view>
 </view>
+<view class='fixed-bottom-handler-mask'></view>
+<view class='fixed-bottom-button'><view class='btn'>更新订单进度</view></view>
 
 <view class="gobackhome" wx:if="{{!!fromWhere}}">
   <navigator url="/pages/jiaju/index/index" class='iconfont icon-home'></navigator>
