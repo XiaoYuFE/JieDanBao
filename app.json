@@ -2,8 +2,9 @@
   "pages": [
     
 
-    "pages/jiaju/detail/detail",
+   
     "pages/login/login",
+    "pages/jiaju/detail/detail",
     
     "pages/auto/index/index",
     "pages/auto/list/list",
