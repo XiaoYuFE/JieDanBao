@@ -174,15 +174,15 @@ Page({
       return false;
     }
     //点击的是当前选中的值,取消选中
-    console.log("------------");
-    console.log("oldStepKeyIndex:"+oldStepKeyIndex);
-    console.log("oldStepKey:"+oldStepKey);
-    console.log("currStepKey:"+currStepKey);
+    // console.log("------------");
+    // console.log("oldStepKeyIndex:"+oldStepKeyIndex);
+    // console.log("oldStepKey:"+oldStepKey);
+    // console.log("currStepKey:"+currStepKey);
    
 
    
     if (currStepKey == this.data.currStepKey){
-      console.log("xxxx点击同一个")
+      // console.log("xxxx点击同一个")
       this.setData({
         isValidStep:false,
         stepKeyIndex: oldStepKeyIndex,
@@ -196,9 +196,9 @@ Page({
       })
     }
 
-    console.log("stepKeyIndex:" + oldStepKeyIndex);
+    // console.log("stepKeyIndex:" + oldStepKeyIndex);
     
-    console.log("currStepKey:" + this.data.currStepKey);
+    // console.log("currStepKey:" + this.data.currStepKey);
 
     
     
