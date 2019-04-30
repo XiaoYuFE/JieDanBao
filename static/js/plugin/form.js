@@ -1,6 +1,6 @@
 class form {
   // API_SERVER = 'http://mapi2.dev.xiaoyu.com/jiedanbao2/';
-  API_SERVER = 'https://m3.xiaoyu.com/jiedanbao/';
+  API_SERVER = 'https://m3.xiaoyu.com/jiedanbao2/';
   API_CONFIG = {
     jiaju:{
       order_total: 'order_total',

@@ -12,6 +12,8 @@
 	"libVersion": "1.7.2",
 	"appid": "wxcbe170e31dd15ca3",
 	"projectname": "JieDanBao",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
